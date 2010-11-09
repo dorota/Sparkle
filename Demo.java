@@ -1,21 +1,33 @@
-import com.sun.j3d.utils.universe.SimpleUniverse;
-import com.sun.j3d.utils.universe.ViewingPlatform;
-import com.sun.j3d.utils.geometry.*;
-import javax.media.j3d.*;
-import java.security.KeyStore.Builder;
-import java.util.*;
-import com.sun.j3d.utils.universe.*;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.image.ConvolveOp;
+import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Random;
 
+import javax.media.j3d.AmbientLight;
+import javax.media.j3d.Appearance;
+import javax.media.j3d.Background;
+import javax.media.j3d.Behavior;
+import javax.media.j3d.BoundingSphere;
+import javax.media.j3d.BranchGroup;
+import javax.media.j3d.ColoringAttributes;
+import javax.media.j3d.Transform3D;
+import javax.media.j3d.TransformGroup;
+import javax.media.j3d.TransparencyAttributes;
+import javax.media.j3d.WakeupCriterion;
+import javax.media.j3d.WakeupOnElapsedTime;
 import javax.swing.Timer;
+import javax.vecmath.Color3f;
+import javax.vecmath.Point3d;
+import javax.vecmath.Vector3f;
 
-
-import javax.vecmath.*;
+import com.sun.j3d.utils.geometry.Box;
+import com.sun.j3d.utils.universe.SimpleUniverse;
 
 
 class Cell
@@ -40,11 +52,11 @@ class Material
 
 public class Demo extends Behavior{
 	
-	private float brickImageLength=0.1f;
-	private float brickLength=50;
-	public int roomHeight=600;
-	public int roomX=400;
-	public int roomZ=200;
+	private float brickImageLength=0.05f;
+	private float brickLength=25;
+	public int roomHeight=400;
+	public int roomX=300;
+	public int roomZ=100;
 	Color3f blue = new Color3f(0f,0.9f,0.9f);
 	Color3f yellow= new Color3f(1f,1f,0f);
 	Color3f orange=new Color3f(1f,0.2f, 0f);
@@ -60,7 +72,7 @@ public class Demo extends Behavior{
     WakeupCriterion yawn;
 	public void initialize()
 	{
-		DeltaT = 25;    //      milliseconds
+		DeltaT = 40;    //      milliseconds
         SimTime = 0;
         yawn = new WakeupOnElapsedTime(DeltaT);
         wakeupOn(yawn);
@@ -183,7 +195,7 @@ public class Demo extends Behavior{
 	public static void main(String[] args) {
 		
 //		int sampleTime=100;
-		int timeDelay=40;
+		int timeDelay=1000;
 		Timer samplingTimer;
 		try
 		{
@@ -195,31 +207,32 @@ public class Demo extends Behavior{
 					int whichTimeActionPerformed=0;
 					int startId=2;
 					BufferedWriter writer=new BufferedWriter(new FileWriter("plik.txt"));
-					//odpowiada za zegar symulacji i uruchamianie conductHeat w równych odstêpach czasu.
-					//w pierwszym kroku po¿ar jest inicjalizowany  - losowane Ÿród³o
-					// w ka¿dym nastepnym obliczane sa nowe temperatury i updateowana scena.
-					// update sceny polega na tym, ¿e je¿eli temp wy¿sza od Flashpoint dla drewna (zakladamy, ¿e paliwem jest drewno i w powetrzu s¹ tylko opary drewna)
-					//to kolor komórki ma siê zmieniaæ na czerwony
-					//wszystkie komorki ca przechowywane w jednej wielkiej liscie building a wszystkie im odpowidnie graficzne odpowiedniki (boxy) s¹ dziecmi branchGroup
+					
 					public void actionPerformed(ActionEvent e)
 					{
 						System.out.println("building size: "+d.building.size());
 						if(whichTimeActionPerformed==FIRST_TIME_ACTION_PERFORMED)
 						{
+							try
+							{
 							System.out.println("init");
 							startId=d.initFire();
 							System.out.println(startId);
+							d.setCellColor(startId);
+							Thread.sleep(5000);
+							}
+							catch(InterruptedException exception)
+							{
+								
+							}
 							
-//							for(int i=0; i<d.building.size(); ++i)
-//							{
-//								System.out.println(d.building.get(i).temp);
-//							}
 						}
 						else
 						{							
 							for(int i=0; i<d.building.size(); ++i)
 							{
-								d.conductHeat(d.building.get(i));
+//								d.conductHeat(d.building.get(i));
+								d.conductHeatByJacek(d.building.get(i));
 							}
 							d.updateScene();
 							System.out.println("temperatura startu "+d.building.get(startId).temp);
@@ -276,7 +289,7 @@ public class Demo extends Behavior{
 	public int getRightNeigh(int cellId)
 	{
 		int howManyBrickInX=(int)(roomX/brickLength);
-		System.out.println("int right neigh"+cellId%howManyBrickInX + " "+ (howManyBrickInX-1));
+//		System.out.println("int right neigh"+cellId%howManyBrickInX + " "+ (howManyBrickInX-1));
 		if(cellId%howManyBrickInX==(howManyBrickInX-1)) //no right neigh
 		{
 			return NO_SUCH_NEIGH;
@@ -347,13 +360,9 @@ public class Demo extends Behavior{
 			neighbours.add(building.get(neighId));
 		}
 	}
-	//oblicza na podstawie algo z pere³ek nowe wartoœci temp w siatce ca
-
-	public void conductHeat(Cell cell)
+	
+	private List<Cell> makeCellNeighborsList(Cell cell)
 	{
-		int TopConstantEnergyFlowFactor=15;
-		int BottomConstantEnergyFlowFactor=5;
-		int SidesConstantEnergyFlowFactor=10;		
 		List<Cell> neighbours=new ArrayList<Cell>();
 		int leftNeigh=getLeftNeigh(cell.id);
 		int rightNeigh=getRightNeigh(cell.id);
@@ -367,6 +376,56 @@ public class Demo extends Behavior{
 		addToNeighbours(topNeigh, neighbours);
 		addToNeighbours(frontNeigh, neighbours);
 		addToNeighbours(backNeigh, neighbours);
+		return neighbours;
+	}
+	
+	public void conductHeatByJacek(Cell cell)
+	{
+		int topFactor=1;
+		int bottomFactor=3;
+		int sidesFActor=2;
+		int howManyNeigh=0;
+		cell.temp=0;
+		if(getTopNeigh(cell.id)!=NO_SUCH_NEIGH)
+		{
+			cell.temp=topFactor*building.get(getTopNeigh(cell.id)).temp;
+			++howManyNeigh;
+		}
+		if(getBottomNeigh(cell.id)!=NO_SUCH_NEIGH)
+		{
+			cell.temp+=bottomFactor*building.get(getBottomNeigh(cell.id)).temp;
+			++howManyNeigh;
+		}
+		if(getLeftNeigh(cell.id)!=NO_SUCH_NEIGH)
+		{
+			cell.temp+=sidesFActor*building.get(getLeftNeigh(cell.id)).temp;
+			++howManyNeigh;
+		}
+		if(getRightNeigh(cell.id)!=NO_SUCH_NEIGH)
+		{
+			cell.temp+=sidesFActor*building.get(getRightNeigh(cell.id)).temp;
+			++howManyNeigh;
+		}
+		if(getBackNeigh(cell.id)!=NO_SUCH_NEIGH)
+		{
+			cell.temp+=sidesFActor*building.get(getBackNeigh(cell.id)).temp;
+			++howManyNeigh;
+		}
+		if(getFrontNeigh(cell.id)!=NO_SUCH_NEIGH)
+		{
+			cell.temp+=sidesFActor*building.get(getFrontNeigh(cell.id)).temp;
+			++howManyNeigh;
+		}
+		cell.temp/=howManyNeigh;
+	}
+	//oblicza na podstawie algo z pere³ek nowe wartoœci temp w siatce ca
+
+	public void conductHeat(Cell cell)
+	{
+		int TopConstantEnergyFlowFactor=15;
+		int BottomConstantEnergyFlowFactor=5;
+		int SidesConstantEnergyFlowFactor=10;		
+		List<Cell>neighbours=makeCellNeighborsList(cell);
 		for(int i=0; i<neighbours.size();++i)
 		{
 //			cell.calculateMass(); //mass depends on temperature; need to be calculated each time

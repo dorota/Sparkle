@@ -54,14 +54,14 @@ public class Demo extends Behavior{
 	
 	private float brickImageLength=0.05f;
 	private float brickLength=50f;
-	public int roomHeight=600;
-	public int roomX=1600;
-	public int roomZ=2000;
+	public int roomHeight=300;
+	public int roomX=500;
+	public int roomZ=650;
 	Color3f blue = new Color3f(0f,0.9f,0.9f);
 	Color3f yellow= new Color3f(1f,1f,0f);
 	Color3f orange=new Color3f(1f,0.2f, 0f);
 	Color3f red = new Color3f(1f,0f,0f);
-	final float WOOD_FIRE_TEMP=20;
+	final float WOOD_FIRE_TEMP=200;
 	BranchGroup gr;
 	BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0),
 	        100.0);
@@ -122,6 +122,8 @@ public class Demo extends Behavior{
 							(i-1)*brickImageLength, (j-1)*brickImageLength,blue));
 //					building.add(new Cell(i*j+k+2));
 					building.add(new Cell(((i-1)*(l_howManyBricksInX*l_howManyBricksInZ))+
+							(j-1)*l_howManyBricksInX+k-1));
+					oldValues.add(new Cell(((i-1)*(l_howManyBricksInX*l_howManyBricksInZ))+
 							(j-1)*l_howManyBricksInX+k-1));
 				}
 			}
@@ -197,12 +199,20 @@ public class Demo extends Behavior{
 	{
 //		int startOfFire=getRandomPosition();
 //		int startOfFire=159;
-		int startOfFire=2;
-		building.get(startOfFire).temp=500;
-		int howManyCellsOnFire=20;
-		
-		return startOfFire;
-		
+		int startOfFire=0;
+		building.get(startOfFire).temp=200;
+		oldValues.get(startOfFire).temp=200;
+//		if(getRightNeigh(startOfFire)!=NO_SUCH_NEIGH)
+//		{
+//			building.get(getRightNeigh(startOfFire)).temp=1000;
+//			oldValues.get(getRightNeigh(startOfFire)).temp=1000;
+//		}
+//		if(getTopNeigh(startOfFire)!=NO_SUCH_NEIGH)
+//		{
+//			building.get(getTopNeigh(startOfFire)).temp=1000;
+//			oldValues.get(getTopNeigh(startOfFire)).temp=1000;
+//		}
+		return startOfFire;		
 	}
 	
 	private void showCellAndNeighbours(int startId)
@@ -271,7 +281,8 @@ public class Demo extends Behavior{
 							d.showCellAndNeighbours(startId);
 							System.out.println(startId);
 							d.setCellColor(startId);
-							Thread.sleep(1000);
+							d.updateScene();
+							Thread.sleep(500);
 							}
 							catch(InterruptedException exception)
 							{
@@ -280,13 +291,14 @@ public class Demo extends Behavior{
 							
 						}
 						else
-						{							
+						{	
+							d.updateScene();
 							for(int i=0; i<d.building.size(); ++i)
 							{
-//								d.conductHeat(d.building.get(i));
-								d.conductHeatByAvarage(d.building.get(i));
+								d.conductHeat(d.building.get(i));
+//								d.conductHeatByAvarage(d.building.get(i));
 							}
-							d.updateScene();
+							
 							d.showCellAndNeighbours(startId);
 							_fw.close();
 						}						
@@ -308,6 +320,8 @@ public class Demo extends Behavior{
 	
 	private int NO_SUCH_NEIGH=-1;
 	List<Cell> building=new ArrayList<Cell>();
+	List<Cell> oldValues=new ArrayList<Cell>();
+	
 	public int getLeftNeigh(int cellId)
 	{
 		int howManyBrickInX=(int)(roomX/brickLength);
@@ -419,58 +433,79 @@ public class Demo extends Behavior{
 		int bottomFactor=3;
 		int sidesFActor=2;
 		int howManyNeigh=0;
+		oldValues.get(cell.id).temp=cell.temp;
 		cell.temp=0;
 		if(getTopNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
-			cell.temp=topFactor*building.get(getTopNeigh(cell.id)).temp;
-			System.out.println(cell.temp);
+			cell.temp=topFactor*oldValues.get(getTopNeigh(cell.id)).temp;
+//			System.out.println(cell.temp);
 			++howManyNeigh;
 		}
 		if(getBottomNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
-			cell.temp+=bottomFactor*building.get(getBottomNeigh(cell.id)).temp;
+			cell.temp+=bottomFactor*oldValues.get(getBottomNeigh(cell.id)).temp;
 			howManyNeigh+=bottomFactor;
 		}
 		if(getLeftNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
-			cell.temp+=sidesFActor*building.get(getLeftNeigh(cell.id)).temp;
+			cell.temp+=sidesFActor*oldValues.get(getLeftNeigh(cell.id)).temp;
 			howManyNeigh+=sidesFActor;
 		}
 		if(getRightNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
-			cell.temp+=sidesFActor*building.get(getRightNeigh(cell.id)).temp;
-			System.out.println(sidesFActor*building.get(getRightNeigh(cell.id)).temp);
+			cell.temp+=sidesFActor*oldValues.get(getRightNeigh(cell.id)).temp;
+//			System.out.println(sidesFActor*oldValues.get(getRightNeigh(cell.id)).temp);
 			howManyNeigh+=sidesFActor;
 		}
 		if(getBackNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
-			cell.temp+=sidesFActor*building.get(getBackNeigh(cell.id)).temp;
+			cell.temp+=sidesFActor*oldValues.get(getBackNeigh(cell.id)).temp;
 			howManyNeigh+=sidesFActor;
 		}
 		if(getFrontNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
-			cell.temp+=sidesFActor*building.get(getFrontNeigh(cell.id)).temp;
+			cell.temp+=sidesFActor*oldValues.get(getFrontNeigh(cell.id)).temp;
 			howManyNeigh+=sidesFActor;
 		}
-		System.out.println(cell.id +"     "+howManyNeigh);
+//		System.out.println("new building");
+//		for(int i=0; i<building.size(); ++i)
+//		{
+//			System.out.print(building.get(i).temp);
+//		}
+//		System.out.println("\n old values");
+//		for(int i=0; i<oldValues.size(); ++i)
+//		{
+//			System.out.print(oldValues.get(i).temp);
+//		}
+//		System.out.println(cell.id +"     "+howManyNeigh);
 		cell.temp/=howManyNeigh;
 		System.out.println("srednia: "+ cell.temp);
 	}
 	//oblicza na podstawie algo z pere³ek nowe wartoœci temp w siatce ca
 
+	private void updateOldValues()
+	{
+		for(int i=0; i<oldValues.size(); ++i)
+		{
+			oldValues.get(i).temp=building.get(i).temp;
+		}
+	}
 	public void conductHeat(Cell cell)
 	{
 		int TopConstantEnergyFlowFactor=3;
 		int BottomConstantEnergyFlowFactor=1;
 		int SidesConstantEnergyFlowFactor=2;		
 		List<Cell>neighbours=makeCellNeighborsList(cell);
+		updateOldValues();
 		for(int i=0; i<neighbours.size();++i)
 		{
 //			cell.calculateMass(); //mass depends on temperature; need to be calculated each time
 			cell.heatCapacity=cell.material.specificHeat*cell.mass;
 			Cell neigh=neighbours.get(i);
 			neigh.heatCapacity=neigh.material.specificHeat*neigh.mass;
-			float l_energyFlow=neigh.temp-cell.temp;
+			float l_energyFlow=oldValues.get(neigh.id).temp-oldValues.get(cell.id).temp;
+//			float l_energyFlow=neigh.temp-cell.temp;
+			System.out.println(l_energyFlow);
 			if(l_energyFlow>0.0) //s¹siad ma wiêksz¹ temp
 			{
 				l_energyFlow*=neigh.heatCapacity;
@@ -479,25 +514,31 @@ public class Demo extends Behavior{
 			{
 				l_energyFlow*=cell.heatCapacity;
 			}
-//			if(getTopNeigh(cell.id)==neigh.id) //top neighbour
-//			{f
-//				l_energyFlow*=TopConstantEnergyFlowFactor;
-//			}
-//			else if(getBottomNeigh(cell.id)==neigh.id)
-//			{
-//				l_energyFlow*=BottomConstantEnergyFlowFactor;
-//			}
-//			else
+			if(getTopNeigh(cell.id)==neigh.id) //top neighbour
+			{
+				l_energyFlow*=TopConstantEnergyFlowFactor;
+//				System.out.println("top factor");
+			}
+			else if(getBottomNeigh(cell.id)==neigh.id)
+			{
+				l_energyFlow*=BottomConstantEnergyFlowFactor;
+//				System.out.println("bottom factor");
+			}
+			else
 			{
 				l_energyFlow*=SidesConstantEnergyFlowFactor;
+//				System.out.println("sides factor");
 			}
+			System.out.println(l_energyFlow);
 			neigh.temp-=l_energyFlow/neigh.heatCapacity;
 			cell.temp+=l_energyFlow/cell.heatCapacity;
 			
 			if((l_energyFlow>0 && neigh.temp<cell.temp) ||
 					(l_energyFlow<=0 && neigh.temp>cell.temp))
 			{
-				float l_totalEnergy=cell.heatCapacity*cell.temp+neigh.heatCapacity*neigh.temp;
+				float l_totalEnergy=cell.heatCapacity*oldValues.get(cell.id).temp+
+				neigh.heatCapacity*oldValues.get(cell.id).temp;
+//				float l_totalEnergy=cell.heatCapacity*cell.temp+neigh.heatCapacity*neigh.temp;
 				float l_avarageTemp=l_totalEnergy/(cell.heatCapacity+neigh.heatCapacity);
 				cell.temp=l_avarageTemp;
 				neigh.temp=l_avarageTemp;				

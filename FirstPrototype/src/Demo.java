@@ -110,6 +110,7 @@ public class Demo extends Behavior{
 	    int l_howManyBricksInX=(int)(roomX/brickLength);
 	    int l_howManyBricksInY=(int)(roomHeight /brickLength);
 	    int l_howManyBricksInZ=(int)(roomZ/brickLength);
+	    System.out.println("how many bricks "+l_howManyBricksInX*l_howManyBricksInY*l_howManyBricksInZ);
 	    
 		for(int i=1; i<=roomHeight/brickLength; ++i)
 		{
@@ -234,6 +235,12 @@ public class Demo extends Behavior{
 	}
 	public static void main(String[] args)  {
 		
+		//Get the jvm heap size.
+		long heapSize = Runtime.getRuntime().totalMemory();
+
+		//Print the jvm heap size.
+		System.out.println("Heap Size = " + heapSize);
+
 //		int sampleTime=100;
 		int timeDelay=40;
 		Timer samplingTimer;
@@ -453,9 +460,9 @@ public class Demo extends Behavior{
 
 	public void conductHeat(Cell cell)
 	{
-		int TopConstantEnergyFlowFactor=15;
-		int BottomConstantEnergyFlowFactor=5;
-		int SidesConstantEnergyFlowFactor=10;		
+		int TopConstantEnergyFlowFactor=3;
+		int BottomConstantEnergyFlowFactor=1;
+		int SidesConstantEnergyFlowFactor=2;		
 		List<Cell>neighbours=makeCellNeighborsList(cell);
 		for(int i=0; i<neighbours.size();++i)
 		{
@@ -464,23 +471,23 @@ public class Demo extends Behavior{
 			Cell neigh=neighbours.get(i);
 			neigh.heatCapacity=neigh.material.specificHeat*neigh.mass;
 			float l_energyFlow=neigh.temp-cell.temp;
-			if(l_energyFlow>0.0)
+			if(l_energyFlow>0.0) //s¹siad ma wiêksz¹ temp
 			{
 				l_energyFlow*=neigh.heatCapacity;
 			}
-			else
+			else // ja mam wiêksz¹ temp
 			{
 				l_energyFlow*=cell.heatCapacity;
 			}
-			if(getTopNeigh(cell.id)==neigh.id) //top neighbour
-			{
-				l_energyFlow*=TopConstantEnergyFlowFactor;
-			}
-			else if(getBottomNeigh(cell.id)==neigh.id)
-			{
-				l_energyFlow*=BottomConstantEnergyFlowFactor;
-			}
-			else
+//			if(getTopNeigh(cell.id)==neigh.id) //top neighbour
+//			{f
+//				l_energyFlow*=TopConstantEnergyFlowFactor;
+//			}
+//			else if(getBottomNeigh(cell.id)==neigh.id)
+//			{
+//				l_energyFlow*=BottomConstantEnergyFlowFactor;
+//			}
+//			else
 			{
 				l_energyFlow*=SidesConstantEnergyFlowFactor;
 			}

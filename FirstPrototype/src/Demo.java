@@ -53,15 +53,15 @@ class Material
 public class Demo extends Behavior{
 	
 	private float brickImageLength=0.05f;
-	private float brickLength=25;
-	public int roomHeight=400;
-	public int roomX=300;
-	public int roomZ=100;
+	private float brickLength=50f;
+	public int roomHeight=600;
+	public int roomX=1600;
+	public int roomZ=2000;
 	Color3f blue = new Color3f(0f,0.9f,0.9f);
 	Color3f yellow= new Color3f(1f,1f,0f);
 	Color3f orange=new Color3f(1f,0.2f, 0f);
 	Color3f red = new Color3f(1f,0f,0f);
-	final float WOOD_FIRE_TEMP=100;
+	final float WOOD_FIRE_TEMP=20;
 	BranchGroup gr;
 	BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0),
 	        100.0);
@@ -86,6 +86,14 @@ public class Demo extends Behavior{
 	
 	
 	public Demo(){
+		try
+		{
+		 _fw = new FileWriter("log.txt");
+		}
+		catch(IOException e)
+		{
+			System.out.println("cannot open the log file");
+		}
 		univ = new SimpleUniverse();
 		gr = new BranchGroup();
 		Appearance app=new Appearance();
@@ -186,19 +194,52 @@ public class Demo extends Behavior{
 	}
 	public int initFire()
 	{
-		int startOfFire=getRandomPosition();
+//		int startOfFire=getRandomPosition();
 //		int startOfFire=159;
+		int startOfFire=2;
 		building.get(startOfFire).temp=500;
+		int howManyCellsOnFire=20;
+		
 		return startOfFire;
 		
 	}
-	public static void main(String[] args) {
+	
+	private void showCellAndNeighbours(int startId)
+	{
+		System.out.println("temperatura startu "+this.building.get(startId).temp);
+		if(this.getLeftNeigh(startId)!=this.NO_SUCH_NEIGH)
+		{
+		System.out.println("left "+this.building.get(this.getLeftNeigh(startId)).temp);
+		}
+		if(this.getRightNeigh(startId)!=this.NO_SUCH_NEIGH)
+		{
+		System.out.println("right "+this.building.get(this.getRightNeigh(startId)).temp);
+		}
+		if(this.getBackNeigh(startId)!=this.NO_SUCH_NEIGH)
+		{
+		System.out.println("back "+this.building.get(this.getBackNeigh(startId)).temp);
+		}
+		if(this.getFrontNeigh(startId)!=this.NO_SUCH_NEIGH)
+		{
+		System.out.println("front "+this.building.get(this.getFrontNeigh(startId)).temp);
+		}
+		if(this.getTopNeigh(startId)!=this.NO_SUCH_NEIGH)
+		{
+		System.out.println("top"+this.building.get(this.getTopNeigh(startId)).temp);
+		}
+		if(this.getBottomNeigh(startId)!=this.NO_SUCH_NEIGH)
+		{
+		System.out.println("bottom "+this.building.get(this.getBottomNeigh(startId)).temp);
+		}
+	}
+	public static void main(String[] args)  {
 		
 //		int sampleTime=100;
-		int timeDelay=1000;
+		int timeDelay=40;
 		Timer samplingTimer;
 		try
 		{
+			
 		samplingTimer = new Timer(timeDelay, 
 				new ActionListener()
 				{
@@ -210,6 +251,9 @@ public class Demo extends Behavior{
 					
 					public void actionPerformed(ActionEvent e)
 					{
+						try
+						{
+						
 						System.out.println("building size: "+d.building.size());
 						if(whichTimeActionPerformed==FIRST_TIME_ACTION_PERFORMED)
 						{
@@ -217,9 +261,10 @@ public class Demo extends Behavior{
 							{
 							System.out.println("init");
 							startId=d.initFire();
+							d.showCellAndNeighbours(startId);
 							System.out.println(startId);
 							d.setCellColor(startId);
-							Thread.sleep(5000);
+							Thread.sleep(1000);
 							}
 							catch(InterruptedException exception)
 							{
@@ -232,36 +277,18 @@ public class Demo extends Behavior{
 							for(int i=0; i<d.building.size(); ++i)
 							{
 //								d.conductHeat(d.building.get(i));
-								d.conductHeatByJacek(d.building.get(i));
+								d.conductHeatByAvarage(d.building.get(i));
 							}
 							d.updateScene();
-							System.out.println("temperatura startu "+d.building.get(startId).temp);
-							if(d.getLeftNeigh(startId)!=d.NO_SUCH_NEIGH)
-							{
-							System.out.println("left "+d.building.get(d.getLeftNeigh(startId)).temp);
-							}
-							if(d.getRightNeigh(startId)!=d.NO_SUCH_NEIGH)
-							{
-							System.out.println("right "+d.building.get(d.getRightNeigh(startId)).temp);
-							}
-							if(d.getBackNeigh(startId)!=d.NO_SUCH_NEIGH)
-							{
-							System.out.println("back "+d.building.get(d.getBackNeigh(startId)).temp);
-							}
-							if(d.getFrontNeigh(startId)!=d.NO_SUCH_NEIGH)
-							{
-							System.out.println("front "+d.building.get(d.getFrontNeigh(startId)).temp);
-							}
-							if(d.getTopNeigh(startId)!=d.NO_SUCH_NEIGH)
-							{
-							System.out.println("top"+d.building.get(d.getTopNeigh(startId)).temp);
-							}
-							if(d.getBottomNeigh(startId)!=d.NO_SUCH_NEIGH)
-							{
-							System.out.println("bottom "+d.building.get(d.getBottomNeigh(startId)).temp);
-							}
+							d.showCellAndNeighbours(startId);
+							_fw.close();
 						}						
 						++whichTimeActionPerformed;
+						}
+						catch(IOException exc)
+						{
+							
+						}
 					}
 				});
 				samplingTimer.start();
@@ -379,7 +406,7 @@ public class Demo extends Behavior{
 		return neighbours;
 	}
 	
-	public void conductHeatByJacek(Cell cell)
+	public void conductHeatByAvarage(Cell cell)
 	{
 		int topFactor=1;
 		int bottomFactor=3;
@@ -389,34 +416,38 @@ public class Demo extends Behavior{
 		if(getTopNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
 			cell.temp=topFactor*building.get(getTopNeigh(cell.id)).temp;
+			System.out.println(cell.temp);
 			++howManyNeigh;
 		}
 		if(getBottomNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
 			cell.temp+=bottomFactor*building.get(getBottomNeigh(cell.id)).temp;
-			++howManyNeigh;
+			howManyNeigh+=bottomFactor;
 		}
 		if(getLeftNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
 			cell.temp+=sidesFActor*building.get(getLeftNeigh(cell.id)).temp;
-			++howManyNeigh;
+			howManyNeigh+=sidesFActor;
 		}
 		if(getRightNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
 			cell.temp+=sidesFActor*building.get(getRightNeigh(cell.id)).temp;
-			++howManyNeigh;
+			System.out.println(sidesFActor*building.get(getRightNeigh(cell.id)).temp);
+			howManyNeigh+=sidesFActor;
 		}
 		if(getBackNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
 			cell.temp+=sidesFActor*building.get(getBackNeigh(cell.id)).temp;
-			++howManyNeigh;
+			howManyNeigh+=sidesFActor;
 		}
 		if(getFrontNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
 			cell.temp+=sidesFActor*building.get(getFrontNeigh(cell.id)).temp;
-			++howManyNeigh;
+			howManyNeigh+=sidesFActor;
 		}
+		System.out.println(cell.id +"     "+howManyNeigh);
 		cell.temp/=howManyNeigh;
+		System.out.println("srednia: "+ cell.temp);
 	}
 	//oblicza na podstawie algo z pere³ek nowe wartoœci temp w siatce ca
 
@@ -466,16 +497,8 @@ public class Demo extends Behavior{
 			}
 		}
 	}
-//	private CellCoordinates cellIdToString(int cellId)
-//	{
-//		CellCoordinates cell=new CellCoordinates();
-//		int howManyInX=(int)(roomX/brickLength);
-//		int howManyInY=(int)(roomHeight/brickLength);
-//		int howManyInZ=(int)(rooZ/brickLength);
-//		cell.x=(cellId-2)%howManyInX;
-//		cell.y=
-//		return 
-//	}
+	 static FileWriter _fw ;
+	
 }
 
 class CellCoordinates

@@ -72,7 +72,7 @@ public class Demo extends Behavior{
     WakeupCriterion yawn;
 	public void initialize()
 	{
-		DeltaT = 40;    //      milliseconds
+		DeltaT = 100;    //      milliseconds
         SimTime = 0;
         yawn = new WakeupOnElapsedTime(DeltaT);
         wakeupOn(yawn);
@@ -252,7 +252,7 @@ public class Demo extends Behavior{
 		System.out.println("Heap Size = " + heapSize);
 
 //		int sampleTime=100;
-		int timeDelay=40;
+		int timeDelay=500;
 		Timer samplingTimer;
 		try
 		{
@@ -429,9 +429,12 @@ public class Demo extends Behavior{
 	
 	public void conductHeatByAvarage(Cell cell)
 	{
+//		float topFactor=0.25f;
+//		float bottomFactor=0.75f;
+//		float sidesFactor=0.5f;
 		int topFactor=1;
 		int bottomFactor=3;
-		int sidesFActor=2;
+		int sidesFactor=2;
 		int howManyNeigh=0;
 		oldValues.get(cell.id).temp=cell.temp;
 		cell.temp=0;
@@ -448,24 +451,24 @@ public class Demo extends Behavior{
 		}
 		if(getLeftNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
-			cell.temp+=sidesFActor*oldValues.get(getLeftNeigh(cell.id)).temp;
-			howManyNeigh+=sidesFActor;
+			cell.temp+=sidesFactor*oldValues.get(getLeftNeigh(cell.id)).temp;
+			howManyNeigh+=sidesFactor;
 		}
 		if(getRightNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
-			cell.temp+=sidesFActor*oldValues.get(getRightNeigh(cell.id)).temp;
-//			System.out.println(sidesFActor*oldValues.get(getRightNeigh(cell.id)).temp);
-			howManyNeigh+=sidesFActor;
+			cell.temp+=sidesFactor*oldValues.get(getRightNeigh(cell.id)).temp;
+//			System.out.println(sidesFactor*oldValues.get(getRightNeigh(cell.id)).temp);
+			howManyNeigh+=sidesFactor;
 		}
 		if(getBackNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
-			cell.temp+=sidesFActor*oldValues.get(getBackNeigh(cell.id)).temp;
-			howManyNeigh+=sidesFActor;
+			cell.temp+=sidesFactor*oldValues.get(getBackNeigh(cell.id)).temp;
+			howManyNeigh+=sidesFactor;
 		}
 		if(getFrontNeigh(cell.id)!=NO_SUCH_NEIGH)
 		{
-			cell.temp+=sidesFActor*oldValues.get(getFrontNeigh(cell.id)).temp;
-			howManyNeigh+=sidesFActor;
+			cell.temp+=sidesFactor*oldValues.get(getFrontNeigh(cell.id)).temp;
+			howManyNeigh+=sidesFactor;
 		}
 //		System.out.println("new building");
 //		for(int i=0; i<building.size(); ++i)
@@ -479,7 +482,7 @@ public class Demo extends Behavior{
 //		}
 //		System.out.println(cell.id +"     "+howManyNeigh);
 		cell.temp/=howManyNeigh;
-		System.out.println("srednia: "+ cell.temp);
+//		System.out.println("srednia: "+ cell.temp);
 	}
 	//oblicza na podstawie algo z pere³ek nowe wartoœci temp w siatce ca
 
@@ -505,7 +508,7 @@ public class Demo extends Behavior{
 			neigh.heatCapacity=neigh.material.specificHeat*neigh.mass;
 			float l_energyFlow=oldValues.get(neigh.id).temp-oldValues.get(cell.id).temp;
 //			float l_energyFlow=neigh.temp-cell.temp;
-			System.out.println(l_energyFlow);
+//			System.out.println(l_energyFlow);
 			if(l_energyFlow>0.0) //s¹siad ma wiêksz¹ temp
 			{
 				l_energyFlow*=neigh.heatCapacity;

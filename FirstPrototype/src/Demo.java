@@ -57,9 +57,9 @@ public class Demo extends Behavior
 {
     private final float brickImageLength = 0.05f;
     private final float brickLength = 50f;
-    public int roomHeight = 600;
-    public int roomX = 500;
-    public int roomZ = 200;
+    public int roomHeight = 100;
+    public int roomX = 150;
+    public int roomZ = 50;
     Color3f blue = new Color3f( 0f, 0.9f, 0.9f );
     Color3f yellow = new Color3f( 1f, 1f, 0f );
     Color3f orange = new Color3f( 1f, 0.2f, 0f );
@@ -211,7 +211,7 @@ public class Demo extends Behavior
     {
         // int startOfFire=getRandomPosition();
         // int startOfFire=159;
-        int startOfFire = 50;
+        int startOfFire = 0;
         building.get( startOfFire ).temp = 200;
         oldValues.get( startOfFire ).temp = 200;
         // if(getRightNeigh(startOfFire)!=NO_SUCH_NEIGH)
@@ -564,7 +564,8 @@ public class Demo extends Behavior
                 float l_totalEnergy = cell.heatCapacity * oldValues.get( cell.id ).temp
                         + neigh.heatCapacity * oldValues.get( cell.id ).temp;
                 // float
-                // l_totalEnergy=cell.heatCapacity*cell.temp+neigh.heatCapacity*neigh.temp;
+                //
+                l_totalEnergy = cell.heatCapacity * cell.temp + neigh.heatCapacity * neigh.temp;
                 float l_avarageTemp = l_totalEnergy / ( cell.heatCapacity + neigh.heatCapacity );
                 cell.temp = l_avarageTemp;
                 neigh.temp = l_avarageTemp;

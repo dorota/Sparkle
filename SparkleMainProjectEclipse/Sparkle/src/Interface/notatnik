@@ -1,0 +1,26 @@
+ public Main()
+    {
+        init();
+    }
+
+    private void init()
+    {
+        initComponents();
+        initCanvas();
+        pack();
+    }
+
+    private void initCanvas()
+    {
+        _canvas = new Canvas3D( SimpleUniverse.getPreferredConfiguration() );
+        _canvas.setDoubleBufferEnable( true );
+        canvasPanel.setLayout( new BorderLayout() );
+        canvasPanel.add( _canvas );
+        _scene = new Scene3D( _canvas );
+    }
+    
+    
+    
+    
+        private Canvas3D _canvas;
+    private Scene3D _scene;

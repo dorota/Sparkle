@@ -57,9 +57,9 @@ public class Demo extends Behavior
 {
     private final float brickImageLength = 0.05f;
     private final float brickLength = 50f;
-    public int roomHeight = 100;
-    public int roomX = 150;
-    public int roomZ = 50;
+    public int roomHeight = 200;
+    public int roomX = 2000;
+    public int roomZ = 2000;
     Color3f blue = new Color3f( 0f, 0.9f, 0.9f );
     Color3f yellow = new Color3f( 1f, 1f, 0f );
     Color3f orange = new Color3f( 1f, 0.2f, 0f );
@@ -86,7 +86,7 @@ public class Demo extends Behavior
     {
         SimTime += DeltaT;
         wakeupOn( yawn );
-        updateScene();
+        // updateScene();
     }
 
     public Demo()
@@ -124,9 +124,11 @@ public class Demo extends Behavior
             {
                 for( int k = 1; k <= roomX / brickLength; ++k )
                 {
-                    gr.addChild( addObject( ( k - 1 ) * brickImageLength, ( i - 1 )
-                            * brickImageLength, ( j - 1 ) * brickImageLength, blue ) );
-                    // building.add(new Cell(i*j+k+2));
+                    // gr.addChild( addObject( ( k - 1 ) * brickImageLength, ( i
+                    // - 1 )
+                    // * brickImageLength, ( j - 1 ) * brickImageLength, blue )
+                    // );
+                    // building.add( new Cell( i * j + k + 2 ) );
                     building.add( new Cell(
                         ( ( i - 1 ) * ( l_howManyBricksInX * l_howManyBricksInZ ) ) + ( j - 1 )
                                 * l_howManyBricksInX + k - 1 ) );
@@ -265,6 +267,7 @@ public class Demo extends Behavior
         System.out.println( "Heap Size = " + heapSize );
         // int sampleTime=100;
         int timeDelay = 500;
+        Demo d2 = new Demo();
         Timer samplingTimer;
         try
         {
@@ -285,12 +288,12 @@ public class Demo extends Behavior
                         {
                             try
                             {
-                                System.out.println( "init" );
+                                // System.out.println( "init" );
                                 startId = d.initFire();
-                                d.showCellAndNeighbours( startId );
-                                System.out.println( startId );
-                                d.setCellColor( startId );
-                                d.updateScene();
+                                // d.showCellAndNeighbours( startId );
+                                // System.out.println( startId );
+                                // d.setCellColor( startId );
+                                // d.updateScene();
                                 Thread.sleep( 500 );
                             }
                             catch( InterruptedException exception )
@@ -304,7 +307,7 @@ public class Demo extends Behavior
                                 d.conductHeat( d.building.get( i ) );
                                 // d.conductHeatByAvarage(d.building.get(i));
                             }
-                            d.updateScene();
+                            // d.updateScene();
                             d.showCellAndNeighbours( startId );
                             _fw.close();
                         }

@@ -56,7 +56,7 @@ public class Demo extends Behavior
     public int roomHeight = 200;
     public int roomX = 200;
     public int roomZ = 200;
-    final float FIRE_TEMP = 50;
+    final float FIRE_TEMP = 300;
     // visualization colors
     Color3f blue = new Color3f( 0f, 0.9f, 0.9f );
     Color3f yellow = new Color3f( 1f, 1f, 0f );
@@ -120,8 +120,9 @@ public class Demo extends Behavior
                     // building.add( new Cell( i * j + k + 2 ) );
                     int cellId = ( ( i - 1 ) * ( l_howManyBricksInX * l_howManyBricksInZ ) )
                             + ( j - 1 ) * l_howManyBricksInX + k - 1;
-                    building.add( new Cell( cellId, 20.0f, "oxygen", 2, 2 ) );
-                    oldValues.add( new Cell( cellId, 20.0f, "oxygen", 2, 2 ) );
+                    // masa i ciep³o w³aœciwe drewna
+                    building.add( new Cell( cellId, 20.0f, "oxygen", 2400, 50 ) );
+                    oldValues.add( new Cell( cellId, 20.0f, "oxygen", 2400, 50 ) );
                 }
             }
         }
@@ -146,6 +147,10 @@ public class Demo extends Behavior
             if( building.get( i )._temp >= FIRE_TEMP )
             {
                 setCellColor( building.get( i )._id );
+            }
+            else
+            {
+                setCellColor( blue, building.get( i )._id );
             }
         }
     }
@@ -174,11 +179,12 @@ public class Demo extends Behavior
     // sets color of the box with given boxid to red
     public void setCellColor( int boxId )
     {
-        setCellColor( red, (Box)( ( (TransformGroup)( gr.getChild( boxId + 2 ) ) ).getChild( 0 ) ) );
+        setCellColor( red, boxId );
     }
 
-    private void setCellColor( Color3f cellColor, Box cell )
+    private void setCellColor( Color3f cellColor, int boxId )
     {
+        Box cell = (Box)( ( (TransformGroup)( gr.getChild( boxId + 2 ) ) ).getChild( 0 ) );
         Appearance app = new Appearance();
         ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,
             ColoringAttributes.NICEST );
@@ -196,9 +202,12 @@ public class Demo extends Behavior
     {
         // int startOfFire=getRandomPosition();
         // int startOfFire=159;
-        int startOfFire = 50;
-        building.get( startOfFire )._temp = 2000;
-        oldValues.get( startOfFire )._temp = 2000;
+        int startOfFire = 0;
+        for( int i = 0; i < 15; ++i )
+        {
+            building.get( i )._temp = 1500;
+            oldValues.get( i )._temp = 1500;
+        }
         // if(getRightNeigh(startOfFire)!=NO_SUCH_NEIGH)
         // {
         // building.get(getRightNeigh(startOfFire)).temp=1000;
@@ -270,11 +279,7 @@ public class Demo extends Behavior
                     {
                         try
                         {
-                            // System.out.println( "init" );
                             startId = d.initFire();
-                            // d.showCellAndNeighbours( startId );
-                            // System.out.println( startId );
-                            d.setCellColor( startId );
                             d.updateScene();
                             Thread.sleep( 500 );
                         }
@@ -287,10 +292,14 @@ public class Demo extends Behavior
                         for( int i = 0; i < d.building.size(); ++i )
                         {
                             d.conductHeat( d.building.get( i ) );
-                            // d.conductHeatByAvarage(d.building.get(i));
                         }
+                        System.out.println();
+                        for( int i = 0; i < d.building.size(); ++i )
+                        {
+                            System.out.print( d.building.get( i )._temp );
+                        }
+                        System.out.println();
                         d.updateScene();
-                        // sd.showCellAndNeighbours( startId );
                     }
                     ++whichTimeActionPerformed;
                 }

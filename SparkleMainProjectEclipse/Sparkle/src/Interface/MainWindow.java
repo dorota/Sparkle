@@ -20,8 +20,8 @@ class MainWindow
     {
         _frame = new JFrame();
         _sceneCanvas = new Canvas3D( SimpleUniverse.getPreferredConfiguration() );
-        _menuPanel = new MenuPanel();
         _scene = new Scene3D( _sceneCanvas );
+        _menuPanel = new MenuPanel( _scene );
     }
 
     public void initWindow()

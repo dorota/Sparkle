@@ -1,0 +1,2 @@
+﻿Inżynierka:
+opisać rozważania na temat struktury danych do przechowywania świata, wybór i uzasadnienie

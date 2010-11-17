@@ -31,40 +31,39 @@ import com.sun.j3d.utils.universe.SimpleUniverse;
 
 class Cell
 {
-    public Cell( int id )
+    public Cell( int id, float temp, String material, float specificHeat, float mass )
     {
-        this.id = id;
+        this._id = id;
+        _temp = temp;
+        _mass = mass;
+        _specificHeat = specificHeat;
+        _material = material;
     }
 
-    float temp = 20.0f;
-    int id;
-    float heatCapacity;
-    Material material = new Material();
-    double DONT_TOUCH_PART_OF_RO_FOR_OXYGEN = 36.85; // czesæ wzoru na geœtosc
-    // obliczone dla powietrza
-    // nie ruszaæ
-    float cellLength = 0.25f;
-    float mass = 0.02f;
-}
-
-class Material
-{
-    String name = "oxygen";
-    float specificHeat = 916;
+    float _temp;
+    int _id;
+    float _heatCapacity;
+    float _mass;
+    float _specificHeat;
+    String _material;
 }
 
 public class Demo extends Behavior
 {
+    // simulation parameters
     private final float brickImageLength = 0.05f;
     private final float brickLength = 50f;
     public int roomHeight = 200;
-    public int roomX = 2000;
-    public int roomZ = 2000;
+    public int roomX = 200;
+    public int roomZ = 200;
+    final float FIRE_TEMP = 50;
+    // visualization colors
     Color3f blue = new Color3f( 0f, 0.9f, 0.9f );
     Color3f yellow = new Color3f( 1f, 1f, 0f );
     Color3f orange = new Color3f( 1f, 0.2f, 0f );
     Color3f red = new Color3f( 1f, 0f, 0f );
-    final float WOOD_FIRE_TEMP = 200;
+    float transparency = 0.9f;
+    // 3d graphics & simulation needed variables
     BranchGroup gr;
     BoundingSphere bounds = new BoundingSphere( new Point3d( 0.0, 0.0, 0.0 ), 100.0 );
     SimpleUniverse univ;
@@ -91,19 +90,11 @@ public class Demo extends Behavior
 
     public Demo()
     {
-        try
-        {
-            _fw = new FileWriter( "log.txt" );
-        }
-        catch( IOException e )
-        {
-            System.out.println( "cannot open the log file" );
-        }
         univ = new SimpleUniverse();
         gr = new BranchGroup();
         Appearance app = new Appearance();
         app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
-            0.9f ) );
+            transparency ) );
         // gr.addChild(new Box((float)(0.1), (float)(0.1), (float)(0.1),app));
         AmbientLight lightA = new AmbientLight();
         lightA.setColor( new Color3f( 255, 0, 100 ) );
@@ -124,27 +115,17 @@ public class Demo extends Behavior
             {
                 for( int k = 1; k <= roomX / brickLength; ++k )
                 {
-                    // gr.addChild( addObject( ( k - 1 ) * brickImageLength, ( i
-                    // - 1 )
-                    // * brickImageLength, ( j - 1 ) * brickImageLength, blue )
-                    // );
+                    gr.addChild( addObject( ( k - 1 ) * brickImageLength, ( i - 1 )
+                            * brickImageLength, ( j - 1 ) * brickImageLength, blue ) );
                     // building.add( new Cell( i * j + k + 2 ) );
-                    building.add( new Cell(
-                        ( ( i - 1 ) * ( l_howManyBricksInX * l_howManyBricksInZ ) ) + ( j - 1 )
-                                * l_howManyBricksInX + k - 1 ) );
-                    oldValues.add( new Cell(
-                        ( ( i - 1 ) * ( l_howManyBricksInX * l_howManyBricksInZ ) ) + ( j - 1 )
-                                * l_howManyBricksInX + k - 1 ) );
+                    int cellId = ( ( i - 1 ) * ( l_howManyBricksInX * l_howManyBricksInZ ) )
+                            + ( j - 1 ) * l_howManyBricksInX + k - 1;
+                    building.add( new Cell( cellId, 20.0f, "oxygen", 2, 2 ) );
+                    oldValues.add( new Cell( cellId, 20.0f, "oxygen", 2, 2 ) );
                 }
             }
         }
         System.out.println( building.size() );
-        // System.out.println("buillding ids: ");
-        // for(int i=0; i<building.size();++i)
-        // {
-        // System.out.println(building.get(i).id + i);
-        // }
-        // System.out.println("The end of building ids");
         univ.getViewingPlatform().setNominalViewingTransform();
         univ.addBranchGraph( gr );
     }
@@ -162,13 +143,14 @@ public class Demo extends Behavior
         for( int i = 0; i < building.size(); ++i )
         {
             // System.out.println(building.get(i).temp);
-            if( building.get( i ).temp >= WOOD_FIRE_TEMP )
+            if( building.get( i )._temp >= FIRE_TEMP )
             {
-                setCellColor( building.get( i ).id );
+                setCellColor( building.get( i )._id );
             }
         }
     }
 
+    // adds 3d object to be rendered
     private TransformGroup addObject( float xLoc, float yLoc, float zLoc, Color3f cellColor )
     {
         TransformGroup tg = new TransformGroup();
@@ -189,6 +171,7 @@ public class Demo extends Behavior
         return tg;
     }
 
+    // sets color of the box with given boxid to red
     public void setCellColor( int boxId )
     {
         setCellColor( red, (Box)( ( (TransformGroup)( gr.getChild( boxId + 2 ) ) ).getChild( 0 ) ) );
@@ -213,9 +196,9 @@ public class Demo extends Behavior
     {
         // int startOfFire=getRandomPosition();
         // int startOfFire=159;
-        int startOfFire = 0;
-        building.get( startOfFire ).temp = 200;
-        oldValues.get( startOfFire ).temp = 200;
+        int startOfFire = 50;
+        building.get( startOfFire )._temp = 2000;
+        oldValues.get( startOfFire )._temp = 2000;
         // if(getRightNeigh(startOfFire)!=NO_SUCH_NEIGH)
         // {
         // building.get(getRightNeigh(startOfFire)).temp=1000;
@@ -231,31 +214,33 @@ public class Demo extends Behavior
 
     private void showCellAndNeighbours( int startId )
     {
-        System.out.println( "temperatura startu " + this.building.get( startId ).temp );
+        System.out.println( "temperatura startu " + this.building.get( startId )._temp );
         if( this.getLeftNeigh( startId ) != this.NO_SUCH_NEIGH )
         {
-            System.out.println( "left " + this.building.get( this.getLeftNeigh( startId ) ).temp );
+            System.out.println( "left " + this.building.get( this.getLeftNeigh( startId ) )._temp );
         }
         if( this.getRightNeigh( startId ) != this.NO_SUCH_NEIGH )
         {
-            System.out.println( "right " + this.building.get( this.getRightNeigh( startId ) ).temp );
+            System.out
+                    .println( "right " + this.building.get( this.getRightNeigh( startId ) )._temp );
         }
         if( this.getBackNeigh( startId ) != this.NO_SUCH_NEIGH )
         {
-            System.out.println( "back " + this.building.get( this.getBackNeigh( startId ) ).temp );
+            System.out.println( "back " + this.building.get( this.getBackNeigh( startId ) )._temp );
         }
         if( this.getFrontNeigh( startId ) != this.NO_SUCH_NEIGH )
         {
-            System.out.println( "front " + this.building.get( this.getFrontNeigh( startId ) ).temp );
+            System.out
+                    .println( "front " + this.building.get( this.getFrontNeigh( startId ) )._temp );
         }
         if( this.getTopNeigh( startId ) != this.NO_SUCH_NEIGH )
         {
-            System.out.println( "top" + this.building.get( this.getTopNeigh( startId ) ).temp );
+            System.out.println( "top" + this.building.get( this.getTopNeigh( startId ) )._temp );
         }
         if( this.getBottomNeigh( startId ) != this.NO_SUCH_NEIGH )
         {
             System.out.println( "bottom "
-                    + this.building.get( this.getBottomNeigh( startId ) ).temp );
+                    + this.building.get( this.getBottomNeigh( startId ) )._temp );
         }
     }
 
@@ -267,7 +252,6 @@ public class Demo extends Behavior
         System.out.println( "Heap Size = " + heapSize );
         // int sampleTime=100;
         int timeDelay = 500;
-        Demo d2 = new Demo();
         Timer samplingTimer;
         try
         {
@@ -281,41 +265,34 @@ public class Demo extends Behavior
 
                 public void actionPerformed( ActionEvent e )
                 {
-                    try
+                    System.out.println( "building size: " + d.building.size() );
+                    if( whichTimeActionPerformed == FIRST_TIME_ACTION_PERFORMED )
                     {
-                        System.out.println( "building size: " + d.building.size() );
-                        if( whichTimeActionPerformed == FIRST_TIME_ACTION_PERFORMED )
+                        try
                         {
-                            try
-                            {
-                                // System.out.println( "init" );
-                                startId = d.initFire();
-                                // d.showCellAndNeighbours( startId );
-                                // System.out.println( startId );
-                                // d.setCellColor( startId );
-                                // d.updateScene();
-                                Thread.sleep( 500 );
-                            }
-                            catch( InterruptedException exception )
-                            {
-                            }
+                            // System.out.println( "init" );
+                            startId = d.initFire();
+                            // d.showCellAndNeighbours( startId );
+                            // System.out.println( startId );
+                            d.setCellColor( startId );
+                            d.updateScene();
+                            Thread.sleep( 500 );
                         }
-                        else
+                        catch( InterruptedException exception )
                         {
-                            for( int i = 0; i < d.building.size(); ++i )
-                            {
-                                d.conductHeat( d.building.get( i ) );
-                                // d.conductHeatByAvarage(d.building.get(i));
-                            }
-                            // d.updateScene();
-                            d.showCellAndNeighbours( startId );
-                            _fw.close();
                         }
-                        ++whichTimeActionPerformed;
                     }
-                    catch( IOException exc )
+                    else
                     {
+                        for( int i = 0; i < d.building.size(); ++i )
+                        {
+                            d.conductHeat( d.building.get( i ) );
+                            // d.conductHeatByAvarage(d.building.get(i));
+                        }
+                        d.updateScene();
+                        // sd.showCellAndNeighbours( startId );
                     }
+                    ++whichTimeActionPerformed;
                 }
             } );
             samplingTimer.start();
@@ -429,12 +406,12 @@ public class Demo extends Behavior
     private List<Cell> makeCellNeighborsList( Cell cell )
     {
         List<Cell> neighbours = new ArrayList<Cell>();
-        int leftNeigh = getLeftNeigh( cell.id );
-        int rightNeigh = getRightNeigh( cell.id );
-        int frontNeigh = getFrontNeigh( cell.id );
-        int backNeigh = getBackNeigh( cell.id );
-        int topNeigh = getTopNeigh( cell.id );
-        int bottomNeigh = getBottomNeigh( cell.id );
+        int leftNeigh = getLeftNeigh( cell._id );
+        int rightNeigh = getRightNeigh( cell._id );
+        int frontNeigh = getFrontNeigh( cell._id );
+        int backNeigh = getBackNeigh( cell._id );
+        int topNeigh = getTopNeigh( cell._id );
+        int bottomNeigh = getBottomNeigh( cell._id );
         addToNeighbours( leftNeigh, neighbours );
         addToNeighbours( rightNeigh, neighbours );
         addToNeighbours( bottomNeigh, neighbours );
@@ -453,38 +430,38 @@ public class Demo extends Behavior
         int bottomFactor = 3;
         int sidesFactor = 2;
         int howManyNeigh = 0;
-        oldValues.get( cell.id ).temp = cell.temp;
-        cell.temp = 0;
-        if( getTopNeigh( cell.id ) != NO_SUCH_NEIGH )
+        oldValues.get( cell._id )._temp = cell._temp;
+        cell._temp = 0;
+        if( getTopNeigh( cell._id ) != NO_SUCH_NEIGH )
         {
-            cell.temp = topFactor * oldValues.get( getTopNeigh( cell.id ) ).temp;
+            cell._temp = topFactor * oldValues.get( getTopNeigh( cell._id ) )._temp;
             // System.out.println(cell.temp);
             ++howManyNeigh;
         }
-        if( getBottomNeigh( cell.id ) != NO_SUCH_NEIGH )
+        if( getBottomNeigh( cell._id ) != NO_SUCH_NEIGH )
         {
-            cell.temp += bottomFactor * oldValues.get( getBottomNeigh( cell.id ) ).temp;
+            cell._temp += bottomFactor * oldValues.get( getBottomNeigh( cell._id ) )._temp;
             howManyNeigh += bottomFactor;
         }
-        if( getLeftNeigh( cell.id ) != NO_SUCH_NEIGH )
+        if( getLeftNeigh( cell._id ) != NO_SUCH_NEIGH )
         {
-            cell.temp += sidesFactor * oldValues.get( getLeftNeigh( cell.id ) ).temp;
+            cell._temp += sidesFactor * oldValues.get( getLeftNeigh( cell._id ) )._temp;
             howManyNeigh += sidesFactor;
         }
-        if( getRightNeigh( cell.id ) != NO_SUCH_NEIGH )
+        if( getRightNeigh( cell._id ) != NO_SUCH_NEIGH )
         {
-            cell.temp += sidesFactor * oldValues.get( getRightNeigh( cell.id ) ).temp;
+            cell._temp += sidesFactor * oldValues.get( getRightNeigh( cell._id ) )._temp;
             // System.out.println(sidesFactor*oldValues.get(getRightNeigh(cell.id)).temp);
             howManyNeigh += sidesFactor;
         }
-        if( getBackNeigh( cell.id ) != NO_SUCH_NEIGH )
+        if( getBackNeigh( cell._id ) != NO_SUCH_NEIGH )
         {
-            cell.temp += sidesFactor * oldValues.get( getBackNeigh( cell.id ) ).temp;
+            cell._temp += sidesFactor * oldValues.get( getBackNeigh( cell._id ) )._temp;
             howManyNeigh += sidesFactor;
         }
-        if( getFrontNeigh( cell.id ) != NO_SUCH_NEIGH )
+        if( getFrontNeigh( cell._id ) != NO_SUCH_NEIGH )
         {
-            cell.temp += sidesFactor * oldValues.get( getFrontNeigh( cell.id ) ).temp;
+            cell._temp += sidesFactor * oldValues.get( getFrontNeigh( cell._id ) )._temp;
             howManyNeigh += sidesFactor;
         }
         // System.out.println("new building");
@@ -498,7 +475,7 @@ public class Demo extends Behavior
         // System.out.print(oldValues.get(i).temp);
         // }
         // System.out.println(cell.id +"     "+howManyNeigh);
-        cell.temp /= howManyNeigh;
+        cell._temp /= howManyNeigh;
         // System.out.println("srednia: "+ cell.temp);
     }
 
@@ -507,76 +484,46 @@ public class Demo extends Behavior
     {
         for( int i = 0; i < oldValues.size(); ++i )
         {
-            oldValues.get( i ).temp = building.get( i ).temp;
+            oldValues.get( i )._temp = building.get( i )._temp;
         }
     }
 
     public void conductHeat( Cell cell )
     {
-        int TopConstantEnergyFlowFactor = 3;
-        int BottomConstantEnergyFlowFactor = 1;
-        int SidesConstantEnergyFlowFactor = 2;
+        System.out.println( cell._temp );
+        double constantEnergyFactor = 0.2;
         List<Cell> neighbours = makeCellNeighborsList( cell );
         updateOldValues();
         for( int i = 0; i < neighbours.size(); ++i )
         {
-            // cell.calculateMass(); //mass depends on temperature; need to be
-            // calculated each time
-            cell.heatCapacity = cell.material.specificHeat * cell.mass;
+            cell._heatCapacity = cell._specificHeat * cell._mass;
             Cell neigh = neighbours.get( i );
-            neigh.heatCapacity = neigh.material.specificHeat * neigh.mass;
-            float l_energyFlow = oldValues.get( neigh.id ).temp - oldValues.get( cell.id ).temp;
-            // float l_energyFlow=neigh.temp-cell.temp;
-            // System.out.println(l_energyFlow);
+            neigh._heatCapacity = neigh._specificHeat * neigh._mass;
+            float l_energyFlow = building.get( neigh._id )._temp - building.get( cell._id )._temp;
             if( l_energyFlow > 0.0 ) // s¹siad ma wiêksz¹ temp
             {
-                l_energyFlow *= neigh.heatCapacity;
-            }
-            else
-            // ja mam wiêksz¹ temp
-            {
-                l_energyFlow *= cell.heatCapacity;
-            }
-            // ja przekazuje ciep³o do góry, lub biorê ciep³o z do³u
-            // wspó³czynnik wiêkszy
-            if( ( getTopNeigh( cell.id ) == neigh.id && l_energyFlow < 0 )
-                    || ( getBottomNeigh( cell.id ) == neigh.id && l_energyFlow > 0 ) ) // top
-            // neighbour
-            {
-                l_energyFlow *= TopConstantEnergyFlowFactor;
-                // System.out.println("top factor");
-            }
-            // s¹siad z góry przekazuje mi ciep³o lub ja przekazujê na dó³
-            else if( ( getBottomNeigh( cell.id ) == neigh.id && l_energyFlow < 0 )
-                    || ( getTopNeigh( cell.id ) == neigh.id && l_energyFlow > 0 ) )
-            {
-                l_energyFlow *= BottomConstantEnergyFlowFactor;
-                // System.out.println("bottom factor");
+                l_energyFlow *= neigh._heatCapacity;
             }
             else
             {
-                l_energyFlow *= SidesConstantEnergyFlowFactor;
-                // System.out.println("sides factor");
+                l_energyFlow *= cell._heatCapacity;
             }
-            System.out.println( l_energyFlow );
-            neigh.temp -= l_energyFlow / neigh.heatCapacity;
-            cell.temp += l_energyFlow / cell.heatCapacity;
-            if( ( l_energyFlow > 0 && neigh.temp < cell.temp )
-                    || ( l_energyFlow <= 0 && neigh.temp > cell.temp ) )
+            l_energyFlow *= constantEnergyFactor;
+            // System.out.println( l_energyFlow );
+            neigh._temp -= l_energyFlow / neigh._heatCapacity;
+            cell._temp += l_energyFlow / cell._heatCapacity;
+            if( ( l_energyFlow > 0 && neigh._temp < cell._temp )
+                    || ( l_energyFlow <= 0 && neigh._temp > cell._temp ) )
             {
-                float l_totalEnergy = cell.heatCapacity * oldValues.get( cell.id ).temp
-                        + neigh.heatCapacity * oldValues.get( cell.id ).temp;
-                // float
-                //
-                l_totalEnergy = cell.heatCapacity * cell.temp + neigh.heatCapacity * neigh.temp;
-                float l_avarageTemp = l_totalEnergy / ( cell.heatCapacity + neigh.heatCapacity );
-                cell.temp = l_avarageTemp;
-                neigh.temp = l_avarageTemp;
+                float l_totalEnergy = cell._heatCapacity * building.get( cell._id )._temp
+                        + neigh._heatCapacity * building.get( cell._id )._temp;
+                l_totalEnergy = cell._heatCapacity * cell._temp + neigh._heatCapacity * neigh._temp;
+                float l_avarageTemp = l_totalEnergy / ( cell._heatCapacity + neigh._heatCapacity );
+                cell._temp = l_avarageTemp;
+                neigh._temp = l_avarageTemp;
             }
         }
     }
-
-    static FileWriter _fw;
 }
 
 class CellCoordinates

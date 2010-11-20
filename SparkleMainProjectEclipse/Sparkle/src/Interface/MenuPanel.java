@@ -289,7 +289,7 @@ public class MenuPanel extends javax.swing.JPanel
     private javax.swing.JTextField _zSizeTextField;
     private javax.swing.JToggleButton _addButton;
     // End of variables declaration
-    private String _materialName;
+    private String _materialName = "Wood";
     private double _xCoordinate;
     private double _yCoordinate;
     private double _zCoordinate;

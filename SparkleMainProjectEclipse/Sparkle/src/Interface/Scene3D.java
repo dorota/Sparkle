@@ -25,6 +25,7 @@ public class Scene3D
     {
         _world = new World();
         _contents = new BranchGroup();
+        _contents.setCapability( BranchGroup.ALLOW_CHILDREN_EXTEND );
         _contents.setCapability( BranchGroup.ALLOW_DETACH );
         _universe = new SimpleUniverse( canvas );
         setSceneAppearance();
@@ -38,6 +39,7 @@ public class Scene3D
 
     public void addNewBlock( String material, Point3d startCoordinates, Point3d size )
     {
+        BranchGroup childBG = new BranchGroup();
         TransformGroup tg = new TransformGroup();
         Transform3D transform = new Transform3D();
         Vector3d vector = new Vector3d( startCoordinates.x, startCoordinates.y, startCoordinates.z );
@@ -45,9 +47,10 @@ public class Scene3D
         tg.setTransform( transform );
         Appearance app = new Appearance();
         Color3f cellColor = new Color3f();
-        float transparency = 1.0f;
+        float transparency = 0.5f;
         for( int i = 0; i < _world._availableMaterials.size(); ++i )
         {
+            System.out.println( material + " " + _world._availableMaterials.get( i )._name );
             if( _world._availableMaterials.get( i )._name.equals( material ) )
             {
                 cellColor = _world._availableMaterials.get( i )._color;
@@ -59,11 +62,12 @@ public class Scene3D
         app.setColoringAttributes( coloringAttributes );
         app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
             transparency ) );
+        System.out.println( size.x + " " + size.y + " " + size.z );
         tg.addChild( new Box( (float)size.x, (float)size.y, (float)size.z,
             Box.ENABLE_APPEARANCE_MODIFY, app ) );
         tg.getChild( 0 ).setCapability( Box.ENABLE_APPEARANCE_MODIFY );
-        _contents.addChild( tg );
-        _contents.compile();
+        childBG.addChild( tg );
+        _contents.addChild( childBG );
     }
 
     private void setSceneAppearance()

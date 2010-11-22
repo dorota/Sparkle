@@ -61,7 +61,7 @@ public class MenuPanel extends javax.swing.JPanel
                 _materialComboBoxActionPerformed( evt );
             }
         } );
-        _blockCoordinatesLabel.setText( "Block left-front-bottom coordinates:" );
+        _blockCoordinatesLabel.setText( "Block left-back-bottom coordinates:" );
         _xCoordinateLabel.setText( "x:" );
         _yCoordinateLabel.setText( "y:" );
         _zCoordinateLabel.setText( "z:" );
@@ -264,8 +264,10 @@ public class MenuPanel extends javax.swing.JPanel
 
     private void _addButtonActionPerformed( java.awt.event.ActionEvent evt )
     {
-        _editedScene.addNewBlock( _materialName, new Point3d( _xCoordinate, _yCoordinate,
-            _zCoordinate ), new Point3d( _xSize, _ySize, _zSize ) );
+        Point3d blockCenter = new Point3d( _xCoordinate + _xSize / 2.0,
+            _yCoordinate + _ySize / 2.0, _zCoordinate + _zSize / 2.0 );
+        _editedScene
+                .addNewBlock( _materialName, blockCenter, new Point3d( _xSize, _ySize, _zSize ) );
     }
 
     // Variables declaration - do not modify

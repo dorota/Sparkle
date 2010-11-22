@@ -1,5 +1,7 @@
 package Interface;
 
+import java.util.Enumeration;
+
 import javax.media.j3d.AmbientLight;
 import javax.media.j3d.Appearance;
 import javax.media.j3d.Background;
@@ -61,17 +63,23 @@ public class Scene3D
      * @param sizeB
      * @return
      */
-    // private boolean deteckBlockCollision( Point3d startPointA, Point3d sizeA,
-    // Point3d startPointB,
-    // Point3d sizeB )
-    // {
-    // if( startPointA.x >= startPointB.x && startPointA.x + sizeA.x <=
-    // startPointB.x + sizeB.x
-    // && startPointA.y >= startPointB.y
-    // && startPointA.y + sizeA.y <= startPointB.y + sizeB.y && startPointA.z )
-    // {
-    // }
-    // }
+    private boolean deteckBlockCollision( Point3d startPointA, Point3d sizeA, Point3d startPointB,
+            Point3d sizeB )
+    {
+        if( startPointA.x >= startPointB.x && startPointA.x + sizeA.x < startPointB.x + sizeB.x
+                && startPointA.y >= startPointB.y
+                && startPointA.y + sizeA.y < startPointB.y + sizeB.y
+                && startPointA.z >= startPointB.z
+                && startPointA.z + sizeA.z <= startPointB.z + sizeB.z )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void updateScene()
     {
     }
@@ -103,17 +111,31 @@ public class Scene3D
         app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
             transparency ) );
         System.out.println( size.x + " " + size.y + " " + size.z );
-        tg.addChild( new Box( (float)size.x / 100.0f, (float)size.y / 100.0f,
-            (float)size.z / 100.0f, Box.ENABLE_APPEARANCE_MODIFY, app ) );
+        tg.addChild( new Box( (float)( size.x / _defaultZoomOut ),
+            (float)( size.y / _defaultZoomOut ), (float)( size.z / _defaultZoomOut ),
+            Box.ENABLE_APPEARANCE_MODIFY, app ) );
         tg.getChild( 0 ).setCapability( Box.ENABLE_APPEARANCE_MODIFY );
         childBG.addChild( tg );
+        // detect collision
+        Enumeration children = _contents.getAllChildren();
+        while( children.hasMoreElements() )
+        {
+            Object child = children.nextElement();
+            if( child instanceof BranchGroup )
+            {
+                TransformGroup transfG = (TransformGroup)( (BranchGroup)( child ) ).getChild( 0 );
+                Box el = (Box)( transfG.getChild( 0 ) );
+                // if(deteckBlockCollision(el.))
+                // ( (BranchGroup)child ).detach();
+            }
+        }
         _contents.addChild( childBG );
     }
 
     private void setSceneAppearance()
     {
-        float transparency = 0.9f;
-        Appearance app = new Appearance();
+        // float transparency = 0.9f;
+        // Appearance app = new Appearance();
         // app.setTransparencyAttributes( new TransparencyAttributes(
         // TransparencyAttributes.FASTEST,
         // transparency ) );
@@ -131,4 +153,5 @@ public class Scene3D
     private BranchGroup _contents;
     private World _world;
     private BoundingSphere _bounds;
+    private double _defaultZoomOut = 100.0;
 }

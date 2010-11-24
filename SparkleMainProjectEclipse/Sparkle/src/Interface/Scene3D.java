@@ -1,6 +1,8 @@
 package Interface;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.media.j3d.AmbientLight;
 import javax.media.j3d.Appearance;
@@ -36,6 +38,7 @@ public class Scene3D
         handleUserSceneInteractions();
         _universe.getViewingPlatform().setNominalViewingTransform();
         _universe.addBranchGraph( _contents );
+        _contentsOffset = _contents.numChildren();
     }
 
     private void handleUserSceneInteractions()
@@ -116,19 +119,33 @@ public class Scene3D
             Box.ENABLE_APPEARANCE_MODIFY, app ) );
         tg.getChild( 0 ).setCapability( Box.ENABLE_APPEARANCE_MODIFY );
         childBG.addChild( tg );
+        _startsOfBlocks.add( vector );
         // detect collision
         Enumeration children = _contents.getAllChildren();
-        while( children.hasMoreElements() )
-        {
-            Object child = children.nextElement();
-            if( child instanceof BranchGroup )
-            {
-                TransformGroup transfG = (TransformGroup)( (BranchGroup)( child ) ).getChild( 0 );
-                Box el = (Box)( transfG.getChild( 0 ) );
-                // if(deteckBlockCollision(el.))
-                // ( (BranchGroup)child ).detach();
-            }
-        }
+        // for( int i = 0; i < _startsOfBlocks.size(); ++i )
+        // {
+        // Object child = children.nextElement();
+        // if( child instanceof BranchGroup )
+        // {
+        // TransformGroup transfG = (TransformGroup)( (BranchGroup)( child )
+        // ).getChild( 0 );
+        // Box el = (Box)( transfG.getChild( 0 ) );
+        // Point3d newBlockSize = new Point3d( el.getXdimension(),
+        // el.getYdimension(), el
+        // .getZdimension() );
+        // Vector3d blockCenter = _startsOfBlocks.get( i );
+        // Point3d newBlockStart = new Point3d( blockCenter.x - newBlockSize.x /
+        // 2.0,
+        // blockCenter.y - newBlockSize.y / 2.0, blockCenter.z - newBlockSize.z
+        // / 2.0 );
+        // if( deteckBlockCollision( startCoordinates, size, newBlockStart,
+        // newBlockSize ) )
+        // {
+        // ( (BranchGroup)child ).detach();
+        // _startsOfBlocks.remove( i );
+        // }
+        // }
+        // }
         _contents.addChild( childBG );
     }
 
@@ -154,4 +171,11 @@ public class Scene3D
     private World _world;
     private BoundingSphere _bounds;
     private double _defaultZoomOut = 100.0;
+    /**
+     * _contentsOffset - number of children added before blocks (lights,
+     * background i inne syfy) needed as offset. Add all necessary non-block
+     * stuff before initialization this variable!
+     */
+    private int _contentsOffset = 0;
+    List<Vector3d> _startsOfBlocks = new ArrayList<Vector3d>();
 }

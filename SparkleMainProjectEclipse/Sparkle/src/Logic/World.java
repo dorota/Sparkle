@@ -23,11 +23,11 @@ public class World
     private void initWorld()
     {
         int airId = 1;
-        for( int i = 0; i < MAX_LENGTH; ++i )
+        for( int i = 0; i < getMAX_LENGTH(); ++i )
         {
-            for( int j = 0; j < MAX_LENGTH; ++j )
+            for( int j = 0; j < getMAX_LENGTH(); ++j )
             {
-                for( int k = 0; k < MAX_LENGTH; ++k )
+                for( int k = 0; k < getMAX_LENGTH(); ++k )
                 {
                     _worldCurrentValues[ i ][ j ][ k ] = new Cell( get_availableMaterials().get(
                         airId ), 20.0 );
@@ -38,8 +38,8 @@ public class World
 
     public World()
     {
-        _worldCurrentValues = new Cell[ MAX_LENGTH ][ MAX_LENGTH ][ MAX_LENGTH ];
-        set_worldOldValues( new Cell[ MAX_LENGTH ][ MAX_LENGTH ][ MAX_LENGTH ] );
+        _worldCurrentValues = new Cell[ getMAX_LENGTH() ][ getMAX_LENGTH() ][ getMAX_LENGTH() ];
+        set_worldOldValues( new Cell[ getMAX_LENGTH() ][ getMAX_LENGTH() ][ getMAX_LENGTH() ] );
         initMaterials();
         initWorld();
     }
@@ -72,5 +72,15 @@ public class World
     public void set_worldCurrentValues( Cell[][][] currentValues )
     {
         _worldCurrentValues = currentValues;
+    }
+
+    public static void setMAX_LENGTH( int mAX_LENGTH )
+    {
+        MAX_LENGTH = mAX_LENGTH;
+    }
+
+    public static int getMAX_LENGTH()
+    {
+        return MAX_LENGTH;
     }
 }

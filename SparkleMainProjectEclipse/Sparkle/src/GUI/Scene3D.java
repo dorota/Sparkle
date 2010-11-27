@@ -73,7 +73,8 @@ public class Scene3D
         float transparency = 0.8f;
         for( int i = 0; i < _world.get_availableMaterials().size(); ++i )
         {
-            System.out.println( material + " " + _world.get_availableMaterials().get( i ).get_name() );
+            System.out.println( material + " "
+                    + _world.get_availableMaterials().get( i ).get_name() );
             if( _world.get_availableMaterials().get( i ).get_name().equals( material ) )
             {
                 cellColor = _world.get_availableMaterials().get( i ).get_color();
@@ -121,13 +122,12 @@ public class Scene3D
         _contents.addChild( childBG );
     }
 
+    public void buildWorld()
+    {
+    }
+
     private void setSceneAppearance()
     {
-        // float transparency = 0.9f;
-        // Appearance app = new Appearance();
-        // app.setTransparencyAttributes( new TransparencyAttributes(
-        // TransparencyAttributes.FASTEST,
-        // transparency ) );
         AmbientLight lightA = new AmbientLight();
         lightA.setColor( new Color3f( 255, 0, 100 ) );
         _contents.addChild( lightA );

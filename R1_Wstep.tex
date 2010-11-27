@@ -1,0 +1,41 @@
+\chapter{Wstęp}
+\label{cha:wstep}
+
+%wg. strong Wojnickiego 5 pktow które powinny znaleźć się we wstępie:
+% 1. Co - przediot, problem pracy
+% 2. Jak - metoda, krotko
+% 3. Dlaczego - źrodla problemu badawczego
+% 4. Po co - implikacje, konsekwencje, walory
+% 5. Co w kolejnych rozdziałach
+\section{Temat pracy} % 1 Co
+
+Tematem pracy jest stworzenie symulacji rozprzestrzeniania się dymu i ognia 
+w opraciu o niehomogeniczne automaty komórkowe. Zakres pracy obejmuje stworzenie symulacji rozchodzenia się dymu i ognia na podstawie automatów komórkowych wraz z jej wizualizacją, a także walidację stworzonego modelu. 
+Celem pracy jest pokazanie możliwości niehomogenicznych automatów komórkowych jako narzędzia umożliwiającego 
+odzwierciedlenie rzeczywistego rozprzestrzeniania się dymu i ognia podczas pożaru. 
+
+\section {Geneza tematu} %3 i 4 - Dlaczego i po co
+
+W dobie wszechobecnej urbanizacji i ciągłego budownictwa, wraz ze wzrostem świadomości dotyczącej bezpieczeństwa
+pożarowego oraz zaangażowania w jego zagwarantowaniu pojawiła się potrzeba możliwości modelowania i obserwacji rozprzestrzeniania się ognia w zamkniętych budynkach.
+Wspomniane symulacje pożarów wykazują szereg zastosowań. Są z powodzeniem wykorzystywane w śledztwach. Dają możliwość odtworzenia przebiegu zdarzeń i porównania z wynikami oględzin. Umożliwiają
+zbadanie prototypu budynku pod kątem gwarancji bezpieczeństwa pożarowego. 
+Ułatwiają projektowanie systemów oddymiania. W połączeniu z modelami ewakuacji ludzi
+stanowią kompleksowy system ułatwiający tworzenie bezpiecznych budowli.
+
+W ostatnich latach powstał szereg programów umożliwiających wizualizcję symulacji rozchodzenia ognia. Opracowane dotychczas rozwiązania swoje działanie 
+opierają na metodach numerycznej dynamiki płynów (ang. Computational Fluid Dynamics). Niewątpliwą zaletą numerycznego podejścia jest dokładność wyników. 
+Głównymi wadami jest złożoność obliczeń i stopień komplikacji modelu. 
+Niehomogeniczne automaty komórkowe umożliwiają znaczne uproszczenie modelu. Uproszczenie modelu powoduje z kolei redukcję złożoności
+obliczeń czyniąc automaty komórkowe szczególnie dogodną metodą w przypadku tworzenia prototypów oraz symulacji czasu rzeczywistego.
+
+\section {Realizacja projektu} % 2 - jak
+Praca została zrealizowana jako wolnostojąca aplikacja komputerowa napisana w języku Java. Do renderowania grafiki trójwymiarowej
+zostala użyta biblioteka graficzna Java3D. Aplikacja została przetestowana z wykorzystaniem biblioteki JUnit4. 
+
+\section{Zawartość pracy} % 5 - co w kolejnych rozdziałach Tutaj na pewno trzeba dać odnośniki do rozdziałów a nie tytuły!
+W kolejnym rozdziale znajdują się podstawy teoretyczne, związane zarówno z modelowanymi zjawiskami fizycznymi jak i użytym algorytmem.
+Rozdział Modele symulacji zawiera propozycje zweryfikowanych modeli rozprzestrzeniania się dymu i ognia zaprojektowanych w oparciu
+o niehomogeniczne automaty komórkowe. Rozdział Implementacja przedstawia sposób realizacji projektu, napotkane problemy oraz 
+ich rozwiązania. Opisuje możliwości graficznego interfejsu użytkownika oraz sposób korzystania z niego.
+ % W podsumowaniu znajduje się podsumowanie.... nie wiem jeszcze jak to ładnie ująć

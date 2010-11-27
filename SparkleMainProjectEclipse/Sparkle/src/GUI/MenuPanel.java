@@ -2,6 +2,8 @@ package GUI;
 
 import javax.vecmath.Point3d;
 
+import Logic.World;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -542,4 +544,5 @@ public class MenuPanel extends javax.swing.JPanel
     private double _ySize;
     private double _zSize;
     Scene3D _editedScene;
+    World _world;
 }

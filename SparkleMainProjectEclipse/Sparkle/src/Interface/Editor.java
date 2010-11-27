@@ -10,6 +10,7 @@
 package Interface;
 
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.border.TitledBorder;
@@ -33,6 +34,24 @@ public class Editor extends javax.swing.JPanel
         this.setLayout( layout );
         this.add( _editorTextArea, BorderLayout.CENTER );
         createTitledBorder();
+        _editorTextArea.addKeyListener( new java.awt.event.KeyAdapter()
+        {
+            @Override
+            public void keyPressed( java.awt.event.KeyEvent evt )
+            {
+                _editorTextAreaKeyTyped( evt );
+            }
+        } );
+    }
+
+    private void _editorTextAreaKeyTyped( java.awt.event.KeyEvent evt )
+    {
+        _textAreaContent = _editorTextArea.getText();
+        if( evt.getKeyCode() == KeyEvent.VK_ENTER )
+        {
+            String lastLine = EditorParser.getLastLine( _textAreaContent );
+            System.out.println( "last line was " + lastLine );
+        }
     }
 
     private void createTitledBorder()
@@ -44,4 +63,5 @@ public class Editor extends javax.swing.JPanel
     // Variables declaration - do not modify
     private java.awt.TextArea _editorTextArea;
     // End of variables declaration
+    private String _textAreaContent;
 }

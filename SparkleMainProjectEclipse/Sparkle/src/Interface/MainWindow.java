@@ -3,6 +3,7 @@ package Interface;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import javax.media.j3d.Canvas3D;
 import javax.swing.JFrame;
@@ -17,9 +18,11 @@ class MainWindow
     private MenuPanel _menuPanel;
     private Scene3D _scene;
     private Editor _editor;
+    Dimension _screenDimension;
 
     public MainWindow()
     {
+        setScreenDimensiosn();
         _frame = new JFrame();
         _sceneCanvas = new Canvas3D( SimpleUniverse.getPreferredConfiguration() );
         _scene = new Scene3D( _sceneCanvas );
@@ -28,12 +31,19 @@ class MainWindow
         initWindow();
     }
 
+    private void setScreenDimensiosn()
+    {
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        _screenDimension = toolkit.getScreenSize();
+    }
+
     private void initWindow()
     {
         _frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         int minWindowWidth = 1500;
         int minWindowHeight = 600;
         _frame.setMinimumSize( new Dimension( minWindowWidth, minWindowHeight ) );
+        _frame.setPreferredSize( _screenDimension );
         _frame.setExtendedState( JFrame.MAXIMIZED_BOTH );
         _sceneCanvas.setBackground( Color.black );
         BorderLayout layout = new BorderLayout();

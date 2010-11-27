@@ -7,7 +7,7 @@
  *
  * Created on 2010-11-25, 22:06:30
  */
-package Interface;
+package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;

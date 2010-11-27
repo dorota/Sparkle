@@ -1,4 +1,4 @@
-package Interface;
+package GUI;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -55,34 +55,6 @@ public class Scene3D
         behavior.setSchedulingBounds( _bounds );
     }
 
-    /**
-     * Checks whether block A is inside block B
-     * 
-     * @param startPointA
-     *            - left-front-bottom Point of A box
-     * @param sizeA
-     *            - A dimensions
-     * @param startPointB
-     * @param sizeB
-     * @return
-     */
-    private boolean deteckBlockCollision( Point3d startPointA, Point3d sizeA, Point3d startPointB,
-            Point3d sizeB )
-    {
-        if( startPointA.x >= startPointB.x && startPointA.x + sizeA.x < startPointB.x + sizeB.x
-                && startPointA.y >= startPointB.y
-                && startPointA.y + sizeA.y < startPointB.y + sizeB.y
-                && startPointA.z >= startPointB.z
-                && startPointA.z + sizeA.z <= startPointB.z + sizeB.z )
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     public void updateScene()
     {
     }
@@ -99,13 +71,13 @@ public class Scene3D
         Appearance app = new Appearance();
         Color3f cellColor = new Color3f();
         float transparency = 0.8f;
-        for( int i = 0; i < _world._availableMaterials.size(); ++i )
+        for( int i = 0; i < _world.get_availableMaterials().size(); ++i )
         {
-            System.out.println( material + " " + _world._availableMaterials.get( i )._name );
-            if( _world._availableMaterials.get( i )._name.equals( material ) )
+            System.out.println( material + " " + _world.get_availableMaterials().get( i ).get_name() );
+            if( _world.get_availableMaterials().get( i ).get_name().equals( material ) )
             {
-                cellColor = _world._availableMaterials.get( i )._color;
-                transparency = (float)_world._availableMaterials.get( i )._transparency;
+                cellColor = _world.get_availableMaterials().get( i ).get_color();
+                transparency = (float)_world.get_availableMaterials().get( i ).get_transparency();
             }
         }
         ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,

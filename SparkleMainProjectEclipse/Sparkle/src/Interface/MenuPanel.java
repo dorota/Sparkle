@@ -9,6 +9,8 @@
  */
 package Interface;
 
+import java.awt.Color;
+
 import javax.vecmath.Point3d;
 
 /**
@@ -21,7 +23,13 @@ public class MenuPanel extends javax.swing.JPanel
     public MenuPanel( Scene3D scene )
     {
         _editedScene = scene;
+        setBackgroundColor();
         initComponents();
+    }
+
+    private void setBackgroundColor()
+    {
+        this.setBackground( new Color( 255, 0, 0 ) );
     }
 
     /**

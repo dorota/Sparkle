@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  28 NOV 2010 15:38
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  28 NOV 2010 15:47
 entering extended mode
 **D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
 (D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
@@ -454,7 +454,9 @@ File: lstlang3.sty 2004/09/05 1.3 listings language file
 LaTeX Warning: Unused global option(s):
     [pdflatex,11pt].
 
-No file PracaMain.aux.
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R1_Wstep.aux)
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
@@ -468,6 +470,7 @@ LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Try loading font information for T1+ptm on input line 38.
+
 ("C:\Program Files\Miktex\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
@@ -588,12 +591,12 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 42.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 42.
-
-No file PracaMain.toc.
+ (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.toc)
 \tf@toc=\write3
-[5
+ [5
 
-] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R1_Wstep.tex
+]
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R1_Wstep.tex
 Rozdzia\l  1.
 ) [6
 
@@ -615,74 +618,54 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 5.
 
+<MVC.jpg, id=30, 274.02374pt x 157.18726pt>
+File: MVC.jpg Graphic file (type jpg)
+ <use MVC.jpg>
+<modifiedMVC.jpg, id=31, 308.95425pt x 185.493pt>
+File: modifiedMVC.jpg Graphic file (type jpg)
+ <use modifiedMVC.jpg>
+Underfull \vbox (badness 3612) has occurred while \output is active []
 
-LaTeX Warning: File `MVC.jpeg' not found on input line 18.
-
-
-! Package pdftex.def Error: File `MVC.jpeg' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.18 \includegraphics{MVC.jpeg}
-                               
-? 
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 18.
-("C:\Program Files\Miktex\tex\latex\psnfss\t1pcr.fd"
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-
-LaTeX Warning: File `modifiedMVC.jpeg' not found on input line 21.
-
-
-! Package pdftex.def Error: File `modifiedMVC.jpeg' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 \includegraphics{modifiedMVC.jpeg}
-                                       
-? 
-) [8
+ [8
 
 
 
-]
+ <D:/Studia/Sparkle/Sparkle/Ksiazeczka/MVC.jpg>])
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
 l.46 \include{R3_Projekt}
                          
 ? 
-[9]
-No file PracaMain.bbl.
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
+[9 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/modifiedMVC.jpg>]
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
+
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
+
+) [10
+
+
+] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R1_Wstep.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux)) ) 
 Here is how much of TeX's memory you used:
- 4742 strings out of 495285
- 62014 string characters out of 3180683
+ 4730 strings out of 495285
+ 62248 string characters out of 3180683
  150657 words of memory out of 3000000
- 7831 multiletter control sequences out of 15000+200000
- 85396 words of font info for 69 fonts, out of 3000000 for 9000
+ 7815 multiletter control sequences out of 15000+200000
+ 84775 words of font info for 67 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  32i,11n,45p,330b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/Miktex/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Mi
-ktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/Miktex/fonts/t
-ype1/urw/courier/ucrr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/u
-hvb8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Prog
-ram Files/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/Miktex/font
-s/type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utm
-r8a.pfb>
-Output written on PracaMain.pdf (9 pages, 167351 bytes).
+{C:/Program Files/Mikte
+x/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Miktex/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/uhvb8a.
+pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Fi
+les/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/Miktex/fonts/type
+1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmr8a.pf
+b>
+Output written on PracaMain.pdf (10 pages, 184499 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
+ 63 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

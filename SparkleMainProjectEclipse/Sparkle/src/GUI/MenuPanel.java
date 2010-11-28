@@ -496,8 +496,9 @@ public class MenuPanel extends javax.swing.JPanel
     {
         Point3d blockCenter = new Point3d( _xCoordinate + _xSize / 2.0,
             _yCoordinate + _ySize / 2.0, _zCoordinate + _zSize / 2.0 );
-        _editedScene
-                .addNewBlock( _materialName, blockCenter, new Point3d( _xSize, _ySize, _zSize ) );
+        // _editedScene
+        // .addNewBlock( _materialName, blockCenter, new Point3d( _xSize,
+        // _ySize, _zSize ) );
     }
 
     // Variables declaration - do not modify

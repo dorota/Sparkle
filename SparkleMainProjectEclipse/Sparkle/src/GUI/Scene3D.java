@@ -1,7 +1,6 @@
 package GUI;
 
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.media.j3d.AmbientLight;
@@ -29,7 +28,6 @@ public class Scene3D
 {
     public Scene3D( Canvas3D canvas )
     {
-        _world = new World();
         _contents = new BranchGroup();
         _contents.setCapability( BranchGroup.ALLOW_CHILDREN_EXTEND );
         _contents.setCapability( BranchGroup.ALLOW_DETACH );
@@ -39,6 +37,21 @@ public class Scene3D
         _universe.getViewingPlatform().setNominalViewingTransform();
         _universe.addBranchGraph( _contents );
         _contentsOffset = _contents.numChildren();
+    }
+
+    public int get_contentsOffset()
+    {
+        return _contentsOffset;
+    }
+
+    public void set_contentsOffset( int offset )
+    {
+        _contentsOffset = offset;
+    }
+
+    public int getNumberOfBlocks()
+    {
+        return _contents.numChildren() - _contentsOffset;
     }
 
     private void handleUserSceneInteractions()
@@ -59,71 +72,63 @@ public class Scene3D
     {
     }
 
-    public void addNewBlock( String material, Point3d startCoordinates, Point3d size )
+    /**
+     * Ad block with default size of 50cm x 50cm x 50cm
+     * 
+     * @param material
+     *            - name of material. Must be rom World._availableMaterials
+     *            list.
+     * @param startCoordinates
+     *            - given in cells unit
+     * 
+     */
+    public void addNewBlock( Logic.Material material, Vector3d startCoordinates, Point3d blocSize )
     {
         BranchGroup childBG = new BranchGroup();
         TransformGroup tg = new TransformGroup();
         Transform3D transform = new Transform3D();
-        Vector3d vector = new Vector3d( startCoordinates.x / 100.0f, startCoordinates.y / 100.0f,
-            startCoordinates.z / 100.0f );
+        Vector3d vector = new Vector3d( startCoordinates.x, startCoordinates.y, startCoordinates.z );
         transform.setTranslation( vector );
         tg.setTransform( transform );
         Appearance app = new Appearance();
         Color3f cellColor = new Color3f();
         float transparency = 0.8f;
-        for( int i = 0; i < _world.get_availableMaterials().size(); ++i )
-        {
-            System.out.println( material + " "
-                    + _world.get_availableMaterials().get( i ).get_name() );
-            if( _world.get_availableMaterials().get( i ).get_name().equals( material ) )
-            {
-                cellColor = _world.get_availableMaterials().get( i ).get_color();
-                transparency = (float)_world.get_availableMaterials().get( i ).get_transparency();
-            }
-        }
+        cellColor = material.get_color();
+        transparency = (float)material.get_transparency();
         ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,
             ColoringAttributes.NICEST );
         app.setColoringAttributes( coloringAttributes );
         app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
             transparency ) );
-        System.out.println( size.x + " " + size.y + " " + size.z );
-        tg.addChild( new Box( (float)( size.x / _defaultZoomOut ),
-            (float)( size.y / _defaultZoomOut ), (float)( size.z / _defaultZoomOut ),
-            Box.ENABLE_APPEARANCE_MODIFY, app ) );
+        tg.addChild( new Box( (float)( blocSize.x / 2 ), (float)( blocSize.y / 2 ),
+            (float)( blocSize.z / 2 ), Box.ENABLE_APPEARANCE_MODIFY, app ) );
         tg.getChild( 0 ).setCapability( Box.ENABLE_APPEARANCE_MODIFY );
         childBG.addChild( tg );
         _startsOfBlocks.add( vector );
-        // detect collision
-        Enumeration children = _contents.getAllChildren();
-        // for( int i = 0; i < _startsOfBlocks.size(); ++i )
-        // {
-        // Object child = children.nextElement();
-        // if( child instanceof BranchGroup )
-        // {
-        // TransformGroup transfG = (TransformGroup)( (BranchGroup)( child )
-        // ).getChild( 0 );
-        // Box el = (Box)( transfG.getChild( 0 ) );
-        // Point3d newBlockSize = new Point3d( el.getXdimension(),
-        // el.getYdimension(), el
-        // .getZdimension() );
-        // Vector3d blockCenter = _startsOfBlocks.get( i );
-        // Point3d newBlockStart = new Point3d( blockCenter.x - newBlockSize.x /
-        // 2.0,
-        // blockCenter.y - newBlockSize.y / 2.0, blockCenter.z - newBlockSize.z
-        // / 2.0 );
-        // if( deteckBlockCollision( startCoordinates, size, newBlockStart,
-        // newBlockSize ) )
-        // {
-        // ( (BranchGroup)child ).detach();
-        // _startsOfBlocks.remove( i );
-        // }
-        // }
-        // }
         _contents.addChild( childBG );
     }
 
-    public void buildWorld()
+    /**
+     * creates scene representation of world with given dimensions
+     * World.getMAX_LENGTH. Created world contains only air.
+     */
+    public void buildWorld( Logic.Material defaultMaterial, int worldX, int worldY, int worldZ )
     {
+        System.out.println( "how many world we build" );
+        double blockSize = 0.05;
+        for( int i = 0; i < worldX; ++i )
+        {
+            for( int j = 0; j < worldY; ++j )
+            {
+                for( int k = 0; k < worldZ; ++k )
+                {
+                    Vector3d blockPos = Helpers.WorldSceneMediator
+                            .changeWorldPlacementToScenePlacement( i, j, k, blockSize );
+                    addNewBlock( defaultMaterial, blockPos, new Point3d( blockSize, blockSize,
+                        blockSize ) );
+                }
+            }
+        }
     }
 
     private void setSceneAppearance()
@@ -140,6 +145,17 @@ public class Scene3D
 
     private SimpleUniverse _universe;
     private BranchGroup _contents;
+
+    public BranchGroup get_contents()
+    {
+        return _contents;
+    }
+
+    public void set_contents( BranchGroup _contents )
+    {
+        this._contents = _contents;
+    }
+
     private World _world;
     private BoundingSphere _bounds;
     private double _defaultZoomOut = 100.0;
@@ -150,4 +166,14 @@ public class Scene3D
      */
     private int _contentsOffset = 0;
     List<Vector3d> _startsOfBlocks = new ArrayList<Vector3d>();
+
+    public List<Vector3d> get_startsOfBlocks()
+    {
+        return _startsOfBlocks;
+    }
+
+    public void set_startsOfBlocks( List<Vector3d> ofBlocks )
+    {
+        _startsOfBlocks = ofBlocks;
+    }
 }

@@ -9,6 +9,8 @@ import javax.media.j3d.Canvas3D;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Logic.World;
+
 import com.sun.j3d.utils.universe.SimpleUniverse;
 
 class MainWindow
@@ -19,6 +21,7 @@ class MainWindow
     private Scene3D _scene;
     private Editor _editor;
     Dimension _screenDimension;
+    private World _world;
 
     public MainWindow()
     {
@@ -26,6 +29,8 @@ class MainWindow
         _frame = new JFrame();
         _sceneCanvas = new Canvas3D( SimpleUniverse.getPreferredConfiguration() );
         _scene = new Scene3D( _sceneCanvas );
+        _world = new World( _scene );
+        _world.initWorld( _scene );
         _menuPanel = new MenuPanel( _scene );
         _editor = new Editor();
         initWindow();
@@ -52,7 +57,6 @@ class MainWindow
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout( new BorderLayout() );
         mainPanel.add( _sceneCanvas, BorderLayout.CENTER );
-        System.out.println( "main part w " + ( _frame.getWidth() - _menuPanel.getWidth() ) );
         _editor.initComponents( _frame.getWidth() - _menuPanel.getWidth(), 200 );
         mainPanel.add( _editor, BorderLayout.SOUTH );
         // _frame.add( _editor, BorderLayout.SOUTH );

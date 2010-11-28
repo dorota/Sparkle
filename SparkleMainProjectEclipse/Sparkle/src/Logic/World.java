@@ -5,12 +5,14 @@ import java.util.List;
 
 import javax.vecmath.Color3f;
 
+import GUI.Scene3D;
+
 public class World
 {
     private List<Material> _availableMaterials = new ArrayList<Material>();
     private Cell _worldCurrentValues[][][];
     private Cell _worldOldValues[][][]; // needed for double-buffering
-    private static int MAX_LENGTH = 50;
+    private static int MAX_LENGTH = 15;
 
     private void initMaterials()
     {
@@ -20,7 +22,7 @@ public class World
                 .add( new Material( "Air", new Color3f( 0.0f, 0.0f, 1.0f ), 1, 0.9 ) );
     }
 
-    private void initWorld()
+    public void initWorld( Scene3D scene )
     {
         int airId = 1;
         for( int i = 0; i < getMAX_LENGTH(); ++i )
@@ -34,14 +36,24 @@ public class World
                 }
             }
         }
+        Material defaultMaterial = null;
+        for( int i = 0; i < _availableMaterials.size(); ++i )
+        {
+            if( _availableMaterials.get( i ).get_name().equals( "Air" ) )
+            {
+                defaultMaterial = _availableMaterials.get( i );
+                break;
+            }
+        }
+        assert ( defaultMaterial != null );
+        scene.buildWorld( defaultMaterial, getMAX_LENGTH(), getMAX_LENGTH(), getMAX_LENGTH() );
     }
 
-    public World()
+    public World( Scene3D scene )
     {
         _worldCurrentValues = new Cell[ getMAX_LENGTH() ][ getMAX_LENGTH() ][ getMAX_LENGTH() ];
         set_worldOldValues( new Cell[ getMAX_LENGTH() ][ getMAX_LENGTH() ][ getMAX_LENGTH() ] );
         initMaterials();
-        initWorld();
     }
 
     public void set_availableMaterials( List<Material> _availableMaterials )

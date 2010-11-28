@@ -10,8 +10,9 @@ import javax.vecmath.Vector3d;
 
 import org.junit.Test;
 
-import Logic.Material;
-import Logic.World;
+import Model.Material;
+import Model.World;
+import View.Scene3D;
 
 import com.sun.j3d.utils.universe.SimpleUniverse;
 

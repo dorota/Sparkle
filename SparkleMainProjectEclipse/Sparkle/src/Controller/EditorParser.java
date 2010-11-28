@@ -1,4 +1,4 @@
-package GUI;
+package Controller;
 
 public class EditorParser
 {

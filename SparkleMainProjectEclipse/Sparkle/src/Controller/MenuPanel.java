@@ -1,8 +1,9 @@
-package GUI;
+package Controller;
 
 import javax.vecmath.Point3d;
 
-import Logic.World;
+import Model.World;
+import View.Scene3D;
 
 /*
  * To change this template, choose Tools | Templates

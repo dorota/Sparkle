@@ -1,0 +1,31 @@
+\chapter {Projekt}
+\label{cha:projekt}
+\section {Główne zalożenia}
+\begin {itemize}
+\item Głównym celem projektu jest stworzenie i weryfikacja modelu rozprzestrzeniania się ognia wykorzystując niehomogeniczne automaty
+komórkowe. Nacisk z pracy został położony na opracowanie algorytmu najdokładniej oddającego rzeczywistość.
+\item Projekt obejmuje także swtworzenie uproszczonej wizualizacji symulacji oraz graficznego interfejsu użytkownika (GUI).
+\item Interfejs aplikacji powinien umożliwiać edycję budynku w którym przeprowadzana jest symulacja: dodawanie elementów konstrukcji, 
+określanie materiałów z których zostały stworzone. 
+\item Użytkownik powinien mieć możliwość określenia źródła ognia: zarówno jego miejsca jak i temperatury początkowej.
+\item Aplikacja powinna umożliwiać także kontrolę nad symulacją: możliwość zatrzymania symulacji, wznowienia, rozpoczęcia od początku,
+a także dostosowanie tempa symulacji umożliwiającego obserwację zjawisk fizycznych.
+\end {itemize}
+\section {Architektura aplikacji}
+% w bibliografi powinno byc coś o tej architekturze i def. aktywnego modelu
+Aplikacja została zaprojektowana zgodnie z architekturą Model-View-Controller.
+Poniższy schemat przedstawia typowy przykład architektury Model-View-Controller:
+\includegraphics{MVC.jpeg}
+W omawianej pracy została zaimplementowana pewna odmiana typowej architektury Model-Widok-Kontroler.
+Najodpowiedniej przedstawia ją poniższy rysunek:
+\includegraphics{modifiedMVC.jpeg}
+Kontroler odpowiada za pobranie danych od użytkownika, ich przetworzenie oraz dostarczenie do modelu.
+Został zastosowany przypadek aktywnego modelu, który zgodnie z definicją potrafi zmieniać swój stan 
+bez względu na akcje wykonywane przez użytkownika. W projekcie symulacji pożaru aktywność modelu polega na 
+wykonywaniu pętli symulacji, związanych z nią obliczeń, powiadamianiu widoku o zachodzących zmianach oraz
+końcu symulacji. Widok odpowiada jedynie za prezentację wyników symulacji.
+Wybrana architektura umożliwia elastyczny rozwój aplikacji. Wprowadzony podział na trzy odrębne moduły pozwala
+na nieograniczone zmiany w każdym z nich, nie powodując konieczności zmian innych części aplikacji.
+Inną zaletą separacji jest łatwość testowania poszcególnych modułów osobno. 
+\section {Moduły}
+\section {Obiekty}

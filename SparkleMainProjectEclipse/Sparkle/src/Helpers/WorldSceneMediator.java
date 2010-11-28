@@ -2,7 +2,7 @@ package Helpers;
 
 import javax.vecmath.Vector3d;
 
-import Logic.World;
+import Model.World;
 
 //not tested - don't know if it works
 public class WorldSceneMediator

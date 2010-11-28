@@ -1,4 +1,4 @@
-package GUI;
+package View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
-import Logic.World;
+import Model.World;
 
 import com.sun.j3d.utils.behaviors.keyboard.KeyNavigatorBehavior;
 import com.sun.j3d.utils.behaviors.mouse.MouseRotate;
@@ -82,7 +82,7 @@ public class Scene3D
      *            - given in cells unit
      * 
      */
-    public void addNewBlock( Logic.Material material, Vector3d startCoordinates, Point3d blocSize )
+    public void addNewBlock( Model.Material material, Vector3d startCoordinates, Point3d blocSize )
     {
         BranchGroup childBG = new BranchGroup();
         TransformGroup tg = new TransformGroup();
@@ -112,7 +112,7 @@ public class Scene3D
      * creates scene representation of world with given dimensions
      * World.getMAX_LENGTH. Created world contains only air.
      */
-    public void buildWorld( Logic.Material defaultMaterial, int worldX, int worldY, int worldZ )
+    public void buildWorld( Model.Material defaultMaterial, int worldX, int worldY, int worldZ )
     {
         System.out.println( "how many world we build" );
         double blockSize = 0.05;

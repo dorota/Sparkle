@@ -1,4 +1,4 @@
-package Logic;
+package Model;
 
 import javax.vecmath.Color3f;
 

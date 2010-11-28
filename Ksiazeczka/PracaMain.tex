@@ -1,0 +1,56 @@
+\documentclass[pdflatex,11pt]{aghdpl}
+% \documentclass{aghdpl}               % przy kompilacji programem latex
+% \documentclass[pdflatex,en]{aghdpl}  % praca w j?zyku angielskim
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+
+% dodatkowe pakiety
+\usepackage{enumerate}
+\usepackage{listings}
+\lstloadlanguages{TeX}
+
+
+
+%---------------------------------------------------------------------------
+
+\author{Dorota Wojtałow, Jacek Złydach}
+\shortauthor{D. Wojtałów, J. Złydach}
+%\shortauthor{M. Szpyrka}
+
+\titlePL{Symulacja rozprzestrzeniania się dymu i ognia w oparciu o niehomogeniczne automaty komórkowe}
+\titleEN{Simulation of fire and smoke by using non-homogeous cellular automata}
+%\titleEN{Thesis in \LaTeX}
+
+
+\thesistypePL{Praca inżynierska}
+
+\supervisorPL{dr inż. Jarosław Wąs}
+\supervisorEN{Jarosław Wąs Ph.D}
+
+\date{2010}
+
+\facultyPL{Wydział Elektrotechniki, Automatyki, Informatyki i Elektroniki}
+
+\acknowledgements{Serdecznie dziękujemy \dots }
+
+%---------------------------------------------------------------------------
+
+\begin{document}
+
+\titlepages
+
+\tableofcontents
+\clearpage
+
+\include{R1_Wstep}
+\include{R3_Projekt}
+% itd.
+% \appendix
+% \include{dodatekA}
+% \include{dodatekB}
+% itd.
+
+\bibliography{bibliografia}
+
+\end{document}
+

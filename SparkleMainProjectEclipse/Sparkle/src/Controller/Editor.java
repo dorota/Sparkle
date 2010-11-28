@@ -7,13 +7,14 @@
  *
  * Created on 2010-11-25, 22:06:30
  */
-package GUI;
+package Controller;
 
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.border.TitledBorder;
+
 
 /**
  * 

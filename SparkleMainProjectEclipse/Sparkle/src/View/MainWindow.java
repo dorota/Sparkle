@@ -1,4 +1,4 @@
-package GUI;
+package View;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,7 +9,9 @@ import javax.media.j3d.Canvas3D;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Logic.World;
+import Controller.Editor;
+import Controller.MenuPanel;
+import Model.World;
 
 import com.sun.j3d.utils.universe.SimpleUniverse;
 

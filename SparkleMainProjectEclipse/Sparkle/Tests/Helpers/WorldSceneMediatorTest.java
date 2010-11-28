@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import Logic.World;
+import Model.World;
 
 public class WorldSceneMediatorTest
 {

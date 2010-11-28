@@ -1,0 +1,11 @@
+\select@language {polish}
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{6}
+\contentsline {section}{\numberline {1.1}Temat pracy}{6}
+\contentsline {section}{\numberline {1.2}Geneza tematu}{6}
+\contentsline {section}{\numberline {1.3}Realizacja projektu}{6}
+\contentsline {section}{\numberline {1.4}Struktura pracy}{6}
+\contentsline {chapter}{\numberline {2}Projekt}{8}
+\contentsline {section}{\numberline {2.1}G\IeC {\l }\IeC {\'o}wne zalo\IeC {\.z}enia}{8}
+\contentsline {section}{\numberline {2.2}Architektura aplikacji}{8}
+\contentsline {section}{\numberline {2.3}Modu\IeC {\l }y}{9}
+\contentsline {section}{\numberline {2.4}Obiekty}{9}

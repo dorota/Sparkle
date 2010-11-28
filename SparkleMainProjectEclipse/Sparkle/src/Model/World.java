@@ -1,11 +1,12 @@
-package Logic;
+package Model;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.vecmath.Color3f;
 
-import GUI.Scene3D;
+import View.Scene3D;
+
 
 public class World
 {

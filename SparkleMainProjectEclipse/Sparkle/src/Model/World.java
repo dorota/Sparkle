@@ -3,58 +3,96 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.vecmath.Color3f;
+import javax.vecmath.Point3d;
 
+import Helpers.EnvSettings;
 import View.Scene3D;
-
 
 public class World
 {
     private List<Material> _availableMaterials = new ArrayList<Material>();
     private Cell _worldCurrentValues[][][];
     private Cell _worldOldValues[][][]; // needed for double-buffering
-    private static int MAX_LENGTH = 15;
+    private static World _instance = new World(
+        Scene3D.getScene( Controller.MainWindow._sceneCanvas ) );
 
     private void initMaterials()
     {
         get_availableMaterials().add(
-            new Material( "Wood", new Color3f( 1.0f, 0.0f, 0.0f ), 1240, 0.8 ) );
-        get_availableMaterials()
-                .add( new Material( "Air", new Color3f( 0.0f, 0.0f, 1.0f ), 1, 0.9 ) );
+            new Material( "Wood", EnvSettings.WOOD_COLOR, EnvSettings.WOOD_SPECIFIC_HEAT,
+                EnvSettings.WOOD_TRANSPARENCY ) );
+        get_availableMaterials().add(
+            new Material( "Air", EnvSettings.AIR_COLOR, EnvSettings.AIR_SPECIFIC_HEAT,
+                EnvSettings.AIR_TRANSPARENCY ) );
     }
 
     public void initWorld( Scene3D scene )
     {
         int airId = 1;
-        for( int i = 0; i < getMAX_LENGTH(); ++i )
+        for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
         {
-            for( int j = 0; j < getMAX_LENGTH(); ++j )
+            for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
             {
-                for( int k = 0; k < getMAX_LENGTH(); ++k )
+                for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
                 {
                     _worldCurrentValues[ i ][ j ][ k ] = new Cell( get_availableMaterials().get(
                         airId ), 20.0 );
+                    _worldOldValues[ i ][ j ][ k ] = new Cell(
+                        get_availableMaterials().get( airId ), 20.0 );
                 }
             }
         }
-        Material defaultMaterial = null;
-        for( int i = 0; i < _availableMaterials.size(); ++i )
-        {
-            if( _availableMaterials.get( i ).get_name().equals( "Air" ) )
-            {
-                defaultMaterial = _availableMaterials.get( i );
-                break;
-            }
-        }
+        Material defaultMaterial = getMaterial( "Air" );
         assert ( defaultMaterial != null );
-        scene.buildWorld( defaultMaterial, getMAX_LENGTH(), getMAX_LENGTH(), getMAX_LENGTH() );
+        scene.createdWorldRepresentation( defaultMaterial, EnvSettings.getMAX_LENGTH(),
+            EnvSettings.getMAX_LENGTH(), EnvSettings.getMAX_LENGTH() );
     }
 
-    public World( Scene3D scene )
+    private Material getMaterial( String materialName )
     {
-        _worldCurrentValues = new Cell[ getMAX_LENGTH() ][ getMAX_LENGTH() ][ getMAX_LENGTH() ];
-        set_worldOldValues( new Cell[ getMAX_LENGTH() ][ getMAX_LENGTH() ][ getMAX_LENGTH() ] );
+        for( int i = 0; i < _availableMaterials.size(); ++i )
+        {
+            if( _availableMaterials.get( i ).get_name().equals( materialName ) )
+            {
+                return _availableMaterials.get( i );
+            }
+        }
+        return null;
+    }
+
+    public void addBuildingPart( Point3d leftBottomBackCorner, Point3d size, String materialName,
+            Scene3D scene )
+    {
+        for( int i = (int)leftBottomBackCorner.y; i < size.y; ++i )
+        {
+            for( int j = (int)leftBottomBackCorner.z; j < size.z; ++j )
+            {
+                for( int k = (int)leftBottomBackCorner.x; k < size.x; ++k )
+                {
+                    Material mat = getMaterial( materialName );
+                    // System.out.println( mat );
+                    _worldCurrentValues[ i ][ j ][ k ].set_material( mat );
+                    int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( k, j,
+                        i );
+                    scene.updateBlock( mat, blockIndex );
+                }
+            }
+        }
+    }
+
+    public static World getWorld( Scene3D scene )
+    {
+        return _instance;
+    }
+
+    private World( Scene3D scene )
+    {
+        _worldCurrentValues = new Cell[ EnvSettings.getMAX_LENGTH() ][ EnvSettings.getMAX_LENGTH() ][ EnvSettings
+                .getMAX_LENGTH() ];
+        set_worldOldValues( new Cell[ EnvSettings.getMAX_LENGTH() ][ EnvSettings.getMAX_LENGTH() ][ EnvSettings
+                .getMAX_LENGTH() ] );
         initMaterials();
+        initWorld( scene );
     }
 
     public void set_availableMaterials( List<Material> _availableMaterials )
@@ -85,15 +123,5 @@ public class World
     public void set_worldCurrentValues( Cell[][][] currentValues )
     {
         _worldCurrentValues = currentValues;
-    }
-
-    public static void setMAX_LENGTH( int mAX_LENGTH )
-    {
-        MAX_LENGTH = mAX_LENGTH;
-    }
-
-    public static int getMAX_LENGTH()
-    {
-        return MAX_LENGTH;
     }
 }

@@ -24,6 +24,7 @@ public class MenuPanel extends javax.swing.JPanel
     public MenuPanel( Scene3D scene )
     {
         _editedScene = scene;
+        _world = World.getWorld( scene );
         // createTitle
         // setBackgroundColor();
         initComponents();
@@ -133,31 +134,36 @@ public class MenuPanel extends javax.swing.JPanel
         _simulationTab.setLayout( _simulationTabLayout );
         _simulationTabLayout.setHorizontalGroup( _simulationTabLayout.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addGroup(
-            _simulationTabLayout.createSequentialGroup().addContainerGap().addGroup(
-                _simulationTabLayout
-                        .createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING )
-                        .addComponent( _simulationStopButton,
-                            javax.swing.GroupLayout.Alignment.TRAILING,
-                            javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE )
-                        .addComponent( _simulationRestartButton,
-                            javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE )
-                        .addComponent( _simulationContinueButton,
-                            javax.swing.GroupLayout.Alignment.TRAILING,
-                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE ).addComponent(
-                            _simulationPauseButton, javax.swing.GroupLayout.DEFAULT_SIZE, 83,
-                            Short.MAX_VALUE ).addComponent( _simulationStartButton,
-                            javax.swing.GroupLayout.Alignment.TRAILING,
-                            javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE ) ).addGap(
-                183, 183, 183 ) ) );
+            _simulationTabLayout
+                    .createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(
+                        _simulationTabLayout
+                                .createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING )
+                                .addComponent( _simulationStopButton,
+                                    javax.swing.GroupLayout.Alignment.TRAILING,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE )
+                                .addComponent( _simulationRestartButton,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE )
+                                .addComponent( _simulationContinueButton,
+                                    javax.swing.GroupLayout.Alignment.TRAILING,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE )
+                                .addComponent( _simulationPauseButton,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE )
+                                .addComponent( _simulationStartButton,
+                                    javax.swing.GroupLayout.Alignment.TRAILING,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE ) )
+                    .addGap( 183, 183, 183 ) ) );
         _simulationTabLayout.setVerticalGroup( _simulationTabLayout.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addGroup(
-            _simulationTabLayout.createSequentialGroup().addGap( 31, 31, 31 ).addComponent(
-                _simulationStartButton ).addGap( 18, 18, 18 ).addComponent( _simulationStopButton )
-                    .addGap( 18, 18, 18 ).addComponent( _simulationPauseButton )
-                    .addGap( 18, 18, 18 ).addComponent( _simulationContinueButton ).addGap( 18, 18,
-                        18 ).addComponent( _simulationRestartButton ).addContainerGap( 352,
-                        Short.MAX_VALUE ) ) );
+            _simulationTabLayout.createSequentialGroup().addGap( 31, 31, 31 )
+                    .addComponent( _simulationStartButton ).addGap( 18, 18, 18 )
+                    .addComponent( _simulationStopButton ).addGap( 18, 18, 18 )
+                    .addComponent( _simulationPauseButton ).addGap( 18, 18, 18 )
+                    .addComponent( _simulationContinueButton ).addGap( 18, 18, 18 )
+                    .addComponent( _simulationRestartButton )
+                    .addContainerGap( 352, Short.MAX_VALUE ) ) );
         _menuPanel.addTab( "Simulation", _simulationTab );
         _materialLabel.setText( "Material:" );
         _newBlockLabel.setText( "Add new block:" );
@@ -337,57 +343,75 @@ public class MenuPanel extends javax.swing.JPanel
                                                 .addGroup(
                                                     _addingNewBlocksTabLayout
                                                             .createSequentialGroup()
-                                                            .addContainerGap().addComponent(
-                                                                addButton ) ) ).addContainerGap(
-                                        17, Short.MAX_VALUE ) ) );
+                                                            .addContainerGap()
+                                                            .addComponent( addButton ) ) )
+                                    .addContainerGap( 17, Short.MAX_VALUE ) ) );
         _addingNewBlocksTabLayout.setVerticalGroup( _addingNewBlocksTabLayout.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addGroup(
-            _addingNewBlocksTabLayout.createSequentialGroup().addGap( 16, 16, 16 ).addComponent(
-                _newBlockLabel ).addGap( 18, 18, 18 ).addComponent( _materialLabel ).addGap( 9, 9,
-                9 ).addComponent( _materialComboBox, javax.swing.GroupLayout.PREFERRED_SIZE,
-                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE )
+            _addingNewBlocksTabLayout
+                    .createSequentialGroup()
+                    .addGap( 16, 16, 16 )
+                    .addComponent( _newBlockLabel )
+                    .addGap( 18, 18, 18 )
+                    .addComponent( _materialLabel )
+                    .addGap( 9, 9, 9 )
+                    .addComponent( _materialComboBox, javax.swing.GroupLayout.PREFERRED_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                        javax.swing.GroupLayout.PREFERRED_SIZE )
                     .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.UNRELATED )
-                    .addComponent( _blockCoordinatesLabel ).addPreferredGap(
-                        javax.swing.LayoutStyle.ComponentPlacement.RELATED ).addGroup(
-                        _addingNewBlocksTabLayout.createParallelGroup(
-                            javax.swing.GroupLayout.Alignment.BASELINE ).addComponent(
-                            _xCoordinateLabel ).addComponent( _xCoordinateTextField,
-                            javax.swing.GroupLayout.PREFERRED_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.PREFERRED_SIZE ) ).addPreferredGap(
-                        javax.swing.LayoutStyle.ComponentPlacement.RELATED ).addGroup(
-                        _addingNewBlocksTabLayout.createParallelGroup(
-                            javax.swing.GroupLayout.Alignment.BASELINE ).addComponent(
-                            _yCoordinateLabel ).addComponent( _yCoordinateTextField,
-                            javax.swing.GroupLayout.PREFERRED_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.PREFERRED_SIZE ) ).addPreferredGap(
-                        javax.swing.LayoutStyle.ComponentPlacement.RELATED ).addGroup(
-                        _addingNewBlocksTabLayout.createParallelGroup(
-                            javax.swing.GroupLayout.Alignment.LEADING ).addComponent(
-                            _zCoordinateLabel ).addComponent( _zCoordinateTextField,
-                            javax.swing.GroupLayout.PREFERRED_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.PREFERRED_SIZE ) ).addPreferredGap(
-                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED ).addComponent(
-                        _blockSizeLabel ).addPreferredGap(
-                        javax.swing.LayoutStyle.ComponentPlacement.RELATED ).addGroup(
-                        _addingNewBlocksTabLayout.createParallelGroup(
-                            javax.swing.GroupLayout.Alignment.BASELINE ).addComponent( _xSizeLabel )
+                    .addComponent( _blockCoordinatesLabel )
+                    .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
+                    .addGroup(
+                        _addingNewBlocksTabLayout
+                                .createParallelGroup( javax.swing.GroupLayout.Alignment.BASELINE )
+                                .addComponent( _xCoordinateLabel )
+                                .addComponent( _xCoordinateTextField,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE ) )
+                    .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
+                    .addGroup(
+                        _addingNewBlocksTabLayout
+                                .createParallelGroup( javax.swing.GroupLayout.Alignment.BASELINE )
+                                .addComponent( _yCoordinateLabel )
+                                .addComponent( _yCoordinateTextField,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE ) )
+                    .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
+                    .addGroup(
+                        _addingNewBlocksTabLayout
+                                .createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING )
+                                .addComponent( _zCoordinateLabel )
+                                .addComponent( _zCoordinateTextField,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE ) )
+                    .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.UNRELATED )
+                    .addComponent( _blockSizeLabel )
+                    .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
+                    .addGroup(
+                        _addingNewBlocksTabLayout
+                                .createParallelGroup( javax.swing.GroupLayout.Alignment.BASELINE )
+                                .addComponent( _xSizeLabel )
                                 .addComponent( _xSizeTextField,
                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                     javax.swing.GroupLayout.DEFAULT_SIZE,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE ) ).addPreferredGap(
-                        javax.swing.LayoutStyle.ComponentPlacement.RELATED ).addGroup(
-                        _addingNewBlocksTabLayout.createParallelGroup(
-                            javax.swing.GroupLayout.Alignment.BASELINE ).addComponent( _ySizeLabel )
+                                    javax.swing.GroupLayout.PREFERRED_SIZE ) )
+                    .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
+                    .addGroup(
+                        _addingNewBlocksTabLayout
+                                .createParallelGroup( javax.swing.GroupLayout.Alignment.BASELINE )
+                                .addComponent( _ySizeLabel )
                                 .addComponent( _ySizeTextField,
                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                     javax.swing.GroupLayout.DEFAULT_SIZE,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE ) ).addPreferredGap(
-                        javax.swing.LayoutStyle.ComponentPlacement.RELATED ).addGroup(
-                        _addingNewBlocksTabLayout.createParallelGroup(
-                            javax.swing.GroupLayout.Alignment.LEADING ).addComponent( _zSizeLabel )
+                                    javax.swing.GroupLayout.PREFERRED_SIZE ) )
+                    .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
+                    .addGroup(
+                        _addingNewBlocksTabLayout
+                                .createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING )
+                                .addComponent( _zSizeLabel )
                                 .addComponent( _zSizeTextField,
                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                     javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -425,12 +449,15 @@ public class MenuPanel extends javax.swing.JPanel
         this.setLayout( layout );
         layout.setHorizontalGroup( layout.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addGroup(
-            layout.createSequentialGroup().addContainerGap().addComponent( _menuPanel,
-                javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE ).addContainerGap() ) );
+            layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent( _menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 235,
+                        Short.MAX_VALUE ).addContainerGap() ) );
         layout.setVerticalGroup( layout.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addGroup(
-            layout.createSequentialGroup().addComponent( _menuPanel,
-                javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE ).addContainerGap() ) );
+            layout.createSequentialGroup()
+                    .addComponent( _menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 610,
+                        Short.MAX_VALUE ).addContainerGap() ) );
     }// </editor-fold>
 
     private void _simulationStartButtonActionPerformed( java.awt.event.ActionEvent evt )
@@ -495,11 +522,8 @@ public class MenuPanel extends javax.swing.JPanel
 
     private void _addButtonActionPerformed( java.awt.event.ActionEvent evt )
     {
-        Point3d blockCenter = new Point3d( _xCoordinate + _xSize / 2.0,
-            _yCoordinate + _ySize / 2.0, _zCoordinate + _zSize / 2.0 );
-        // _editedScene
-        // .addNewBlock( _materialName, blockCenter, new Point3d( _xSize,
-        // _ySize, _zSize ) );
+        _world.addBuildingPart( new Point3d( _xCoordinate, _yCoordinate, _zCoordinate ),
+            new Point3d( _xSize, _ySize, _zSize ), _materialName, _editedScene );
     }
 
     // Variables declaration - do not modify

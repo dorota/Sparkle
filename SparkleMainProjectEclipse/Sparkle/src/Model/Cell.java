@@ -14,6 +14,12 @@ public class Cell
     // given in meters
     final double _cellLenfth = 0.5;
 
+    @Override
+    public String toString()
+    {
+        return _material + " temp " + _temp;
+    }
+
     // mass is not needed; may be calculate from material's density and cell's V
     public Cell( Material material, double temp )
     {

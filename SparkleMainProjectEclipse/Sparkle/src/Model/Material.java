@@ -67,4 +67,10 @@ public class Material
     {
         return _transparency;
     }
+
+    @Override
+    public String toString()
+    {
+        return _name;
+    }
 }

@@ -15,6 +15,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
 import javax.swing.border.TitledBorder;
 
+import Model.World;
 
 /**
  * 
@@ -22,6 +23,17 @@ import javax.swing.border.TitledBorder;
  */
 public class Editor extends javax.swing.JPanel
 {
+    private World _editedWorld;
+    // Variables declaration - do not modify
+    private java.awt.TextArea _editorTextArea;
+    // End of variables declaration
+    private String _textAreaContent;
+
+    public Editor( World world )
+    {
+        _editedWorld = world;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,7 +63,7 @@ public class Editor extends javax.swing.JPanel
         if( evt.getKeyCode() == KeyEvent.VK_ENTER )
         {
             String lastLine = EditorParser.getLastLine( _textAreaContent );
-            System.out.println( "last line was " + lastLine );
+            EditorParser.parseLine( lastLine, _editedWorld );
         }
     }
 
@@ -60,9 +72,4 @@ public class Editor extends javax.swing.JPanel
         TitledBorder title = BorderFactory.createTitledBorder( "Building editor" );
         this.setBorder( title );
     }
-
-    // Variables declaration - do not modify
-    private java.awt.TextArea _editorTextArea;
-    // End of variables declaration
-    private String _textAreaContent;
 }

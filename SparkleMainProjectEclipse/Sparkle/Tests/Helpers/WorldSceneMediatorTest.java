@@ -5,28 +5,26 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import Model.World;
-
 public class WorldSceneMediatorTest
 {
-    private int _realWorldSize = World.getMAX_LENGTH();
+    private int _realWorldSize = EnvSettings.getMAX_LENGTH();
 
     @Before
     public void testPrep()
     {
-        World.setMAX_LENGTH( 4 );
+        EnvSettings.setMAX_LENGTH( 4 );
     }
 
     public void testCleanUp()
     {
-        World.setMAX_LENGTH( _realWorldSize );
+        EnvSettings.setMAX_LENGTH( _realWorldSize );
     }
 
     @Test
     public void testChangeWorldIndexToSceneIndex()
     {
-        assertEquals( "2 od lewej, 1 piêtro, przedostatni rz¹d", WorldSceneMediator
-                .changeWorldIndexToSceneIndex( 1, 0, 1 ), 5 );
+        assertEquals( "2 od lewej, 1 piêtro, przedostatni rz¹d",
+            WorldSceneMediator.changeWorldIndexToSceneIndex( 1, 0, 1 ), 5 );
         assertEquals( 12, WorldSceneMediator.changeWorldIndexToSceneIndex( 0, 0, 3 ) );
     }
 

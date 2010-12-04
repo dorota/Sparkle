@@ -1,4 +1,4 @@
-package View;
+package Controller;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,32 +9,37 @@ import javax.media.j3d.Canvas3D;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Controller.Editor;
-import Controller.MenuPanel;
 import Model.World;
+import View.Scene3D;
 
 import com.sun.j3d.utils.universe.SimpleUniverse;
 
-class MainWindow
+public class MainWindow
 {
     private JFrame _frame;
-    private Canvas3D _sceneCanvas;
+    // FIXME refactor this: _sceneCanvas
+    public static Canvas3D _sceneCanvas;
     private MenuPanel _menuPanel;
     private Scene3D _scene;
     private Editor _editor;
     Dimension _screenDimension;
     private World _world;
+    private static MainWindow _instance = new MainWindow();
 
-    public MainWindow()
+    public static MainWindow getMainWindow()
+    {
+        return _instance;
+    }
+
+    private MainWindow()
     {
         setScreenDimensiosn();
         _frame = new JFrame();
         _sceneCanvas = new Canvas3D( SimpleUniverse.getPreferredConfiguration() );
-        _scene = new Scene3D( _sceneCanvas );
-        _world = new World( _scene );
-        _world.initWorld( _scene );
+        _scene = Scene3D.getScene( _sceneCanvas );
+        _world = World.getWorld( _scene );
         _menuPanel = new MenuPanel( _scene );
-        _editor = new Editor();
+        _editor = new Editor( _world );
         initWindow();
     }
 
@@ -70,6 +75,6 @@ class MainWindow
 
     public static void main( String[] args )
     {
-        MainWindow mainWindow = new MainWindow();
+        getMainWindow();
     }
 }

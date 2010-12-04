@@ -2,3 +2,8 @@
 opisać rozważania na temat struktury danych do przechowywania świata, wybór i uzasadnienie
 
 w bibliografii jakies madre źródła odnośnie javy3d i może projektowania gui - też można dodać
+JavaSwing
+
+opisać uzyte wzorce projektowe
+
+ wspomnieć o regexach w edytorze i parserze

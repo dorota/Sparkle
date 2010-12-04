@@ -17,7 +17,8 @@ import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
-import Model.World;
+import Helpers.EnvSettings;
+import Model.Material;
 
 import com.sun.j3d.utils.behaviors.keyboard.KeyNavigatorBehavior;
 import com.sun.j3d.utils.behaviors.mouse.MouseRotate;
@@ -26,7 +27,21 @@ import com.sun.j3d.utils.universe.SimpleUniverse;
 
 public class Scene3D
 {
-    public Scene3D( Canvas3D canvas )
+    private static Scene3D _instance = null;
+    private static int _contentsOffset = Helpers.EnvSettings.HOW_MANY_GARBAGE_BRANCH_GROUP_CHILDREN;
+    private BoundingSphere _bounds;
+    private Point3d _centerRepresentationPosition;
+
+    public static Scene3D getScene( Canvas3D canvas )
+    {
+        if( _instance == null )
+        {
+            _instance = new Scene3D( canvas );
+        }
+        return _instance;
+    }
+
+    private Scene3D( Canvas3D canvas )
     {
         _contents = new BranchGroup();
         _contents.setCapability( BranchGroup.ALLOW_CHILDREN_EXTEND );
@@ -36,15 +51,14 @@ public class Scene3D
         handleUserSceneInteractions();
         _universe.getViewingPlatform().setNominalViewingTransform();
         _universe.addBranchGraph( _contents );
-        _contentsOffset = _contents.numChildren();
     }
 
-    public int get_contentsOffset()
+    public static int get_contentsOffset()
     {
         return _contentsOffset;
     }
 
-    public void set_contentsOffset( int offset )
+    public static void set_contentsOffset( int offset )
     {
         _contentsOffset = offset;
     }
@@ -59,17 +73,14 @@ public class Scene3D
         TransformGroup viewTransformGroup = _universe.getViewingPlatform()
                 .getViewPlatformTransform();
         KeyNavigatorBehavior keyInteractor = new KeyNavigatorBehavior( viewTransformGroup );
-        BoundingSphere movingBounds = new BoundingSphere( new Point3d( 0.0, 0.0, 0.0 ), 10.0 );
-        keyInteractor.setSchedulingBounds( movingBounds );
+        // BoundingSphere movingBounds = new BoundingSphere( new Point3d( 0.0,
+        // 0.0, 0.0 ), 10.0 );
+        keyInteractor.setSchedulingBounds( _bounds );
         _contents.addChild( keyInteractor );
         MouseRotate behavior = new MouseRotate();
         behavior.setTransformGroup( viewTransformGroup );
         _contents.addChild( behavior );
         behavior.setSchedulingBounds( _bounds );
-    }
-
-    public void updateScene()
-    {
     }
 
     /**
@@ -108,14 +119,34 @@ public class Scene3D
         _contents.addChild( childBG );
     }
 
+    private Box getBlockWithGivenId( int blockIndex )
+    {
+        Box cell = (Box)( ( (TransformGroup)( ( (BranchGroup)( _contents.getChild( blockIndex ) ) )
+                .getChild( 0 ) ) ).getChild( 0 ) );
+        return cell;
+    }
+
+    public void updateBlock( Material material, int blockIndex )
+    {
+        System.out.println();
+        Box cell = getBlockWithGivenId( blockIndex );
+        Appearance app = new Appearance();
+        Color3f cellColor = new Color3f();
+        cellColor = material.get_color();
+        ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,
+            ColoringAttributes.NICEST );
+        app.setColoringAttributes( coloringAttributes );
+        cell.setAppearance( app );
+    }
+
     /**
      * creates scene representation of world with given dimensions
      * World.getMAX_LENGTH. Created world contains only air.
      */
-    public void buildWorld( Model.Material defaultMaterial, int worldX, int worldY, int worldZ )
+    public void createdWorldRepresentation( Model.Material defaultMaterial, int worldX, int worldY,
+            int worldZ )
     {
-        System.out.println( "how many world we build" );
-        double blockSize = 0.05;
+        double blockSize = EnvSettings.CELL_REPRESENTATION_LENGTH;
         for( int i = 0; i < worldX; ++i )
         {
             for( int j = 0; j < worldY; ++j )
@@ -129,6 +160,16 @@ public class Scene3D
                 }
             }
         }
+        int centerX = worldX / 2;
+        int centerY = worldY / 2;
+        int centerZ = worldZ / 2;
+        int sceneCenterIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( centerX,
+            centerY, centerZ );
+        // System.out.println( "center bounds " + getBlockWithGivenId(
+        // sceneCenterIndex ).getBounds(). );
+        // _centerRepresentationPosition=getBlockWithGivenId( sceneCenterIndex
+        // ).
+        // System.out.println( "number of nodes " + _contents.numChildren() );
     }
 
     private void setSceneAppearance()
@@ -137,8 +178,8 @@ public class Scene3D
         lightA.setColor( new Color3f( 255, 0, 100 ) );
         _contents.addChild( lightA );
         Background background = new Background();
-        background.setColor( new Color3f( 0.2f, 0.7f, 0.1f ) );
-        _bounds = new BoundingSphere( new Point3d( 0.0, 0.0, 0.0 ), 10.0 );
+        background.setColor( EnvSettings.BACKGROUND_COLOR );
+        _bounds = new BoundingSphere( new Point3d( 0.0, 0.0, 0.0 ), 0.1 );
         background.setApplicationBounds( _bounds );
         _contents.addChild( background );
     }
@@ -156,15 +197,11 @@ public class Scene3D
         this._contents = _contents;
     }
 
-    private World _world;
-    private BoundingSphere _bounds;
-    private double _defaultZoomOut = 100.0;
     /**
      * _contentsOffset - number of children added before blocks (lights,
      * background i inne syfy) needed as offset. Add all necessary non-block
      * stuff before initialization this variable!
      */
-    private int _contentsOffset = 0;
     List<Vector3d> _startsOfBlocks = new ArrayList<Vector3d>();
 
     public List<Vector3d> get_startsOfBlocks()

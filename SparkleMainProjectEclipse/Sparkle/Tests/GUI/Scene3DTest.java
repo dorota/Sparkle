@@ -25,15 +25,15 @@ public class Scene3DTest
     public Scene3DTest()
     {
         _sceneCanvas = new Canvas3D( SimpleUniverse.getPreferredConfiguration() );
-        _scene = new Scene3D( _sceneCanvas );
-        _world = new World( _scene );
+        _scene = Scene3D.getScene( _sceneCanvas );
+        _world = World.getWorld( _scene );
     }
 
     @Test
     public void testBuildWorld()
     {
         Material mat = _world.get_availableMaterials().get( 1 );
-        _scene.buildWorld( mat, 2, 1, 1 );
+        _scene.createdWorldRepresentation( mat, 2, 1, 1 );
         BranchGroup worldContens = _scene.get_contents();
         System.out.println( _scene.getNumberOfBlocks() );
         assertEquals( 2, _scene.getNumberOfBlocks() );
@@ -41,5 +41,11 @@ public class Scene3DTest
         assertEquals( 2, startsOfBlocks.size() );
         assertEquals( new Vector3d( 0.025, 0.025, 0.025 ), startsOfBlocks.get( 0 ) );
         assertEquals( new Vector3d( 0.07500000000000001, 0.025, 0.025 ), startsOfBlocks.get( 1 ) );
+    }
+
+    @Test
+    public void addNewBlockTest()
+    {
+        Material mat = _world.get_availableMaterials().get( 0 ); // wood
     }
 }

@@ -16,6 +16,7 @@ public class World
     private static World _instance = new World(
         Scene3D.getScene( Controller.MainWindow._sceneCanvas ) );
     private Scene3D _scene;
+    private HeatConducter _heatConducter;
 
     private void initMaterials()
     {
@@ -53,7 +54,7 @@ public class World
                     int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( k, i,
                         j );
                     System.out.println( "index of block to update " + blockIndex );
-                    scene.updateBlock( mat, blockIndex );
+                    scene.addNewBlockToScene( mat, blockIndex );
                 }
             }
         }
@@ -82,22 +83,6 @@ public class World
             EnvSettings.getMAX_LENGTH(), EnvSettings.getMAX_LENGTH() );
     }
 
-    // public void cleanWorld()
-    // {
-    // for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
-    // {
-    // for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
-    // {
-    // for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
-    // {
-    // System.out.println( _worldCurrentValues[ i ][ j ][ k ].get_material() );
-    // Material mat = getMaterial( "Air" );
-    // _worldCurrentValues[ i ][ j ][ k ].set_material( mat );
-    // }
-    // }
-    // }
-    // Scene3D.getScene( MainWindow._sceneCanvas ).cleanScene();
-    // }
     public static World getWorld( Scene3D scene )
     {
         return _instance;
@@ -142,5 +127,75 @@ public class World
     public void set_worldCurrentValues( Cell[][][] currentValues )
     {
         _worldCurrentValues = currentValues;
+    }
+
+    public static class CellIndex
+    {
+        public CellIndex( int x, int y, int z )
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+
+        int x;
+        int y;
+        int z;
+    }
+
+    public List<CellIndex> getNeighbours( CellIndex index )
+    {
+        List<CellIndex> neighbours = new ArrayList<World.CellIndex>();
+        if( index.x % EnvSettings.getMAX_LENGTH() != 0 )
+        {
+            neighbours.add( new CellIndex( index.x - 1, index.y, index.z ) );
+        }
+        if( index.x % EnvSettings.getMAX_LENGTH() != EnvSettings.getMAX_LENGTH() - 1 )
+        {
+            neighbours.add( new CellIndex( index.x + 1, index.y, index.z ) );
+        }
+        if( index.y % EnvSettings.getMAX_LENGTH() != 0 )
+        {
+            neighbours.add( new CellIndex( index.x, index.y - 1, index.z ) );
+        }
+        if( index.y % EnvSettings.getMAX_LENGTH() != EnvSettings.getMAX_LENGTH() - 1 )
+        {
+            neighbours.add( new CellIndex( index.x, index.y + 1, index.z ) );
+        }
+        if( index.z % EnvSettings.getMAX_LENGTH() != 0 )
+        {
+            neighbours.add( new CellIndex( index.x, index.y, index.z - 1 ) );
+        }
+        if( index.z % EnvSettings.getMAX_LENGTH() != EnvSettings.getMAX_LENGTH() - 1 )
+        {
+            neighbours.add( new CellIndex( index.x, index.y, index.z + 1 ) );
+        }
+        return neighbours;
+    }
+
+    public void setStartOfFire( int x, int y, int z )
+    {
+        _worldCurrentValues[ x ][ y ][ z ].set_temp( EnvSettings.START_OF_FIRE_TEMP );
+        _scene.updateBlockWhileSimulation(
+            Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( x, y, z ),
+            _worldCurrentValues[ x ][ y ][ z ].get_temp() );
+    }
+
+    public void simulateHeatConduction()
+    {
+        for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
+        {
+            for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
+            {
+                for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
+                {
+                    HeatConducter.conductHeat( _worldCurrentValues[ i ][ j ][ k ],
+                        _worldCurrentValues, getNeighbours( new CellIndex( i, j, k ) ) );
+                    _scene.updateBlockWhileSimulation(
+                        Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ),
+                        _worldCurrentValues[ i ][ j ][ k ].get_temp() );
+                }
+            }
+        }
     }
 }

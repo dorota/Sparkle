@@ -1,5 +1,13 @@
 package Controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.vecmath.Point3d;
 
 import Model.World;
@@ -25,6 +33,7 @@ public class MenuPanel extends javax.swing.JPanel
     {
         _editedScene = scene;
         _world = World.getWorld( scene );
+        sMgr = new SimulationMgr( _world );
         // createTitle
         // setBackgroundColor();
         initComponents();
@@ -42,12 +51,6 @@ public class MenuPanel extends javax.swing.JPanel
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         _menuPanel = new javax.swing.JTabbedPane();
-        _simulationTab = new javax.swing.JPanel();
-        _simulationStopButton = new javax.swing.JButton();
-        _simulationRestartButton = new javax.swing.JButton();
-        _simulationContinueButton = new javax.swing.JButton();
-        _simulationPauseButton = new javax.swing.JButton();
-        _simulationStartButton = new javax.swing.JButton();
         _addingNewBlocksTab = new javax.swing.JPanel();
         _materialLabel = new javax.swing.JLabel();
         _newBlockLabel = new javax.swing.JLabel();
@@ -72,99 +75,24 @@ public class MenuPanel extends javax.swing.JPanel
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout( jPanel1 );
-        jPanel1.setLayout( jPanel1Layout );
-        jPanel1Layout.setHorizontalGroup( jPanel1Layout.createParallelGroup(
+        javax.swing.GroupLayout gl_jPanel1 = new javax.swing.GroupLayout( jPanel1 );
+        jPanel1.setLayout( gl_jPanel1 );
+        gl_jPanel1.setHorizontalGroup( gl_jPanel1.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addGap( 0, 100, Short.MAX_VALUE ) );
-        jPanel1Layout.setVerticalGroup( jPanel1Layout.createParallelGroup(
+        gl_jPanel1.setVerticalGroup( gl_jPanel1.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addGap( 0, 100, Short.MAX_VALUE ) );
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout( jPanel2 );
-        jPanel2.setLayout( jPanel2Layout );
-        jPanel2Layout.setHorizontalGroup( jPanel2Layout.createParallelGroup(
+        javax.swing.GroupLayout gl_jPanel2 = new javax.swing.GroupLayout( jPanel2 );
+        jPanel2.setLayout( gl_jPanel2 );
+        gl_jPanel2.setHorizontalGroup( gl_jPanel2.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addGap( 0, 100, Short.MAX_VALUE ) );
-        jPanel2Layout.setVerticalGroup( jPanel2Layout.createParallelGroup(
+        gl_jPanel2.setVerticalGroup( gl_jPanel2.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addGap( 0, 100, Short.MAX_VALUE ) );
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout( jPanel3 );
-        jPanel3.setLayout( jPanel3Layout );
-        jPanel3Layout.setHorizontalGroup( jPanel3Layout.createParallelGroup(
+        javax.swing.GroupLayout gl_jPanel3 = new javax.swing.GroupLayout( jPanel3 );
+        jPanel3.setLayout( gl_jPanel3 );
+        gl_jPanel3.setHorizontalGroup( gl_jPanel3.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addGap( 0, 100, Short.MAX_VALUE ) );
-        jPanel3Layout.setVerticalGroup( jPanel3Layout.createParallelGroup(
+        gl_jPanel3.setVerticalGroup( gl_jPanel3.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addGap( 0, 100, Short.MAX_VALUE ) );
-        _simulationStopButton.setText( "Stop" );
-        _simulationStopButton.addActionListener( new java.awt.event.ActionListener()
-        {
-            public void actionPerformed( java.awt.event.ActionEvent evt )
-            {
-                _simulationStopButtonActionPerformed( evt );
-            }
-        } );
-        _simulationRestartButton.setText( "Restart" );
-        _simulationRestartButton.addActionListener( new java.awt.event.ActionListener()
-        {
-            public void actionPerformed( java.awt.event.ActionEvent evt )
-            {
-                _simulationRestartButtonActionPerformed( evt );
-            }
-        } );
-        _simulationContinueButton.setText( "Continue" );
-        _simulationContinueButton.addActionListener( new java.awt.event.ActionListener()
-        {
-            public void actionPerformed( java.awt.event.ActionEvent evt )
-            {
-                _simulationContinueButtonActionPerformed( evt );
-            }
-        } );
-        _simulationPauseButton.setText( "Pause" );
-        _simulationPauseButton.addActionListener( new java.awt.event.ActionListener()
-        {
-            public void actionPerformed( java.awt.event.ActionEvent evt )
-            {
-                _simulationPauseButtonActionPerformed( evt );
-            }
-        } );
-        _simulationStartButton.setText( "Start" );
-        _simulationStartButton.addActionListener( new java.awt.event.ActionListener()
-        {
-            public void actionPerformed( java.awt.event.ActionEvent evt )
-            {
-                _simulationStartButtonActionPerformed( evt );
-            }
-        } );
-        javax.swing.GroupLayout _simulationTabLayout = new javax.swing.GroupLayout( _simulationTab );
-        _simulationTab.setLayout( _simulationTabLayout );
-        _simulationTabLayout.setHorizontalGroup( _simulationTabLayout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING ).addGroup(
-            _simulationTabLayout
-                    .createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(
-                        _simulationTabLayout
-                                .createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING )
-                                .addComponent( _simulationStopButton,
-                                    javax.swing.GroupLayout.Alignment.TRAILING,
-                                    javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE )
-                                .addComponent( _simulationRestartButton,
-                                    javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE )
-                                .addComponent( _simulationContinueButton,
-                                    javax.swing.GroupLayout.Alignment.TRAILING,
-                                    javax.swing.GroupLayout.DEFAULT_SIZE,
-                                    javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE )
-                                .addComponent( _simulationPauseButton,
-                                    javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE )
-                                .addComponent( _simulationStartButton,
-                                    javax.swing.GroupLayout.Alignment.TRAILING,
-                                    javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE ) )
-                    .addGap( 183, 183, 183 ) ) );
-        _simulationTabLayout.setVerticalGroup( _simulationTabLayout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING ).addGroup(
-            _simulationTabLayout.createSequentialGroup().addGap( 31, 31, 31 )
-                    .addComponent( _simulationStartButton ).addGap( 18, 18, 18 )
-                    .addComponent( _simulationStopButton ).addGap( 18, 18, 18 )
-                    .addComponent( _simulationPauseButton ).addGap( 18, 18, 18 )
-                    .addComponent( _simulationContinueButton ).addGap( 18, 18, 18 )
-                    .addComponent( _simulationRestartButton )
-                    .addContainerGap( 352, Short.MAX_VALUE ) ) );
-        _menuPanel.addTab( "Simulation", _simulationTab );
         _materialLabel.setText( "Material:" );
         _newBlockLabel.setText( "Add new block:" );
         _materialComboBox.setModel( new javax.swing.DefaultComboBoxModel( new String[]{ "Wood",
@@ -234,25 +162,25 @@ public class MenuPanel extends javax.swing.JPanel
                 _addButtonActionPerformed( evt );
             }
         } );
-        javax.swing.GroupLayout _addingNewBlocksTabLayout = new javax.swing.GroupLayout(
+        javax.swing.GroupLayout gl__addingNewBlocksTab = new javax.swing.GroupLayout(
             _addingNewBlocksTab );
-        _addingNewBlocksTab.setLayout( _addingNewBlocksTabLayout );
-        _addingNewBlocksTabLayout
-                .setHorizontalGroup( _addingNewBlocksTabLayout
+        _addingNewBlocksTab.setLayout( gl__addingNewBlocksTab );
+        gl__addingNewBlocksTab
+                .setHorizontalGroup( gl__addingNewBlocksTab
                         .createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING )
                         .addGroup(
-                            _addingNewBlocksTabLayout
+                            gl__addingNewBlocksTab
                                     .createSequentialGroup()
                                     .addGroup(
-                                        _addingNewBlocksTabLayout
+                                        gl__addingNewBlocksTab
                                                 .createParallelGroup(
                                                     javax.swing.GroupLayout.Alignment.LEADING )
                                                 .addGroup(
-                                                    _addingNewBlocksTabLayout
+                                                    gl__addingNewBlocksTab
                                                             .createSequentialGroup()
                                                             .addGap( 10, 10, 10 )
                                                             .addGroup(
-                                                                _addingNewBlocksTabLayout
+                                                                gl__addingNewBlocksTab
                                                                         .createParallelGroup(
                                                                             javax.swing.GroupLayout.Alignment.LEADING )
                                                                         .addComponent(
@@ -261,7 +189,7 @@ public class MenuPanel extends javax.swing.JPanel
                                                                             javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                             javax.swing.GroupLayout.PREFERRED_SIZE )
                                                                         .addGroup(
-                                                                            _addingNewBlocksTabLayout
+                                                                            gl__addingNewBlocksTab
                                                                                     .createSequentialGroup()
                                                                                     .addComponent(
                                                                                         _zSizeLabel )
@@ -273,7 +201,7 @@ public class MenuPanel extends javax.swing.JPanel
                                                                                         47,
                                                                                         javax.swing.GroupLayout.PREFERRED_SIZE ) )
                                                                         .addGroup(
-                                                                            _addingNewBlocksTabLayout
+                                                                            gl__addingNewBlocksTab
                                                                                     .createSequentialGroup()
                                                                                     .addComponent(
                                                                                         _ySizeLabel )
@@ -285,7 +213,7 @@ public class MenuPanel extends javax.swing.JPanel
                                                                                         47,
                                                                                         javax.swing.GroupLayout.PREFERRED_SIZE ) )
                                                                         .addGroup(
-                                                                            _addingNewBlocksTabLayout
+                                                                            gl__addingNewBlocksTab
                                                                                     .createSequentialGroup()
                                                                                     .addComponent(
                                                                                         _xSizeLabel )
@@ -299,7 +227,7 @@ public class MenuPanel extends javax.swing.JPanel
                                                                         .addComponent(
                                                                             _blockSizeLabel )
                                                                         .addGroup(
-                                                                            _addingNewBlocksTabLayout
+                                                                            gl__addingNewBlocksTab
                                                                                     .createSequentialGroup()
                                                                                     .addComponent(
                                                                                         _zCoordinateLabel )
@@ -311,7 +239,7 @@ public class MenuPanel extends javax.swing.JPanel
                                                                                         47,
                                                                                         javax.swing.GroupLayout.PREFERRED_SIZE ) )
                                                                         .addGroup(
-                                                                            _addingNewBlocksTabLayout
+                                                                            gl__addingNewBlocksTab
                                                                                     .createSequentialGroup()
                                                                                     .addComponent(
                                                                                         _yCoordinateLabel )
@@ -323,7 +251,7 @@ public class MenuPanel extends javax.swing.JPanel
                                                                                         47,
                                                                                         javax.swing.GroupLayout.PREFERRED_SIZE ) )
                                                                         .addGroup(
-                                                                            _addingNewBlocksTabLayout
+                                                                            gl__addingNewBlocksTab
                                                                                     .createSequentialGroup()
                                                                                     .addComponent(
                                                                                         _xCoordinateLabel )
@@ -341,14 +269,13 @@ public class MenuPanel extends javax.swing.JPanel
                                                                         .addComponent(
                                                                             _newBlockLabel ) ) )
                                                 .addGroup(
-                                                    _addingNewBlocksTabLayout
-                                                            .createSequentialGroup()
+                                                    gl__addingNewBlocksTab.createSequentialGroup()
                                                             .addContainerGap()
                                                             .addComponent( addButton ) ) )
                                     .addContainerGap( 17, Short.MAX_VALUE ) ) );
-        _addingNewBlocksTabLayout.setVerticalGroup( _addingNewBlocksTabLayout.createParallelGroup(
+        gl__addingNewBlocksTab.setVerticalGroup( gl__addingNewBlocksTab.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addGroup(
-            _addingNewBlocksTabLayout
+            gl__addingNewBlocksTab
                     .createSequentialGroup()
                     .addGap( 16, 16, 16 )
                     .addComponent( _newBlockLabel )
@@ -362,7 +289,7 @@ public class MenuPanel extends javax.swing.JPanel
                     .addComponent( _blockCoordinatesLabel )
                     .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
                     .addGroup(
-                        _addingNewBlocksTabLayout
+                        gl__addingNewBlocksTab
                                 .createParallelGroup( javax.swing.GroupLayout.Alignment.BASELINE )
                                 .addComponent( _xCoordinateLabel )
                                 .addComponent( _xCoordinateTextField,
@@ -371,7 +298,7 @@ public class MenuPanel extends javax.swing.JPanel
                                     javax.swing.GroupLayout.PREFERRED_SIZE ) )
                     .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
                     .addGroup(
-                        _addingNewBlocksTabLayout
+                        gl__addingNewBlocksTab
                                 .createParallelGroup( javax.swing.GroupLayout.Alignment.BASELINE )
                                 .addComponent( _yCoordinateLabel )
                                 .addComponent( _yCoordinateTextField,
@@ -380,7 +307,7 @@ public class MenuPanel extends javax.swing.JPanel
                                     javax.swing.GroupLayout.PREFERRED_SIZE ) )
                     .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
                     .addGroup(
-                        _addingNewBlocksTabLayout
+                        gl__addingNewBlocksTab
                                 .createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING )
                                 .addComponent( _zCoordinateLabel )
                                 .addComponent( _zCoordinateTextField,
@@ -391,7 +318,7 @@ public class MenuPanel extends javax.swing.JPanel
                     .addComponent( _blockSizeLabel )
                     .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
                     .addGroup(
-                        _addingNewBlocksTabLayout
+                        gl__addingNewBlocksTab
                                 .createParallelGroup( javax.swing.GroupLayout.Alignment.BASELINE )
                                 .addComponent( _xSizeLabel )
                                 .addComponent( _xSizeTextField,
@@ -400,7 +327,7 @@ public class MenuPanel extends javax.swing.JPanel
                                     javax.swing.GroupLayout.PREFERRED_SIZE ) )
                     .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
                     .addGroup(
-                        _addingNewBlocksTabLayout
+                        gl__addingNewBlocksTab
                                 .createParallelGroup( javax.swing.GroupLayout.Alignment.BASELINE )
                                 .addComponent( _ySizeLabel )
                                 .addComponent( _ySizeTextField,
@@ -409,7 +336,7 @@ public class MenuPanel extends javax.swing.JPanel
                                     javax.swing.GroupLayout.PREFERRED_SIZE ) )
                     .addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
                     .addGroup(
-                        _addingNewBlocksTabLayout
+                        gl__addingNewBlocksTab
                                 .createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING )
                                 .addComponent( _zSizeLabel )
                                 .addComponent( _zSizeTextField,
@@ -426,22 +353,22 @@ public class MenuPanel extends javax.swing.JPanel
                 .setText( "# - komentarz do koñca linii\n(x,y,z) - wspó³rzêdne punkt left-back-button\n[x,y,z] - wielkoœæ bloku\n\nJednostka: komórki CA wielkoœci:\n0.5m x 0.5m x 0.5m\n\nKa¿dy blok podajemy w osobnej linii, \nakceptuj¹c jego dodanie przyciskiem\nEnter.\n\nOpis bloku ma postaæ:\n(x,y,z) [x,y,z]: Materia³ , ... , ...\n\nObecnie dostêpne materia³y:\ndrewno\n\nPo materiale mo¿na bêdzie podaæ dodatkowe parametry w ustalonej kolejnoœci jak je dodam (dla nas wewnêtrzne jak kiedyœ bêd¹ potrzebne)." );
         jTextArea1.setAutoscrolls( false );
         jScrollPane1.setViewportView( jTextArea1 );
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout( jPanel4 );
-        jPanel4.setLayout( jPanel4Layout );
-        jPanel4Layout.setHorizontalGroup( jPanel4Layout.createParallelGroup(
+        javax.swing.GroupLayout gl_jPanel4 = new javax.swing.GroupLayout( jPanel4 );
+        jPanel4.setLayout( gl_jPanel4 );
+        gl_jPanel4.setHorizontalGroup( gl_jPanel4.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jScrollPane1,
             javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE ) );
-        jPanel4Layout.setVerticalGroup( jPanel4Layout.createParallelGroup(
+        gl_jPanel4.setVerticalGroup( gl_jPanel4.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jScrollPane1,
             javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 550,
             Short.MAX_VALUE ) );
         jTabbedPane1.addTab( "Editor", jPanel4 );
-        javax.swing.GroupLayout _helpTabLayout = new javax.swing.GroupLayout( _helpTab );
-        _helpTab.setLayout( _helpTabLayout );
-        _helpTabLayout.setHorizontalGroup( _helpTabLayout.createParallelGroup(
+        javax.swing.GroupLayout gl__helpTab = new javax.swing.GroupLayout( _helpTab );
+        _helpTab.setLayout( gl__helpTab );
+        gl__helpTab.setHorizontalGroup( gl__helpTab.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jTabbedPane1,
             javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE ) );
-        _helpTabLayout.setVerticalGroup( _helpTabLayout.createParallelGroup(
+        gl__helpTab.setVerticalGroup( gl__helpTab.createParallelGroup(
             javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jTabbedPane1,
             javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE ) );
         _menuPanel.addTab( "Help", _helpTab );
@@ -458,11 +385,232 @@ public class MenuPanel extends javax.swing.JPanel
             layout.createSequentialGroup()
                     .addComponent( _menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 610,
                         Short.MAX_VALUE ).addContainerGap() ) );
+        _simulationTab = new javax.swing.JPanel();
+        _simulationStopButton = new javax.swing.JButton();
+        _simulationRestartButton = new javax.swing.JButton();
+        _simulationContinueButton = new javax.swing.JButton();
+        _simulationPauseButton = new javax.swing.JButton();
+        _simulationStartButton = new javax.swing.JButton();
+        _simulationStopButton.setText( "Stop" );
+        _simulationStopButton.addActionListener( new java.awt.event.ActionListener()
+        {
+            public void actionPerformed( java.awt.event.ActionEvent evt )
+            {
+                _simulationStopButtonActionPerformed( evt );
+            }
+        } );
+        _simulationRestartButton.setText( "Restart" );
+        _simulationRestartButton.addActionListener( new java.awt.event.ActionListener()
+        {
+            public void actionPerformed( java.awt.event.ActionEvent evt )
+            {
+                _simulationRestartButtonActionPerformed( evt );
+            }
+        } );
+        _simulationContinueButton.setText( "Continue" );
+        _simulationContinueButton.addActionListener( new java.awt.event.ActionListener()
+        {
+            public void actionPerformed( java.awt.event.ActionEvent evt )
+            {
+                _simulationContinueButtonActionPerformed( evt );
+            }
+        } );
+        _simulationPauseButton.setText( "Pause" );
+        _simulationPauseButton.addActionListener( new java.awt.event.ActionListener()
+        {
+            public void actionPerformed( java.awt.event.ActionEvent evt )
+            {
+                _simulationPauseButtonActionPerformed( evt );
+            }
+        } );
+        _simulationStartButton.setText( "Start" );
+        _simulationStartButton.addActionListener( new java.awt.event.ActionListener()
+        {
+            public void actionPerformed( java.awt.event.ActionEvent evt )
+            {
+                _simulationStartButtonActionPerformed( evt );
+            }
+        } );
+        JLabel fireInitLabel = new JLabel( "Fire start point" );
+        lblX = new JLabel( "x:" );
+        lblY = new JLabel( "y:" );
+        lblZ = new JLabel( "z:" );
+        _startFireXTextField = new JTextField();
+        _startFireXTextField.addActionListener( new ActionListener()
+        {
+            public void actionPerformed( ActionEvent arg0 )
+            {
+                _startOfFireX = Integer.valueOf( _startFireXTextField.getText() );
+            }
+        } );
+        _startFireXTextField.setToolTipText( "x coordinate" );
+        _startFireXTextField.setColumns( 10 );
+        _startFireTextFieldY = new JTextField();
+        _startFireTextFieldY.addActionListener( new ActionListener()
+        {
+            public void actionPerformed( ActionEvent arg0 )
+            {
+                _startOfFireY = Integer.valueOf( _startFireTextFieldY.getText() );
+            }
+        } );
+        _startFireTextFieldY.setToolTipText( "y coordinate" );
+        _startFireTextFieldY.setColumns( 10 );
+        _startFireTextFieldZ = new JTextField();
+        _startFireTextFieldZ.addActionListener( new ActionListener()
+        {
+            public void actionPerformed( ActionEvent arg0 )
+            {
+                _startOfFireZ = Integer.valueOf( _startFireTextFieldZ.getText() );
+            }
+        } );
+        _startFireTextFieldZ.setToolTipText( "z coordinate" );
+        _startFireTextFieldZ.setColumns( 10 );
+        javax.swing.GroupLayout gl__simulationTab = new javax.swing.GroupLayout( _simulationTab );
+        gl__simulationTab
+                .setHorizontalGroup( gl__simulationTab
+                        .createParallelGroup( Alignment.LEADING )
+                        .addGroup(
+                            gl__simulationTab
+                                    .createSequentialGroup()
+                                    .addContainerGap()
+                                    .addGroup(
+                                        gl__simulationTab
+                                                .createParallelGroup( Alignment.LEADING )
+                                                .addGroup(
+                                                    gl__simulationTab.createSequentialGroup()
+                                                            .addComponent( fireInitLabel )
+                                                            .addContainerGap( 353, Short.MAX_VALUE ) )
+                                                .addGroup(
+                                                    gl__simulationTab
+                                                            .createSequentialGroup()
+                                                            .addGroup(
+                                                                gl__simulationTab
+                                                                        .createParallelGroup(
+                                                                            Alignment.TRAILING,
+                                                                            false )
+                                                                        .addGroup(
+                                                                            Alignment.LEADING,
+                                                                            gl__simulationTab
+                                                                                    .createSequentialGroup()
+                                                                                    .addComponent(
+                                                                                        lblZ )
+                                                                                    .addPreferredGap(
+                                                                                        ComponentPlacement.UNRELATED )
+                                                                                    .addComponent(
+                                                                                        _startFireTextFieldZ,
+                                                                                        0,
+                                                                                        0,
+                                                                                        Short.MAX_VALUE ) )
+                                                                        .addGroup(
+                                                                            Alignment.LEADING,
+                                                                            gl__simulationTab
+                                                                                    .createSequentialGroup()
+                                                                                    .addComponent(
+                                                                                        lblY )
+                                                                                    .addPreferredGap(
+                                                                                        ComponentPlacement.UNRELATED )
+                                                                                    .addComponent(
+                                                                                        _startFireTextFieldY,
+                                                                                        0,
+                                                                                        0,
+                                                                                        Short.MAX_VALUE ) )
+                                                                        .addGroup(
+                                                                            Alignment.LEADING,
+                                                                            gl__simulationTab
+                                                                                    .createSequentialGroup()
+                                                                                    .addComponent(
+                                                                                        lblX )
+                                                                                    .addPreferredGap(
+                                                                                        ComponentPlacement.UNRELATED )
+                                                                                    .addComponent(
+                                                                                        _startFireXTextField,
+                                                                                        GroupLayout.PREFERRED_SIZE,
+                                                                                        69,
+                                                                                        GroupLayout.PREFERRED_SIZE ) ) )
+                                                            .addContainerGap() )
+                                                .addGroup(
+                                                    gl__simulationTab
+                                                            .createSequentialGroup()
+                                                            .addComponent( _simulationStartButton,
+                                                                GroupLayout.DEFAULT_SIZE, 226,
+                                                                Short.MAX_VALUE ).addGap( 183 ) )
+                                                .addGroup(
+                                                    gl__simulationTab
+                                                            .createSequentialGroup()
+                                                            .addComponent( _simulationStopButton,
+                                                                GroupLayout.DEFAULT_SIZE, 226,
+                                                                Short.MAX_VALUE ).addGap( 183 ) )
+                                                .addGroup(
+                                                    gl__simulationTab
+                                                            .createSequentialGroup()
+                                                            .addComponent( _simulationPauseButton,
+                                                                GroupLayout.DEFAULT_SIZE, 226,
+                                                                Short.MAX_VALUE ).addGap( 183 ) )
+                                                .addGroup(
+                                                    gl__simulationTab
+                                                            .createSequentialGroup()
+                                                            .addComponent(
+                                                                _simulationContinueButton,
+                                                                GroupLayout.DEFAULT_SIZE, 226,
+                                                                Short.MAX_VALUE ).addGap( 183 ) )
+                                                .addGroup(
+                                                    gl__simulationTab
+                                                            .createSequentialGroup()
+                                                            .addComponent(
+                                                                _simulationRestartButton,
+                                                                GroupLayout.DEFAULT_SIZE, 226,
+                                                                Short.MAX_VALUE ).addGap( 183 ) ) ) ) );
+        gl__simulationTab.setVerticalGroup( gl__simulationTab.createParallelGroup(
+            Alignment.LEADING )
+                .addGroup(
+                    gl__simulationTab
+                            .createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent( fireInitLabel )
+                            .addGap( 18 )
+                            .addGroup(
+                                gl__simulationTab
+                                        .createParallelGroup( Alignment.BASELINE )
+                                        .addComponent( lblX )
+                                        .addComponent( _startFireXTextField,
+                                            GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+                                            GroupLayout.PREFERRED_SIZE ) )
+                            .addGroup(
+                                gl__simulationTab
+                                        .createParallelGroup( Alignment.LEADING )
+                                        .addGroup(
+                                            gl__simulationTab.createSequentialGroup().addGap( 9 )
+                                                    .addComponent( lblY )
+                                                    .addPreferredGap( ComponentPlacement.UNRELATED )
+                                                    .addComponent( lblZ ) )
+                                        .addGroup(
+                                            gl__simulationTab
+                                                    .createSequentialGroup()
+                                                    .addGap( 7 )
+                                                    .addComponent( _startFireTextFieldY,
+                                                        GroupLayout.PREFERRED_SIZE,
+                                                        GroupLayout.DEFAULT_SIZE,
+                                                        GroupLayout.PREFERRED_SIZE )
+                                                    .addPreferredGap( ComponentPlacement.RELATED )
+                                                    .addComponent( _startFireTextFieldZ,
+                                                        GroupLayout.PREFERRED_SIZE,
+                                                        GroupLayout.DEFAULT_SIZE,
+                                                        GroupLayout.PREFERRED_SIZE ) ) )
+                            .addGap( 34 ).addComponent( _simulationStartButton ).addGap( 18 )
+                            .addComponent( _simulationStopButton )
+                            .addPreferredGap( ComponentPlacement.UNRELATED )
+                            .addComponent( _simulationPauseButton ).addGap( 18 )
+                            .addComponent( _simulationContinueButton ).addGap( 18 )
+                            .addComponent( _simulationRestartButton )
+                            .addContainerGap( 99, Short.MAX_VALUE ) ) );
+        _simulationTab.setLayout( gl__simulationTab );
+        _menuPanel.addTab( "Simulation", _simulationTab );
     }// </editor-fold>
 
     private void _simulationStartButtonActionPerformed( java.awt.event.ActionEvent evt )
     {
-        // TODO add your handling code here:
+        _world.setStartOfFire( _startOfFireX, _startOfFireY, _startOfFireZ );
+        sMgr.manageSimulation();
     }
 
     private void _simulationStopButtonActionPerformed( java.awt.event.ActionEvent evt )
@@ -571,4 +719,14 @@ public class MenuPanel extends javax.swing.JPanel
     private double _zSize;
     Scene3D _editedScene;
     World _world;
+    private JLabel lblX;
+    private JLabel lblY;
+    private JLabel lblZ;
+    private JTextField _startFireXTextField;
+    private JTextField _startFireTextFieldY;
+    private JTextField _startFireTextFieldZ;
+    private int _startOfFireX;
+    private int _startOfFireY;
+    private int _startOfFireZ;
+    private SimulationMgr sMgr;
 }

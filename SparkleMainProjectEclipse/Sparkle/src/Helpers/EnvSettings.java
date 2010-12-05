@@ -17,6 +17,8 @@ public class EnvSettings
     public static final int AIR_SPECIFIC_HEAT = 1;
     public static final double CELL_REPRESENTATION_LENGTH = 0.1;
     public static final Color3f WOOD_COLOR = new Color3f( 139, 0, 0 );
+    public static final double FIRE_TEMP = 300;
+    public static final double START_OF_FIRE_TEMP = 1000;
 
     public static void setMAX_LENGTH( int mAX_LENGTH )
     {

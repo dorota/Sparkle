@@ -129,7 +129,7 @@ public class Scene3D
         return cell;
     }
 
-    public void updateBlock( Material material, int blockIndex )
+    public void addNewBlockToScene( Material material, int blockIndex )
     {
         // System.out.println( "block index " + blockIndex );
         Box cell = getBlockWithGivenId( blockIndex );
@@ -144,24 +144,34 @@ public class Scene3D
         cell.setAppearance( app );
     }
 
-    // public void cleanScene()
-    // {
-    // for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
-    // {
-    // for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
-    // {
-    // for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
-    // {
-    // Material mat = World.getMaterial( "Air" );
-    // int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex(
-    // i, j,
-    // k );
-    // System.out.println( "material to update block " + mat );
-    // updateBlock( mat, blockIndex );
-    // }
-    // }
-    // }
-    // }
+    private void setCellColor( Color3f color, int blockId )
+    {
+        Box cell = getBlockWithGivenId( blockId );
+        Appearance app = new Appearance();
+        ColoringAttributes coloringAttributes = new ColoringAttributes( color,
+            ColoringAttributes.NICEST );
+        app.setColoringAttributes( coloringAttributes );
+        cell.setAppearance( app );
+    }
+
+    public void updateBlockWhileSimulation( int blockIndex, double temp )
+    {
+        float scale = clamp( (float)( temp / EnvSettings.FIRE_TEMP ), 0.0f, 1.0f );
+        setCellColor( new Color3f( lerp( 0.0f, 1.0f, scale ), // red
+            0.0f, // green
+            lerp( 1.0f, 0.0f, scale ) ), blockIndex );
+    }
+
+    private float lerp( float from, float to, float scale )
+    {
+        return from * ( 1.0f - scale ) + to * scale;
+    }
+
+    private float clamp( float what, float min, float max )
+    {
+        return Math.max( Math.min( what, max ), min );
+    }
+
     /**
      * creates scene representation of world with given dimensions
      * World.getMAX_LENGTH. Created world contains only air.

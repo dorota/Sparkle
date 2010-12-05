@@ -6,4 +6,10 @@ JavaSwing
 
 opisać uzyte wzorce projektowe
 
- wspomnieć o regexach w edytorze i parserze
+wspomnieć o regexach w edytorze i parserze
+
+dorobić i opisać zapisywanie do pliku / odczyt z pliku
+
+zapisywanie wynikow symulacji - mapa rozkładu temp po pewnym czasie...
+
+rzuca wyjatki - obsługa błędów edyora

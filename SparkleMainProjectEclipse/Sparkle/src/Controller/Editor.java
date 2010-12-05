@@ -59,11 +59,29 @@ public class Editor extends javax.swing.JPanel
 
     private void _editorTextAreaKeyTyped( java.awt.event.KeyEvent evt )
     {
-        _textAreaContent = _editorTextArea.getText();
-        if( evt.getKeyCode() == KeyEvent.VK_ENTER )
+        try
         {
-            String lastLine = EditorParser.getLastLine( _textAreaContent );
-            EditorParser.parseLine( lastLine, _editedWorld );
+            _textAreaContent = _editorTextArea.getText();
+            String selectedText = _editorTextArea.getSelectedText();
+            if( evt.getKeyCode() == KeyEvent.VK_ENTER )
+            {
+                // EditorParser.parseWholeBuilding( _textAreaContent,
+                // _editedWorld
+                // );
+                String lastLine = EditorParser.getLastLine( _textAreaContent );
+                EditorParser.parseLine( lastLine, _editedWorld );
+            }
+            else if( selectedText.equals( "" ) == false
+                    && evt.getKeyCode() == KeyEvent.VK_BACK_SPACE
+                    || evt.getKeyCode() == KeyEvent.VK_DELETE )
+            {
+                EditorParser.deleteBlocks( selectedText, _editedWorld );
+            }
+        }
+        catch( ArrayIndexOutOfBoundsException e )
+        {
+            _editorTextArea.replaceText( "", _textAreaContent.lastIndexOf( KeyEvent.VK_ENTER ),
+                _textAreaContent.length() - 1 );
         }
     }
 

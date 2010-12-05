@@ -45,6 +45,8 @@ public class Scene3D
     {
         _contents = new BranchGroup();
         _contents.setCapability( BranchGroup.ALLOW_CHILDREN_EXTEND );
+        _contents.setCapability( BranchGroup.ALLOW_CHILDREN_READ );
+        _contents.setCapability( BranchGroup.ALLOW_CHILDREN_WRITE );
         _contents.setCapability( BranchGroup.ALLOW_DETACH );
         _universe = new SimpleUniverse( canvas );
         setSceneAppearance();
@@ -103,9 +105,9 @@ public class Scene3D
         tg.setTransform( transform );
         Appearance app = new Appearance();
         Color3f cellColor = new Color3f();
-        float transparency = 0.8f;
+        // float transparency = 0.8f;
         cellColor = material.get_color();
-        transparency = (float)material.get_transparency();
+        float transparency = (float)material.get_transparency();
         ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,
             ColoringAttributes.NICEST );
         app.setColoringAttributes( coloringAttributes );
@@ -116,6 +118,7 @@ public class Scene3D
         tg.getChild( 0 ).setCapability( Box.ENABLE_APPEARANCE_MODIFY );
         childBG.addChild( tg );
         _startsOfBlocks.add( vector );
+        childBG.setCapability( BranchGroup.ALLOW_DETACH );
         _contents.addChild( childBG );
     }
 
@@ -128,17 +131,37 @@ public class Scene3D
 
     public void updateBlock( Material material, int blockIndex )
     {
-        System.out.println();
+        // System.out.println( "block index " + blockIndex );
         Box cell = getBlockWithGivenId( blockIndex );
         Appearance app = new Appearance();
-        Color3f cellColor = new Color3f();
-        cellColor = material.get_color();
+        Color3f cellColor = material.get_color();
         ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,
             ColoringAttributes.NICEST );
+        float transparency = (float)material.get_transparency();
         app.setColoringAttributes( coloringAttributes );
+        app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
+            transparency ) );
         cell.setAppearance( app );
     }
 
+    // public void cleanScene()
+    // {
+    // for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
+    // {
+    // for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
+    // {
+    // for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
+    // {
+    // Material mat = World.getMaterial( "Air" );
+    // int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex(
+    // i, j,
+    // k );
+    // System.out.println( "material to update block " + mat );
+    // updateBlock( mat, blockIndex );
+    // }
+    // }
+    // }
+    // }
     /**
      * creates scene representation of world with given dimensions
      * World.getMAX_LENGTH. Created world contains only air.

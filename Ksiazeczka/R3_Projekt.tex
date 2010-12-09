@@ -16,36 +16,53 @@ a także dostosowanie tempa symulacji umożliwiającego obserwację zjawisk fizy
 \item Wizualizacja powinna obejmować zarówno rozkład temperaturowy jak i rozprzestrzenianie się dymu. 
 \end {itemize}
 \section {Architektura aplikacji}
-% w bibliografi powinno byc coś o tej architekturze i def. aktywnego modelu
-Aplikacja została zaprojektowana zgodnie z architekturą Model-View-Controller (w skrócie: MVC).
-Rysunek \ref{mvc tradycyjny} przedstawia typowy przykład architektury Model-View-Controller:\\
+Aplikacja została podzielona na trzy główne moduły:
+\begin{itemize}
+\item Controller - odpowiada za interakcję z użytkownikiem, dostarcza GUI umożliwiające kontrolę symulacji
+\item Model - przechowuje model symulacji, realizuje algorytmy rozprzestreniania ognia
+\item Scene - odpowiada za wizualizację wyników
+\end{itemize}
+Zależności pomiędzy poszczególnymi komponentami przedstawia diagram komponentów \ref{architektura aplikacji}
 \begin{figure}
 \begin {center}
-\includegraphics{tradicionalMVC.jpg} \\
-\caption { Tradycyjny Model - Widok - Kontroler}
-\label {mvc tradycyjny}
-%\ref{mvc tradycyjny} %ref do automatycznego odwoływania się
+\includegraphics{componentDiagram.jpg} \\
+\caption { Architektura aplikacji}
+\label {architektura aplikacji}
 \end {center}
 \end{figure}
-W omawianej pracy została zaimplementowana pewna odmiana MVC upraszczająca zależności między komponentami.
-Najodpowiedniej przedstawia ją schemat: \ref{zmodyfikowany mvc}\\
-Uproszczenie zależności między modułami pozwoli niezależnie rozwijać kolejne części aplikacji, w łatwy
-sposób podmieniać i modyfikować ich zachowanie.
+Zapewnienie bardzo prostych zależności między modułami pozwala niezależnie rozwijać kolejne części aplikacji, w łatwy
+sposób podmieniać i modyfikować ich zachowanie. Inną zaletą zastosowanego modelu jest łatwość
+testowania poszczególnych części aplikacji niezależnie.
+
+Przedstawiony model powstał na bazie jednego z najpopularniejszych modeli tworzenia aplikacji wykorzystujących graficzny interfejs użytkownika: Model-View-Controller. Elementem różniącym przedstawiony powyżej model od tradycyjnej architektury Model-View-Controller
+jest rozdzielenie elementów GUI pomiędzy dwa moduły:
+\begin{itemize}
+\item Scene przedstawiającą wyniki aplikacji oraz
+\item Controller posiadający zestaw narzędzi dostarczających kontrolę użytkownikowi.
+\end {itemize}
+Dodatkowo w module Controller zostały połączone elementy widoku wraz z obsługującymi je listenerami.
+\subsection{Moduł: Controller}
+Moduł kontroler odpowiada za komunikację między użytkownikiem a silnikiem aplikacji. 
+Jego podstawowym zadaniem jest dostarczenie łatwego w obsłudze, graficznego interfejsu użytkownika, oraz 
+obslugi akcji użytkownika. Wspomniana obsługa akcji może obejmować zarówno zebranie danych ich przetworzenie
+i dostarczenie do modelu, pobranie z modelu danych jak i zapis lub kontrolę symulacji.
+Funkcjonalności dostarczane przez moduł Controller przedstawia diagram \ref{przypadki uzycia}
 \begin{figure}
 \begin {center}
-\includegraphics{ourMVC.jpg} \\
-\caption { Zmodyfikowany model MVC}
-\label {zmodyfikowany mvc}
-%\ref{zmodyfikowany mvc} %ref do automatycznego odwoływania się
+\includegraphics{useCase.jpg} \\
+\caption { Przypadki użycia}
+\label {przypadki uzycia}
 \end {center}
 \end{figure}
-Kontroler odpowiada za pobranie danych od użytkownika, ich przetworzenie oraz dostarczenie do modelu.
-Został zastosowany przypadek aktywnego modelu, który zgodnie z definicją potrafi zmieniać swój stan 
-bez względu na akcje wykonywane przez użytkownika. W projekcie symulacji pożaru aktywność modelu polega na 
-wykonywaniu pętli symulacji, związanych z nią obliczeń, powiadamianiu widoku o zachodzących zmianach oraz
-końcu symulacji. Widok odpowiada jedynie za prezentację wyników symulacji.
-Wybrana architektura umożliwia elastyczny rozwój aplikacji. Wprowadzony podział na trzy odrębne moduły pozwala
-na nieograniczone zmiany w każdym z nich, nie powodując konieczności zmian innych części aplikacji.
-Inną zaletą separacji jest łatwość testowania poszcególnych modułów osobno. 
+
+\subsection {Moduł: Scene}
+Jedynym zadaniem sceny jest graficzne przedstawienie dostarczonego modelu.
+Calkowite uniezależnienie widoku od innych modułów umożliwia późniejszą jego modyfikację.
+\subsection {Model}
+Został zastosowany przypadek aktywnego modelu, który potrafi zmieniać swój stan nie tylko w wyniku
+akcji użytkownika ale także samoczynnie. Aktywność modelu w przypadku symulacji polega na 
+automatycznym uaktualnianiu swojego stanu co pewien, określony okres czasu, a także powiadamianie widoku o 
+zachodzących zmianach.
+
 \section {Moduły}
 \section {Obiekty}

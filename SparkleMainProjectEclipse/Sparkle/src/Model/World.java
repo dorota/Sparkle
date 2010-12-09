@@ -6,7 +6,7 @@ import java.util.List;
 import javax.vecmath.Point3d;
 
 import Helpers.EnvSettings;
-import View.Scene3D;
+import Scene.Scene3D;
 
 public class World
 {

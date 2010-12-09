@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Model.World;
-import View.Scene3D;
+import Scene.Scene3D;
 
 import com.sun.j3d.utils.universe.SimpleUniverse;
 

@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+
 public class WorldSceneMediatorTest
 {
     private int _realWorldSize = EnvSettings.getMAX_LENGTH();

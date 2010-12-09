@@ -11,7 +11,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.vecmath.Point3d;
 
 import Model.World;
-import View.Scene3D;
+import Scene.Scene3D;
 
 /*
  * To change this template, choose Tools | Templates

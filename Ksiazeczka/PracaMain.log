@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  9 DEC 2010 09:33
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  9 DEC 2010 22:47
 entering extended mode
 **D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
 (D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
@@ -618,32 +618,49 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 9.
 
-<tradicionalMVC.jpg, id=30, 308.95425pt x 146.34676pt>
-File: tradicionalMVC.jpg Graphic file (type jpg)
+<componentDiagram.jpg, id=30, 444.4605pt x 162.00525pt>
+File: componentDiagram.jpg Graphic file (type jpg)
 
-<use tradicionalMVC.jpg> <ourMVC.jpg, id=31, 308.95425pt x 146.34676pt>
-File: ourMVC.jpg Graphic file (type jpg)
+<use componentDiagram.jpg>
+Underfull \hbox (badness 1107) in paragraph at lines 37--39
+\T1/ptm/m/n/10.95 wyko-rzys-tu-j¡-cych graficzny in-ter-fejs u»ytkown-ika: Mode
+l-View-Controller. El-e-mentem ró»ni¡-cym
+ []
 
-<use ourMVC.jpg>) [8
+[8
 
 
 
 ]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
+
+
+LaTeX Warning: Reference `useCase' on page 9 undefined on input line 49.
+
+<useCase.jpg, id=35, 481.8pt x 615.4995pt>
+File: useCase.jpg Graphic file (type jpg)
+ <use useCase.jpg>
+Overfull \hbox (26.5547pt too wide) in paragraph at lines 52--52
+ [] 
+ []
+
+)
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
 l.46 \include{R3_Projekt}
                          
 ? 
-[9 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/tradicionalMVC.jpg> <D:/Studia/Sparkle
-/Sparkle/Ksiazeczka/ourMVC.jpg>]
+[9 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/componentDiagram.jpg>]
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
 l.46 \include{R3_Projekt}
                          
 ? 
-[10] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
+[10 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/useCase.jpg>]
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
@@ -652,23 +669,29 @@ LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 ] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R1_Wstep.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux)) ) 
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4732 strings out of 495285
- 62313 string characters out of 3180683
+ 4741 strings out of 495285
+ 62471 string characters out of 3180683
  151657 words of memory out of 3000000
- 7817 multiletter control sequences out of 15000+200000
- 84775 words of font info for 67 fonts, out of 3000000 for 9000
+ 7826 multiletter control sequences out of 15000+200000
+ 86471 words of font info for 68 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 32i,11n,45p,330b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/Mikte
-x/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Miktex/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/uhvb8a.
-pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Fi
-les/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/Miktex/fonts/type
-1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmr8a.pf
-b>
-Output written on PracaMain.pdf (11 pages, 186606 bytes).
+ 32i,11n,45p,353b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/Miktex/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Mi
+ktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/Miktex/fonts/t
+ype1/urw/helvetic/uhvb8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/
+uhvr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Progra
+m Files/Miktex/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/
+type1/urw/times/utmr8a.pfb>
+Output written on PracaMain.pdf (11 pages, 230666 bytes).
 PDF statistics:
  66 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

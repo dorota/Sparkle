@@ -18,11 +18,27 @@ a także dostosowanie tempa symulacji umożliwiającego obserwację zjawisk fizy
 \section {Architektura aplikacji}
 % w bibliografi powinno byc coś o tej architekturze i def. aktywnego modelu
 Aplikacja została zaprojektowana zgodnie z architekturą Model-View-Controller (w skrócie: MVC).
-Poniższy schemat przedstawia typowy przykład architektury Model-View-Controller:\\
-\includegraphics{MVC.jpg} \\
-W omawianej pracy została zaimplementowana pewna odmiana MVC.
-Najodpowiedniej przedstawia ją poniższy rysunek:\\
-\includegraphics{modifiedMVC.jpg}\\
+Rysunek \ref{mvc tradycyjny} przedstawia typowy przykład architektury Model-View-Controller:\\
+\begin{figure}
+\begin {center}
+\includegraphics{tradicionalMVC.jpg} \\
+\caption { Tradycyjny Model - Widok - Kontroler}
+\label {mvc tradycyjny}
+%\ref{mvc tradycyjny} %ref do automatycznego odwoływania się
+\end {center}
+\end{figure}
+W omawianej pracy została zaimplementowana pewna odmiana MVC upraszczająca zależności między komponentami.
+Najodpowiedniej przedstawia ją schemat: \ref{zmodyfikowany mvc}\\
+Uproszczenie zależności między modułami pozwoli niezależnie rozwijać kolejne części aplikacji, w łatwy
+sposób podmieniać i modyfikować ich zachowanie.
+\begin{figure}
+\begin {center}
+\includegraphics{ourMVC.jpg} \\
+\caption { Zmodyfikowany model MVC}
+\label {zmodyfikowany mvc}
+%\ref{zmodyfikowany mvc} %ref do automatycznego odwoływania się
+\end {center}
+\end{figure}
 Kontroler odpowiada za pobranie danych od użytkownika, ich przetworzenie oraz dostarczenie do modelu.
 Został zastosowany przypadek aktywnego modelu, który zgodnie z definicją potrafi zmieniać swój stan 
 bez względu na akcje wykonywane przez użytkownika. W projekcie symulacji pożaru aktywność modelu polega na 

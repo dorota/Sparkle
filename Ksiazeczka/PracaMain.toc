@@ -7,5 +7,5 @@
 \contentsline {chapter}{\numberline {2}Projekt}{8}
 \contentsline {section}{\numberline {2.1}G\IeC {\l }\IeC {\'o}wne zalo\IeC {\.z}enia}{8}
 \contentsline {section}{\numberline {2.2}Architektura aplikacji}{8}
-\contentsline {section}{\numberline {2.3}Modu\IeC {\l }y}{9}
-\contentsline {section}{\numberline {2.4}Obiekty}{9}
+\contentsline {section}{\numberline {2.3}Modu\IeC {\l }y}{10}
+\contentsline {section}{\numberline {2.4}Obiekty}{10}

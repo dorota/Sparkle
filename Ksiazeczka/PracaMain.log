@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  28 NOV 2010 15:47
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  9 DEC 2010 09:33
 entering extended mode
 **D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
 (D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
@@ -611,48 +611,53 @@ l.45 \include{R1_Wstep}
 ? 
 [7] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.tex
 Rozdzia\l  2.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 5.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 9.
 ("C:\Program Files\Miktex\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 5.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 9.
 
-<MVC.jpg, id=30, 274.02374pt x 157.18726pt>
-File: MVC.jpg Graphic file (type jpg)
- <use MVC.jpg>
-<modifiedMVC.jpg, id=31, 308.95425pt x 185.493pt>
-File: modifiedMVC.jpg Graphic file (type jpg)
- <use modifiedMVC.jpg>
-Underfull \vbox (badness 3612) has occurred while \output is active []
+<tradicionalMVC.jpg, id=30, 308.95425pt x 146.34676pt>
+File: tradicionalMVC.jpg Graphic file (type jpg)
 
- [8
+<use tradicionalMVC.jpg> <ourMVC.jpg, id=31, 308.95425pt x 146.34676pt>
+File: ourMVC.jpg Graphic file (type jpg)
+
+<use ourMVC.jpg>) [8
 
 
 
- <D:/Studia/Sparkle/Sparkle/Ksiazeczka/MVC.jpg>])
+]
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
 l.46 \include{R3_Projekt}
                          
 ? 
-[9 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/modifiedMVC.jpg>]
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
+[9 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/tradicionalMVC.jpg> <D:/Studia/Sparkle
+/Sparkle/Ksiazeczka/ourMVC.jpg>]
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.46 \include{R3_Projekt}
+                         
+? 
+[10] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [10
+) [11
 
 
 ] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R1_Wstep.aux)
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux)) ) 
 Here is how much of TeX's memory you used:
- 4730 strings out of 495285
- 62248 string characters out of 3180683
- 150657 words of memory out of 3000000
- 7815 multiletter control sequences out of 15000+200000
+ 4732 strings out of 495285
+ 62313 string characters out of 3180683
+ 151657 words of memory out of 3000000
+ 7817 multiletter control sequences out of 15000+200000
  84775 words of font info for 67 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  32i,11n,45p,330b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -663,9 +668,9 @@ pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Fi
 les/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/Miktex/fonts/type
 1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmr8a.pf
 b>
-Output written on PracaMain.pdf (10 pages, 184499 bytes).
+Output written on PracaMain.pdf (11 pages, 186606 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
+ 66 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

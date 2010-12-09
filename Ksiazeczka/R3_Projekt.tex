@@ -1,22 +1,26 @@
 \chapter {Projekt}
+Głównym celem projektu jest stworzenie i weryfikacja modelu rozprzestrzeniania się ognia wykorzystując niehomogeniczne automaty
+komórkowe. Nacisk z pracy został położony na opracowanie algorytmu najdokładniej oddającego rzeczywistość.
+Aplikacja, nazwa Sparkle została zarojektowana tak, aby zapewnić użytkownikowi wysoką ergonomię pracy i łatwość nauki.
+Podczas projektowania i implementacji szczególna uwaga została poświęcona dalszym możliwościom rozbudy programu.
 \label{cha:projekt}
 \section {Główne zalożenia}
 \begin {itemize}
-\item Głównym celem projektu jest stworzenie i weryfikacja modelu rozprzestrzeniania się ognia wykorzystując niehomogeniczne automaty
-komórkowe. Nacisk z pracy został położony na opracowanie algorytmu najdokładniej oddającego rzeczywistość.
-\item Projekt obejmuje także swtworzenie uproszczonej wizualizacji symulacji oraz graficznego interfejsu użytkownika (GUI).
+\item Projekt obejmuje zarówno stworzenie modelu rozprzestrzeniania pożaru jak i  uproszczonej wizualizacji oraz graficznego interfejsu użytkownika (GUI).
 \item Interfejs aplikacji powinien umożliwiać edycję budynku w którym przeprowadzana jest symulacja: dodawanie elementów konstrukcji, 
 określanie materiałów z których zostały stworzone. 
 \item Użytkownik powinien mieć możliwość określenia źródła ognia: zarówno jego miejsca jak i temperatury początkowej.
 \item Aplikacja powinna umożliwiać także kontrolę nad symulacją: możliwość zatrzymania symulacji, wznowienia, rozpoczęcia od początku,
 a także dostosowanie tempa symulacji umożliwiającego obserwację zjawisk fizycznych.
+\item Dodatkowym elementem jest zapis wyników w postaci rozkładu temperatu do pliku, umożliwiający dogłębną analizę rezultatów.
+\item Wizualizacja powinna obejmować zarówno rozkład temperaturowy jak i rozprzestrzenianie się dymu. 
 \end {itemize}
 \section {Architektura aplikacji}
 % w bibliografi powinno byc coś o tej architekturze i def. aktywnego modelu
-Aplikacja została zaprojektowana zgodnie z architekturą Model-View-Controller.
+Aplikacja została zaprojektowana zgodnie z architekturą Model-View-Controller (w skrócie: MVC).
 Poniższy schemat przedstawia typowy przykład architektury Model-View-Controller:\\
 \includegraphics{MVC.jpg} \\
-W omawianej pracy została zaimplementowana pewna odmiana typowej architektury Model-Widok-Kontroler.
+W omawianej pracy została zaimplementowana pewna odmiana MVC.
 Najodpowiedniej przedstawia ją poniższy rysunek:\\
 \includegraphics{modifiedMVC.jpg}\\
 Kontroler odpowiada za pobranie danych od użytkownika, ich przetworzenie oraz dostarczenie do modelu.

@@ -4,11 +4,16 @@
 \contentsline {section}{\numberline {1.2}Geneza tematu}{6}
 \contentsline {section}{\numberline {1.3}Realizacja projektu}{6}
 \contentsline {section}{\numberline {1.4}Struktura pracy}{6}
-\contentsline {chapter}{\numberline {2}Projekt}{8}
-\contentsline {section}{\numberline {2.1}G\IeC {\l }\IeC {\'o}wne zalo\IeC {\.z}enia}{8}
-\contentsline {section}{\numberline {2.2}Architektura aplikacji}{8}
-\contentsline {subsection}{\numberline {2.2.1}Modu\IeC {\l } kontroler}{9}
-\contentsline {subsection}{\numberline {2.2.2}Widok}{9}
-\contentsline {subsection}{\numberline {2.2.3}Model}{9}
-\contentsline {section}{\numberline {2.3}Modu\IeC {\l }y}{9}
-\contentsline {section}{\numberline {2.4}Obiekty}{9}
+\contentsline {chapter}{\numberline {2}Teoria}{8}
+\contentsline {section}{\numberline {2.1}Czym jest ogie\IeC {\'n}}{8}
+\contentsline {section}{\numberline {2.2}Proces spalania}{8}
+\contentsline {section}{\numberline {2.3}Propagacja ciep\IeC {\l }a}{8}
+\contentsline {subsection}{\numberline {2.3.1}Przewodnictwo}{8}
+\contentsline {chapter}{\numberline {3}Projekt}{10}
+\contentsline {section}{\numberline {3.1}G\IeC {\l }\IeC {\'o}wne zalo\IeC {\.z}enia}{10}
+\contentsline {section}{\numberline {3.2}Architektura aplikacji}{10}
+\contentsline {subsection}{\numberline {3.2.1}Modu\IeC {\l }: Controller}{11}
+\contentsline {subsection}{\numberline {3.2.2}Modu\IeC {\l }: Scene}{11}
+\contentsline {subsection}{\numberline {3.2.3}Model}{11}
+\contentsline {section}{\numberline {3.3}Modu\IeC {\l }y}{13}
+\contentsline {section}{\numberline {3.4}Obiekty}{13}

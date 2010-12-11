@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  10 DEC 2010 22:08
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  11 DEC 2010 15:48
 entering extended mode
 **D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
 (D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
@@ -610,7 +610,7 @@ Rozdzia\l  1.
 l.51 \include{R1_Wstep}
                        
 ? 
-[7] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R2_Teoria.tex
+[7] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R2_TeoriaFizyka.tex
 
 ! Package inputenc Error: Unicode char \u8:ï»¿ not set up for use with LaTeX.
 
@@ -633,36 +633,56 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 13.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 17.
-
-Underfull \hbox (badness 10000) in paragraph at lines 30--31
-
- []
-
-[8
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 19.
+ [8
 
 
 
-])
+]
+
+LaTeX Warning: Reference `przewodnictwa' on page 9 undefined on input line 67.
+
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.52 \include {R2_Teoria}
-                         
+l.106 \item R
+             efleksyjnoÅ›Ä‡ czyli odbijalnoÅ›Ä‡
 ? 
-[9] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.tex
+[9]
+
+LaTeX Warning: Reference `emisyjnosc' on page 10 undefined on input line 116.
+
+)
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.52 \include {R2_TeoriaFizyka}
+                               
+? 
+[10] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.tex
 Rozdzia\l  3.
-<componentDiagram.jpg, id=40, 444.4605pt x 162.00525pt>
+<componentDiagram.jpg, id=45, 444.4605pt x 162.00525pt>
 File: componentDiagram.jpg Graphic file (type jpg)
 
-<use componentDiagram.jpg> [10
+<use componentDiagram.jpg>
+Underfull \hbox (badness 5893) in paragraph at lines 25--36
+\T1/ptm/m/n/10.95 Zale»no±ci pomi¦dzy poszczegól-nymi kom-po-nen-tami przed-sta
+wia di-a-gram kom-po-nen-tów 3.1[]
+ []
+
+
+Underfull \hbox (badness 1107) in paragraph at lines 37--39
+\T1/ptm/m/n/10.95 wyko-rzys-tu-j¡-cych graficzny in-ter-fejs u»ytkown-ika: Mode
+l-View-Controller. El-e-mentem ró»ni¡-cym
+ []
+
+[11
 
 
 
-] <useCase.jpg, id=44, 481.8pt x 615.4995pt>
+] <useCase.jpg, id=49, 481.8pt x 615.4995pt>
 File: useCase.jpg Graphic file (type jpg)
-
-<use useCase.jpg>
+ <use useCase.jpg>
 Overfull \hbox (26.5547pt too wide) in paragraph at lines 52--52
  [] 
  []
@@ -674,70 +694,53 @@ Overfull \hbox (26.5547pt too wide) in paragraph at lines 52--52
 l.53 \include{R3_Projekt}
                          
 ? 
-[11 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/componentDiagram.jpg>]
+[12 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/componentDiagram.jpg>]
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
 l.53 \include{R3_Projekt}
                          
 ? 
-[12 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/useCase.jpg>]
-! Undefined control sequence.
-<recently read> \@shorttitlePL 
-                               
-l.53 \include{R3_Projekt}
-                         
-? 
-[13] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
+[13 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/useCase.jpg>]
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-)
-
-! LaTeX Error: \begin{itemize} on input line 29 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.62 \end{document}
-                   
-? 
-[14
+) [14
 
 
 ] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R1_Wstep.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R2_Teoria.aux)
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R2_TeoriaFizyka.aux)
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux))
 
 LaTeX Warning: There were undefined references.
 
- )
-(\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 29 (\begingroup)
-### bottom level 
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4751 strings out of 495285
- 62818 string characters out of 3180683
- 151657 words of memory out of 3000000
- 7829 multiletter control sequences out of 15000+200000
+ 4760 strings out of 495285
+ 62960 string characters out of 3180683
+ 153657 words of memory out of 3000000
+ 7837 multiletter control sequences out of 15000+200000
  86471 words of font info for 68 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 32i,11n,45p,353b,410s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/Miktex/fonts/enc/dvips/fontname/8r.enc}<C:/Pr
-ogram Files/Miktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/
-Miktex/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/Miktex/fonts/
-type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/Miktex/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/uhvb8a.
-pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Fi
-les/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/Miktex/fonts/type
-1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmr8a.pf
-b>
-Output written on PracaMain.pdf (14 pages, 262235 bytes).
+ 32i,11n,45p,366b,351s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/Miktex/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Mi
+ktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/Miktex/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/Miktex/fonts/type1/public/a
+msfonts/cm/cmr10.pfb><C:/Program Files/Miktex/fonts/type1/public/amsfonts/cm/cm
+r8.pfb><C:/Program Files/Miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/P
+rogram Files/Miktex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/
+Miktex/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/Miktex/fonts/type1
+/urw/helvetic/uhvr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmb8a.
+pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files
+/Miktex/fonts/type1/urw/times/utmr8a.pfb>
+Output written on PracaMain.pdf (14 pages, 289731 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
+ 96 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

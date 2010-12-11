@@ -1,0 +1,146 @@
+﻿\chapter{Teoria}
+\label{cha:Teoria}
+Kluczowym elementem, niezbędnym do prawidłowego zamodelowania pożaru
+jest zrozumienie czym jest ogien, poznanie zjawisk jakim podlega.Niniejszy rozdział zawiera
+krótki wstęp teoretyczny, przedstawiający zjawiska fizyczne niezbędne do zrozumienia istoty 
+pożaru i prawidłowego jego zamodelowania.
+\section {Czym jest ogień}
+\section {Proces spalania}
+\section {Propagacja ciepła}
+Jak zostało wspomniane w rozdziale \ref{Proces spalania} jednym z czynników niezbędnych
+do podtrzymania ognia jest cieło. Ciepło podczas pożaru jest propagowane na trzy różne sposoby:
+\begin {itemize}
+\item Przewodnictwo
+\item Konwekcja
+\item Radiacja
+\end {itemize}
+
+
+\subsection {Przewodnictwo}
+ Przewodnictwo cieplne jest procesem, który polega  na wymianie ciepła 
+pomiędzy nierównomiernie ogrzanymi ciałami będącymi w kontakcie. Zachodzi ono we wszystkich stanach skupienia: ciałach stałych, cieczach i gazach, jednak sposób i skala tego zjawiska jest bardzo zróżnicowana. Najczęściej mówimy o przewodnictwie w ciałach stałych.
+W cieczach i gazach występuje ono niezmiernie rzadko i polega na zderzeniach cząsteczek podlegających
+niezorganizowanym, przypadkowym ruchom i ich dyfuzji.
+W ciałach stałych przenoszenie ciepła odbywa się  na dwa sposoby:
+\begin{itemize}
+\item dzięki drganiom atomów
+\item poprzez ruch elektronów
+\end {itemize}
+Celem omawianego przewodnictwa jest 
+osiągnięcie równowagi cieplnej. Podczas przewodnictwa ciepło jest zawsze przenoszone od
+ciała o większej temperaturze do ciała o niższej. Zgodnie z zasadą zachowania energi, głoszącą że w układzie 
+izolowanym suma wszystkich energii jest stała, ilość energii uzyskanej przez ciało chłodniejsze jest równa
+ilości energii oddanej przez cieplejszy obiekt. Energia przenoszona jest wraz z ruchem cząsteczek wewnętrznych.
+Nie wszystkie ciała przewodzą ciepło w takim sam sposób.
+Zależność między ilością ciepła przewodzonego przez ciało, a jego zmianą temperatury najlepiej opisuje prawo Fouriera.
+Przyjmuje ono następującą postać:
+\begin{equation}
+ q(r,t)=-k*grad T
+ \label{eqn:fourier}
+\end {equation}
+gdzie:
+k - współczynnik przewodzenia ciepła $[W / (m*K)]$
+T - temperatura $[K]$
+q - natężenie strumienia ciepła  $[W/(m^2)]$
+Prawo Fouriera oznacza, że gęstość strumienia ciepła przekazywana w jednostce czasu przez jednostkową powierzchnię 
+jest proporcjonalna do gradientu temperatury. Minus we wzorze wynika ze wspomianego wyżej kierunku przepływu ciepła:
+od ciała cieplejszego do zimniejszego. Strumień ciepła jest mierzony w kierunku zgodnym z jego przepływem, zatem przyrost
+temperatury będzie miał wartość ujemną.
+
+
+Do dobrych przewodków należą przede wszystkim:
+\begin {itemize}
+\item metale - do najlepszych należą srebro, miedź, złoto, aluminium
+\end {itemize}
+Źle przewodzą ciepło:
+\begin {itemize}
+\item drewno
+\item papier
+\item ciecze
+\item gazy
+\end {itemize}
+Zła przewodność cieczy i gazów wynika z istoty procesu przewodnictwa w tych stanach skupienia. Za wysoką wartość 
+współczynnika przewodnictwa odpowiada ruch elektronów. Dlatego też, we wszystkich dialektrykach wartość ta
+przyjmuje wartości z przedziału $[0,001-3][W/(m*K)]$, podczas gdy w metalach może siegać ona nawet $ 400 [W/m*k]$
+
+Na uwagę zasługuje też fakt, że przewodność metali maleje wraz ze wzrostem ich temperatury.
+Tabela \ref {przewodnictwa} zawiera współczynniki przewodnictwa przykładowych materiałów, które zostały wykorzystane przy
+testowaniu algorytmu symulacji.
+%http://tabelechemiczne.chemicalforum.eu/przewodnictwo_ciala.html
+%Dodać do bibliografii tablice fizyczne z których to wzięte
+\begin{table}
+
+\begin {center}
+\begin{tabular} {|l | c | c|}
+\hline
+Materiał & Temp. $[C]$ & Wspł. przewodnictwa $[W/(m*K)]$ \\ \hline
+Beton & 20 & 0.84-1.3  \\ \hline
+Drewno & - & 0.1-0.17  \\ \hline
+Szklo crown & 20 & 0.22-0.29  \\ \hline
+Azbest & 20 & 0.16-0.37 \\ \hline
+Guma wulkanizowana & 20 & 0.22-0.29 \\ \hline
+Miedź & 20 & 400 \\ \hline
+Stal & 20 & 10 \\ \hline
+Ołów & 20 & 30 \\ \hline
+\hline
+\end {tabular}
+\caption{Współczynniki przewodnictwa materiałów}
+\end{center}
+\end {table}
+\subsection{Konwekcja}
+
+\subsection {Radiacja}
+Radiacja, czyli inaczej promieniowanie jest to sposób rozchodzenia ciepła w postaci fal elektromagnetycznych. 
+Najważniejszym aspektem przewodnictwa ciepła przez promieniowanie jest możliwość wymiany ciepła między ciałami
+nie stykającymi się.
+W bardzo niskich temperaturach ilość przekazywanego przy pomocy radiacji ciepła jest tak mała, że zjawisko to może być pomijane.
+Wzrost znaczenia promieniowania następuje wraz ze wzrostem temperatury ciał wymieniających ciepło.
+Przyjmuje się, że radiacja zachodzi dla ciał o temperaturach wyższych od $0 ^\circ$ Kelvin.
+Promieniowanie jest rodzajem wymiany energii, która nie wymaga żandego nośnika. Każde ciało emituje fale.
+W normalnych warunkach większość promieniowania zachodzi przy udziale fal podczerwonych. Należy jednak pamiętać
+że w radiacji mogą brać udział także fale świetlne czy ultrafioletowe. Poza emisją promieniowania każde ciało reaguje także
+na fale wysyłane przez innych. Dla każdego ciała jesteśmy w stanie określić wartości trzech współczynników opisujących 
+reakcję ciała na wiązkę promieniowania. Należą do nich:
+\begin {itemize}
+\item Absorpcyjność czyli pochłanialność
+\item Refleksyjność czyli odbijalność
+\item Przepuszczalność
+\end {itemize}
+Radiacja następuje we wszystkich kierunkach aż  do momentu zablokowania drogi promieni przez ciało pochłaniające je.
+W przypadku jednej powierzchni zamkniętej w innej zakłada się, że wewnętrzna powierzchnia "nie opromieniowuje samej siebie".
+Innymi słowy całe promieniowania ciała wewnętrznego przechodzi do powierzchni zewnętrznej. W drugim kierunku następuje tylko częściowe
+przejście energii z ciała zewnętrznego do wewnątrz.
+Większość ciał stałych o rozmiarach większych od kilku mikrometrów nie przepuszcza promieniowania. Na wspomnianej 
+głębokości pod powierzchnią ciała następuje całkowita absorpcja promieniowania cieplnego. Ponadto ciała stałe mogą przepuszczać
+fale tylko o określonej długości. Przykładem jest szkło, które przepuszcza jedynie fale świetlne.
+Ilość promieniowania emitowanego przez ciała szare można obliczyć ze wzoru \ref{emisyjnosc}
+\begin {equation}
+Q_{emit}=\sigma*\varepsilon*A_{s}*T_{s}^4
+\label {emisyjnosc}
+\end {equation}
+gdzie
+$\varepsilon \in (0,1)$ - emisyjność powierzchni. $\sigma=1$ - dla ciała doskonale czarnego. Określa jak bardzo dane 
+ciało jest podobne do ciała doskonale czarnego.
+$\sigma = 5.67 * 10^-8 [W/(m^2 * K^4]) $ - stała promieniowania
+$A_{s} [m^2]$ - powierzchnia 
+$T_{s} [K]$ - temperatura
+
+
+
+
+Rozważając wymianę ciepła przez promieniowanie poza pochłanialnością, refleksyjnością i przepuszczalnością należy wziąć pod uwagę
+wzajemną orientację powierzchni oraz. Wszystkie te czynniki wpływają na komplikację promieniowania.
+
+\subsection {Przenikanie ciepła}
+%TODO umiescic gdzie indziej. to jest zależnośc temp ciala od dostarczonej energii
+\begin {equation}
+Q=c*m*\Delta T
+\label {ilosc_ciepla}
+\end {equation}
+gdzie:
+\begin {itemize}
+\item c - ciepło właściwe $[J/ (kg * K)]$, jego wartość oznacza ile ciepła należy dostarczyć aby ogrzać 1kg substacji o wartość
+1K.
+\item m - masa ciała $[kg]$
+\item T - temperatura  $[K]$
+\end {itemize}

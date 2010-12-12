@@ -11,12 +11,11 @@ import Scene.Scene3D;
 public class World
 {
     private static List<Material> _availableMaterials = new ArrayList<Material>();
-    private Cell _worldCurrentValues[][][];
-    private Cell _worldOldValues[][][]; // needed for double-buffering
+    public Cell _worldCurrentValues[][][];
+    public Cell _worldOldValues[][][]; // needed for double-buffering
     private static World _instance = new World(
         Scene3D.getScene( Controller.MainWindow._sceneCanvas ) );
     private Scene3D _scene;
-    private HeatConducter _heatConducter;
 
     private void initMaterials()
     {
@@ -25,6 +24,9 @@ public class World
                 EnvSettings.WOOD_TRANSPARENCY ) );
         get_availableMaterials().add(
             new Material( "Air", EnvSettings.AIR_COLOR, EnvSettings.AIR_SPECIFIC_HEAT,
+                EnvSettings.AIR_TRANSPARENCY ) );
+        get_availableMaterials().add(
+            new Material( "Metal", EnvSettings.METAL_COLOR, EnvSettings.METAL_SPECIFIC_HEAT,
                 EnvSettings.AIR_TRANSPARENCY ) );
     }
 
@@ -51,9 +53,9 @@ public class World
                 {
                     Material mat = getMaterial( materialName );
                     _worldCurrentValues[ i ][ j ][ k ].set_material( mat );
+                    _worldOldValues[ i ][ j ][ k ].set_material( mat );
                     int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( k, i,
                         j );
-                    System.out.println( "index of block to update " + blockIndex );
                     scene.addNewBlockToScene( mat, blockIndex );
                 }
             }
@@ -71,9 +73,11 @@ public class World
                 {
                     // System.out.println( "material  under air name " +
                     // getMaterial( "Air" ) );
-                    _worldCurrentValues[ i ][ j ][ k ] = new Cell( getMaterial( "Air" ), 20.0 );
+                    double airMass = 2.0;
+                    _worldCurrentValues[ i ][ j ][ k ] = new Cell( getMaterial( "Air" ), 20.0,
+                        airMass );
                     _worldOldValues[ i ][ j ][ k ] = new Cell(
-                        get_availableMaterials().get( airId ), 20.0 );
+                        get_availableMaterials().get( airId ), 20.0, airMass );
                 }
             }
         }
@@ -127,6 +131,7 @@ public class World
     public void set_worldCurrentValues( Cell[][][] currentValues )
     {
         _worldCurrentValues = currentValues;
+        _worldOldValues = currentValues;
     }
 
     public static class CellIndex
@@ -176,12 +181,24 @@ public class World
     public void setStartOfFire( int x, int y, int z )
     {
         _worldCurrentValues[ x ][ y ][ z ].set_temp( EnvSettings.START_OF_FIRE_TEMP );
+        _worldOldValues[ x ][ y ][ z ].set_temp( EnvSettings.START_OF_FIRE_TEMP );
         _scene.updateBlockWhileSimulation(
             Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( x, y, z ),
             _worldCurrentValues[ x ][ y ][ z ].get_temp() );
+        // for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
+        // {
+        // for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
+        // {
+        // for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
+        // {
+        // System.out.println( _worldCurrentValues[ i ][ j ][ k ] );
+        // }
+        // }
+        // }
+        // System.out.println( "world po inicie" );
     }
 
-    public void simulateHeatConduction()
+    private void updateOldValues()
     {
         for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
         {
@@ -189,13 +206,43 @@ public class World
             {
                 for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
                 {
+                    _worldOldValues[ i ][ j ][ k ] = _worldCurrentValues[ i ][ j ][ k ];
+                }
+            }
+        }
+    }
+
+    public void simulateHeatConduction()
+    {
+        System.out.println( "print all scene" );
+        for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
+        {
+            for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
+            {
+                for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
+                {
+                    System.out.println( "value " + _worldOldValues[ i ][ j ][ k ] );
+                }
+            }
+        }
+        System.out.println( "done1" );
+        for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
+        {
+            for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
+            {
+                for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
+                {
+                    System.out.println( "value " + _worldCurrentValues[ i ][ j ][ k ] );
+                    updateOldValues();
                     HeatConducter.conductHeat( _worldCurrentValues[ i ][ j ][ k ],
-                        _worldCurrentValues, getNeighbours( new CellIndex( i, j, k ) ) );
+                        _worldCurrentValues, getNeighbours( new CellIndex( i, j, k ) ),
+                        _worldOldValues[ i ][ j ][ k ], _worldOldValues );
                     _scene.updateBlockWhileSimulation(
                         Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ),
                         _worldCurrentValues[ i ][ j ][ k ].get_temp() );
                 }
             }
         }
+        System.out.println( "done" );
     }
 }

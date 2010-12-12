@@ -88,6 +88,30 @@ Ołów & 20 & 30 \\ \hline
 \end{center}
 \end {table}
 \subsection{Konwekcja}
+Konwekcja, zwana też unoszeniem lub wnikaniem jest to zgodnie ze szkolną definicją sposób przewodnictwa ciepła polegający na
+"unoszeniu prabranej energii cieplnej przez cząsteczki substancji i dzięki swojej wędrówce przekazywaniu
+energii innym cząsteczkom". 
+%jak się znajdzie jakaś inna przystęna definicja to podmienić
+Konwekcja zachodzi we wszystkich płynach, czyli zarówno ciecach jak i gazach. Nie zachodzi natomiast w ciałach stałych.
+Konwekcja ze względu na połączenie w sobie dwóch zjawisk: 
+\begin{itemize}
+\item przekazywania ciepła
+\item ruchu płynów
+\end{itemize}
+jest zjawiskiem niezwykle skomplikowanym do teoretycznego ujęcia. Przenoszenie ciepła w konwekcji zachodzi 
+wskutek ruchu płynu, tak więc warunkiem niezbędnym do wystąpienia zjawiska konwekcji jest ruch ośrodka.
+Można wyróżnić dwa podstawowe typy konwekcji, dzielące zjawisko wnikania ze względu na przyczynę ruchu ośrodka:
+\begin{itemize}
+\item konwekcja naturalna - w tym przypadku ruch płynu wywołany jest różnicami gęstości substancji znajdujących się w polu
+grawitacyjnym
+\item konwekcja wymuszona - ruch płynu spowodowany jest działaniem urządzeń zewnętrznych (wentylatorów, pomp)
+\ed {itemize}
+Przykładem konwekcji naturalnej jest unoszenie ciepłego powietrzna w pomieszczeniu. 
+Ogrzane powietrze zmniejsza swoją gęstość, w wyniku czego unosi się do góry. Jego miejsce wypełnia zimne powietrze, 
+które w kolejnym etapie ulega ogrzaniu rozpoczynając kolejny cykl wędrówki powietrza. Ruchy powietrza wywołane zjawiskiem 
+konwekcji tworzą tzw. prądy konwekcyjne.
+
+%wstawic rysunek. Screen z naszego budynku + strzałki z rozenbajgera
 
 \subsection {Radiacja}
 Radiacja, czyli inaczej promieniowanie jest to sposób rozchodzenia ciepła w postaci fal elektromagnetycznych. 
@@ -107,40 +131,49 @@ reakcję ciała na wiązkę promieniowania. Należą do nich:
 \item Przepuszczalność
 \end {itemize}
 Radiacja następuje we wszystkich kierunkach aż  do momentu zablokowania drogi promieni przez ciało pochłaniające je.
-W przypadku jednej powierzchni zamkniętej w innej zakłada się, że wewnętrzna powierzchnia "nie opromieniowuje samej siebie".
-Innymi słowy całe promieniowania ciała wewnętrznego przechodzi do powierzchni zewnętrznej. W drugim kierunku następuje tylko częściowe
-przejście energii z ciała zewnętrznego do wewnątrz.
 Większość ciał stałych o rozmiarach większych od kilku mikrometrów nie przepuszcza promieniowania. Na wspomnianej 
 głębokości pod powierzchnią ciała następuje całkowita absorpcja promieniowania cieplnego. Ponadto ciała stałe mogą przepuszczać
 fale tylko o określonej długości. Przykładem jest szkło, które przepuszcza jedynie fale świetlne.
 Ilość promieniowania emitowanego przez ciała szare można obliczyć ze wzoru \ref{emisyjnosc}
 \begin {equation}
-Q_{emit}=\sigma*\varepsilon*A_{s}*T_{s}^4
+\dot{Q_{emit}}=\sigma*\varepsilon*A_{s}*T_{s}^4
 \label {emisyjnosc}
 \end {equation}
 gdzie
-$\varepsilon \in (0,1)$ - emisyjność powierzchni. $\sigma=1$ - dla ciała doskonale czarnego. Określa jak bardzo dane 
+\begin{itemize}
+\item $\varepsilon \in (0,1)$ - emisyjność powierzchni. $\varepsilon=1$ - dla ciała doskonale czarnego. Określa jak bardzo dane 
 ciało jest podobne do ciała doskonale czarnego.
-$\sigma = 5.67 * 10^-8 [W/(m^2 * K^4]) $ - stała promieniowania
-$A_{s} [m^2]$ - powierzchnia 
-$T_{s} [K]$ - temperatura
-
-
-
-
-Rozważając wymianę ciepła przez promieniowanie poza pochłanialnością, refleksyjnością i przepuszczalnością należy wziąć pod uwagę
-wzajemną orientację powierzchni oraz. Wszystkie te czynniki wpływają na komplikację promieniowania.
-
-\subsection {Przenikanie ciepła}
-%TODO umiescic gdzie indziej. to jest zależnośc temp ciala od dostarczonej energii
+\item $\sigma = 5.67 * 10^-8 [W/(m^2 * K^4]) $ - stała promieniowania
+\item $A_{s} [m^2]$ - powierzchnia 
+\item $T_{s} [K]$ - temperatura
+\end {itemize}
+Przeanalizujmy przykład promieniowania między rzeczywistymi obiektami znajdującymi się w pewnym pomieszczeniu np. stół w pokoju.
+W przypadku jednej powierzchni zamkniętej w innej (w omawianym przypadku wewnętrzną powierzchnią będzie powierzchnia stołu, natomiast zewnętrzną ściany pokoju) zakłada się, że wewnętrzna powierzchnia "nie opromieniowuje samej siebie".
+Innymi słowy całe promieniowania ciała wewnętrznego przechodzi do powierzchni zewnętrznej. W drugim kierunku następuje tylko częściowe
+przejście energii z ciała zewnętrznego do wewnątrz. Ponadto, w przypadku gdy otaczająca powierzchnia jest znacząco większa od powierzchni wewnętrznej i obie powierzchnie są oddzielone gazem, który nie promieniuje (powietrze) zjawisko promieniowania zachodzi
+równolegle ze zjawiskiem konwekcji i oba te zjawiska należy wziąć pod uwagę równocześnie.
+W takim przypadku wymianę ciepła można określić za pomocą wzoru \ref{emisyjnosc_konwekcja}
 \begin {equation}
-Q=c*m*\Delta T
-\label {ilosc_ciepla}
+\dot{Q_{całk}}=\alfa_{całk}*\sigma*A_{s}*(T_{s}^4-T_\inf^4)
+\label {emisyjnosc_konwekcja}
 \end {equation}
 gdzie:
 \begin {itemize}
-\item c - ciepło właściwe $[J/ (kg * K)]$, jego wartość oznacza ile ciepła należy dostarczyć aby ogrzać 1kg substacji o wartość
-1K.
-\item m - masa ciała $[kg]$
-\item T - temperatura  $[K]$
-\end {itemize}
+\item \alfa_{całk} - całkowity współczynnik wymiany ciepła
+\item T_\inf - temperatura powietrza w znacznej odległości
+\end {itemize} 
+Omówione powyżej procesy podowują, że promieniowanie jest zjawiskiem szczególnie skomplikowanym.
+
+% \subsection {Przenikanie ciepła}
+% %TODO umiescic gdzie indziej. to jest zależnośc temp ciala od dostarczonej energii
+% \begin {equation}
+% Q=c*m*\Delta T
+% \label {ilosc_ciepla}
+% \end {equation}
+% gdzie:
+% \begin {itemize}
+% \item c - ciepło właściwe $[J/ (kg * K)]$, jego wartość oznacza ile ciepła należy dostarczyć aby ogrzać 1kg substacji o wartość
+% 1K.
+% \item m - masa ciała $[kg]$
+% \item T - temperatura  $[K]$
+% \end {itemize}

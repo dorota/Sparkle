@@ -24,6 +24,7 @@ public class SimulationMgr
         {
             final int FIRST_TIME_ACTION_PERFORMED = 0;
             int whichTimeActionPerformed = 0;
+            int counter = 0;
 
             public void actionPerformed( ActionEvent e )
             {
@@ -33,6 +34,7 @@ public class SimulationMgr
                     {
                         // wait a second after initializing and displaying
                         // start of fire
+                        System.out.println( "first time" );
                         Thread.sleep( 500 );
                     }
                     catch( InterruptedException exception )
@@ -41,7 +43,23 @@ public class SimulationMgr
                 }
                 else
                 {
+                    // if( counter == 0 )
+                    // {
+                    // for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
+                    // {
+                    // for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
+                    // {
+                    // for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
+                    // {
+                    // System.out.println( "value "
+                    // + _world._worldCurrentValues[ i ][ j ][ k ] );
+                    // }
+                    // }
+                    // }
+                    // System.out.println( "before first call of algo" );
+                    // }
                     _world.simulateHeatConduction();
+                    counter++;
                 }
                 ++whichTimeActionPerformed;
             }

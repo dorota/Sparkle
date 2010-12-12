@@ -11,7 +11,6 @@
 \contentsline {subsection}{\numberline {2.3.1}Przewodnictwo}{8}
 \contentsline {subsection}{\numberline {2.3.2}Konwekcja}{9}
 \contentsline {subsection}{\numberline {2.3.3}Radiacja}{9}
-\contentsline {subsection}{\numberline {2.3.4}Przenikanie ciep\IeC {\l }a}{10}
 \contentsline {chapter}{\numberline {3}Projekt}{11}
 \contentsline {section}{\numberline {3.1}G\IeC {\l }\IeC {\'o}wne zalo\IeC {\.z}enia}{11}
 \contentsline {section}{\numberline {3.2}Architektura aplikacji}{11}

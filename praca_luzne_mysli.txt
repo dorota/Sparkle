@@ -13,3 +13,8 @@ dorobić i opisać zapisywanie do pliku / odczyt z pliku
 zapisywanie wynikow symulacji - mapa rozkładu temp po pewnym czasie...
 
 rzuca wyjatki - obsługa błędów edyora
+
+- opisac double buffering
+
+
+The advantages of Java3D is that it gives you plenty of stuff that you will have to write anyway for free, such as model loaders, a scenegraph structure, view frustrum culling, etc. The disadvantage is mainly that it does not support all the features of a lower-level API and that it can have some overhead over code written for such an API. This is especially true for really simple code that does not benefit from the culling, caches and other optimizations in Java3D's scenegraph structure, which is what I am guessing that Jappie is referring to since he was able to create OpenGL 'equivalents'. 

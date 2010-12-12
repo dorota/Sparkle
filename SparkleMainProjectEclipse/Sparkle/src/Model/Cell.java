@@ -21,10 +21,11 @@ public class Cell
     }
 
     // mass is not needed; may be calculate from material's density and cell's V
-    public Cell( Material material, double temp )
+    public Cell( Material material, double temp, double mass )
     {
         _material = material;
         _temp = temp;
+        _mass = mass;
     }
 
     public Material get_material()

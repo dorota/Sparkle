@@ -1,0 +1,48 @@
+﻿%TODO dopiac podział automatów komórkwoych głownie homogeniczne i niehomogeniczne
+\chapter{Automaty komórkowe}
+\label{cha:Automaty komórkowe}
+W rozdziale tym wyjaśniono pojęcie automatu komórkowego, przedstawiono formalną definicję automatów komórkowych oraz ich najczęstsze  zastsowania. Podczas omawiania automatów zamieszczono ogólny algorytm symulacji z wykorzysaniem automatów komórkwoych. Zasadę działania prostych automatów przedstawiono
+na przykładzie gry Life. Szczególną uwagę podczas opisu 
+ automatów komórkowych poświęcono niehomogenicznym automatom komórkowym, gdyż to one zostały wykorzystane
+do symulacji pożaru. 
+\section {Definicja automatu komórkowego}
+Według definicji \textbf {Ferbera} \textsl{ Automat komórkowy jest dyskretnym, dynamicznych systemem, którego zachowanie jest
+całkowicie określone w warunkach lokalnyc relacji.}
+Inną definicją, ukazującą automat komórkowy w matematycznym zapisie jest definicja \textbf{Weimara}, przedstawiająca
+automat jako czwórkę parametrów:
+\begin{Center}
+$CellularAutomata=(L,S,N,f)$
+\end{Center}
+gdzie
+\begin{itemize}
+\item L - zbiór komórek tworzących automat
+\item S - zbiór stanów, które może przyjmować komórka
+\item N - zbiór sąsiadów danej komórki
+\item f - funkcja przejścia, która każdą komórkę ze zbioru L przeprowadza  ze stanu $S_i$ w stan $S_(i+1)$. $S_t$ jest jednym ze stanów
+		ze zbioru S przyjmowanym przez komórkę w i-tej jednostce czasu, natomist $S_(i+1)$ jest stanem przyjmowanym
+		przez komórkę w i+1-ej jednostce czasu na podstawie analizy stanów sąsiadów komórki (N).
+\end{itemize}
+Innymi słowy, automat komórkowy jest to model matematyczny opisujący siatkę komórek, ich stany oraz reguły przejść
+między kolejnymi stanami. Każda komórka z pewnej dyskretnej siatki komórek może przyjmować jeden z określonego zbioru stanów.
+W dyskretnych przedziałach czasowych następuje ewolucja komórki, na podstawie jej \textbf{stanu poprzedniego} oraz \textbf{stanu jej sąsiadów}. Ewolucję komórki określa funkcja przejścia. Odpowiedni dobór zbioru stanów oraz funkcji przejść kształtuje cechy automatu, jego dynamikę oraz szybkość.
+W wyniku ewolucji komórka przyjmuje kolejny stan ze zbioru S. Ze względu na wielwymiarowość automatów komórkwoych, sąsiedztwa można
+definiować w różny sposób. W przypadku dwuwymiarowego automatu najprostszym sąsiedztwem, zwanym też sąsiedztwem von Neumana będzie
+zbiór czterech komórek {N,S,E,W} gdzie kolejne literki oznaczają kierunki zgodne z różą wiatrów. W dwuwymiarowych automacie jako sąsiedztwo można przyjmować także zbiór ośmiu komórek (sąsiedztwo \textbf{Moore'a}: cztery wspomniane powyżej kierunki wraz z kierunkami pośrednimi {N, S, E, W, NW, NE, SE, SW}. W trójwymiarowym automacie najprostszym sąsiedztwem jest zbiór wszystkich 
+komórek połączonych ścianami z aktualnym sześcianem. Innym sąsiedztwem mogą być wszystkie szcześciany połączone z aktualnie badanym
+zarówno ścianami jak i krawędziami. Ważnymi elementami automatu komórkowego jest stan początkowy automatu, czyli z góry określony
+stan każdej komórki w chwili 0 (przed pierwszą iteracją algorytmu). W przypadku automatów komórkwoych o ograniczonej siatce konieczne
+jest także zdefiniowanie warunków brzegowych. Warunki brzegowe określają reguły przejść dla komórek znajdujących się na brzegach
+automatu. W przypadku jednowymiarowej siatki, przykładem warunku brzegowego jest określenie sąsiadów ostatniego $n-tego$ elementu jako 
+$n-1$ oraz $1$ - przedostatni oraz pierwszy element.
+Poniżej przedstawiono ogólny schemat działania algorytmu komórkowego: \\\\
+\begin{center}
+\includegraphics{algorytm_automatu_kom}
+\end{center}
+
+Automaty komórkowe dzięki możliwościom zastąpienia bardzo skomplikowanych wzorów prostymi regułami są szeroko stoswane do modelowania
+procesów fizycznych i chemicznych np. symulacje pożarów lasów, budynków, rozprzestrzenianie lekarstw w organizmie ludzkim. 
+Innym zastosowaniem jest symulacja zjawisk, które ze względu na swoją naturę, w wyniku braku zjaomości
+dokladnych wzorów nie mogą być odzwierciedlone w sposób dokłady. Przykładem takiej symulacji jest na przykład ruch ludzi podczas ucieczki z ewakuowanego budynku.
+\section{Podział automatów komórkowych}
+
+\end {Center}

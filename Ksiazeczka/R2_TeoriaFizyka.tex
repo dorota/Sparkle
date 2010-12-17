@@ -1,11 +1,47 @@
-﻿\chapter{Teoria}
+﻿%TODO:
+%Wstawić rysunek konwekcji narysowany ze screena z Rosenbajgerowymi strzałkami
+%Konwekcja, a grawitacja i prawo Archimedesa
+\chapter{Teoria}
 \label{cha:Teoria}
 Kluczowym elementem, niezbędnym do prawidłowego zamodelowania pożaru
-jest zrozumienie czym jest ogien, poznanie zjawisk jakim podlega.Niniejszy rozdział zawiera
+jest zrozumienie czym jest ogien oraz poznanie zjawisk jakim podlega. Niniejszy rozdział zawiera
 krótki wstęp teoretyczny, przedstawiający zjawiska fizyczne niezbędne do zrozumienia istoty 
 pożaru i prawidłowego jego zamodelowania.
 \section {Czym jest ogień}
- \section {Proces spalania}
+Ogień nie jest substancją.
+Ogień powstaje jako produkt reakcji chemicznej zachodzącej między paliwem i tlenem.
+Obserwowalną postać ognia, czyli to co widzimy i nazywamy ogniem tworzy światło powstałe w wyniku ruchu rozgrzanego powietrzna.
+Jest to jednak tylko jeden z aspektów tego złożonego procesu.
+Elementami koniecznymi do powstania i podtrzymania ognia są:
+\begin{itemize}
+\item tlen
+\item paliwo
+\item ciepło
+\end{itemize}
+
+
+Paliwem może być ciecz, ciało stałe lub gaz. Samo w sobe paliwo nie ulega spalaniu. 
+Paliwo pod wpływem ciepła pochodzącego np. z zapałki lub otrzymanego od innego nagrzanego ciała ogrzewa się. Po osiągnięciu
+odpowiedniej temperatury, paliwo ulega procesowi dekompozycji. Jednym z produktów dekompozycji
+są opary. W przypadku jednego z najbardziej popularnych paliw - drewna oprócz oparów w wyniku dekompozycji otrzymujemy węgiel i popiół.
+Spalanie drewna przedstawia poniższa reakcja \ref{reakcja_spalania}:
+\begin {equation}
+CH_20+0_2+heat ->C0_2 + C0+ C + N_2 + H_20
+\label {reakcja_spalania}
+\end {equation}
+Kiedy opary osiągną odpowiednią temperaturę tzw. temperaturę zapłonu (w przypadku drewna wynosi ona ok. $300^\circ C$) oraz gdy ich stężenie
+w powietrzu jest odpowiednie może dojść do zapłonu. Do zapłonu dochodzi w wyniku kontaktu z otwartym ogniem, iskrą lub w wyniku osiągnięcia
+przez opary temperatury tzn. samozapłonu. Wynikiem zapłonu jest spalanie oparów. Jak widać głównym substratem reakcji spalania są opary powtające w wyniku
+ogrzania paliwa. W przypadku niektórych paliw jest to jedyny reagent. Jednym z przykładów jest benzyna, która w wyniku ogrzania w całości zamienia się w opary ulegające spalaniu. W przypadku drewna, poza oparami spalaniu ulega także węgiel. Jest to jednak reakcja bardzo powolna.
+Na szczególną uwagę zasługuje fakt wytwarzania energii cieplnej w procesie spalania, co powoduje samoistne podtrzymanie ognia. Płomień będacy
+wizualną postacią spalania ogrzewa sąsiadujące cząsteczki paliwa, dzięki czemu nie gaśnie.
+
+Bardzo istotnym reagentem w procesie spalania jest tlen. Atomy gazów, oparów powstałych w wyniku podgrzania paliwa w wyniku zapłonu łączą się z tlenem.
+Aby mogło dojść do reakcji spalania bardzo ważne jest zachowanie odpwiednich proporcji między substratami reakcji. Lower Explosive Limit (LEL) określa 
+minimalne stężenie oparów w powietrzu, konieczne aby mogło dojść do zapłonu. Odpowiednio, Upper Explosive Limit (UEL) oznacza maksymalne stężenie oparów, powyżej
+którego nie dojdzie do zapłonu. Przykładowo: dla tlenku węgla $LEL=12$, natomiast  $UEL=75$, co oznacza w powietrzu musi być między $12\%-75\%$ aby mogło dojść
+do jego zapalenia. $LEL$ oraz $UEL$ określają także pośrednio wymaganą ilość tlenu. Dla większości paliw ilość tlenu wymaganego do zapłnu wynosi ok. $15\%$. 
+
 \section {Propagacja ciepła}
 Jak zostało wspomniane w rozdziale \ref{Proces spalania} jednym z czynników niezbędnych
 do podtrzymania ognia jest cieło. Ciepło podczas pożaru jest propagowane na trzy różne sposoby:
@@ -15,8 +51,8 @@ do podtrzymania ognia jest cieło. Ciepło podczas pożaru jest propagowane na t
 \item Radiacja
 \end {itemize}
 
-
 \subsection {Przewodnictwo}
+\label{Przewodnictwo}
  Przewodnictwo cieplne jest procesem, który polega  na wymianie ciepła 
 pomiędzy nierównomiernie ogrzanymi ciałami będącymi w kontakcie. Zachodzi ono we wszystkich stanach skupienia: ciałach stałych, cieczach i gazach, jednak sposób i skala tego zjawiska jest bardzo zróżnicowana. Najczęściej mówimy o przewodnictwie w ciałach stałych.
 W cieczach i gazach występuje ono niezmiernie rzadko i polega na zderzeniach cząsteczek podlegających
@@ -87,32 +123,34 @@ Ołów & 20 & 30 \\ \hline
 \label{przewodnictwa}
 \end{center}
 \end {table}
-% \subsection{Konwekcja}
-% Konwekcja, zwana też unoszeniem lub wnikaniem jest to zgodnie ze szkolną definicją sposób przewodnictwa ciepła polegający na
-% "unoszeniu prabranej energii cieplnej przez cząsteczki substancji i dzięki swojej wędrówce przekazywaniu
-% energii innym cząsteczkom". 
-% ak się znajdzie jakaś inna przystęna definicja to podmienić
-% Konwekcja zachodzi we wszystkich płynach, czyli zarówno ciecach jak i gazach. Nie zachodzi natomiast w ciałach stałych.
-% Konwekcja ze względu na połączenie w sobie dwóch zjawisk: 
-% \begin{itemize}
-% \item przekazywania ciepła
-% \item ruchu płynów
-% \end{itemize}
-% jest zjawiskiem niezwykle skomplikowanym do teoretycznego ujęcia. Przenoszenie ciepła w konwekcji zachodzi 
-% wskutek ruchu płynu, tak więc warunkiem niezbędnym do wystąpienia zjawiska konwekcji jest ruch ośrodka.
-% Można wyróżnić dwa podstawowe typy konwekcji, dzielące zjawisko wnikania ze względu na przyczynę ruchu ośrodka:
-% \begin{itemize}
-% \item konwekcja naturalna - w tym przypadku ruch płynu wywołany jest różnicami gęstości substancji znajdujących się w polu grawitacyjnym
-% \item konwekcja wymuszona - ruch płynu spowodowany jest działaniem urządzeń zewnętrznych (wentylatorów, pomp)
-% \end {itemize}
-% Przykładem konwekcji naturalnej jest unoszenie ciepłego powietrzna w pomieszczeniu. 
-% Ogrzane powietrze zmniejsza swoją gęstość, w wyniku czego unosi się do góry. Jego miejsce wypełnia zimne powietrze, 
-% które w kolejnym etapie ulega ogrzaniu rozpoczynając kolejny cykl wędrówki powietrza. Ruchy powietrza wywołane zjawiskiem 
-% konwekcji tworzą tzw. prądy konwekcyjne.
-
-%stawic rysunek. Screen z naszego budynku + strzałki z rozenbajgera
+\subsection{Konwekcja}
+\label{Konwekcja}
+Konwekcja, zwana też unoszeniem lub wnikaniem jest to zgodnie ze szkolną definicją sposób przewodnictwa ciepła polegający na
+"unoszeniu prabranej energii cieplnej przez cząsteczki substancji i dzięki swojej wędrówce przekazywaniu
+energii innym cząsteczkom". 
+ak się znajdzie jakaś inna przystęna definicja to podmienić
+Konwekcja zachodzi we wszystkich płynach, czyli zarówno ciecach jak i gazach. Nie zachodzi natomiast w ciałach stałych.
+Konwekcja ze względu na połączenie w sobie dwóch zjawisk: 
+\begin{itemize}
+\item przekazywania ciepła
+\item ruchu płynów
+\end{itemize}
+jest zjawiskiem niezwykle skomplikowanym do teoretycznego ujęcia. Przenoszenie ciepła w konwekcji zachodzi 
+wskutek ruchu płynu, tak więc warunkiem niezbędnym do wystąpienia zjawiska konwekcji jest ruch ośrodka.
+Można wyróżnić dwa podstawowe typy konwekcji, dzielące zjawisko wnikania ze względu na przyczynę ruchu ośrodka:
+\begin{itemize}
+\item konwekcja naturalna - w tym przypadku ruch płynu wywołany jest różnicami gęstości substancji znajdujących się w polu grawitacyjnym
+\item konwekcja wymuszona - ruch płynu spowodowany jest działaniem urządzeń zewnętrznych (wentylatorów, pomp)
+\end {itemize}
+Przykładem konwekcji naturalnej jest unoszenie ciepłego powietrzna w pomieszczeniu. 
+Ogrzane powietrze zmniejsza swoją gęstość, w wyniku czego unosi się do góry. Jego miejsce wypełnia zimne powietrze, 
+które w kolejnym etapie ulega ogrzaniu rozpoczynając kolejny cykl wędrówki powietrza. Ruchy powietrza wywołane zjawiskiem 
+konwekcji tworzą tzw. prądy konwekcyjne.
+%TODO dodac rysunek konwekcji
+ Konwekcja naturalna jest typem konwekcji występującym podczas pożaru. 
 
 \subsection {Radiacja}
+\label{Radiacja}
 Radiacja, czyli inaczej promieniowanie jest to sposób rozchodzenia ciepła w postaci fal elektromagnetycznych. 
 Najważniejszym aspektem przewodnictwa ciepła przez promieniowanie jest możliwość wymiany ciepła między ciałami
 nie stykającymi się.
@@ -163,16 +201,22 @@ gdzie:
 \end {itemize} 
 Omówione powyżej procesy podowują, że promieniowanie jest zjawiskiem szczególnie skomplikowanym.
 
-% \subsection {Przenikanie ciepła}
-% %TODO umiescic gdzie indziej. to jest zależnośc temp ciala od dostarczonej energii
-% \begin {equation}
-% Q=c*m*\Delta T
-% \label {ilosc_ciepla}
-% \end {equation}
-% gdzie:
-% \begin {itemize}
-% \item c - ciepło właściwe $[J/ (kg * K)]$, jego wartość oznacza ile ciepła należy dostarczyć aby ogrzać 1kg substacji o wartość
-% 1K.
-% \item m - masa ciała $[kg]$
-% \item T - temperatura  $[K]$
-% \end {itemize}
+\subsection {Zależność temperatury od dostarczonej energii}
+Opisane w podrozdziałach \ref{Przewodnictwo}, \ref{Konwekcja}, \ref{Radiacja} metody obrazują różne sposoby przekazywania energii
+między cząsteczkami materii. Po ich poznaniu należy zadać sobie pytanie w jaki sposób ta energia wpływa na temperaturę substancji?
+Wielkością reprezentującą zależność między dostarczoną energią a temperaturą substancji jest ciepło właściwe. Ciepło właściwe
+jest wielkością charakterystyczną dla materiału i  informuje ono o tym ile ciepła
+należy dostarczyć aby ograć 1kg substancji o $1^\circ C$.Opisaną powyżej zależność przedstawia wzór \ref{cieplo_wlasciwe} 
+\begin {equation}
+c=Q/(m*\Delta T)
+\label {cieplo_wlasciwe}  
+\end {equation}
+gdzie:
+\begin {itemize}
+\item c - ciepło właściwe $[J/ (kg * K)]$
+\item m - masa ciała $[kg]$
+\item T - temperatura  $[K]$
+\end {itemize}
+Znając ilość ciepła dostarczonego do ciała w wyniku procesów przekazywania energii oraz dokonując przekształcenia powyższego wzoru
+można w bardzo prosty sposób policzyć zmianę temperatury badanego ciała.
+

@@ -1,0 +1,21 @@
+\select@language {polish}
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{6}
+\contentsline {section}{\numberline {1.1}Temat pracy}{6}
+\contentsline {section}{\numberline {1.2}Geneza tematu}{6}
+\contentsline {section}{\numberline {1.3}Realizacja projektu}{6}
+\contentsline {section}{\numberline {1.4}Struktura pracy}{6}
+\contentsline {chapter}{\numberline {2}Teoria}{8}
+\contentsline {section}{\numberline {2.1}Czym jest ogie\IeC {\'n}}{8}
+\contentsline {section}{\numberline {2.2}Propagacja ciep\IeC {\l }a}{9}
+\contentsline {subsection}{\numberline {2.2.1}Przewodnictwo}{9}
+\contentsline {subsection}{\numberline {2.2.2}Konwekcja}{10}
+\contentsline {subsection}{\numberline {2.2.3}Radiacja}{10}
+\contentsline {subsection}{\numberline {2.2.4}Zale\IeC {\.z}no\IeC {\'s}\IeC {\'c} temperatury od dostarczonej energii}{12}
+\contentsline {chapter}{\numberline {3}Projekt}{13}
+\contentsline {section}{\numberline {3.1}G\IeC {\l }\IeC {\'o}wne zalo\IeC {\.z}enia}{13}
+\contentsline {section}{\numberline {3.2}Architektura aplikacji}{13}
+\contentsline {subsection}{\numberline {3.2.1}Modu\IeC {\l }: Controller}{14}
+\contentsline {subsection}{\numberline {3.2.2}Modu\IeC {\l }: Scene}{14}
+\contentsline {subsection}{\numberline {3.2.3}Model}{14}
+\contentsline {section}{\numberline {3.3}Modu\IeC {\l }y}{14}
+\contentsline {section}{\numberline {3.4}Obiekty}{14}

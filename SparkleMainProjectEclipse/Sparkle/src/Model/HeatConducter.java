@@ -55,6 +55,7 @@ public class HeatConducter
             double l_avarageTemp = l_totalEnergy / ( cellHeatCapacity + neighHeatCapacity );
             cell.set_temp( l_avarageTemp );
             neigh.set_temp( l_avarageTemp );
+            System.out.println( "temps " + cell.get_temp() + " " + neigh.get_temp() );
         }
     }
 }

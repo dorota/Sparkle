@@ -45,17 +45,20 @@ public class World
     public void addBuildingPart( Point3d leftBottomBackCorner, Point3d size, String materialName,
             Scene3D scene ) throws ArrayIndexOutOfBoundsException
     {
+        System.out.println( "in add building part" );
         for( int i = (int)leftBottomBackCorner.x; i < leftBottomBackCorner.x + size.x; ++i )
         {
             for( int j = (int)leftBottomBackCorner.y; j < leftBottomBackCorner.y + size.y; ++j )
             {
                 for( int k = (int)leftBottomBackCorner.z; k < leftBottomBackCorner.z + size.z; ++k )
                 {
+                    System.out.println( "block index" );
                     Material mat = getMaterial( materialName );
                     _worldCurrentValues[ i ][ j ][ k ].set_material( mat );
                     _worldOldValues[ i ][ j ][ k ].set_material( mat );
                     int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( k, i,
                         j );
+                    System.out.println( blockIndex );
                     scene.addNewBlockToScene( mat, blockIndex );
                 }
             }
@@ -65,11 +68,11 @@ public class World
     public void initWorld( Scene3D scene )
     {
         int airId = 1;
-        for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
+        for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
-            for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
+            for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
             {
-                for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
+                for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
                     // System.out.println( "material  under air name " +
                     // getMaterial( "Air" ) );
@@ -83,8 +86,8 @@ public class World
         }
         Material defaultMaterial = getMaterial( "Air" );
         assert ( defaultMaterial != null );
-        scene.createdWorldRepresentation( defaultMaterial, EnvSettings.getMAX_LENGTH(),
-            EnvSettings.getMAX_LENGTH(), EnvSettings.getMAX_LENGTH() );
+        scene.createdWorldRepresentation( defaultMaterial, EnvSettings.getMAX_X(),
+            EnvSettings.getMAX_Y(), EnvSettings.getMAX_Z() );
     }
 
     public static World getWorld( Scene3D scene )
@@ -95,10 +98,10 @@ public class World
     private World( Scene3D scene )
     {
         _scene = scene;
-        _worldCurrentValues = new Cell[ EnvSettings.getMAX_LENGTH() ][ EnvSettings.getMAX_LENGTH() ][ EnvSettings
-                .getMAX_LENGTH() ];
-        set_worldOldValues( new Cell[ EnvSettings.getMAX_LENGTH() ][ EnvSettings.getMAX_LENGTH() ][ EnvSettings
-                .getMAX_LENGTH() ] );
+        _worldCurrentValues = new Cell[ EnvSettings.getMAX_X() ][ EnvSettings.getMAX_Y() ][ EnvSettings
+                .getMAX_Z() ];
+        set_worldOldValues( new Cell[ EnvSettings.getMAX_X() ][ EnvSettings.getMAX_Y() ][ EnvSettings
+                .getMAX_Z() ] );
         initMaterials();
         initWorld( scene );
     }
@@ -151,27 +154,27 @@ public class World
     public List<CellIndex> getNeighbours( CellIndex index )
     {
         List<CellIndex> neighbours = new ArrayList<World.CellIndex>();
-        if( index.x % EnvSettings.getMAX_LENGTH() != 0 )
+        if( index.x % EnvSettings.getMAX_X() != 0 )
         {
             neighbours.add( new CellIndex( index.x - 1, index.y, index.z ) );
         }
-        if( index.x % EnvSettings.getMAX_LENGTH() != EnvSettings.getMAX_LENGTH() - 1 )
+        if( index.x % EnvSettings.getMAX_X() != EnvSettings.getMAX_X() - 1 )
         {
             neighbours.add( new CellIndex( index.x + 1, index.y, index.z ) );
         }
-        if( index.y % EnvSettings.getMAX_LENGTH() != 0 )
+        if( index.y % EnvSettings.getMAX_Y() != 0 )
         {
             neighbours.add( new CellIndex( index.x, index.y - 1, index.z ) );
         }
-        if( index.y % EnvSettings.getMAX_LENGTH() != EnvSettings.getMAX_LENGTH() - 1 )
+        if( index.y % EnvSettings.getMAX_Y() != EnvSettings.getMAX_Y() - 1 )
         {
             neighbours.add( new CellIndex( index.x, index.y + 1, index.z ) );
         }
-        if( index.z % EnvSettings.getMAX_LENGTH() != 0 )
+        if( index.z % EnvSettings.getMAX_Z() != 0 )
         {
             neighbours.add( new CellIndex( index.x, index.y, index.z - 1 ) );
         }
-        if( index.z % EnvSettings.getMAX_LENGTH() != EnvSettings.getMAX_LENGTH() - 1 )
+        if( index.z % EnvSettings.getMAX_Z() != EnvSettings.getMAX_Z() - 1 )
         {
             neighbours.add( new CellIndex( index.x, index.y, index.z + 1 ) );
         }
@@ -200,11 +203,11 @@ public class World
 
     private void updateOldValues()
     {
-        for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
+        for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
-            for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
+            for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
             {
-                for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
+                for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
                     _worldOldValues[ i ][ j ][ k ] = _worldCurrentValues[ i ][ j ][ k ];
                 }
@@ -215,22 +218,22 @@ public class World
     public void simulateHeatConduction()
     {
         System.out.println( "print all scene" );
-        for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
+        for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
-            for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
+            for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
             {
-                for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
+                for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
                     System.out.println( "value " + _worldOldValues[ i ][ j ][ k ] );
                 }
             }
         }
         System.out.println( "done1" );
-        for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
+        for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
-            for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
+            for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
             {
-                for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
+                for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
                     System.out.println( "value " + _worldCurrentValues[ i ][ j ][ k ] );
                     updateOldValues();

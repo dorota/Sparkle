@@ -9,17 +9,17 @@ public class WorldSceneMediator
 {
     public static int changeWorldIndexToSceneIndex( int worldX, int worldY, int worldZ )
     {
-        return worldY * ( EnvSettings.getMAX_LENGTH() * EnvSettings.getMAX_LENGTH() ) + worldZ
-                * EnvSettings.getMAX_LENGTH() + worldX + Scene3D.get_contentsOffset();
+        return worldY * ( EnvSettings.getMAX_X() * EnvSettings.getMAX_Z() ) + worldZ
+                * EnvSettings.getMAX_X() + worldX + Scene3D.get_contentsOffset();
     }
 
     public static WorldIndex changeSceneIndexToWorldIndex( int i )
     {
         WorldIndex index = new WorldIndex();
-        index.y = i / ( EnvSettings.getMAX_LENGTH() * EnvSettings.getMAX_LENGTH() );
-        int onTheFloor = i % ( EnvSettings.getMAX_LENGTH() * EnvSettings.getMAX_LENGTH() );
-        index.z = onTheFloor / EnvSettings.getMAX_LENGTH();
-        index.x = onTheFloor % EnvSettings.getMAX_LENGTH();
+        index.y = i / ( EnvSettings.getMAX_X() * EnvSettings.getMAX_Z() );
+        int onTheFloor = i % ( EnvSettings.getMAX_X() * EnvSettings.getMAX_Z() );
+        index.z = onTheFloor / EnvSettings.getMAX_X();
+        index.x = onTheFloor % EnvSettings.getMAX_X();
         return index;
     }
 

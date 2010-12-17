@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  11 DEC 2010 16:08
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  17 DEC 2010 05:53
 entering extended mode
 **D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
 (D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
@@ -456,8 +456,7 @@ LaTeX Warning: Unused global option(s):
 
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R1_Wstep.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R2_TeoriaFizyka.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux))
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R2_TeoriaFizyka.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
 LaTeX Font Info:    ... okay on input line 44.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
@@ -639,264 +638,26 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 
 
 ]
-
-LaTeX Warning: Reference `przewodnictwa' on page 9 undefined on input line 67.
-
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.106 \item R
-             efleksyjnoÅ›Ä‡ czyli odbijalnoÅ›Ä‡
+l.130 \item P
+             rzepuszczalnoÅ›Ä‡
 ? 
-[9]
-
-LaTeX Warning: Reference `emisyjnosc_konwekcja' on page 10 undefined on input l
-ine 131.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 133.
-
-! Undefined control sequence.
-l.133 Q_{caÅ‚k}=\alfa
-                     _{caÅ‚k}*\sigma*A_{s}*(T_{s}^4-T_\inf^4)
-? 
-
-LaTeX Warning: Command \l invalid in math mode on input line 133.
-
-! Missing { inserted.
-<to be read again> 
-                   \mathop 
-l.133 ...alfa_{caÅ‚k}*\sigma*A_{s}*(T_{s}^4-T_\inf
-                                                  ^4)
-? 
-! You can't use `\eqno' in math mode.
-\endequation ->\eqno 
-                     \hbox {\@eqnnum }$$\@ignoretrue 
-l.135 \end {equation}
-                     
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.135 \end {equation}
-                     
-? 
-Missing character: There is no ª in font cmr8!
-Missing character: There is no ª in font cmr8!
-! Undefined control sequence.
-<recently read> \alfa 
-                      
-l.138 \item \alfa
-                 _{caÅ‚k} - caÅ‚kowity wspÃ³Å‚czynnik wymiany ciepÅ‚a
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.138 \item \alfa_
-                  {caÅ‚k} - caÅ‚kowity wspÃ³Å‚czynnik wymiany ciepÅ‚a
-? 
-
-LaTeX Warning: Command \l invalid in math mode on input line 138.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 138.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 138.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 138.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 138.
-
-
-! LaTeX Error: Command \item invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \item
-            T_\inf - temperatura powietrza w znacznej odlegÅ‚oÅ›ci
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \item T
-             _\inf - temperatura powietrza w znacznej odlegÅ‚oÅ›ci
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \item T
-             _\inf - temperatura powietrza w znacznej odlegÅ‚oÅ›ci
-? 
-! Missing { inserted.
-<to be read again> 
-                   \mathop 
-l.139 \item T_\inf
-                   - temperatura powietrza w znacznej odlegÅ‚oÅ›ci
-? 
-
-LaTeX Warning: Command \l invalid in math mode on input line 139.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 139.
-
-
-! LaTeX Error: Command \end{itemize} invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.140 \end {itemize}
-                    
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.140 \end {itemize}
-                    
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.140 \end {itemize}
-                    
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.140 \end {itemize}
-                    
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.140 \end {itemize}
-                    
-? 
-Missing character: There is no ª in font cmr8!
-Missing character: There is no ª in font cmr10!
-Missing character: There is no ó in font cmr10!
-Missing character: There is no ª in font cmr10!
-Missing character: There is no ª in font cmr10!
-Missing character: There is no ª in font cmr8!
-Missing character: There is no ± in font cmr8!
-
-Underfull \hbox (badness 10000) in paragraph at lines 138--142
-[]$[] \OMS/cmsy/m/n/10.95   \OML/cmm/m/it/10.95 cakowitywspczynnikwymianyciepaT
-[]$ \T1/ptm/m/n/10.95 Omówione
- []
-
-)
-! Undefined control sequence.
+! Emergency stop.
 <recently read> \@shorttitlePL 
                                
-l.52 \include {R2_TeoriaFizyka}
-                               
-? 
-[10] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.tex
-Rozdzia\l  3.
-<componentDiagram.jpg, id=46, 444.4605pt x 162.00525pt>
-File: componentDiagram.jpg Graphic file (type jpg)
+l.130 \item P
+             rzepuszczalnoÅ›Ä‡
+End of file on the terminal!
 
-<use componentDiagram.jpg>
-Underfull \hbox (badness 5893) in paragraph at lines 25--36
-\T1/ptm/m/n/10.95 Zale»no±ci pomi¦dzy poszczegól-nymi kom-po-nen-tami przed-sta
-wia di-a-gram kom-po-nen-tów 3.1[]
- []
-
-
-Underfull \hbox (badness 1107) in paragraph at lines 37--39
-\T1/ptm/m/n/10.95 wyko-rzys-tu-j¡-cych graficzny in-ter-fejs u»ytkown-ika: Mode
-l-View-Controller. El-e-mentem ró»ni¡-cym
- []
-
-[11
-
-
-
-] <useCase.jpg, id=50, 481.8pt x 615.4995pt>
-File: useCase.jpg Graphic file (type jpg)
- <use useCase.jpg>
-Overfull \hbox (26.5547pt too wide) in paragraph at lines 52--52
- [] 
- []
-
-)
-! Undefined control sequence.
-<recently read> \@shorttitlePL 
-                               
-l.53 \include{R3_Projekt}
-                         
-? 
-[12 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/componentDiagram.jpg>]
-! Undefined control sequence.
-<recently read> \@shorttitlePL 
-                               
-l.53 \include{R3_Projekt}
-                         
-? 
-[13 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/useCase.jpg>]
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-) [14
-
-
-] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R1_Wstep.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R2_TeoriaFizyka.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux))
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+ 
 Here is how much of TeX's memory you used:
- 4761 strings out of 495285
- 62995 string characters out of 3180683
+ 4720 strings out of 495285
+ 61873 string characters out of 3180683
  153657 words of memory out of 3000000
- 7839 multiletter control sequences out of 15000+200000
+ 7816 multiletter control sequences out of 15000+200000
  86471 words of font info for 68 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 32i,11n,45p,366b,351s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/Miktex/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Mi
-ktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/Miktex/fonts/t
-ype1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/Miktex/fonts/type1/public/a
-msfonts/cm/cmr10.pfb><C:/Program Files/Miktex/fonts/type1/public/amsfonts/cm/cm
-r6.pfb><C:/Program Files/Miktex/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pro
-gram Files/Miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/M
-iktex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/Miktex/fonts/t
-ype1/urw/helvetic/uhvb8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/
-uhvr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Progra
-m Files/Miktex/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/
-type1/urw/times/utmr8a.pfb>
-Output written on PracaMain.pdf (14 pages, 302971 bytes).
-PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 32i,11n,45p,366b,349s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

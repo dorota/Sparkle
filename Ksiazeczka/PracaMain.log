@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  18 DEC 2010 11:45
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  18 DEC 2010 18:31
 entering extended mode
 **D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
 (D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
@@ -457,7 +457,7 @@ LaTeX Warning: Unused global option(s):
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R1_Wstep.aux)
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R2_TeoriaFizyka.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R5_TeoriaAutomatKomorkowy.aux)
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\.aux)
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
@@ -584,33 +584,6 @@ Type  H <return>  for immediate help.
 l.45 \titlepages
                 
 ? 
-! Undefined control sequence.
-\titlepages ...ARGE {\bfseries \scshape \@titleEN 
-                                                  }}\\\vspace *{3cm} \par \b...
-l.45 \titlepages
-                
-? 
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.45 \titlepages
-                
-? 
-! Undefined control sequence.
-<recently read> \@supervisorEN 
-                               
-l.45 \titlepages
-                
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-
- []
-
 [1
 
 ] [1
@@ -678,36 +651,36 @@ l.102 N
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.165 \begin {itemize}
+l.166 \begin {itemize}
                       
 ? 
 [10]
 
-LaTeX Warning: Command \l invalid in math mode on input line 194.
+LaTeX Warning: Command \l invalid in math mode on input line 195.
 
 ! Undefined control sequence.
-l.194 \dot{Q_{ca≈Çk}}=\alfa
+l.195 \dot{Q_{ca≈Çk}}=\alfa
                            _{ca≈Çk}*\sigma*A_{s}*(T_{s}^4-T_\inf^4)
 ? 
 
-LaTeX Warning: Command \l invalid in math mode on input line 194.
+LaTeX Warning: Command \l invalid in math mode on input line 195.
 
 ! Missing { inserted.
 <to be read again> 
                    \mathop 
-l.194 ...alfa_{ca≈Çk}*\sigma*A_{s}*(T_{s}^4-T_\inf
+l.195 ...alfa_{ca≈Çk}*\sigma*A_{s}*(T_{s}^4-T_\inf
                                                   ^4)
 ? 
 ! You can't use `\eqno' in math mode.
 \endequation ->\eqno 
                      \hbox {\@eqnnum }$$\@ignoretrue 
-l.196 \end {equation}
+l.197 \end {equation}
                      
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.196 \end {equation}
+l.197 \end {equation}
                      
 ? 
 Missing character: There is no ™ in font cmr8!
@@ -715,29 +688,29 @@ Missing character: There is no ™ in font cmr8!
 ! Undefined control sequence.
 <recently read> \alfa 
                       
-l.199 \item \alfa
+l.200 \item \alfa
                  _{ca≈Çk} - ca≈Çkowity wsp√≥≈Çczynnik wymiany ciep≈Ça
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.199 \item \alfa_
+l.200 \item \alfa_
                   {ca≈Çk} - ca≈Çkowity wsp√≥≈Çczynnik wymiany ciep≈Ça
 ? 
 
-LaTeX Warning: Command \l invalid in math mode on input line 199.
+LaTeX Warning: Command \l invalid in math mode on input line 200.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 199.
+LaTeX Warning: Command \l invalid in math mode on input line 200.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 199.
+LaTeX Warning: Command \' invalid in math mode on input line 200.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 199.
+LaTeX Warning: Command \l invalid in math mode on input line 200.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 199.
+LaTeX Warning: Command \l invalid in math mode on input line 200.
 
 
 ! LaTeX Error: Command \item invalid in math mode.
@@ -746,7 +719,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.200 \item
+l.201 \item
             T_\inf - temperatura powietrza w znacznej odleg≈Ço≈õci
 ? 
 
@@ -756,7 +729,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.200 \item T
+l.201 \item T
              _\inf - temperatura powietrza w znacznej odleg≈Ço≈õci
 ? 
 
@@ -766,20 +739,20 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.200 \item T
+l.201 \item T
              _\inf - temperatura powietrza w znacznej odleg≈Ço≈õci
 ? 
 ! Missing { inserted.
 <to be read again> 
                    \mathop 
-l.200 \item T_\inf
+l.201 \item T_\inf
                    - temperatura powietrza w znacznej odleg≈Ço≈õci
 ? 
 
-LaTeX Warning: Command \l invalid in math mode on input line 200.
+LaTeX Warning: Command \l invalid in math mode on input line 201.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 200.
+LaTeX Warning: Command \' invalid in math mode on input line 201.
 
 
 ! LaTeX Error: Command \end{itemize} invalid in math mode.
@@ -788,7 +761,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.201 \end {itemize}
+l.202 \end {itemize}
                     
 ? 
 
@@ -798,7 +771,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.201 \end {itemize}
+l.202 \end {itemize}
                     
 ? 
 
@@ -808,19 +781,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.201 \end {itemize}
+l.202 \end {itemize}
                     
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.201 \end {itemize}
+l.202 \end {itemize}
                     
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.201 \end {itemize}
+l.202 \end {itemize}
                     
 ? 
 Missing character: There is no ™ in font cmr8!
@@ -831,7 +804,7 @@ Missing character: There is no ™ in font cmr10!
 Missing character: There is no ™ in font cmr8!
 Missing character: There is no ± in font cmr8!
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--203
+Underfull \hbox (badness 10000) in paragraph at lines 200--204
 []$[] \OMS/cmsy/m/n/10.95   \OML/cmm/m/it/10.95 cakowitywspczynnikwymianyciepaT
 []$ \T1/ptm/m/n/10.95 OmÛwione
  []
@@ -839,7 +812,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--203
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.210 \begin {equation}
+l.211 \begin {equation}
                        
 ? 
 [11])
@@ -858,7 +831,7 @@ File: componentDiagram.jpg Graphic file (type jpg)
 <use componentDiagram.jpg>
 Underfull \hbox (badness 5893) in paragraph at lines 25--36
 \T1/ptm/m/n/10.95 Zaleªno±ci pomi¶dzy poszczegÛl-nymi kom-po-nen-tami przed-sta
-wia di-a-gram kom-po-nen-tÛw 4.1[]
+wia di-a-gram kom-po-nen-tÛw 3.1[]
  []
 
 
@@ -910,15 +883,12 @@ LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 4775 strings out of 495285
- 63445 string characters out of 3180683
+ 4773 strings out of 495285
+ 63321 string characters out of 3180683
  154657 words of memory out of 3000000
- 7846 multiletter control sequences out of 15000+200000
+ 7845 multiletter control sequences out of 15000+200000
  86471 words of font info for 68 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  32i,12n,45p,377b,313s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -933,7 +903,7 @@ ype1/urw/helvetic/uhvb8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/
 uhvr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Progra
 m Files/Miktex/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/
 type1/urw/times/utmr8a.pfb>
-Output written on PracaMain.pdf (16 pages, 314339 bytes).
+Output written on PracaMain.pdf (16 pages, 314745 bytes).
 PDF statistics:
  106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

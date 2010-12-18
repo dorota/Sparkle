@@ -56,8 +56,6 @@ public class World
                     _worldOldValues[ i ][ j ][ k ].set_material( mat );
                     int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j,
                         k );
-                    System.out.println( "index "
-                            + Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( 0, 0, 1 ) );
                     scene.addNewBlockToScene( mat, blockIndex );
                 }
             }
@@ -237,6 +235,8 @@ public class World
 
     public void simulateHeatConduction()
     {
+        // System.out.println( "material drugiego rzedu "
+        // + _worldCurrentValues[ 2 ][ 1 ][ 4 ].get_material() );
         // System.out.println( "print all scene" );
         // for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         // {
@@ -251,7 +251,6 @@ public class World
         // }
         // }
         // System.out.println( "done1" );
-        System.out.println( "symulacja siê liczy" );
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
             for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
@@ -266,6 +265,7 @@ public class World
                         Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ),
                         _worldCurrentValues[ i ][ j ][ k ].get_temp(),
                         _worldCurrentValues[ i ][ j ][ k ].get_material() );
+                    System.out.println( _worldCurrentValues[ i ][ j ][ k ].get_material() );
                     // System.out.println( "value " + _worldCurrentValues[ i ][
                     // j ][ k ] );
                 }

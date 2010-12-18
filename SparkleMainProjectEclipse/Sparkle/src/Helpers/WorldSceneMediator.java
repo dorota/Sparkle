@@ -7,12 +7,11 @@ import View.Scene3D;
 //not tested - don't know if it works
 public class WorldSceneMediator
 {
+    // don't touch. jakas magia zeby dzialalo
     public static int changeWorldIndexToSceneIndex( int worldX, int worldY, int worldZ )
     {
-        System.out.println( "x y z in mediator " + worldX + " " + worldY + " " + worldZ );
         int id = worldX * ( EnvSettings.getMAX_Z() * EnvSettings.getMAX_Y() ) + worldY
                 * EnvSettings.getMAX_Z() + worldZ + Scene3D.get_contentsOffset();
-        System.out.println( id );
         return id;
     }
 

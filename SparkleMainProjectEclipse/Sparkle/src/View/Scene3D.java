@@ -100,8 +100,6 @@ public class Scene3D
         BranchGroup childBG = new BranchGroup();
         TransformGroup tg = new TransformGroup();
         Transform3D transform = new Transform3D();
-        System.out.println( "adding blokc " + startCoordinates.x + " " + startCoordinates.y + " "
-                + startCoordinates.z );
         Vector3d vector = new Vector3d( startCoordinates.x, startCoordinates.y, startCoordinates.z );
         transform.setTranslation( vector );
         tg.setTransform( transform );
@@ -160,7 +158,6 @@ public class Scene3D
 
     public void updateBlockWhileSimulation( int blockIndex, double temp, Material material )
     {
-        System.out.println( "updating block color" );
         float scale = clamp( (float)( temp / EnvSettings.FIRE_TEMP ), 0.0f, 1.0f );
         setCellColor( new Color3f( lerp( 0.0f, 1.0f, scale ), // red
             0.0f, // green

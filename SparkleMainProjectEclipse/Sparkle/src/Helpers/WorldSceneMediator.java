@@ -9,8 +9,11 @@ public class WorldSceneMediator
 {
     public static int changeWorldIndexToSceneIndex( int worldX, int worldY, int worldZ )
     {
-        return worldY * ( EnvSettings.getMAX_X() * EnvSettings.getMAX_Z() ) + worldZ
-                * EnvSettings.getMAX_X() + worldX + Scene3D.get_contentsOffset();
+        System.out.println( "x y z in mediator " + worldX + " " + worldY + " " + worldZ );
+        int id = worldX * ( EnvSettings.getMAX_Z() * EnvSettings.getMAX_Y() ) + worldY
+                * EnvSettings.getMAX_Z() + worldZ + Scene3D.get_contentsOffset();
+        System.out.println( id );
+        return id;
     }
 
     public static WorldIndex changeSceneIndexToWorldIndex( int i )

@@ -45,17 +45,19 @@ public class World
     public void addBuildingPart( Point3d leftBottomBackCorner, Point3d size, String materialName,
             Scene3D scene ) throws ArrayIndexOutOfBoundsException
     {
-        for( int i = (int)leftBottomBackCorner.x; i < leftBottomBackCorner.x + size.x; ++i )
+        for( int j = (int)leftBottomBackCorner.y; j < leftBottomBackCorner.y + size.y; ++j )
         {
-            for( int j = (int)leftBottomBackCorner.y; j < leftBottomBackCorner.y + size.y; ++j )
+            for( int k = (int)leftBottomBackCorner.z; k < leftBottomBackCorner.z + size.z; ++k )
             {
-                for( int k = (int)leftBottomBackCorner.z; k < leftBottomBackCorner.z + size.z; ++k )
+                for( int i = (int)leftBottomBackCorner.x; i < leftBottomBackCorner.x + size.x; ++i )
                 {
                     Material mat = getMaterial( materialName );
                     _worldCurrentValues[ i ][ j ][ k ].set_material( mat );
                     _worldOldValues[ i ][ j ][ k ].set_material( mat );
-                    int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( k, i,
-                        j );
+                    int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j,
+                        k );
+                    System.out.println( "index "
+                            + Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( 0, 0, 1 ) );
                     scene.addNewBlockToScene( mat, blockIndex );
                 }
             }

@@ -100,6 +100,8 @@ public class Scene3D
         BranchGroup childBG = new BranchGroup();
         TransformGroup tg = new TransformGroup();
         Transform3D transform = new Transform3D();
+        System.out.println( "adding blokc " + startCoordinates.x + " " + startCoordinates.y + " "
+                + startCoordinates.z );
         Vector3d vector = new Vector3d( startCoordinates.x, startCoordinates.y, startCoordinates.z );
         transform.setTranslation( vector );
         tg.setTransform( transform );
@@ -113,8 +115,8 @@ public class Scene3D
         app.setColoringAttributes( coloringAttributes );
         app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
             transparency ) );
-        tg.addChild( new Box( (float)( blocSize.x / 2 ), (float)( blocSize.y / 2 ),
-            (float)( blocSize.z / 2 ), Box.ENABLE_APPEARANCE_MODIFY, app ) );
+        tg.addChild( new Box( (float)( blocSize.x / 2 ), (float)( blocSize.z / 2 ),
+            (float)( blocSize.y / 2 ), Box.ENABLE_APPEARANCE_MODIFY, app ) );
         tg.getChild( 0 ).setCapability( Box.ENABLE_APPEARANCE_MODIFY );
         childBG.addChild( tg );
         _startsOfBlocks.add( vector );

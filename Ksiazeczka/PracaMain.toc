@@ -14,11 +14,13 @@
 \contentsline {chapter}{\numberline {3}Automaty kom\IeC {\'o}rkowe}{13}
 \contentsline {section}{\numberline {3.1}Definicja automatu kom\IeC {\'o}rkowego}{13}
 \contentsline {section}{\numberline {3.2}Klasyfikacja automat\IeC {\'o}w kom\IeC {\'o}rkowych}{14}
-\contentsline {chapter}{\numberline {4}Projekt}{16}
-\contentsline {section}{\numberline {4.1}G\IeC {\l }\IeC {\'o}wne zalo\IeC {\.z}enia}{16}
-\contentsline {section}{\numberline {4.2}Architektura aplikacji}{16}
-\contentsline {subsection}{\numberline {4.2.1}Modu\IeC {\l }: Controller}{17}
-\contentsline {subsection}{\numberline {4.2.2}Modu\IeC {\l }: Scene}{17}
-\contentsline {subsection}{\numberline {4.2.3}Model}{17}
-\contentsline {section}{\numberline {4.3}Modu\IeC {\l }y}{17}
-\contentsline {section}{\numberline {4.4}Obiekty}{17}
+\contentsline {chapter}{\numberline {4}Algorytm}{16}
+\contentsline {section}{\numberline {4.1}Model automatu}{16}
+\contentsline {chapter}{\numberline {5}Projekt}{17}
+\contentsline {section}{\numberline {5.1}G\IeC {\l }\IeC {\'o}wne zalo\IeC {\.z}enia}{17}
+\contentsline {section}{\numberline {5.2}Architektura aplikacji}{17}
+\contentsline {subsection}{\numberline {5.2.1}Modu\IeC {\l }: Controller}{18}
+\contentsline {subsection}{\numberline {5.2.2}Modu\IeC {\l }: Scene}{18}
+\contentsline {subsection}{\numberline {5.2.3}Model}{18}
+\contentsline {section}{\numberline {5.3}Modu\IeC {\l }y}{18}
+\contentsline {section}{\numberline {5.4}Obiekty}{18}

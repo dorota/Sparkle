@@ -16,8 +16,8 @@ public class EnvSettings
     public final static double AIR_TRANSPARENCY = 0.9;
     public final static double WOOD_TRANSPARENCY = 0.5;
     public final static double METAL_TRANSPARENCY = 0.5;
-    public static final int WOOD_SPECIFIC_HEAT = 1240;
-    public static final double AIR_SPECIFIC_HEAT = 0.00001;
+    public static final int WOOD_SPECIFIC_HEAT = 2400;
+    public static final double AIR_SPECIFIC_HEAT = 1000;
     public static final int METAL_SPECIFIC_HEAT = 150000;
     public static final double CELL_REPRESENTATION_LENGTH = 0.1;
     public static final Color3f WOOD_COLOR = new Color3f( 255, 0, 0 );

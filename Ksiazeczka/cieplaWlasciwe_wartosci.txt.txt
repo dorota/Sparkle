@@ -1,0 +1,5 @@
+powietrze 1000
+o³ów 160
+glina 900
+szk³o 800
+drewno 2400

@@ -2,12 +2,13 @@ package Model;
 
 import java.util.List;
 
+import Helpers.EnvSettings;
+
 public class HeatConducter
 {
     public static void conductHeat( Cell cell, Cell worldCurrentValues[][][],
             List<World.CellIndex> cellNeighboours, Cell oldValue, Cell worldOldValues[][][] )
     {
-        System.out.println( "symulacja siê liczy" );
         for( int i = 0; i < cellNeighboours.size(); ++i )
         {
             World.CellIndex id = cellNeighboours.get( i );
@@ -20,7 +21,6 @@ public class HeatConducter
 
     public static double calculateEnergyFlow( Cell cell, Cell neigh )
     {
-        System.out.println( "symulacja siê liczy" );
         double cellHeatCapacity = cell.get_material().get_specificHeat() * cell.get_mass();
         double neighHeatCapacity = neigh.get_material().get_specificHeat() * cell.get_mass();
         double energyFlow = neigh.get_temp() - cell.get_temp();
@@ -28,20 +28,20 @@ public class HeatConducter
         if( energyFlow > 0.0 )
         {
             energyFlow *= neighHeatCapacity;
+            energyFlow *= cell.get_material().get_thermalConductivity();
         }
         else
         {
             energyFlow *= cellHeatCapacity;
+            energyFlow *= neigh.get_material().get_thermalConductivity();
         }
         // opoznienie w czasue
-        double constantEnergyFacotr = 0.002;
-        energyFlow *= constantEnergyFacotr;
+        energyFlow *= EnvSettings.CONSTANT_ENERGY_FACTOR;
         return energyFlow;
     }
 
     public static void exchangeEnergy( Cell cell, Cell neigh, double energy )
     {
-        System.out.println( "symulacja siê liczy" );
         double cellHeatCapacity = cell.get_material().get_specificHeat() * cell.get_mass();
         double neighHeatCapacity = neigh.get_material().get_specificHeat() * cell.get_mass();
         neigh.set_temp( neigh.get_temp() - energy / neighHeatCapacity );

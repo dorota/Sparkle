@@ -21,13 +21,13 @@ public class World
     {
         get_availableMaterials().add(
             new Material( "Wood", EnvSettings.WOOD_COLOR, EnvSettings.WOOD_SPECIFIC_HEAT,
-                EnvSettings.WOOD_TRANSPARENCY ) );
+                EnvSettings.WOOD_TRANSPARENCY, EnvSettings.WOOD_THERMAL_CONDUCTIVITY ) );
         get_availableMaterials().add(
             new Material( "Air", EnvSettings.AIR_COLOR, EnvSettings.AIR_SPECIFIC_HEAT,
-                EnvSettings.AIR_TRANSPARENCY ) );
+                EnvSettings.AIR_TRANSPARENCY, EnvSettings.AIR_THERMAL_CONDUCTIVITY ) );
         get_availableMaterials().add(
             new Material( "Metal", EnvSettings.METAL_COLOR, EnvSettings.METAL_SPECIFIC_HEAT,
-                EnvSettings.AIR_TRANSPARENCY ) );
+                EnvSettings.AIR_TRANSPARENCY, EnvSettings.METAL_THERMAL_CONDUCTIVITY ) );
     }
 
     public static Material getMaterial( String materialName )

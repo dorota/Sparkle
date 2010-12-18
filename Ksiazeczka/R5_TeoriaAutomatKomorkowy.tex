@@ -38,11 +38,38 @@ Poniżej przedstawiono ogólny schemat działania algorytmu komórkowego: \\\\
 \begin{center}
 \includegraphics{algorytm_automatu_kom}
 \end{center}
-
+\\\\
 Automaty komórkowe dzięki możliwościom zastąpienia bardzo skomplikowanych wzorów prostymi regułami są szeroko stoswane do modelowania
 procesów fizycznych i chemicznych np. symulacje pożarów lasów, budynków, rozprzestrzenianie lekarstw w organizmie ludzkim. 
 Innym zastosowaniem jest symulacja zjawisk, które ze względu na swoją naturę, w wyniku braku zjaomości
 dokladnych wzorów nie mogą być odzwierciedlone w sposób dokłady. Przykładem takiej symulacji jest na przykład ruch ludzi podczas ucieczki z ewakuowanego budynku.
-\section{Podział automatów komórkowych}
+\section{Klasyfikacja automatów komórkowych}
+Od wprowadzenia pojęcia automatu komórkowego, które datuje się na lata 40-ste XX-go wieku powstały różne metody klasyfikacji automatów komórkowych. Jedną z najważniejszych jest podział ze względu na homogeniczność automatu.
+\textbf{Homogenicznym automatem komórkowym} nazywamy, automat który spełnia wszystkie postulaty homogeniczności.
+Należa do nich:
+\begin{itemize}
+\item jednakowy zbiór stanów dla każdej komórki
+\item jednakowy zbiór reguł dla każdej komórki
+\item stały obszar siatki automatu
+\item jednakowy schemat określający sąsiadów dla każdej komórki
+\item jednakowa metoda aktualizacji wszystkich komórek
+\end {itemize}
+
+
+Jeżeli automat nie spełnia, \textsl {któregokolwiek} z wyżej wymienionych warunków jest klasyfikowany jako \textbf {niehomogeniczny
+automat komórkwowy}. 
+
+Najprostszym przykładem klasycznego, homogenicznego automatu komórkowego jest gra \textsl{Life}. 
+W grze Life mamy zazwyczaj do czynienia z nieskończoną planszą Każda
+z komórek siatki może przyjmować dwa stany: jest żywa lub martwa. Każda z komórek posiada ośmiu sąsiadów - są to komórki przylegające krawędziami i rogami.W grze tej wszystkie komórki zmieniają swój stan, co pewien ustalony odstęp czasu. Nowy stan komórki jest oblicznay
+wyłącznie na podstawie jej poprzedniego stanu oraz stanów sąsiadów. Metoda aktualizacji komórek oraz schemat określający nowy 
+stan jest identyczny dla wszystkich komórek automatu. Mimo nazwy omawianej symulacji jedynym udziałem człowieka w tej grze jest
+ustawienie stanu początkowego komórek.
+
+Innymi sposobami klasyfikacji automatów komórkowych jest podział ze względu na sąsiedztwo (sąsiedztwo Moore'a oraz von Neumana), 
+ze względu na wielowymiarowość planszy (jedno-,dwu-,trój-wymiarowa,...), a także ze względu na kształt pojedynczej komórki.
+W jednowymiarowym automacie komórką jest odcinek, w dwuwymiarowym najprotszym wariantem jest kwadrat, a w trójwymiarowej sześcian.
+Różnie między tymi automatami zostały częściowo omówione w rozdziale poprzendim.
+
 
 \end {Center}

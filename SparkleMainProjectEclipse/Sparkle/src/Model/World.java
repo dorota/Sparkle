@@ -237,20 +237,19 @@ public class World
     {
         // System.out.println( "material drugiego rzedu "
         // + _worldCurrentValues[ 2 ][ 1 ][ 4 ].get_material() );
-        // System.out.println( "print all scene" );
-        // for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
-        // {
-        // for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
-        // {
-        // for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
-        // {
-        // System.out
-        // .println( "cell " + i + " " + j + " " + _worldOldValues[ i ][ j ][ k
-        // ] );
-        // }
-        // }
-        // }
-        // System.out.println( "done1" );
+        System.out.println( "print all scene" );
+        for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
+        {
+            for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
+            {
+                for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
+                {
+                    System.out
+                            .println( "cell " + i + " " + j + " " + _worldOldValues[ i ][ j ][ k ] );
+                }
+            }
+        }
+        System.out.println( "done1" );
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
             for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
@@ -265,7 +264,6 @@ public class World
                         Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ),
                         _worldCurrentValues[ i ][ j ][ k ].get_temp(),
                         _worldCurrentValues[ i ][ j ][ k ].get_material() );
-                    System.out.println( _worldCurrentValues[ i ][ j ][ k ].get_material() );
                     // System.out.println( "value " + _worldCurrentValues[ i ][
                     // j ][ k ] );
                 }

@@ -24,26 +24,30 @@ public class HeatConducter
         double cellHeatCapacity = cell.get_material().get_specificHeat() * cell.get_mass();
         double neighHeatCapacity = neigh.get_material().get_specificHeat() * cell.get_mass();
         double energyFlow = neigh.get_temp() - cell.get_temp();
+        System.out.println( "temperatury " + cell.get_temp() + " " + neigh.get_temp() );
         // System.out.println( "energ y low" + neigh.get_temp() );
-        double thermalConductivity = ( cell.get_material().get_thermalConductivity() + neigh
-                .get_material().get_thermalConductivity() ) / 2.0;
-        if( cell.get_material().get_thermalConductivity() != neigh.get_material()
-                .get_thermalConductivity() )
-        {
-            thermalConductivity = Math.min( cell.get_material().get_thermalConductivity(), neigh
-                    .get_material().get_thermalConductivity() );
-        }
+        // double thermalConductivity = (
+        // cell.get_material().get_thermalConductivity() + neigh
+        // .get_material().get_thermalConductivity() ) / 2.0;
+        // if( cell.get_material().get_thermalConductivity() !=
+        // neigh.get_material()
+        // .get_thermalConductivity() )
+        // {
+        // thermalConductivity = Math.min(
+        // cell.get_material().get_thermalConductivity(), neigh
+        // .get_material().get_thermalConductivity() );
+        // }
         if( energyFlow > 0.0 )
         {
             energyFlow *= neighHeatCapacity;
-            // energyFlow *= cell.get_material().get_thermalConductivity();
+            energyFlow *= cell.get_material().get_thermalConductivity();
         }
         else
         {
             energyFlow *= cellHeatCapacity;
-            // energyFlow *= neigh.get_material().get_thermalConductivity();
+            energyFlow *= neigh.get_material().get_thermalConductivity();
         }
-        energyFlow *= thermalConductivity;
+        // energyFlow *= thermalConductivity;
         // opoznienie w czasue
         energyFlow *= EnvSettings.CONSTANT_ENERGY_FACTOR;
         return energyFlow;

@@ -5,9 +5,9 @@ import javax.vecmath.Color3f;
 //all needed constans put here
 public class EnvSettings
 {
-    private static int MAX_X = 8;
-    private static int MAX_Z = 8;
-    private static int MAX_Y = 8;
+    private static int MAX_X = 4;
+    private static int MAX_Z = 4;
+    private static int MAX_Y = 4;
     public final static int HOW_MANY_GARBAGE_BRANCH_GROUP_CHILDREN = 4;
     public final static Color3f AIR_COLOR2 = new Color3f( 0f, 0f, 50f );
     public final static Color3f AIR_COLOR = new Color3f( 0f, 0f, 50f );
@@ -17,14 +17,14 @@ public class EnvSettings
     public final static double WOOD_TRANSPARENCY = 0.5;
     public final static double METAL_TRANSPARENCY = 0.5;
     public static final int WOOD_SPECIFIC_HEAT = 2400;
-    public static final double AIR_SPECIFIC_HEAT = 1;
-    public static final int METAL_SPECIFIC_HEAT = 150000;
+    public static final double AIR_SPECIFIC_HEAT = 1000;
+    public static final int METAL_SPECIFIC_HEAT = 10; // should be 2
     public static final double CELL_REPRESENTATION_LENGTH = 0.1;
     public static final Color3f WOOD_COLOR = new Color3f( 255, 0, 0 );
     // public static final Color3f WOOD_COLOR = new Color3f( 205, 133, 63 );
     public static final Color3f METAL_COLOR = new Color3f( 255, 255, 0 );
     public static final double FIRE_TEMP = 50;
-    public static final double START_OF_FIRE_TEMP = 8000;
+    public static final double START_OF_FIRE_TEMP = 80000;
     // material conductivities
     public static final double AIR_THERMAL_CONDUCTIVITY = 0.025;
     public static final double WOOD_THERMAL_CONDUCTIVITY = 0.17;

@@ -617,6 +617,7 @@ public class MenuPanel extends javax.swing.JPanel
     private void _simulationStopButtonActionPerformed( java.awt.event.ActionEvent evt )
     {
         sMgr.setRunning( false );
+        _world.restartTemperatures( _editedScene );
     }
 
     private void _simulationPauseButtonActionPerformed( java.awt.event.ActionEvent evt )
@@ -631,7 +632,11 @@ public class MenuPanel extends javax.swing.JPanel
 
     private void _simulationRestartButtonActionPerformed( java.awt.event.ActionEvent evt )
     {
-        // TODO add your handling code here:
+        sMgr.setRunning( false );
+        _world.restartTemperatures( _editedScene );
+        _world.setStartOfFire( _startOfFireX, _startOfFireY, _startOfFireZ );
+        sMgr.manageSimulation();
+        sMgr.setRunning( true );
     }
 
     private void _materialComboBoxActionPerformed( java.awt.event.ActionEvent evt )

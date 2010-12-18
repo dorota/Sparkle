@@ -65,9 +65,30 @@ public class World
         }
     }
 
+    public void restartTemperatures( Scene3D scene )
+    {
+        for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
+        {
+            for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
+            {
+                for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
+                {
+                    // System.out.println( "material  under air name " +
+                    // getMaterial( "Air" ) );
+                    double defaultTemp = 20.0;
+                    _worldCurrentValues[ i ][ j ][ k ].set_temp( defaultTemp );
+                    _worldOldValues[ i ][ j ][ k ].set_temp( defaultTemp );
+                    _scene.updateBlockWhileSimulation(
+                        Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ),
+                        _worldCurrentValues[ i ][ j ][ k ].get_temp(),
+                        _worldCurrentValues[ i ][ j ][ k ].get_material() );
+                }
+            }
+        }
+    }
+
     public void initWorld( Scene3D scene )
     {
-        int airId = 1;
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
             for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
@@ -79,8 +100,7 @@ public class World
                     double airMass = 2.0;
                     _worldCurrentValues[ i ][ j ][ k ] = new Cell( getMaterial( "Air" ), 20.0,
                         airMass );
-                    _worldOldValues[ i ][ j ][ k ] = new Cell(
-                        get_availableMaterials().get( airId ), 20.0, airMass );
+                    _worldOldValues[ i ][ j ][ k ] = new Cell( getMaterial( "Air" ), 20.0, airMass );
                 }
             }
         }

@@ -45,20 +45,17 @@ public class World
     public void addBuildingPart( Point3d leftBottomBackCorner, Point3d size, String materialName,
             Scene3D scene ) throws ArrayIndexOutOfBoundsException
     {
-        System.out.println( "in add building part" );
         for( int i = (int)leftBottomBackCorner.x; i < leftBottomBackCorner.x + size.x; ++i )
         {
             for( int j = (int)leftBottomBackCorner.y; j < leftBottomBackCorner.y + size.y; ++j )
             {
                 for( int k = (int)leftBottomBackCorner.z; k < leftBottomBackCorner.z + size.z; ++k )
                 {
-                    System.out.println( "block index" );
                     Material mat = getMaterial( materialName );
                     _worldCurrentValues[ i ][ j ][ k ].set_material( mat );
                     _worldOldValues[ i ][ j ][ k ].set_material( mat );
                     int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( k, i,
                         j );
-                    System.out.println( blockIndex );
                     scene.addNewBlockToScene( mat, blockIndex );
                 }
             }
@@ -224,7 +221,6 @@ public class World
 
     private void updateOldValues()
     {
-        System.out.println( "symulacja siê liczy" );
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
             for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )

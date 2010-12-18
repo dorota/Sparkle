@@ -5,9 +5,9 @@ import javax.vecmath.Color3f;
 //all needed constans put here
 public class EnvSettings
 {
-    private static int MAX_X = 5;
-    private static int MAX_Z = 5;
-    private static int MAX_Y = 5;
+    private static int MAX_X = 10;
+    private static int MAX_Z = 10;
+    private static int MAX_Y = 10;
     public final static int HOW_MANY_GARBAGE_BRANCH_GROUP_CHILDREN = 4;
     public final static Color3f AIR_COLOR2 = new Color3f( 0f, 0f, 50f );
     public final static Color3f AIR_COLOR = new Color3f( 0f, 0f, 50f );

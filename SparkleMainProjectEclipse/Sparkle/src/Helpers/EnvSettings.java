@@ -5,9 +5,9 @@ import javax.vecmath.Color3f;
 //all needed constans put here
 public class EnvSettings
 {
-    private static int MAX_X = 2;
-    private static int MAX_Z = 1;
-    private static int MAX_Y = 1;
+    private static int MAX_X = 5;
+    private static int MAX_Z = 5;
+    private static int MAX_Y = 5;
     public final static int HOW_MANY_GARBAGE_BRANCH_GROUP_CHILDREN = 4;
     public final static Color3f AIR_COLOR2 = new Color3f( 0f, 0f, 50f );
     public final static Color3f AIR_COLOR = new Color3f( 0f, 0f, 50f );
@@ -23,8 +23,8 @@ public class EnvSettings
     public static final Color3f WOOD_COLOR = new Color3f( 255, 0, 0 );
     // public static final Color3f WOOD_COLOR = new Color3f( 205, 133, 63 );
     public static final Color3f METAL_COLOR = new Color3f( 255, 255, 0 );
-    public static final double FIRE_TEMP = 100;
-    public static final double START_OF_FIRE_TEMP = 80;
+    public static final double FIRE_TEMP = 50;
+    public static final double START_OF_FIRE_TEMP = 8000;
 
     public static int getMAX_X()
     {

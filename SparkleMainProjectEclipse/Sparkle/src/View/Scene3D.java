@@ -1,4 +1,4 @@
-package Scene;
+package View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,7 +107,7 @@ public class Scene3D
         Color3f cellColor = new Color3f();
         // float transparency = 0.8f;
         cellColor = material.get_color();
-        float transparency = (float)material.get_transparency();
+        float transparency = material.get_transparency();
         ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,
             ColoringAttributes.NICEST );
         app.setColoringAttributes( coloringAttributes );
@@ -137,29 +137,32 @@ public class Scene3D
         Color3f cellColor = material.get_color();
         ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,
             ColoringAttributes.NICEST );
-        float transparency = (float)material.get_transparency();
+        float transparency = material.get_transparency();
         app.setColoringAttributes( coloringAttributes );
         app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
             transparency ) );
         cell.setAppearance( app );
     }
 
-    private void setCellColor( Color3f color, int blockId )
+    private void setCellColor( Color3f color, int blockId, Material material )
     {
         Box cell = getBlockWithGivenId( blockId );
         Appearance app = new Appearance();
         ColoringAttributes coloringAttributes = new ColoringAttributes( color,
             ColoringAttributes.NICEST );
+        app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
+            material.get_transparency() ) );
         app.setColoringAttributes( coloringAttributes );
         cell.setAppearance( app );
     }
 
-    public void updateBlockWhileSimulation( int blockIndex, double temp )
+    public void updateBlockWhileSimulation( int blockIndex, double temp, Material material )
     {
+        System.out.println( "updating block color" );
         float scale = clamp( (float)( temp / EnvSettings.FIRE_TEMP ), 0.0f, 1.0f );
         setCellColor( new Color3f( lerp( 0.0f, 1.0f, scale ), // red
             0.0f, // green
-            lerp( 1.0f, 0.0f, scale ) ), blockIndex );
+            lerp( 1.0f, 0.0f, scale ) ), blockIndex, material );
     }
 
     private float lerp( float from, float to, float scale )

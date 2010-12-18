@@ -6,7 +6,7 @@ import java.util.List;
 import javax.vecmath.Point3d;
 
 import Helpers.EnvSettings;
-import Scene.Scene3D;
+import View.Scene3D;
 
 public class World
 {
@@ -187,7 +187,8 @@ public class World
         _worldOldValues[ x ][ y ][ z ].set_temp( EnvSettings.START_OF_FIRE_TEMP );
         _scene.updateBlockWhileSimulation(
             Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( x, y, z ),
-            _worldCurrentValues[ x ][ y ][ z ].get_temp() );
+            _worldCurrentValues[ x ][ y ][ z ].get_temp(),
+            _worldCurrentValues[ x ][ y ][ z ].get_material() );
         // for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
         // {
         // for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
@@ -203,6 +204,7 @@ public class World
 
     private void updateOldValues()
     {
+        System.out.println( "symulacja siê liczy" );
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
             for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
@@ -217,35 +219,40 @@ public class World
 
     public void simulateHeatConduction()
     {
-        System.out.println( "print all scene" );
+        // System.out.println( "print all scene" );
+        // for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
+        // {
+        // for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
+        // {
+        // for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
+        // {
+        // System.out
+        // .println( "cell " + i + " " + j + " " + _worldOldValues[ i ][ j ][ k
+        // ] );
+        // }
+        // }
+        // }
+        // System.out.println( "done1" );
+        System.out.println( "symulacja siê liczy" );
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
             for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
             {
                 for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
-                    System.out.println( "value " + _worldOldValues[ i ][ j ][ k ] );
-                }
-            }
-        }
-        System.out.println( "done1" );
-        for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
-        {
-            for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
-            {
-                for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
-                {
-                    System.out.println( "value " + _worldCurrentValues[ i ][ j ][ k ] );
                     updateOldValues();
                     HeatConducter.conductHeat( _worldCurrentValues[ i ][ j ][ k ],
                         _worldCurrentValues, getNeighbours( new CellIndex( i, j, k ) ),
                         _worldOldValues[ i ][ j ][ k ], _worldOldValues );
                     _scene.updateBlockWhileSimulation(
                         Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ),
-                        _worldCurrentValues[ i ][ j ][ k ].get_temp() );
+                        _worldCurrentValues[ i ][ j ][ k ].get_temp(),
+                        _worldCurrentValues[ i ][ j ][ k ].get_material() );
+                    // System.out.println( "value " + _worldCurrentValues[ i ][
+                    // j ][ k ] );
                 }
             }
         }
-        System.out.println( "done" );
+        // System.out.println( "done" );
     }
 }

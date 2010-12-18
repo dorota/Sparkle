@@ -7,7 +7,7 @@ public class Material
     private String _name;
     private Color3f _color;
     private double _specificHeat;
-    private double _transparency;
+    private float _transparency;
     private double _density; // gestosc
 
     public double get_density()
@@ -60,10 +60,10 @@ public class Material
 
     public void set_transparency( double _transparency )
     {
-        this._transparency = _transparency;
+        this._transparency = (float)( _transparency );
     }
 
-    public double get_transparency()
+    public float get_transparency()
     {
         return _transparency;
     }

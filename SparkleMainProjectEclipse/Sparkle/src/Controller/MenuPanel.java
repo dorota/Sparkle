@@ -11,7 +11,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.vecmath.Point3d;
 
 import Model.World;
-import Scene.Scene3D;
+import View.Scene3D;
 
 /*
  * To change this template, choose Tools | Templates
@@ -609,23 +609,24 @@ public class MenuPanel extends javax.swing.JPanel
 
     private void _simulationStartButtonActionPerformed( java.awt.event.ActionEvent evt )
     {
+        sMgr.setRunning( true );
         _world.setStartOfFire( _startOfFireX, _startOfFireY, _startOfFireZ );
         sMgr.manageSimulation();
     }
 
     private void _simulationStopButtonActionPerformed( java.awt.event.ActionEvent evt )
     {
-        // TODO add your handling code here:
+        sMgr.setRunning( false );
     }
 
     private void _simulationPauseButtonActionPerformed( java.awt.event.ActionEvent evt )
     {
-        // TODO add your handling code here:
+        sMgr.setRunning( false );
     }
 
     private void _simulationContinueButtonActionPerformed( java.awt.event.ActionEvent evt )
     {
-        // TODO add your handling code here:
+        sMgr.setRunning( true );
     }
 
     private void _simulationRestartButtonActionPerformed( java.awt.event.ActionEvent evt )

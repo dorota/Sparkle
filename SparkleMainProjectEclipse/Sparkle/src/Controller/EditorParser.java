@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 import javax.vecmath.Point3d;
 
 import Model.World;
-import Scene.Scene3D;
+import View.Scene3D;
 
 public class EditorParser
 {

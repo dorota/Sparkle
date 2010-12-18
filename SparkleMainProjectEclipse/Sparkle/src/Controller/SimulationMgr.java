@@ -12,6 +12,17 @@ public class SimulationMgr
     int timeDelay = 33;
     Timer samplingTimer;
     World _world;
+    private boolean isRunning = false;
+
+    public boolean isRunning()
+    {
+        return isRunning;
+    }
+
+    public void setRunning( boolean isRunning )
+    {
+        this.isRunning = isRunning;
+    }
 
     public SimulationMgr( World world )
     {
@@ -58,8 +69,15 @@ public class SimulationMgr
                     // }
                     // System.out.println( "before first call of algo" );
                     // }
-                    _world.simulateHeatConduction();
-                    counter++;
+                    if( isRunning )
+                    {
+                        _world.simulateHeatConduction();
+                        counter++;
+                    }
+                    else
+                    {
+                        // DO NOTHING
+                    }
                 }
                 ++whichTimeActionPerformed;
             }

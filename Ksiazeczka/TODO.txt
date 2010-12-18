@@ -1,0 +1,5 @@
+1. czy w architekturze pisaæ coœ wiêcej o MVC? Dawaæ rysunek?
+2. interfejsy pzy diagramach klas
+
+Teoria: druga zasada  termodynamiki
+3/ dopisaæ wiêcej o przenoszeniu energii w jednym ciele

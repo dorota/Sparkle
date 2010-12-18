@@ -2,8 +2,8 @@
 \contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{6}
 \contentsline {section}{\numberline {1.1}Temat pracy}{6}
 \contentsline {section}{\numberline {1.2}Geneza tematu}{6}
-\contentsline {section}{\numberline {1.3}Realizacja projektu}{6}
-\contentsline {section}{\numberline {1.4}Struktura pracy}{6}
+\contentsline {section}{\numberline {1.3}Realizacja projektu}{7}
+\contentsline {section}{\numberline {1.4}Zawarto\IeC {\'s}\IeC {\'c} pracy}{7}
 \contentsline {chapter}{\numberline {2}Teoria}{8}
 \contentsline {section}{\numberline {2.1}Czym jest ogie\IeC {\'n}}{8}
 \contentsline {section}{\numberline {2.2}Propagacja ciep\IeC {\l }a}{9}

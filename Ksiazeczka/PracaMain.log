@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  18 DEC 2010 22:42
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  18 DEC 2010 23:07
 entering extended mode
 **D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
 (D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
@@ -600,11 +600,38 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 ]
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R1_Wstep.tex
 Rozdzia\l  1.
-) [6
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \\\\
+         
+? 
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.37 \textbf
+            {Teza} Wykorzystując zasady tworzenia automatów komórkowych o...
+
+? 
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 44.
+("C:\Program Files\Miktex\tex\latex\psnfss\omsptm.fd"
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 44.
+ [6
 
 
 
-]
+])
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
@@ -623,13 +650,7 @@ l.1 ﻿
        %TODO:
 ? 
 Rozdzia\l  2.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 17.
-("C:\Program Files\Miktex\tex\latex\psnfss\omsptm.fd"
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
- [8
+[8
 
 
 
@@ -831,8 +852,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.1 ﻿
-       %TODO dopiac podział automatów komórkwoych głownie homogeniczne i...
-
+       %TODO refactoring. wiecej punktów w litym tekscie
 ? 
 Rozdzia\l  3.
 
@@ -1003,7 +1023,7 @@ ype1/urw/helvetic/uhvb8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/
 uhvr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Progra
 m Files/Miktex/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/
 type1/urw/times/utmr8a.pfb>
-Output written on PracaMain.pdf (19 pages, 358347 bytes).
+Output written on PracaMain.pdf (19 pages, 359117 bytes).
 PDF statistics:
  117 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -141,6 +141,7 @@ public class Scene3D
         app.setColoringAttributes( coloringAttributes );
         app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
             transparency ) );
+        System.out.println( "color " + cellColor );
         cell.setAppearance( app );
     }
 
@@ -158,18 +159,28 @@ public class Scene3D
 
     public void updateBlockWhileSimulation( int blockIndex, double temp, Material material )
     {
+        System.out
+                .println( "material transparency " + material.get_transparency() + " " + material );
         float scale = clamp( (float)( temp / EnvSettings.FIRE_TEMP ), 0.0f, 1.0f );
         setCellColor( new Color3f( lerp( 0.0f, 1.0f, scale ), // red
             0.0f, // green
             lerp( 1.0f, 0.0f, scale ) ), blockIndex, material );
     }
 
-    private float lerp( float from, float to, float scale )
+    public static Color3f setBlue( double temp )
+    {
+        float scale = clamp( (float)( temp / EnvSettings.FIRE_TEMP ), 0.0f, 1.0f );
+        return new Color3f( lerp( 0.0f, 1.0f, scale ), // red
+            0.0f, // green
+            lerp( 1.0f, 0.0f, scale ) );
+    }
+
+    private static float lerp( float from, float to, float scale )
     {
         return from * ( 1.0f - scale ) + to * scale;
     }
 
-    private float clamp( float what, float min, float max )
+    private static float clamp( float what, float min, float max )
     {
         return Math.max( Math.min( what, max ), min );
     }

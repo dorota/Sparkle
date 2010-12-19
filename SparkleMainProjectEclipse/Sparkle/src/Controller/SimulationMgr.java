@@ -46,7 +46,7 @@ public class SimulationMgr
                         // wait a second after initializing and displaying
                         // start of fire
                         System.out.println( "first time" );
-                        Thread.sleep( 500 );
+                        Thread.sleep( 2000 );
                     }
                     catch( InterruptedException exception )
                     {

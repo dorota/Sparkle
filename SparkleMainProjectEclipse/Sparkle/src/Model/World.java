@@ -208,6 +208,9 @@ public class World
             Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( x, y, z ),
             _worldCurrentValues[ x ][ y ][ z ].get_temp(),
             _worldCurrentValues[ x ][ y ][ z ].get_material() );
+        _scene.markStartOfHeatConduction(
+            Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( x, y, z ),
+            _worldCurrentValues[ x ][ y ][ z ].get_material() );
         // for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
         // {
         // for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
@@ -239,18 +242,19 @@ public class World
     {
         // System.out.println( "material drugiego rzedu "
         // + _worldCurrentValues[ 2 ][ 1 ][ 4 ].get_material() );
-        System.out.println( "print all scene" );
-        for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
-        {
-            for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
-            {
-                for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
-                {
-                    System.out
-                            .println( "cell " + i + " " + j + " " + _worldOldValues[ i ][ j ][ k ] );
-                }
-            }
-        }
+        // System.out.println( "print all scene" );
+        // for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
+        // {
+        // for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
+        // {
+        // for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
+        // {
+        // System.out
+        // .println( "cell " + i + " " + j + " " + _worldOldValues[ i ][ j ][ k
+        // ] );
+        // }
+        // }
+        // }
         updateOldValues();
         System.out.println( "done1" );
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )

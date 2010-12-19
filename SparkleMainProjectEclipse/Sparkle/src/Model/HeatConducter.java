@@ -3,20 +3,43 @@ package Model;
 import java.util.List;
 
 import Helpers.EnvSettings;
+import Model.World.CellIndex;
 
 public class HeatConducter
 {
     public void conductHeat( Cell cell, Cell worldCurrentValues[][][],
-            List<World.CellIndex> cellNeighboours, Cell oldValue, Cell worldOldValues[][][] )
+            List<World.CellIndex> cellNeighboours, Cell oldValue, Cell worldOldValues[][][],
+            CellIndex cellId )
     {
         for( int i = 0; i < cellNeighboours.size(); ++i )
         {
-            World.CellIndex id = cellNeighboours.get( i );
-            Cell oldNeigh = worldOldValues[ id.x ][ id.y ][ id.z ];
-            Cell neigh = worldCurrentValues[ id.x ][ id.y ][ id.z ];
+            World.CellIndex neighId = cellNeighboours.get( i );
+            Cell oldNeigh = worldOldValues[ neighId.x ][ neighId.y ][ neighId.z ];
+            Cell neigh = worldCurrentValues[ neighId.x ][ neighId.y ][ neighId.z ];
             int whichNeighbour = EnvSettings.DOESNT_MATTER;
+            if( cell.get_material().get_name().equals( "Air" )
+                    && neigh.get_material().get_name().equals( "Air" ) )
+            {
+                whichNeighbour = getWhichNeighbour( cellId, neighId );
+            }
             double energy = calculateEnergyFlow( oldValue, oldNeigh, whichNeighbour );
             exchangeEnergy( cell, neigh, energy );
+        }
+    }
+
+    private int getWhichNeighbour( CellIndex cellId, CellIndex neighId )
+    {
+        if( cellId.y < neighId.y )
+        {
+            return EnvSettings.TOP_NEIGHBOUR;
+        }
+        else if( cellId.y > neighId.y )
+        {
+            return EnvSettings.BOTTOM_NEIGBOUR;
+        }
+        else
+        {
+            return EnvSettings.SIDE_NEIGHBOUR;
         }
     }
 

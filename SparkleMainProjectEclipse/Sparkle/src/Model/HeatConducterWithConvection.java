@@ -17,16 +17,21 @@ public class HeatConducterWithConvection extends HeatConducter
             double sideEnergyFactor = 0.015;
             double topEnergyFactor = 0.2;
             double downEnergyFactor = 0.05;
-            if( whichNeighbour == EnvSettings.TOP_NEIGHBOUR )
+            if( ( whichNeighbour == EnvSettings.TOP_NEIGHBOUR && energy < 0 )
+                    || ( whichNeighbour == EnvSettings.BOTTOM_NEIGBOUR && energy > 0 ) )
             {
+                System.out.println( "konwecja pracuje w gore" );
                 energy *= topEnergyFactor;
             }
-            else if( whichNeighbour == EnvSettings.BOTTOM_NEIGBOUR )
+            else if( ( whichNeighbour == EnvSettings.BOTTOM_NEIGBOUR && energy < 0 )
+                    || ( whichNeighbour == EnvSettings.TOP_NEIGHBOUR && energy > 0 ) )
             {
+                System.out.println( "konwecja pracuje w dol " );
                 energy *= downEnergyFactor;
             }
             else
             {
+                System.out.println( "konwecja pracuje tylko na boki" );
                 energy *= sideEnergyFactor;
             }
         }

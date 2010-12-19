@@ -5,9 +5,9 @@ import javax.vecmath.Color3f;
 //all needed constans put here
 public class EnvSettings
 {
-    private static int MAX_X = 4;
-    private static int MAX_Z = 4;
-    private static int MAX_Y = 4;
+    private static int MAX_X = 13;
+    private static int MAX_Z = 13;
+    private static int MAX_Y = 13;
     public final static int HOW_MANY_GARBAGE_BRANCH_GROUP_CHILDREN = 4;
     public final static Color3f AIR_COLOR2 = new Color3f( 0f, 0f, 50f );
     public final static Color3f AIR_COLOR = new Color3f( 0f, 0f, 255f );
@@ -27,9 +27,10 @@ public class EnvSettings
     // public static final Color3f WOOD_COLOR = new Color3f( 205, 133, 63 );
     public static final Color3f METAL_COLOR = new Color3f( 255, 255, 0 );
     public static final double FIRE_TEMP = 50;
-    public static final double START_OF_FIRE_TEMP = 300;
+    public static final double START_OF_FIRE_TEMP = 3000;
     // //////////////////// material conductivities
-    public static final double AIR_THERMAL_CONDUCTIVITY = 0.025;
+    public static final double AIR_THERMAL_CONDUCTIVITY = 0.25; // 0.025 real
+                                                                // value
     public static final double WOOD_THERMAL_CONDUCTIVITY = 0.17;
     public static final double METAL_THERMAL_CONDUCTIVITY = 5;
     public static final double CONSTANT_ENERGY_FACTOR = 0.002;

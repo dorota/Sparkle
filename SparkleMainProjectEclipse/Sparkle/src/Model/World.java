@@ -258,10 +258,11 @@ public class World
             {
                 for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
+                    CellIndex cellId = new CellIndex( i, j, k );
                     updateOldValues();
                     _heatConducter.conductHeat( _worldCurrentValues[ i ][ j ][ k ],
-                        _worldCurrentValues, getNeighbours( new CellIndex( i, j, k ) ),
-                        _worldOldValues[ i ][ j ][ k ], _worldOldValues );
+                        _worldCurrentValues, getNeighbours( cellId ),
+                        _worldOldValues[ i ][ j ][ k ], _worldOldValues, cellId );
                     _scene.updateBlockWhileSimulation(
                         Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ),
                         _worldCurrentValues[ i ][ j ][ k ].get_temp(),

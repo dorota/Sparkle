@@ -14,7 +14,7 @@ public class HeatConducterWithConvection extends HeatConducter
         {
             System.out.println( "we are here" );
             energy /= EnvSettings.CONSTANT_ENERGY_FACTOR;
-            double sideEnergyFactor = 0.015;
+            double sideEnergyFactor = 0.1;
             double topEnergyFactor = 0.2;
             double downEnergyFactor = 0.05;
             if( ( whichNeighbour == EnvSettings.TOP_NEIGHBOUR && energy < 0 )

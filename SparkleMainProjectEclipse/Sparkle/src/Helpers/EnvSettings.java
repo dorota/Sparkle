@@ -6,7 +6,7 @@ import javax.vecmath.Color3f;
 public class EnvSettings
 {
     private static int MAX_X = 13;
-    private static int MAX_Z = 13;
+    private static int MAX_Z = 3;
     private static int MAX_Y = 13;
     public final static int HOW_MANY_GARBAGE_BRANCH_GROUP_CHILDREN = 4;
     public final static Color3f AIR_COLOR2 = new Color3f( 0f, 0f, 50f );

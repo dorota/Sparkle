@@ -251,6 +251,7 @@ public class World
                 }
             }
         }
+        updateOldValues();
         System.out.println( "done1" );
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
@@ -259,7 +260,6 @@ public class World
                 for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
                     CellIndex cellId = new CellIndex( i, j, k );
-                    updateOldValues();
                     _heatConducter.conductHeat( _worldCurrentValues[ i ][ j ][ k ],
                         _worldCurrentValues, getNeighbours( cellId ),
                         _worldOldValues[ i ][ j ][ k ], _worldOldValues, cellId );

@@ -2,10 +2,24 @@ package Model;
 
 import javax.vecmath.Color3f;
 
+import Helpers.EnvSettings;
+
 public class Material
 {
     private String _name;
     private Color3f _color;
+    private double _heatedAirTransparency;
+
+    public double get_heatedAirTransparency()
+    {
+        return _heatedAirTransparency;
+    }
+
+    public void set_heatedAirTransparency( double _heatedAirTransparency )
+    {
+        this._heatedAirTransparency = _heatedAirTransparency;
+    }
+
     private double _specificHeat;
     private float _transparency;
     private double _density; // gestosc
@@ -39,6 +53,10 @@ public class Material
         set_specificHeat( specificHeat );
         set_transparency( transparency );
         set_thermalConductivity( thermalConductivity );
+        if( name.equals( "Air" ) )
+        {
+            _heatedAirTransparency = EnvSettings.AIR_TEMP_TRANSPARENCY;
+        }
     }
 
     public void set_name( String _name )

@@ -13,10 +13,10 @@ public class HeatConducterWithConvection extends HeatConducter
                 && neigh.get_material().get_name().equals( "Air" ) )
         {
             System.out.println( "we are here" );
-            energy *= EnvSettings.CONSTANT_ENERGY_FACTOR;
-            double sideEnergyFactor = 0.15;
+            energy /= EnvSettings.CONSTANT_ENERGY_FACTOR;
+            double sideEnergyFactor = 0.015;
             double topEnergyFactor = 0.2;
-            double downEnergyFactor = 0.1;
+            double downEnergyFactor = 0.05;
             if( whichNeighbour == EnvSettings.TOP_NEIGHBOUR )
             {
                 energy *= topEnergyFactor;

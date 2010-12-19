@@ -145,14 +145,17 @@ public class Scene3D
         cell.setAppearance( app );
     }
 
-    private void setCellColor( Color3f color, int blockId, Material material )
+    private void setCellColor( Color3f color, int blockId, Material material, boolean heatedAir,
+            float tra )
     {
         Box cell = getBlockWithGivenId( blockId );
         Appearance app = new Appearance();
         ColoringAttributes coloringAttributes = new ColoringAttributes( color,
             ColoringAttributes.NICEST );
-        app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
-            material.get_transparency() ) );
+        {
+            app.setTransparencyAttributes( new TransparencyAttributes(
+                TransparencyAttributes.FASTEST, material.get_transparency() ) );
+        }
         app.setColoringAttributes( coloringAttributes );
         cell.setAppearance( app );
     }
@@ -162,9 +165,10 @@ public class Scene3D
         System.out
                 .println( "material transparency " + material.get_transparency() + " " + material );
         float scale = clamp( (float)( temp / EnvSettings.FIRE_TEMP ), 0.0f, 1.0f );
+        float transparency = lerp( 0.0f, 1.0f, scale );
         setCellColor( new Color3f( lerp( 0.0f, 1.0f, scale ), // red
             0.0f, // green
-            lerp( 1.0f, 0.0f, scale ) ), blockIndex, material );
+            lerp( 1.0f, 0.0f, scale ) ), blockIndex, material, false, transparency );
     }
 
     public static Color3f setBlue( double temp )

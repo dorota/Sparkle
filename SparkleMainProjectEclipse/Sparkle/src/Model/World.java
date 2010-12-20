@@ -41,27 +41,33 @@ public class World
                 return _availableMaterials.get( i );
             }
         }
+        System.out.println( "how many materials " + _availableMaterials.size() );
         return null;
     }
 
     public void addBuildingPart( Point3d leftBottomBackCorner, Point3d size, String materialName,
             Scene3D scene ) throws ArrayIndexOutOfBoundsException
     {
+        int counter = 0;
         for( int j = (int)leftBottomBackCorner.y; j < leftBottomBackCorner.y + size.y; ++j )
         {
             for( int k = (int)leftBottomBackCorner.z; k < leftBottomBackCorner.z + size.z; ++k )
             {
                 for( int i = (int)leftBottomBackCorner.x; i < leftBottomBackCorner.x + size.x; ++i )
                 {
+                    ++counter;
                     Material mat = getMaterial( materialName );
                     _worldCurrentValues[ i ][ j ][ k ].set_material( mat );
                     _worldOldValues[ i ][ j ][ k ].set_material( mat );
                     int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j,
                         k );
+                    System.out.println( "material with this name "
+                            + World.getMaterial( materialName ) );
                     scene.addNewBlockToScene( mat, blockIndex );
                 }
             }
         }
+        System.out.println( "counter " + counter );
     }
 
     public void restartTemperatures( Scene3D scene )

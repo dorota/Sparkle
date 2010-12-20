@@ -22,6 +22,7 @@ public class Material
 
     private double _specificHeat;
     private float _transparency;
+    private float _flamePoint;
     private double _density; // gestosc
     private double _thermalConductivity;
 

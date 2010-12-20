@@ -2,6 +2,7 @@
 % skala  budynku to że nie interesue nas jak dokładnie będzie się palić każde 10cm^3 ale 
 % jak ogien będzie się przemieszczał. rozmiar człowieka z perełe
 %TODO w sekcji gdzie będzimy sie chwalić wynikami algorytmu napisać o zasadzie zachowania energii
+%TODO gestosc materiału mozę się przydać w algorytmie do obliczania masy powietrza po podgrzaniu spr to
 \chapter{Algorytm}
 \label{cha:Algorytm}
 Rozdział przedstawia propozycję algorytmu symulacji rozprzestrzeniania się ognia i dymu podczas pożaru.
@@ -21,9 +22,66 @@ Zgodnie ze wzorem \ref{def_automatu} będącym istotą przytoczonej w rozdziale 
 ze względu na trójwymiarowość zjawiska oraz istotę jego rzeczywistego odtworzenia (możliwość wykorzystania wyników w celu
 opracowania modelu ewakuaci osób, badanie przyczyn katastrofy i drogi rozchozenia ognia) nabardziej naturalnym typem automatu 
 jest automat \textsl {trójwymiarowy}. 
-Rozmiar automatu jest wielkością zmienną, definiowaną przez użytkownika systemu. Pozwala to na odpowiedni dobór ilości komórek w zależności od wielkości rozpatrywanego budynku. Ze względu na fakt, że istotą przedstawionego modelu jest symulacja pożaru wewnątrz budynku 
-Zastosowany twójwymiarowy automat składa się z szcześciennych komórek o wymiarach $0.5m x 0.5m x 0.5m$. Wielkość komórek została wybrana empirycznie. 
+Rozmiar automatu jest wielkością zmienną, definiowaną przez użytkownika systemu. Pozwala to na odpowiedni dobór ilości komórek w zależności od wielkości rozpatrywanego budynku. Ze względu na fakt, że istotą przedstawionego modelu jest symulacja pożaru wewnątrz budynku rozmiar siatki należy określić tak aby całość
+siatki stanowiła budynek.Zastosowany twójwymiarowy automat składa się z szcześciennych komórek o wymiarach $0.5m x 0.5m x 0.5m$. Wielkość komórek została wybrana empirycznie. 
 Odpowiedni dobór wielkości komórek automatu ma kluczowy wpływ na jego działanie. Zbyt mała ilość komórek może doprowadzić do utraty
 dokładności algorytmu oraz ukazać zniekształcony obraz działania modelu. Zbyt duża ilość elementów powoduje spadek wydajności algorytmu, a w komputerowej realizacji algorytmu oznacza zwiększone zapotrzebowanie na pamięć i moc procesora.
 Wybrany na podstawie doświadczeń rozmiar komórki jest najlepszym
 kompromisem między między czasem działania a dokładnością modelu.
+
+Typy komórek wchodzących w skład automatu można podzielić na dwie zasadnicze grupy:
+\begin{itemize}
+\item Ciała stałe
+\item Gazy
+\end{itemize}
+Model symulacji nie uwzględnia interakcji ognia z wodą lub innymi cieczami i nie przedstawia zjawisk fizycznych zachodzących podczas tych interakcji.
+W ciałac stałyc funkcje przejścia odzwierciedlają zjawisko przewodnictwa cieplnego. W gazach będących płynami przewodnictwo zastąpione jest konwekcją.
+Wszystkie typy komórek poddane są zjawisku radiacji.
+Ponadto, komórki reprezentujące ciała stałe dzielimy ze względu na rodzaj materiału z jakiego są stworzone.
+Każdy z materiałów posiada zestaw parametrów określających jego właściwości fizyczne:
+\begin{itemize}
+\item Ciepło właściwe - określa jak zmienia się temperatura ciała w zależności od ilości dostarczonego / oddanego ciepła
+\item Gęstość
+\item Współczynnik przewodnictwa ciepła - określa zdolność materiału do przewodnictwa ciepła
+\item Temperatura zapłonu - określa temperaturę charakterystyczną dla danego materiału, po której osiągnięciu 
+	dochodzi do produkcji palnych oparów
+\item Palność - określa procentową ilość oparów powstałych po osiągnięciu temperatury zapłonu. 
+\end{itemize}
+Wyżej wymienione parametry bezpośrednio wpływają na zachowanie funkcji przejścia, powodując zrożnicowane zachowanie komórek w zależności od typu materiału.
+
+
+Poza różnymi typami komórek, o niehomogeniczności automatu świadczą różne definicje sąsiedztwa.
+Ze względu na fakt, że siatka automatu modeluje przestrzeń zamkniętą - budynek - konieczne jest zróżnicowanie sąsiedztwa w środku siatki oraz na jej brzegach.
+W zaproponowanym algorytmie wykorzystano zmienną liczbę sąsiadów w zależności od położenia komórki. 
+Komórka znajdująca się w środku siatki posiada sześciu sąsiadów. Sąsiadami są komórki przylegające ścianami do aktualnie
+rozpatrywanej, co jest twójwymiarowym wariantem sąsiedztwa von Neumana. %TODO Jacek dopisać cos z Wolframa czemu mniej sąsiadów wystarcza, a wiecej
+% wcale nie poprafia sytuacji a jest zbednymi oblizeniami
+ Rozklad sąsiadów dla komórki znajdującej się w centrum przestrzeni przedstawia rysunek \ref{sasiedzi}
+\begin{figure}
+\begin {center}
+\includegraphics{sasiedztwo.jpg} \\
+\caption { Schemat sąsiedztwa}
+\label {sasiedzi}
+\end {center}
+\end{figure}
+W przypadku gdy komórka znaduje się na skraju siatki liczba sąsiadów ulega zmniejszeniu. Do zbioru sąsiadów należą komórki, przylegające ścianami do 
+rozpatrywanej oraz jednocześnie będące wewnątrz przestrzeni modelu. W skrajnym przypadku, gdy komórka znajdue się w narożniku liczba sąsiadów z sześciu spada
+do trzech. Stan komórki brzegowej jest obliczany, podobnie jak w przypadku komórki znajdującej się wewnątrz automatu na podstawie wszystkich jej sąsiadów. Zmniejszona ilość sąsiadów powoduje zmieniony rozkład ich wpływu na nowy stan bieżącej komórki. Waga znaczenia każdej z komórek wzrasta dwukrotnie.
+Innymi, alternatywnymi rozwiązaniami sytuacji brzegowych są :
+\begin {enumerate}
+\item Uznanie za sąsiada ostatniego elementu w danej płaszczyźnie, elementu pierwszego czyli znajdującego się na przeciwległym brzegu. Jest to tak zwane sąsiedztwo
+periodyczne. W przypadku symulacji pożaru taki tym sąsiedztwa nie odzwierciedla rzeczywistych interakcji między komórkami w pomieszczeniu. Komórka znajdująca się 
+po drugiej stronie budynku nie wpływa bezpośrednio na stan aktualnie rozpatrywanej.
+\item Zastosowanie warunków pochłaniających, czyli nadanie komórkom brzegowym z góry określonego, nie uwzględniającego sąsiedztwa stanu. Rozwiązanie to 
+powoduje, że komórki brzegowe nie mogą być traktowane jako elementy budynku z rzeczywistymi właściwościami fizycznymi.
+\end{enumerate}
+
+Każda z komórek automatu może przyjmować jeden z trzech stanów:
+\begin{itemize}
+\item Komórka niezapalona
+\item Komórka paląca się
+\item Dym
+\end{itemize}
+Poza wyżej wymienionymi trzema stanami, każda komórka psiada wartość swojej aktualnej temperatury, która również w sposób pośredni określa jej stan i ma znaczący
+wpływ na wynik funkcji przejścia.
+

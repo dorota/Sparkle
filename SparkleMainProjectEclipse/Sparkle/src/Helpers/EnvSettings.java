@@ -15,8 +15,8 @@ public class EnvSettings
     // public final static Color3f WOOD_COLOR = new Color3f( 255, 0, 0 );
     public final static double AIR_TEMP_TRANSPARENCY = 0.9;
     // ///////////////////////material transparency
-    public final static double AIR_TRANSPARENCY = 0.9;
-    public final static double WOOD_TRANSPARENCY = 0.7;
+    public final static double AIR_TRANSPARENCY = 0.98;
+    public final static double WOOD_TRANSPARENCY = 0.5;
     public final static double METAL_TRANSPARENCY = 0.7;
     // ///////////////////end of material transparency
     public static final int WOOD_SPECIFIC_HEAT = 2400;

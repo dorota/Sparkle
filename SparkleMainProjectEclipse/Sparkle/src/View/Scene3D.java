@@ -141,7 +141,6 @@ public class Scene3D
         app.setColoringAttributes( coloringAttributes );
         app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
             transparency ) );
-        System.out.println( "color " + cellColor );
         cell.setAppearance( app );
     }
 

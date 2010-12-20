@@ -1,9 +1,28 @@
-(0,0,0)[15,1,15]:Wood
-(0,1,0)[1,14,15]:Wood
-(1,14,0)[14,1,15]:Wood
-(14,1,0)[1,13,15]:Wood
+(0,0,0)[13,1,13]:Wood
+(0,1,0)[1,13,13]:Wood
+(1,12,0)[12,1,13]:Wood
+(12,1,0)[1,11,13]:Wood
 #pierwsze pietro podloga
 (1,5,0)[13,1,15]:Wood
 (1,10,0)[13,1,15]:Wood
 #dziura na schody
+(7,5,10)[3,1,4]:Air
+
+
+
+
+
+#Example2 na pokoje na parterze, drzwi w scianie + na gore
+#Najnowszy przyklad
+(0,0,0)[13,1,13]:Wood
+(0,1,0)[1,13,13]:Wood
+(12,1,0)[1,12,13]:Wood
+(1,12,0)[11,1,13]:Wood
+#sufit/podloga pierwsze pietro
+(1,5,0)[11,1,13]:Wood
+#sciana dzielac pokoje na parterze
+(5,1,0)[1,4,13]:Wood
+#drzwi do pokoju
+(5,1,5)[1,2,3]:Air
+#dziura w polodze na schody na gore
 (7,5,10)[3,1,4]:Air

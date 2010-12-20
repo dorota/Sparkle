@@ -69,6 +69,8 @@ public class Editor extends javax.swing.JPanel
                 // _editedWorld
                 // );
                 String lastLine = EditorParser.getLastLine( _textAreaContent );
+                // EditorParser.parseWholeBuilding( _textAreaContent,
+                // _editedWorld );
                 EditorParser.parseLine( lastLine, _editedWorld );
             }
             else if( selectedText.equals( "" ) == false

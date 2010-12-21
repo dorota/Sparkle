@@ -23,13 +23,14 @@ public class EditorParser
     public static void parseLine( String lineOfText, World world )
             throws ArrayIndexOutOfBoundsException
     {
+        System.out.println( "what we get " + lineOfText );
         if( lineOfText.startsWith( COMMENT_CHAR ) )
         {
             // do nothing; it is a comment
         }
         else
         {
-            lineOfText.trim();
+            lineOfText = lineOfText.trim();
             Pattern pattern = Pattern.compile( "[()\\[\\]:,]" );
             String[] lineParts = pattern.split( lineOfText );
             // for( String s: lineParts )
@@ -42,10 +43,12 @@ public class EditorParser
             int sizeX = Integer.valueOf( lineParts[ 5 ] );
             int sizeY = Integer.valueOf( lineParts[ 6 ] );
             int sizeZ = Integer.valueOf( lineParts[ 7 ] );
-            String material = lineParts[ 9 ];
+            String material = new String( lineParts[ 9 ] );
             Scene3D scene = Scene3D.getScene( MainWindow._sceneCanvas );
+            // System.out.println( "material test ####" + material.trim() +
+            // "####" );
             world.addBuildingPart( new Point3d( leftBottomBackCornerX, leftBottomBackCornerY,
-                leftBottomBackCornerZ ), new Point3d( sizeX, sizeY, sizeZ ), material, scene );
+                leftBottomBackCornerZ ), new Point3d( sizeX, sizeY, sizeZ ), material.trim(), scene );
         }
     }
 
@@ -58,8 +61,8 @@ public class EditorParser
         }
         else
         {
-            toDelete.trim();
-            toDelete.trim();
+            toDelete = toDelete.trim();
+            toDelete = toDelete.trim();
             Pattern pattern = Pattern.compile( "[()\\[\\]:,]" );
             String[] lineParts = pattern.split( toDelete );
             int leftBottomBackCornerX = Integer.valueOf( lineParts[ 1 ] );
@@ -77,12 +80,12 @@ public class EditorParser
 
     public static void parseWholeBuilding( String text, World world )
     {
-        String textAreaContentWithoutWhiteSpaces = text.trim();
-        String lines[] = textAreaContentWithoutWhiteSpaces.split( "\n" );
+        // String textAreaContentWithoutWhiteSpaces = text.trim();
+        String lines[] = text.split( "[\\r\\n]+" );
         // world.cleanWorld();
-        for( String line: lines )
+        for( int i = 0; i < lines.length; ++i )
         {
-            parseLine( line, world );
+            parseLine( new String( lines[ i ] ), world );
         }
     }
 

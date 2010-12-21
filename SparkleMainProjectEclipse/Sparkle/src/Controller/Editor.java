@@ -65,13 +65,11 @@ public class Editor extends javax.swing.JPanel
             String selectedText = _editorTextArea.getSelectedText();
             if( evt.getKeyCode() == KeyEvent.VK_ENTER )
             {
-                // EditorParser.parseWholeBuilding( _textAreaContent,
-                // _editedWorld
-                // );
                 String lastLine = EditorParser.getLastLine( _textAreaContent );
-                // EditorParser.parseWholeBuilding( _textAreaContent,
-                // _editedWorld );
                 EditorParser.parseLine( lastLine, _editedWorld );
+                // parsowanie ca³ego pliku
+                // String copy = new String( _textAreaContent );
+                // EditorParser.parseWholeBuilding( copy, _editedWorld );
             }
             else if( selectedText.equals( "" ) == false
                     && evt.getKeyCode() == KeyEvent.VK_BACK_SPACE

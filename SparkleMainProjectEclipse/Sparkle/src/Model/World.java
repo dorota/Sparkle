@@ -61,8 +61,6 @@ public class World
                     _worldOldValues[ i ][ j ][ k ].set_material( mat );
                     int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j,
                         k );
-                    System.out.println( "material with this name "
-                            + World.getMaterial( materialName ) );
                     scene.addNewBlockToScene( mat, blockIndex );
                 }
             }

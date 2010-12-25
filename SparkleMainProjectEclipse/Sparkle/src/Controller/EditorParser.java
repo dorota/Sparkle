@@ -23,7 +23,6 @@ public class EditorParser
     public static void parseLine( String lineOfText, World world )
             throws ArrayIndexOutOfBoundsException
     {
-        System.out.println( "what we get " + lineOfText );
         if( lineOfText.startsWith( COMMENT_CHAR ) )
         {
             // do nothing; it is a comment
@@ -33,10 +32,7 @@ public class EditorParser
             lineOfText = lineOfText.trim();
             Pattern pattern = Pattern.compile( "[()\\[\\]:,]" );
             String[] lineParts = pattern.split( lineOfText );
-            // for( String s: lineParts )
-            // {
-            // System.out.println( s );
-            // }
+            System.out.println( "line parts " + lineParts.length );
             int leftBottomBackCornerX = Integer.valueOf( lineParts[ 1 ] );
             int leftBottomBackCornerY = Integer.valueOf( lineParts[ 2 ] );
             int leftBottomBackCornerZ = Integer.valueOf( lineParts[ 3 ] );
@@ -82,10 +78,9 @@ public class EditorParser
     {
         // String textAreaContentWithoutWhiteSpaces = text.trim();
         String lines[] = text.split( "[\\r\\n]+" );
-        // world.cleanWorld();
         for( int i = 0; i < lines.length; ++i )
         {
-            parseLine( new String( lines[ i ] ), world );
+            parseLine( lines[ i ], world );
         }
     }
 

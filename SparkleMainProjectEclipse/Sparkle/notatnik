@@ -459,4 +459,32 @@ public class MenuPanel extends javax.swing.JPanel {
     // End of variables declaration
 
 }
+
+
+
+
+//n parseTheWholeFile instead of parse line
+      // String line = new String( lines[ i ] );
+            // if( line.startsWith( "#" ) )
+            // {
+            // // DO NOTHING. it's a comment
+            // }
+            // else
+            // {
+            // line = line.trim();
+            // String[] partsOfLine = line.split( "[(,)\\[\\] :]+" );
+            // int leftBottomBackCornerX = Integer.valueOf( partsOfLine[ 1 ] );
+            // int leftBottomBackCornerY = Integer.valueOf( partsOfLine[ 2 ] );
+            // int leftBottomBackCornerZ = Integer.valueOf( partsOfLine[ 3 ] );
+            // int sizeX = Integer.valueOf( partsOfLine[ 4 ] );
+            // int sizeY = Integer.valueOf( partsOfLine[ 5 ] );
+            // int sizeZ = Integer.valueOf( partsOfLine[ 6 ] );
+            // String material = new String( partsOfLine[ 7 ] );
+            // Scene3D scene = Scene3D.getScene( MainWindow._sceneCanvas );
+            // material = material.trim();
+            // world.addBuildingPart( new Point3d( leftBottomBackCornerX,
+            // leftBottomBackCornerY,
+            // leftBottomBackCornerZ ), new Point3d( sizeX, sizeY, sizeZ ),
+            // material, scene );
+            // }
     

@@ -48,15 +48,14 @@ public class World
     public void addBuildingPart( Point3d leftBottomBackCorner, Point3d size, String materialName,
             Scene3D scene ) throws ArrayIndexOutOfBoundsException
     {
-        int counter = 0;
         for( int j = (int)leftBottomBackCorner.y; j < leftBottomBackCorner.y + size.y; ++j )
         {
             for( int k = (int)leftBottomBackCorner.z; k < leftBottomBackCorner.z + size.z; ++k )
             {
                 for( int i = (int)leftBottomBackCorner.x; i < leftBottomBackCorner.x + size.x; ++i )
                 {
-                    ++counter;
                     Material mat = getMaterial( materialName );
+                    System.out.println( " i j k " + i + " " + j + " " + k );
                     _worldCurrentValues[ i ][ j ][ k ].set_material( mat );
                     _worldOldValues[ i ][ j ][ k ].set_material( mat );
                     int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j,
@@ -65,7 +64,6 @@ public class World
                 }
             }
         }
-        System.out.println( "counter " + counter );
     }
 
     public void restartTemperatures( Scene3D scene )
@@ -131,7 +129,7 @@ public class World
 
     public void set_availableMaterials( List<Material> _availableMaterials )
     {
-        this._availableMaterials = _availableMaterials;
+        World._availableMaterials = _availableMaterials;
     }
 
     public List<Material> get_availableMaterials()

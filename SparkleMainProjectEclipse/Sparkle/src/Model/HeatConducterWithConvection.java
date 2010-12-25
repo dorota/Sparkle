@@ -12,7 +12,6 @@ public class HeatConducterWithConvection extends HeatConducter
         if( cell.get_material().get_name().equals( "Air" )
                 && neigh.get_material().get_name().equals( "Air" ) )
         {
-            System.out.println( "we are here" );
             energy /= EnvSettings.CONSTANT_ENERGY_FACTOR;
             double sideEnergyFactor = 0.1;
             double topEnergyFactor = 0.2;
@@ -20,18 +19,15 @@ public class HeatConducterWithConvection extends HeatConducter
             if( ( whichNeighbour == EnvSettings.TOP_NEIGHBOUR && energy < 0 )
                     || ( whichNeighbour == EnvSettings.BOTTOM_NEIGBOUR && energy > 0 ) )
             {
-                System.out.println( "konwecja pracuje w gore" );
                 energy *= topEnergyFactor;
             }
             else if( ( whichNeighbour == EnvSettings.BOTTOM_NEIGBOUR && energy < 0 )
                     || ( whichNeighbour == EnvSettings.TOP_NEIGHBOUR && energy > 0 ) )
             {
-                System.out.println( "konwecja pracuje w dol " );
                 energy *= downEnergyFactor;
             }
             else
             {
-                System.out.println( "konwecja pracuje tylko na boki" );
                 energy *= sideEnergyFactor;
             }
         }

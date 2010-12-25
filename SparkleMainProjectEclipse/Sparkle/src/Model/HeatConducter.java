@@ -48,7 +48,8 @@ public class HeatConducter
         double cellHeatCapacity = cell.get_material().get_specificHeat() * cell.get_mass();
         double neighHeatCapacity = neigh.get_material().get_specificHeat() * cell.get_mass();
         double energyFlow = neigh.get_temp() - cell.get_temp();
-        System.out.println( "temperatury " + cell.get_temp() + " " + neigh.get_temp() );
+        // System.out.println( "temperatury " + cell.get_temp() + " " +
+        // neigh.get_temp() );
         // System.out.println( "energ y low" + neigh.get_temp() );
         // double thermalConductivity = (
         // cell.get_material().get_thermalConductivity() + neigh

@@ -64,6 +64,6 @@ public class FileChooser
         // }
         // }
         // } );
-        // _frame.getContentPane().add( _fileChooser );
+        // _frame.getContentPane().add( _fileChooser );temperatury
     }
 }

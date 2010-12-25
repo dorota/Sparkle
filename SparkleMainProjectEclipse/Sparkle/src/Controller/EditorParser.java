@@ -32,7 +32,6 @@ public class EditorParser
             lineOfText = lineOfText.trim();
             Pattern pattern = Pattern.compile( "[()\\[\\]:,]" );
             String[] lineParts = pattern.split( lineOfText );
-            System.out.println( "line parts " + lineParts.length );
             int leftBottomBackCornerX = Integer.valueOf( lineParts[ 1 ] );
             int leftBottomBackCornerY = Integer.valueOf( lineParts[ 2 ] );
             int leftBottomBackCornerZ = Integer.valueOf( lineParts[ 3 ] );

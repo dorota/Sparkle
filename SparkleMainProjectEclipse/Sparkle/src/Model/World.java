@@ -41,7 +41,6 @@ public class World
                 return _availableMaterials.get( i );
             }
         }
-        System.out.println( "how many materials " + _availableMaterials.size() );
         return null;
     }
 
@@ -55,7 +54,6 @@ public class World
                 for( int i = (int)leftBottomBackCorner.x; i < leftBottomBackCorner.x + size.x; ++i )
                 {
                     Material mat = getMaterial( materialName );
-                    System.out.println( " i j k " + i + " " + j + " " + k );
                     _worldCurrentValues[ i ][ j ][ k ].set_material( mat );
                     _worldOldValues[ i ][ j ][ k ].set_material( mat );
                     int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j,
@@ -258,7 +256,6 @@ public class World
         // }
         // }
         updateOldValues();
-        System.out.println( "done1" );
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
             for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
@@ -278,6 +275,6 @@ public class World
                 }
             }
         }
-        // System.out.println( "done" );
+        // System.out.println( "done1" );
     }
 }

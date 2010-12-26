@@ -95,6 +95,7 @@ public class MainWindow
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout( new BorderLayout() );
         mainPanel.add( _sceneCanvas, BorderLayout.CENTER );
+        _menuPanel.setPreferredSize( new Dimension( 300, 500 ) );
         _editor.initComponents( _frame.getWidth() - _menuPanel.getWidth(), 200 );
         mainPanel.add( _editor, BorderLayout.SOUTH );
         // _frame.add( _editor, BorderLayout.SOUTH );

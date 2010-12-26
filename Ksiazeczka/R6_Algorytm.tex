@@ -18,16 +18,18 @@ zawierają szczegółowy opis kluczowych funkcji współtworzących funkcję prz
 % 6. W kolejnych podrozdziałach funkcje będące czynnikami funkcji przejścia - przewodnictwo, konwekcja, dym
 % 7. Rodzaje komórek. problem wąskich drzwi i jego rozwiązanie
 \section {Model automatu}
-Zgodnie ze wzorem \ref{def_automatu} będącym istotą przytoczonej w rozdziale \ref{cha:Automaty komórkowe} definicji automatu komórkowego według Weimara jednym z kluczowych elementów jest określenie siatki, czyli powierzchni automatu. W modelu symulaci pożaru w budynku
+Zgodnie ze wzorem \ref{def_automatu} będącym istotą przytoczonej w rozdziale \ref{cha:Automaty komórkowe} definicji automatu komórkowego według Weimara jednym z kluczowych elementów podczas tworzenia automatu jest określenie siatki, czyli powierzchni automatu. W modelu symulaci pożaru w budynku
 ze względu na trójwymiarowość zjawiska oraz istotę jego rzeczywistego odtworzenia (możliwość wykorzystania wyników w celu
 opracowania modelu ewakuaci osób, badanie przyczyn katastrofy i drogi rozchozenia ognia) nabardziej naturalnym typem automatu 
-jest automat \textsl {trójwymiarowy}. 
-Rozmiar automatu jest wielkością zmienną, definiowaną przez użytkownika systemu. Pozwala to na odpowiedni dobór ilości komórek w zależności od wielkości rozpatrywanego budynku. Ze względu na fakt, że istotą przedstawionego modelu jest symulacja pożaru wewnątrz budynku rozmiar siatki należy określić tak aby całość
-siatki stanowiła budynek.Zastosowany twójwymiarowy automat składa się z szcześciennych komórek o wymiarach $0.5m x 0.5m x 0.5m$. Wielkość komórek została wybrana empirycznie. 
-Odpowiedni dobór wielkości komórek automatu ma kluczowy wpływ na jego działanie. Zbyt mała ilość komórek może doprowadzić do utraty
-dokładności algorytmu oraz ukazać zniekształcony obraz działania modelu. Zbyt duża ilość elementów powoduje spadek wydajności algorytmu, a w komputerowej realizacji algorytmu oznacza zwiększone zapotrzebowanie na pamięć i moc procesora.
+jest automat \textsl {trójwymiarowy}. Powierzchnię automatu stanowi sześcian składający się z również szcześciennych komórek o wymiarach $0.5m x 0.5m x 0.5m$.Odpowiedni dobór wielkości komórek automatu ma kluczowy wpływ na jego działanie. Zbyt mała ilość komórek może doprowadzić do utraty
+dokładności algorytmu oraz ukazać zniekształcony obraz działania modelu. Zbyt duża ilość elementów powoduje spadek wydajności algorytmu, a w komputerowej realizacji algorytmu oznacza zwiększone zapotrzebowanie na pamięć i moc procesora. W omawianym algorytmie
+wielkość komórek została wybrana empirycznie.
 Wybrany na podstawie doświadczeń rozmiar komórki jest najlepszym
 kompromisem między między czasem działania a dokładnością modelu.
+Rozmiar całkowietej powierzchni automatu jest wielkością zmienną, definiowaną przez użytkownika systemu. Pozwala to na przeprowadzanie symulacji budynków o zróżnicowanej wielkości dopasowując rozmiar automatu tak aby całość
+siatki stanowiła budynek oraz aby budynek był w całości objęty przez siatkę. 
+
+
 
 Typy komórek wchodzących w skład automatu można podzielić na dwie zasadnicze grupy:
 \begin{itemize}
@@ -35,17 +37,19 @@ Typy komórek wchodzących w skład automatu można podzielić na dwie zasadnicz
 \item Gazy
 \end{itemize}
 Model symulacji nie uwzględnia interakcji ognia z wodą lub innymi cieczami i nie przedstawia zjawisk fizycznych zachodzących podczas tych interakcji.
-W ciałac stałyc funkcje przejścia odzwierciedlają zjawisko przewodnictwa cieplnego. W gazach będących płynami przewodnictwo zastąpione jest konwekcją.
+W ciałach stałych funkcje przejścia odzwierciedlają zjawisko przewodnictwa cieplnego. W gazach będących płynami przewodnictwo zastąpione jest konwekcją.
 Wszystkie typy komórek poddane są zjawisku radiacji.
 Ponadto, komórki reprezentujące ciała stałe dzielimy ze względu na rodzaj materiału z jakiego są stworzone.
+
+
 Każdy z materiałów posiada zestaw parametrów określających jego właściwości fizyczne:
 \begin{itemize}
 \item Ciepło właściwe - określa jak zmienia się temperatura ciała w zależności od ilości dostarczonego / oddanego ciepła
 \item Gęstość
-\item Współczynnik przewodnictwa ciepła - określa zdolność materiału do przewodnictwa ciepła
+\item Współczynnik przewodnictwa ciepła - określa zdolność materiału do przewodnictwa cieplnego
 \item Temperatura zapłonu - określa temperaturę charakterystyczną dla danego materiału, po której osiągnięciu 
 	dochodzi do produkcji palnych oparów
-\item Palność - określa procentową ilość oparów powstałych po osiągnięciu temperatury zapłonu. 
+\item Palność - określa procentową ilość oparów powstałych po osiągnięciu temperatury zapłonu. Determinuje szybkość spalania.
 \end{itemize}
 Wyżej wymienione parametry bezpośrednio wpływają na zachowanie funkcji przejścia, powodując zrożnicowane zachowanie komórek w zależności od typu materiału.
 

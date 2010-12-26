@@ -1,5 +1,8 @@
 package Model;
 
+import Helpers.EnvSettings;
+import Helpers.EnvSettings.CellState;
+
 /**
  * @author Dorota
  * 
@@ -10,10 +13,10 @@ public class Cell
     private Material _material;
     private double _mass;
     private double _temp;
-    // length of cell may be needed to calculate mass from ro and V
-    // given in meters
+    private EnvSettings.CellState _cellState;
     final double _cellLenfth = 0.5;
 
+    // final double _flameTemp;
     @Override
     public String toString()
     {
@@ -26,6 +29,7 @@ public class Cell
         _material = material;
         _temp = temp;
         _mass = mass;
+        _cellState = CellState.NEUTRAL;
     }
 
     public Material get_material()

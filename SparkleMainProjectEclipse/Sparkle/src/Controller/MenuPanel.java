@@ -3,9 +3,12 @@ package Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.vecmath.Point3d;
@@ -162,6 +165,226 @@ public class MenuPanel extends javax.swing.JPanel
                 _addButtonActionPerformed( evt );
             }
         } );
+        _simulationTab = new javax.swing.JPanel();
+        _simulationStopButton = new javax.swing.JButton();
+        _simulationRestartButton = new javax.swing.JButton();
+        _simulationContinueButton = new javax.swing.JButton();
+        _simulationPauseButton = new javax.swing.JButton();
+        _simulationStartButton = new javax.swing.JButton();
+        _simulationStopButton.setText( "Stop" );
+        _simulationStopButton.addActionListener( new java.awt.event.ActionListener()
+        {
+            public void actionPerformed( java.awt.event.ActionEvent evt )
+            {
+                _simulationStopButtonActionPerformed( evt );
+            }
+        } );
+        _simulationRestartButton.setText( "Restart" );
+        _simulationRestartButton.addActionListener( new java.awt.event.ActionListener()
+        {
+            public void actionPerformed( java.awt.event.ActionEvent evt )
+            {
+                _simulationRestartButtonActionPerformed( evt );
+            }
+        } );
+        _simulationContinueButton.setText( "Continue" );
+        _simulationContinueButton.addActionListener( new java.awt.event.ActionListener()
+        {
+            public void actionPerformed( java.awt.event.ActionEvent evt )
+            {
+                _simulationContinueButtonActionPerformed( evt );
+            }
+        } );
+        _simulationPauseButton.setText( "Pause" );
+        _simulationPauseButton.addActionListener( new java.awt.event.ActionListener()
+        {
+            public void actionPerformed( java.awt.event.ActionEvent evt )
+            {
+                _simulationPauseButtonActionPerformed( evt );
+            }
+        } );
+        _simulationStartButton.setText( "Start" );
+        _simulationStartButton.addActionListener( new java.awt.event.ActionListener()
+        {
+            public void actionPerformed( java.awt.event.ActionEvent evt )
+            {
+                _simulationStartButtonActionPerformed( evt );
+            }
+        } );
+        JLabel fireInitLabel = new JLabel( "Fire start point" );
+        lblX = new JLabel( "x:" );
+        lblY = new JLabel( "y:" );
+        lblZ = new JLabel( "z:" );
+        _startFireXTextField = new JTextField();
+        _startFireXTextField.addActionListener( new ActionListener()
+        {
+            public void actionPerformed( ActionEvent arg0 )
+            {
+                _startOfFireX = Integer.valueOf( _startFireXTextField.getText() );
+            }
+        } );
+        _startFireXTextField.setToolTipText( "x coordinate" );
+        _startFireXTextField.setColumns( 10 );
+        _startFireTextFieldY = new JTextField();
+        _startFireTextFieldY.addActionListener( new ActionListener()
+        {
+            public void actionPerformed( ActionEvent arg0 )
+            {
+                _startOfFireY = Integer.valueOf( _startFireTextFieldY.getText() );
+            }
+        } );
+        _startFireTextFieldY.setToolTipText( "y coordinate" );
+        _startFireTextFieldY.setColumns( 10 );
+        _startFireTextFieldZ = new JTextField();
+        _startFireTextFieldZ.addActionListener( new ActionListener()
+        {
+            public void actionPerformed( ActionEvent arg0 )
+            {
+                _startOfFireZ = Integer.valueOf( _startFireTextFieldZ.getText() );
+            }
+        } );
+        _startFireTextFieldZ.setToolTipText( "z coordinate" );
+        _startFireTextFieldZ.setColumns( 10 );
+        JList list = new JList();
+        JList list_1 = new JList();
+        JList list_2 = new JList();
+        simulationViewCompoBox = new JComboBox();
+        simulationViewCompoBox.setModel( new DefaultComboBoxModel( new String[]{ "Regular",
+                "Temperature" } ) );
+        JLabel simulation_mode_label = new JLabel( "Simulation mode:" );
+        javax.swing.GroupLayout gl__simulationTab = new javax.swing.GroupLayout( _simulationTab );
+        gl__simulationTab.setHorizontalGroup( gl__simulationTab.createParallelGroup(
+            Alignment.LEADING ).addGroup(
+            gl__simulationTab
+                    .createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(
+                        gl__simulationTab
+                                .createParallelGroup( Alignment.LEADING )
+                                .addComponent( fireInitLabel )
+                                .addGroup(
+                                    gl__simulationTab
+                                            .createParallelGroup( Alignment.LEADING, false )
+                                            .addGroup(
+                                                gl__simulationTab
+                                                        .createSequentialGroup()
+                                                        .addComponent( lblZ )
+                                                        .addPreferredGap(
+                                                            ComponentPlacement.UNRELATED )
+                                                        .addComponent( _startFireTextFieldZ, 0, 0,
+                                                            Short.MAX_VALUE ) )
+                                            .addGroup(
+                                                gl__simulationTab
+                                                        .createSequentialGroup()
+                                                        .addComponent( lblY )
+                                                        .addPreferredGap(
+                                                            ComponentPlacement.UNRELATED )
+                                                        .addComponent( _startFireTextFieldY, 0, 0,
+                                                            Short.MAX_VALUE ) )
+                                            .addGroup(
+                                                gl__simulationTab
+                                                        .createSequentialGroup()
+                                                        .addComponent( lblX )
+                                                        .addPreferredGap(
+                                                            ComponentPlacement.UNRELATED )
+                                                        .addComponent( _startFireXTextField,
+                                                            GroupLayout.PREFERRED_SIZE, 69,
+                                                            GroupLayout.PREFERRED_SIZE ) ) )
+                                .addGroup(
+                                    gl__simulationTab
+                                            .createSequentialGroup()
+                                            .addComponent( simulationViewCompoBox,
+                                                GroupLayout.PREFERRED_SIZE,
+                                                GroupLayout.DEFAULT_SIZE,
+                                                GroupLayout.PREFERRED_SIZE )
+                                            .addPreferredGap( ComponentPlacement.RELATED )
+                                            .addComponent( list_2, GroupLayout.PREFERRED_SIZE, 1,
+                                                GroupLayout.PREFERRED_SIZE )
+                                            .addGap( 18 )
+                                            .addComponent( list_1 )
+                                            .addGap( 13 )
+                                            .addComponent( list, GroupLayout.PREFERRED_SIZE, 1,
+                                                GroupLayout.PREFERRED_SIZE ) )
+                                .addComponent( simulation_mode_label )
+                                .addGroup(
+                                    gl__simulationTab
+                                            .createParallelGroup( Alignment.LEADING, false )
+                                            .addComponent( _simulationRestartButton,
+                                                GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE )
+                                            .addComponent( _simulationContinueButton,
+                                                GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE )
+                                            .addComponent( _simulationPauseButton,
+                                                GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE )
+                                            .addComponent( _simulationStopButton,
+                                                GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE )
+                                            .addComponent( _simulationStartButton,
+                                                GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE ) ) )
+                    .addContainerGap( 267, Short.MAX_VALUE ) ) );
+        gl__simulationTab.setVerticalGroup( gl__simulationTab.createParallelGroup(
+            Alignment.LEADING )
+                .addGroup(
+                    gl__simulationTab
+                            .createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent( fireInitLabel )
+                            .addGap( 18 )
+                            .addGroup(
+                                gl__simulationTab
+                                        .createParallelGroup( Alignment.BASELINE )
+                                        .addComponent( lblX )
+                                        .addComponent( _startFireXTextField,
+                                            GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+                                            GroupLayout.PREFERRED_SIZE ) )
+                            .addGroup(
+                                gl__simulationTab
+                                        .createParallelGroup( Alignment.LEADING )
+                                        .addGroup(
+                                            gl__simulationTab.createSequentialGroup().addGap( 9 )
+                                                    .addComponent( lblY )
+                                                    .addPreferredGap( ComponentPlacement.UNRELATED )
+                                                    .addComponent( lblZ ) )
+                                        .addGroup(
+                                            gl__simulationTab
+                                                    .createSequentialGroup()
+                                                    .addGap( 7 )
+                                                    .addComponent( _startFireTextFieldY,
+                                                        GroupLayout.PREFERRED_SIZE,
+                                                        GroupLayout.DEFAULT_SIZE,
+                                                        GroupLayout.PREFERRED_SIZE )
+                                                    .addPreferredGap( ComponentPlacement.RELATED )
+                                                    .addComponent( _startFireTextFieldZ,
+                                                        GroupLayout.PREFERRED_SIZE,
+                                                        GroupLayout.DEFAULT_SIZE,
+                                                        GroupLayout.PREFERRED_SIZE ) ) )
+                            .addGap( 28 )
+                            .addComponent( simulation_mode_label )
+                            .addGap( 9 )
+                            .addGroup(
+                                gl__simulationTab
+                                        .createParallelGroup( Alignment.BASELINE )
+                                        .addComponent( list, GroupLayout.PREFERRED_SIZE, 1,
+                                            GroupLayout.PREFERRED_SIZE )
+                                        .addComponent( list_1, GroupLayout.PREFERRED_SIZE, 1,
+                                            GroupLayout.PREFERRED_SIZE )
+                                        .addComponent( list_2, GroupLayout.PREFERRED_SIZE, 1,
+                                            GroupLayout.PREFERRED_SIZE )
+                                        .addComponent( simulationViewCompoBox,
+                                            GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+                                            GroupLayout.PREFERRED_SIZE ) ).addGap( 29 )
+                            .addComponent( _simulationStartButton ).addGap( 18 )
+                            .addComponent( _simulationStopButton )
+                            .addPreferredGap( ComponentPlacement.UNRELATED )
+                            .addComponent( _simulationPauseButton ).addGap( 18 )
+                            .addComponent( _simulationContinueButton ).addGap( 18 )
+                            .addComponent( _simulationRestartButton )
+                            .addContainerGap( 74, Short.MAX_VALUE ) ) );
+        _simulationTab.setLayout( gl__simulationTab );
+        _menuPanel.addTab( "Simulation", _simulationTab );
         javax.swing.GroupLayout gl__addingNewBlocksTab = new javax.swing.GroupLayout(
             _addingNewBlocksTab );
         _addingNewBlocksTab.setLayout( gl__addingNewBlocksTab );
@@ -373,238 +596,15 @@ public class MenuPanel extends javax.swing.JPanel
             javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE ) );
         _menuPanel.addTab( "Help", _helpTab );
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout( this );
+        layout.setHorizontalGroup( layout.createParallelGroup( Alignment.LEADING ).addGroup(
+            layout.createSequentialGroup().addContainerGap().addComponent( _menuPanel )
+                    .addContainerGap() ) );
+        layout.setVerticalGroup( layout.createParallelGroup( Alignment.LEADING ).addGroup(
+            layout.createSequentialGroup()
+                    .addComponent( _menuPanel, GroupLayout.PREFERRED_SIZE, 527,
+                        GroupLayout.PREFERRED_SIZE )
+                    .addContainerGap( GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE ) ) );
         this.setLayout( layout );
-        layout.setHorizontalGroup( layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING ).addGroup(
-            layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent( _menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 235,
-                        Short.MAX_VALUE ).addContainerGap() ) );
-        layout.setVerticalGroup( layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING ).addGroup(
-            layout.createSequentialGroup()
-                    .addComponent( _menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 610,
-                        Short.MAX_VALUE ).addContainerGap() ) );
-        _simulationTab = new javax.swing.JPanel();
-        _simulationStopButton = new javax.swing.JButton();
-        _simulationRestartButton = new javax.swing.JButton();
-        _simulationContinueButton = new javax.swing.JButton();
-        _simulationPauseButton = new javax.swing.JButton();
-        _simulationStartButton = new javax.swing.JButton();
-        _simulationStopButton.setText( "Stop" );
-        _simulationStopButton.addActionListener( new java.awt.event.ActionListener()
-        {
-            public void actionPerformed( java.awt.event.ActionEvent evt )
-            {
-                _simulationStopButtonActionPerformed( evt );
-            }
-        } );
-        _simulationRestartButton.setText( "Restart" );
-        _simulationRestartButton.addActionListener( new java.awt.event.ActionListener()
-        {
-            public void actionPerformed( java.awt.event.ActionEvent evt )
-            {
-                _simulationRestartButtonActionPerformed( evt );
-            }
-        } );
-        _simulationContinueButton.setText( "Continue" );
-        _simulationContinueButton.addActionListener( new java.awt.event.ActionListener()
-        {
-            public void actionPerformed( java.awt.event.ActionEvent evt )
-            {
-                _simulationContinueButtonActionPerformed( evt );
-            }
-        } );
-        _simulationPauseButton.setText( "Pause" );
-        _simulationPauseButton.addActionListener( new java.awt.event.ActionListener()
-        {
-            public void actionPerformed( java.awt.event.ActionEvent evt )
-            {
-                _simulationPauseButtonActionPerformed( evt );
-            }
-        } );
-        _simulationStartButton.setText( "Start" );
-        _simulationStartButton.addActionListener( new java.awt.event.ActionListener()
-        {
-            public void actionPerformed( java.awt.event.ActionEvent evt )
-            {
-                _simulationStartButtonActionPerformed( evt );
-            }
-        } );
-        JLabel fireInitLabel = new JLabel( "Fire start point" );
-        lblX = new JLabel( "x:" );
-        lblY = new JLabel( "y:" );
-        lblZ = new JLabel( "z:" );
-        _startFireXTextField = new JTextField();
-        _startFireXTextField.addActionListener( new ActionListener()
-        {
-            public void actionPerformed( ActionEvent arg0 )
-            {
-                _startOfFireX = Integer.valueOf( _startFireXTextField.getText() );
-            }
-        } );
-        _startFireXTextField.setToolTipText( "x coordinate" );
-        _startFireXTextField.setColumns( 10 );
-        _startFireTextFieldY = new JTextField();
-        _startFireTextFieldY.addActionListener( new ActionListener()
-        {
-            public void actionPerformed( ActionEvent arg0 )
-            {
-                _startOfFireY = Integer.valueOf( _startFireTextFieldY.getText() );
-            }
-        } );
-        _startFireTextFieldY.setToolTipText( "y coordinate" );
-        _startFireTextFieldY.setColumns( 10 );
-        _startFireTextFieldZ = new JTextField();
-        _startFireTextFieldZ.addActionListener( new ActionListener()
-        {
-            public void actionPerformed( ActionEvent arg0 )
-            {
-                _startOfFireZ = Integer.valueOf( _startFireTextFieldZ.getText() );
-            }
-        } );
-        _startFireTextFieldZ.setToolTipText( "z coordinate" );
-        _startFireTextFieldZ.setColumns( 10 );
-        javax.swing.GroupLayout gl__simulationTab = new javax.swing.GroupLayout( _simulationTab );
-        gl__simulationTab
-                .setHorizontalGroup( gl__simulationTab
-                        .createParallelGroup( Alignment.LEADING )
-                        .addGroup(
-                            gl__simulationTab
-                                    .createSequentialGroup()
-                                    .addContainerGap()
-                                    .addGroup(
-                                        gl__simulationTab
-                                                .createParallelGroup( Alignment.LEADING )
-                                                .addGroup(
-                                                    gl__simulationTab.createSequentialGroup()
-                                                            .addComponent( fireInitLabel )
-                                                            .addContainerGap( 353, Short.MAX_VALUE ) )
-                                                .addGroup(
-                                                    gl__simulationTab
-                                                            .createSequentialGroup()
-                                                            .addGroup(
-                                                                gl__simulationTab
-                                                                        .createParallelGroup(
-                                                                            Alignment.TRAILING,
-                                                                            false )
-                                                                        .addGroup(
-                                                                            Alignment.LEADING,
-                                                                            gl__simulationTab
-                                                                                    .createSequentialGroup()
-                                                                                    .addComponent(
-                                                                                        lblZ )
-                                                                                    .addPreferredGap(
-                                                                                        ComponentPlacement.UNRELATED )
-                                                                                    .addComponent(
-                                                                                        _startFireTextFieldZ,
-                                                                                        0,
-                                                                                        0,
-                                                                                        Short.MAX_VALUE ) )
-                                                                        .addGroup(
-                                                                            Alignment.LEADING,
-                                                                            gl__simulationTab
-                                                                                    .createSequentialGroup()
-                                                                                    .addComponent(
-                                                                                        lblY )
-                                                                                    .addPreferredGap(
-                                                                                        ComponentPlacement.UNRELATED )
-                                                                                    .addComponent(
-                                                                                        _startFireTextFieldY,
-                                                                                        0,
-                                                                                        0,
-                                                                                        Short.MAX_VALUE ) )
-                                                                        .addGroup(
-                                                                            Alignment.LEADING,
-                                                                            gl__simulationTab
-                                                                                    .createSequentialGroup()
-                                                                                    .addComponent(
-                                                                                        lblX )
-                                                                                    .addPreferredGap(
-                                                                                        ComponentPlacement.UNRELATED )
-                                                                                    .addComponent(
-                                                                                        _startFireXTextField,
-                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                        69,
-                                                                                        GroupLayout.PREFERRED_SIZE ) ) )
-                                                            .addContainerGap() )
-                                                .addGroup(
-                                                    gl__simulationTab
-                                                            .createSequentialGroup()
-                                                            .addComponent( _simulationStartButton,
-                                                                GroupLayout.DEFAULT_SIZE, 226,
-                                                                Short.MAX_VALUE ).addGap( 183 ) )
-                                                .addGroup(
-                                                    gl__simulationTab
-                                                            .createSequentialGroup()
-                                                            .addComponent( _simulationStopButton,
-                                                                GroupLayout.DEFAULT_SIZE, 226,
-                                                                Short.MAX_VALUE ).addGap( 183 ) )
-                                                .addGroup(
-                                                    gl__simulationTab
-                                                            .createSequentialGroup()
-                                                            .addComponent( _simulationPauseButton,
-                                                                GroupLayout.DEFAULT_SIZE, 226,
-                                                                Short.MAX_VALUE ).addGap( 183 ) )
-                                                .addGroup(
-                                                    gl__simulationTab
-                                                            .createSequentialGroup()
-                                                            .addComponent(
-                                                                _simulationContinueButton,
-                                                                GroupLayout.DEFAULT_SIZE, 226,
-                                                                Short.MAX_VALUE ).addGap( 183 ) )
-                                                .addGroup(
-                                                    gl__simulationTab
-                                                            .createSequentialGroup()
-                                                            .addComponent(
-                                                                _simulationRestartButton,
-                                                                GroupLayout.DEFAULT_SIZE, 226,
-                                                                Short.MAX_VALUE ).addGap( 183 ) ) ) ) );
-        gl__simulationTab.setVerticalGroup( gl__simulationTab.createParallelGroup(
-            Alignment.LEADING )
-                .addGroup(
-                    gl__simulationTab
-                            .createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent( fireInitLabel )
-                            .addGap( 18 )
-                            .addGroup(
-                                gl__simulationTab
-                                        .createParallelGroup( Alignment.BASELINE )
-                                        .addComponent( lblX )
-                                        .addComponent( _startFireXTextField,
-                                            GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE ) )
-                            .addGroup(
-                                gl__simulationTab
-                                        .createParallelGroup( Alignment.LEADING )
-                                        .addGroup(
-                                            gl__simulationTab.createSequentialGroup().addGap( 9 )
-                                                    .addComponent( lblY )
-                                                    .addPreferredGap( ComponentPlacement.UNRELATED )
-                                                    .addComponent( lblZ ) )
-                                        .addGroup(
-                                            gl__simulationTab
-                                                    .createSequentialGroup()
-                                                    .addGap( 7 )
-                                                    .addComponent( _startFireTextFieldY,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        GroupLayout.DEFAULT_SIZE,
-                                                        GroupLayout.PREFERRED_SIZE )
-                                                    .addPreferredGap( ComponentPlacement.RELATED )
-                                                    .addComponent( _startFireTextFieldZ,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        GroupLayout.DEFAULT_SIZE,
-                                                        GroupLayout.PREFERRED_SIZE ) ) )
-                            .addGap( 34 ).addComponent( _simulationStartButton ).addGap( 18 )
-                            .addComponent( _simulationStopButton )
-                            .addPreferredGap( ComponentPlacement.UNRELATED )
-                            .addComponent( _simulationPauseButton ).addGap( 18 )
-                            .addComponent( _simulationContinueButton ).addGap( 18 )
-                            .addComponent( _simulationRestartButton )
-                            .addContainerGap( 99, Short.MAX_VALUE ) ) );
-        _simulationTab.setLayout( gl__simulationTab );
-        _menuPanel.addTab( "Simulation", _simulationTab );
     }// </editor-fold>
 
     private void _simulationStartButtonActionPerformed( java.awt.event.ActionEvent evt )
@@ -735,4 +735,5 @@ public class MenuPanel extends javax.swing.JPanel
     private int _startOfFireY;
     private int _startOfFireZ;
     private SimulationMgr sMgr;
+    private JComboBox simulationViewCompoBox;
 }

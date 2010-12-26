@@ -65,12 +65,12 @@ public class HeatConducter
         if( energyFlow > 0.0 )
         {
             energyFlow *= neighHeatCapacity;
-            energyFlow *= cell.get_material().get_thermalConductivity();
+            energyFlow *= neigh.get_material().get_thermalConductivity();
         }
         else
         {
             energyFlow *= cellHeatCapacity;
-            energyFlow *= neigh.get_material().get_thermalConductivity();
+            energyFlow *= cell.get_material().get_thermalConductivity();
         }
         // energyFlow *= thermalConductivity;
         // opoznienie w czasue

@@ -29,7 +29,7 @@ public class EnvSettings
     public static final double FIRE_TEMP = 50;
     public static final double START_OF_FIRE_TEMP = 8000;
     // //////////////////// material conductivities
-    public static final double AIR_THERMAL_CONDUCTIVITY = 2; // 0.025 real
+    public static final double AIR_THERMAL_CONDUCTIVITY = 0.025; // 0.025 real
     // value
     public static final double WOOD_THERMAL_CONDUCTIVITY = 0.17;
     public static final double METAL_THERMAL_CONDUCTIVITY = 5;
@@ -39,6 +39,11 @@ public class EnvSettings
     public static final int BOTTOM_NEIGBOUR = 1;
     public static final int SIDE_NEIGHBOUR = 2;
     public static final int DOESNT_MATTER = 3;
+
+    public enum CellState
+    {
+        NEUTRAL, ON_FIRE, FIRED
+    };
 
     public static int getMAX_X()
     {

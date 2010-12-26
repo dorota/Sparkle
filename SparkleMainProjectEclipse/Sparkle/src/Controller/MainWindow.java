@@ -83,7 +83,7 @@ public class MainWindow
     private void initWindow()
     {
         _frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        int minWindowWidth = 1500;
+        int minWindowWidth = 800;
         int minWindowHeight = 600;
         _frame.setMinimumSize( new Dimension( minWindowWidth, minWindowHeight ) );
         _frame.setPreferredSize( _screenDimension );

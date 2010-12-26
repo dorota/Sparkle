@@ -8,7 +8,7 @@ public class EnvSettings
     private static int MAX_X = 13;
     private static int MAX_Z = 13;
     private static int MAX_Y = 13;
-    public final static int HOW_MANY_GARBAGE_BRANCH_GROUP_CHILDREN = 4;
+    public final static int HOW_MANY_GARBAGE_BRANCH_GROUP_CHILDREN = 5;
     public final static Color3f AIR_COLOR2 = new Color3f( 0f, 0f, 50f );
     public final static Color3f AIR_COLOR = new Color3f( 0f, 0f, 255f );
     public final static Color3f BACKGROUND_COLOR = new Color3f( 173f, 216f, 230f );
@@ -39,6 +39,10 @@ public class EnvSettings
     public static final int BOTTOM_NEIGBOUR = 1;
     public static final int SIDE_NEIGHBOUR = 2;
     public static final int DOESNT_MATTER = 3;
+
+    // ///////////////////user control constants
+    public static final double MOUSE_X_FACTOR = -0.15;
+    public static final double MOUSE_Y_FACTOR = -0.15;
 
     public enum CellState
     {

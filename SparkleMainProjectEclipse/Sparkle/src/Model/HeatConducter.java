@@ -27,7 +27,7 @@ public class HeatConducter
         }
     }
 
-    private int getWhichNeighbour( CellIndex cellId, CellIndex neighId )
+    public static int getWhichNeighbour( CellIndex cellId, CellIndex neighId )
     {
         if( cellId.y < neighId.y )
         {
@@ -82,7 +82,12 @@ public class HeatConducter
     {
         double cellHeatCapacity = cell.get_material().get_specificHeat() * cell.get_mass();
         double neighHeatCapacity = neigh.get_material().get_specificHeat() * cell.get_mass();
+        double howMuchEnergyPassed = ( energy / neighHeatCapacity ) / neigh.get_temp();
         neigh.set_temp( neigh.get_temp() - energy / neighHeatCapacity );
+        // neigh.set_percentageOfVaporsInCell(
+        // neigh.get_percentageOfVaporsInCell() - howMuchVapor );
+        // cell.set_percentageOfVaporsInCell(
+        // cell.get_percentageOfVaporsInCell() + howMuchVapor );
         cell.set_temp( cell.get_temp() + energy / cellHeatCapacity );
         // System.out.println( "temp " + cell.get_temp() + energy /
         // cellHeatCapacity );
@@ -95,6 +100,7 @@ public class HeatConducter
             // neighHeatCapacity
             // * neigh.get_temp();
             double l_avarageTemp = l_totalEnergy / ( cellHeatCapacity + neighHeatCapacity );
+            howMuchEnergyPassed = l_avarageTemp / ( cellHeatCapacity * cell.get_temp() );
             cell.set_temp( l_avarageTemp );
             neigh.set_temp( l_avarageTemp );
             // System.out.println( "temps " + cell.get_temp() + " " +

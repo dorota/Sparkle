@@ -12,7 +12,6 @@
 
 
 
-#Example2 na pokoje na parterze, drzwi w scianie + na gore
 #Najnowszy przyklad
 (0,0,0)[13,1,13]:Wood
 (0,1,0)[1,12,13]:Wood

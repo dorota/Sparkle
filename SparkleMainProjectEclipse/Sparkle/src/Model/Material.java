@@ -9,6 +9,17 @@ public class Material
     private String _name;
     private Color3f _color;
     private double _heatedAirTransparency;
+    private int _howLongItBurns;
+
+    public int get_howLongItBurns()
+    {
+        return _howLongItBurns;
+    }
+
+    public void set_howLongItBurns( int _howLongItBurns )
+    {
+        this._howLongItBurns = _howLongItBurns;
+    }
 
     public double get_heatedAirTransparency()
     {
@@ -22,7 +33,19 @@ public class Material
 
     private double _specificHeat;
     private float _transparency;
+    // for non - fuel materials infinite
     private float _flamePoint;
+
+    public float get_flamePoint()
+    {
+        return _flamePoint;
+    }
+
+    public void set_flamePoint( float _flamePoint )
+    {
+        this._flamePoint = _flamePoint;
+    }
+
     private double _density; // gestosc
     private double _thermalConductivity;
 
@@ -47,8 +70,10 @@ public class Material
     }
 
     public Material( String name, Color3f color, double specificHeat, double transparency,
-            double thermalConductivity )
+            double thermalConductivity, double flamePoint, int howLongItBurns )
     {
+        set_howLongItBurns( howLongItBurns );
+        set_flamePoint( _flamePoint );
         set_name( name );
         set_color( color );
         set_specificHeat( specificHeat );

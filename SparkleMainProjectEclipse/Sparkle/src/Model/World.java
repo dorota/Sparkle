@@ -18,18 +18,23 @@ public class World
     private Scene3D _scene;
     private double _worldInitTemp = 20.0;
     private HeatConducterWithConvection _heatConducter = new HeatConducterWithConvection();
+    private FireConducter _fireConducter = new FireConducter();
+    private VaporConducter _vaporConducter = new VaporConducter();
 
     private void initMaterials()
     {
         get_availableMaterials().add(
             new Material( "Wood", EnvSettings.WOOD_COLOR, EnvSettings.WOOD_SPECIFIC_HEAT,
-                EnvSettings.WOOD_TRANSPARENCY, EnvSettings.WOOD_THERMAL_CONDUCTIVITY ) );
+                EnvSettings.WOOD_TRANSPARENCY, EnvSettings.WOOD_THERMAL_CONDUCTIVITY,
+                EnvSettings.WOOD_FLAME_POINT, EnvSettings.WOOD_DURABILITY ) );
         get_availableMaterials().add(
             new Material( "Air", Scene3D.setBlue( _worldInitTemp ), EnvSettings.AIR_SPECIFIC_HEAT,
-                EnvSettings.AIR_TRANSPARENCY, EnvSettings.AIR_THERMAL_CONDUCTIVITY ) );
+                EnvSettings.AIR_TRANSPARENCY, EnvSettings.AIR_THERMAL_CONDUCTIVITY,
+                EnvSettings.INFINITIVE, (int)( EnvSettings.INFINITIVE ) ) );
         get_availableMaterials().add(
             new Material( "Metal", EnvSettings.METAL_COLOR, EnvSettings.METAL_SPECIFIC_HEAT,
-                EnvSettings.METAL_TRANSPARENCY, EnvSettings.METAL_THERMAL_CONDUCTIVITY ) );
+                EnvSettings.METAL_TRANSPARENCY, EnvSettings.METAL_THERMAL_CONDUCTIVITY,
+                EnvSettings.INFINITIVE, (int)( EnvSettings.INFINITIVE ) ) );
     }
 
     public static Material getMaterial( String materialName )
@@ -79,7 +84,8 @@ public class World
                     _scene.updateBlockWhileSimulation(
                         Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ),
                         _worldCurrentValues[ i ][ j ][ k ].get_temp(),
-                        _worldCurrentValues[ i ][ j ][ k ].get_material() );
+                        _worldCurrentValues[ i ][ j ][ k ].get_material(),
+                        _worldCurrentValues[ i ][ j ][ k ] );
                 }
             }
         }
@@ -207,7 +213,7 @@ public class World
         _scene.updateBlockWhileSimulation(
             Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( x, y, z ),
             _worldCurrentValues[ x ][ y ][ z ].get_temp(),
-            _worldCurrentValues[ x ][ y ][ z ].get_material() );
+            _worldCurrentValues[ x ][ y ][ z ].get_material(), _worldCurrentValues[ x ][ y ][ z ] );
         _scene.markStartOfHeatConduction(
             Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( x, y, z ),
             _worldCurrentValues[ x ][ y ][ z ].get_material() );
@@ -266,10 +272,15 @@ public class World
                     _heatConducter.conductHeat( _worldCurrentValues[ i ][ j ][ k ],
                         _worldCurrentValues, getNeighbours( cellId ),
                         _worldOldValues[ i ][ j ][ k ], _worldOldValues, cellId );
+                    _fireConducter.spreadFire( _worldCurrentValues[ i ][ j ][ k ],
+                        getNeighbours( cellId ) );
                     _scene.updateBlockWhileSimulation(
                         Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ),
                         _worldCurrentValues[ i ][ j ][ k ].get_temp(),
-                        _worldCurrentValues[ i ][ j ][ k ].get_material() );
+                        _worldCurrentValues[ i ][ j ][ k ].get_material(),
+                        _worldCurrentValues[ i ][ j ][ k ] );
+                    _vaporConducter.conductVepors( _worldCurrentValues[ i ][ j ][ k ],
+                        _worldCurrentValues, getNeighbours( cellId ), cellId );
                     // System.out.println( "value " + _worldCurrentValues[ i ][
                     // j ][ k ] );
                 }

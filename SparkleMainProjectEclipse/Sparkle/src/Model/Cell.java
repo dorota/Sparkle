@@ -14,7 +14,40 @@ public class Cell
     private double _mass;
     private double _temp;
     private EnvSettings.CellState _cellState;
+    private int _fireClock = 0;
+
+    public int get_fireClock()
+    {
+        return _fireClock;
+    }
+
+    public void set_fireClock( int _fireClock )
+    {
+        this._fireClock = _fireClock;
+    }
+
+    public EnvSettings.CellState get_cellState()
+    {
+        return _cellState;
+    }
+
+    public void set_cellState( EnvSettings.CellState _cellState )
+    {
+        this._cellState = _cellState;
+    }
+
     final double _cellLenfth = 0.5;
+    private float _percentageOfVaporsInCell = 0.0f;
+
+    public float get_percentageOfVaporsInCell()
+    {
+        return _percentageOfVaporsInCell;
+    }
+
+    public void set_percentageOfVaporsInCell( float _percentageOfVaporsInCell )
+    {
+        this._percentageOfVaporsInCell = _percentageOfVaporsInCell;
+    }
 
     // final double _flameTemp;
     @Override

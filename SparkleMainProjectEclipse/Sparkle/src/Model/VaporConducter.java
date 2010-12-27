@@ -29,7 +29,7 @@ public class VaporConducter
                         .get_name().equals( "Air" ) )
                 {
                     airNeighs.add( worldCurrentValues[ neighId.x ][ neighId.y ][ neighId.z ] );
-                    if( HeatConducter.getWhichNeighbour( cellId, neighId ) == EnvSettings.TOP_NEIGHBOUR )
+                    if( HeataAndVaporsConducter.getWhichNeighbour( cellId, neighId ) == EnvSettings.TOP_NEIGHBOUR )
                     {
                         airNeighs.add( worldCurrentValues[ neighId.x ][ neighId.y ][ neighId.z ] );
                     }

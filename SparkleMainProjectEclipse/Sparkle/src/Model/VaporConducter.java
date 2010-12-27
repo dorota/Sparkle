@@ -6,6 +6,12 @@ import java.util.List;
 import Helpers.EnvSettings;
 import Model.World.CellIndex;
 
+/**
+ * 
+ * 
+ * class not used
+ * 
+ */
 public class VaporConducter
 {
     public void conductVepors( Cell cell, Cell worldCurrentValues[][][],
@@ -32,14 +38,13 @@ public class VaporConducter
             double vaporsForEachCell = notNeededVapors / airNeighs.size();
             for( int i = 0; i < airNeighs.size(); ++i )
             {
-                System.out.println( "sell vapors" );
-                if( airNeighs.get( i ).get_percentageOfVaporsInCell() < 1.0 )
+                // if( airNeighs.get( i ).get_percentageOfVaporsInCell() < 1.0 )
                 {
                     airNeighs
                             .get( i )
                             .set_percentageOfVaporsInCell(
-                                Math.min( (float)( airNeighs.get( i )
-                                        .get_percentageOfVaporsInCell() + vaporsForEachCell ), 1.0f ) / 2.0f );
+                                ( (float)( airNeighs.get( i ).get_percentageOfVaporsInCell() + vaporsForEachCell ) ) );
+                    cell.set_percentageOfVaporsInCell( (float)( cell.get_percentageOfVaporsInCell() - vaporsForEachCell ) );
                 }
             }
         }

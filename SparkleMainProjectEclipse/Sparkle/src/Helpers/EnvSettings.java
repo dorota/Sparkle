@@ -43,10 +43,11 @@ public class EnvSettings
     public static final Color3f SMOKE_COLOR = new Color3f( 0.5f, 0.5f, 0.5f );
     public static final Color3f FIRE_COLOR = new Color3f( 1.0f, 0.0f, 0.0f );
     public static final double INFINITIVE = 10000000.0;
-    public static final double WOOD_FLAME_POINT = 300.0;
+    public static final double WOOD_FLAME_POINT = 100.0;
+    public static final double VAPOR_FLAME_POINT = 50.0;
     // how long wood burns, before its completely burnt
     public static final int WOOD_DURABILITY = 20;
-    public static final double MIN_VAPORS_TO_FIRE = 0.75;
+    public static final double MIN_VAPORS_TO_FIRE = 0.6;
     public static final double MAX_VAPORS_TO_FIRE = 0.95;
 
     public enum CellState

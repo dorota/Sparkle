@@ -24,12 +24,10 @@ public class EditorParser
     {
         if( lineOfText.startsWith( COMMENT_CHAR ) || lineOfText.substring( 0, 1 ).equals( "#" ) )
         {
-            System.out.println( "parsed ok" );
             // do nothing; it is a comment
         }
         else
         {
-            System.out.println( "parsed nie ok" );
             lineOfText = lineOfText.trim();
             Pattern pattern = Pattern.compile( "[()\\[\\]:,]" );
             String[] lineParts = pattern.split( lineOfText );

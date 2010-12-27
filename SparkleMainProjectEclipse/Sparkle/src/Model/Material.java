@@ -10,6 +10,17 @@ public class Material
     private Color3f _color;
     private double _heatedAirTransparency;
     private int _howLongItBurns;
+    private boolean _fuel;
+
+    public boolean is_fuel()
+    {
+        return _fuel;
+    }
+
+    public void set_fuel( boolean _fuel )
+    {
+        this._fuel = _fuel;
+    }
 
     public int get_howLongItBurns()
     {
@@ -70,8 +81,9 @@ public class Material
     }
 
     public Material( String name, Color3f color, double specificHeat, double transparency,
-            double thermalConductivity, double flamePoint, int howLongItBurns )
+            double thermalConductivity, double flamePoint, int howLongItBurns, boolean fuel )
     {
+        set_fuel( fuel );
         set_howLongItBurns( howLongItBurns );
         set_flamePoint( _flamePoint );
         set_name( name );

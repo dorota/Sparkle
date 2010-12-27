@@ -26,15 +26,15 @@ public class World
         get_availableMaterials().add(
             new Material( "Wood", EnvSettings.WOOD_COLOR, EnvSettings.WOOD_SPECIFIC_HEAT,
                 EnvSettings.WOOD_TRANSPARENCY, EnvSettings.WOOD_THERMAL_CONDUCTIVITY,
-                EnvSettings.WOOD_FLAME_POINT, EnvSettings.WOOD_DURABILITY ) );
+                EnvSettings.WOOD_FLAME_POINT, EnvSettings.WOOD_DURABILITY, true ) );
         get_availableMaterials().add(
             new Material( "Air", Scene3D.setBlue( _worldInitTemp ), EnvSettings.AIR_SPECIFIC_HEAT,
                 EnvSettings.AIR_TRANSPARENCY, EnvSettings.AIR_THERMAL_CONDUCTIVITY,
-                EnvSettings.INFINITIVE, (int)( EnvSettings.INFINITIVE ) ) );
+                EnvSettings.VAPOR_FLAME_POINT, (int)( EnvSettings.INFINITIVE ), false ) );
         get_availableMaterials().add(
             new Material( "Metal", EnvSettings.METAL_COLOR, EnvSettings.METAL_SPECIFIC_HEAT,
                 EnvSettings.METAL_TRANSPARENCY, EnvSettings.METAL_THERMAL_CONDUCTIVITY,
-                EnvSettings.INFINITIVE, (int)( EnvSettings.INFINITIVE ) ) );
+                EnvSettings.INFINITIVE, (int)( EnvSettings.INFINITIVE ), false ) );
     }
 
     public static Material getMaterial( String materialName )
@@ -273,14 +273,15 @@ public class World
                         _worldCurrentValues, getNeighbours( cellId ),
                         _worldOldValues[ i ][ j ][ k ], _worldOldValues, cellId );
                     _fireConducter.spreadFire( _worldCurrentValues[ i ][ j ][ k ],
-                        getNeighbours( cellId ) );
+                        getNeighbours( cellId ), _worldCurrentValues );
                     _scene.updateBlockWhileSimulation(
                         Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ),
                         _worldCurrentValues[ i ][ j ][ k ].get_temp(),
                         _worldCurrentValues[ i ][ j ][ k ].get_material(),
                         _worldCurrentValues[ i ][ j ][ k ] );
-                    _vaporConducter.conductVepors( _worldCurrentValues[ i ][ j ][ k ],
-                        _worldCurrentValues, getNeighbours( cellId ), cellId );
+                    // _vaporConducter.conductVepors( _worldCurrentValues[ i ][
+                    // j ][ k ],
+                    // _worldCurrentValues, getNeighbours( cellId ), cellId );
                     // System.out.println( "value " + _worldCurrentValues[ i ][
                     // j ][ k ] );
                 }

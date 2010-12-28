@@ -2,7 +2,7 @@ package Model;
 
 import Helpers.EnvSettings;
 
-public class HeatConducterWithConvection extends HeatConducter
+public class HeatConducterWithConvection extends HeataAndVaporsConducter
 {
     @Override
     public double calculateEnergyFlow( Cell cell, Cell neigh, int whichNeighbour )

@@ -18,6 +18,9 @@ import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
 import Helpers.EnvSettings;
+import Helpers.EnvSettings.CellState;
+import Helpers.EnvSettings.DisplayMode;
+import Model.Cell;
 import Model.Material;
 
 import com.sun.j3d.utils.behaviors.keyboard.KeyNavigatorBehavior;
@@ -32,6 +35,7 @@ public class Scene3D
     private static int _contentsOffset = Helpers.EnvSettings.HOW_MANY_GARBAGE_BRANCH_GROUP_CHILDREN;
     private BoundingSphere _bounds;
     private Point3d _centerRepresentationPosition;
+    private EnvSettings.DisplayMode _displayMode = DisplayMode.REGULAR;
 
     public static Scene3D getScene( Canvas3D canvas )
     {
@@ -40,6 +44,11 @@ public class Scene3D
             _instance = new Scene3D( canvas );
         }
         return _instance;
+    }
+
+    public void setDisplayMode( DisplayMode mode )
+    {
+        _displayMode = mode;
     }
 
     private Scene3D( Canvas3D canvas )
@@ -177,12 +186,31 @@ public class Scene3D
         cell.setAppearance( app );
     }
 
-    public void updateBlockWhileSimulation( int blockIndex, double temp, Material material )
+    public void updateBlockWhileSimulation( int blockIndex, double temp, Material material,
+            Cell cell )
     {
-        float scale = clamp( (float)( temp / EnvSettings.FIRE_TEMP ), 0.0f, 1.0f );
-        setCellColor( new Color3f( lerp( 0.0f, 1.0f, scale ), // red
-            0.0f, // green
-            lerp( 1.0f, 0.0f, scale ) ), blockIndex, material, false );
+        if( _displayMode == DisplayMode.TEMPERATURE )
+        {
+            float scale = clamp( (float)( temp / EnvSettings.FIRE_TEMP ), 0.0f, 1.0f );
+            setCellColor( new Color3f( lerp( 0.0f, 1.0f, scale ), // red
+                0.0f, // green
+                lerp( 1.0f, 0.0f, scale ) ), blockIndex, material, false );
+        }
+        else
+        {
+            if( cell.get_cellState().equals( CellState.ON_FIRE ) )
+            {
+                setCellColor( EnvSettings.FIRE_COLOR, blockIndex, material, false );
+            }
+            else if( cell.get_cellState().equals( CellState.SMOKE ) )
+            {
+                setCellColor( EnvSettings.SMOKE_COLOR, blockIndex, material, false );
+            }
+            else
+            {
+                addNewBlockToScene( material, blockIndex );
+            }
+        }
     }
 
     public static Color3f setBlue( double temp )

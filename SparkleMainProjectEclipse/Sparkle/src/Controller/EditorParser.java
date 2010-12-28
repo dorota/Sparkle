@@ -21,9 +21,8 @@ public class EditorParser
     }
 
     public static void parseLine( String lineOfText, World world )
-            throws ArrayIndexOutOfBoundsException
     {
-        if( lineOfText.startsWith( COMMENT_CHAR ) )
+        if( lineOfText.startsWith( COMMENT_CHAR ) || lineOfText.substring( 0, 1 ).equals( "#" ) )
         {
             // do nothing; it is a comment
         }

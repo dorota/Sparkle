@@ -15,7 +15,7 @@ public class EnvSettings
     // public final static Color3f WOOD_COLOR = new Color3f( 255, 0, 0 );
     public final static double AIR_TEMP_TRANSPARENCY = 0.9;
     // ///////////////////////material transparency
-    public final static double AIR_TRANSPARENCY = 0.98;
+    public final static double AIR_TRANSPARENCY = 0.9;
     public final static double WOOD_TRANSPARENCY = 0.5;
     public final static double METAL_TRANSPARENCY = 0.7;
     // ///////////////////end of material transparency
@@ -27,11 +27,11 @@ public class EnvSettings
     // public static final Color3f WOOD_COLOR = new Color3f( 205, 133, 63 );
     public static final Color3f METAL_COLOR = new Color3f( 255, 255, 0 );
     public static final double FIRE_TEMP = 50;
-    public static final double START_OF_FIRE_TEMP = 8000;
+    public static final double START_OF_FIRE_TEMP = 40000;
     // //////////////////// material conductivities
-    public static final double AIR_THERMAL_CONDUCTIVITY = 0.025; // 0.025 real
+    public static final double AIR_THERMAL_CONDUCTIVITY = 0.15; // 0.025 real
     // value
-    public static final double WOOD_THERMAL_CONDUCTIVITY = 0.17;
+    public static final double WOOD_THERMAL_CONDUCTIVITY = 1.7;
     public static final double METAL_THERMAL_CONDUCTIVITY = 5;
     public static final double CONSTANT_ENERGY_FACTOR = 0.002;
     // ///////////////////end of material conductivities
@@ -39,6 +39,16 @@ public class EnvSettings
     public static final int BOTTOM_NEIGBOUR = 1;
     public static final int SIDE_NEIGHBOUR = 2;
     public static final int DOESNT_MATTER = 3;
+    // regular display mode colors
+    public static final Color3f SMOKE_COLOR = new Color3f( 0.5f, 0.5f, 0.5f );
+    public static final Color3f FIRE_COLOR = new Color3f( 1.0f, 0.0f, 0.0f );
+    public static final double INFINITIVE = 10000000.0;
+    public static final double WOOD_FLAME_POINT = 100.0;
+    public static final double VAPOR_FLAME_POINT = 50.0;
+    // how long wood burns, before its completely burnt
+    public static final int WOOD_DURABILITY = 20;
+    public static final double MIN_VAPORS_TO_FIRE = 0.6;
+    public static final double MAX_VAPORS_TO_FIRE = 0.95;
 
     // ///////////////////user control constants
     public static final double MOUSE_X_FACTOR = -0.15;
@@ -46,7 +56,17 @@ public class EnvSettings
 
     public enum CellState
     {
-        NEUTRAL, ON_FIRE, FIRED
+        NEUTRAL, ON_FIRE, FIRED, SMOKE
+    };
+
+    public enum DisplayMode
+    {
+        REGULAR, TEMPERATURE
+    };
+
+    public enum FileChooserAction
+    {
+        SAVE_STATES, SAVE_TEMPERATURE, READ_BUILDING_FROM_FILE
     };
 
     public static int getMAX_X()

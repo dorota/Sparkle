@@ -1,8 +1,10 @@
 package Controller;
 
 import java.awt.Component;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 
 import javax.swing.JDialog;
@@ -10,6 +12,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 import Helpers.EnvSettings;
+import Helpers.EnvSettings.FileChooserAction;
 import Model.World;
 
 public class FileChooser
@@ -17,7 +20,7 @@ public class FileChooser
     JFileChooser _fileChooser = new JFileChooser();
     JDialog _frame = new JDialog();
 
-    public FileChooser( Component com, World world )
+    public FileChooser( Component com, World world, EnvSettings.FileChooserAction fileChooseAction )
     {
         // _frame.setVisible( true );
         // _frame.add( _fileChooser );
@@ -31,21 +34,48 @@ public class FileChooser
             File file = _fileChooser.getSelectedFile();
             try
             {
-                BufferedWriter bw = new BufferedWriter( new FileWriter( file ) );
-                for( int y = 0; y < Helpers.EnvSettings.getMAX_Y(); ++y )
-                {
-                    bw.write( "Floor nr: " + y + "\n" );
-                    for( int z = 0; z < EnvSettings.getMAX_Z(); ++z )
+                if( fileChooseAction.equals( FileChooserAction.SAVE_TEMPERATURE )
+                        || fileChooseAction.equals( FileChooserAction.SAVE_STATES ) )
+                { // save sth to file
+                    BufferedWriter bw = new BufferedWriter( new FileWriter( file ) );
+                    for( int y = 0; y < Helpers.EnvSettings.getMAX_Y(); ++y )
                     {
-                        for( int x = 0; x < EnvSettings.getMAX_X(); ++x )
+                        bw.write( "Floor nr: " + y + "\n" );
+                        for( int z = 0; z < EnvSettings.getMAX_Z(); ++z )
                         {
-                            bw.write( Double.toString( world._worldCurrentValues[ x ][ y ][ z ]
-                                    .get_temp() ) + "  " );
+                            for( int x = 0; x < EnvSettings.getMAX_X(); ++x )
+                            {
+                                if( fileChooseAction.equals( FileChooserAction.SAVE_TEMPERATURE ) )
+                                {
+                                    bw.write( Double
+                                            .toString( world._worldCurrentValues[ x ][ y ][ z ]
+                                                    .get_temp() )
+                                            + "  " );
+                                }
+                                else if( fileChooseAction.equals( FileChooserAction.SAVE_STATES ) )
+                                {
+                                    bw.write( world._worldCurrentValues[ x ][ y ][ z ]
+                                            .get_cellState().toString() );
+                                }
+                            }
+                            bw.write( "\n\n" );
                         }
-                        bw.write( "\n\n" );
                     }
+                    bw.close();
                 }
-                bw.close();
+                else
+                // read building from file
+                {
+                    BufferedReader br = new BufferedReader( new FileReader( file ) );
+                    String line = "";
+                    String fileContent = "";
+                    while( ( line = br.readLine() ) != null )
+                    {
+                        fileContent += line + "\n";
+                    }
+                    br.close();
+                    EditorParser.parseWholeBuilding( fileContent, world );
+                }
             }
             catch( Exception e )
             {

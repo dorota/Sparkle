@@ -5,7 +5,7 @@ import java.util.List;
 import Helpers.EnvSettings;
 import Model.World.CellIndex;
 
-public class HeatConducter
+public class HeataAndVaporsConducter
 {
     public void conductHeat( Cell cell, Cell worldCurrentValues[][][],
             List<World.CellIndex> cellNeighboours, Cell oldValue, Cell worldOldValues[][][],
@@ -27,7 +27,7 @@ public class HeatConducter
         }
     }
 
-    private int getWhichNeighbour( CellIndex cellId, CellIndex neighId )
+    public static int getWhichNeighbour( CellIndex cellId, CellIndex neighId )
     {
         if( cellId.y < neighId.y )
         {
@@ -82,6 +82,42 @@ public class HeatConducter
     {
         double cellHeatCapacity = cell.get_material().get_specificHeat() * cell.get_mass();
         double neighHeatCapacity = neigh.get_material().get_specificHeat() * cell.get_mass();
+        double percentageOfEnergyPassed;
+        // //////////////////////////// VAPORS PASSING VIA
+        // CONVECTION//////////////////
+        // percentage of vapors passed equals percentage of energy passed
+        // energy passed from neigh to cell
+        if( neigh.get_temp() > cell.get_temp() )
+        {
+            percentageOfEnergyPassed = ( energy / neighHeatCapacity ) / neigh.get_temp();
+        }
+        // energy passed from cell to neigh
+        else
+        {
+            percentageOfEnergyPassed = ( energy / cellHeatCapacity ) / cell.get_temp();
+        }
+        // exchange of vapors is simulated only between air cells - convection
+        if( cell.get_material().get_name().equals( "Air" )
+                && neigh.get_material().get_name().equals( "Air" ) )
+        {
+            percentageOfEnergyPassed *= 10000;
+            if( neigh.get_temp() > cell.get_temp() )
+            {
+                neigh.set_percentageOfVaporsInCell( (float)( neigh.get_percentageOfVaporsInCell() - neigh
+                        .get_percentageOfVaporsInCell() * percentageOfEnergyPassed ) );
+                cell.set_percentageOfVaporsInCell( (float)( cell.get_percentageOfVaporsInCell() + neigh
+                        .get_percentageOfVaporsInCell() * percentageOfEnergyPassed ) );
+            }
+            else
+            {
+                cell.set_percentageOfVaporsInCell( (float)( cell.get_percentageOfVaporsInCell() - cell
+                        .get_percentageOfVaporsInCell() * percentageOfEnergyPassed ) );
+                neigh.set_percentageOfVaporsInCell( (float)( neigh.get_percentageOfVaporsInCell() + cell
+                        .get_percentageOfVaporsInCell() * percentageOfEnergyPassed ) );
+            }
+        }
+        // /////////////////////////////END OF VAPORS PASSING VIA
+        // CONVECTION//////////////
         neigh.set_temp( neigh.get_temp() - energy / neighHeatCapacity );
         cell.set_temp( cell.get_temp() + energy / cellHeatCapacity );
         // System.out.println( "temp " + cell.get_temp() + energy /
@@ -95,6 +131,7 @@ public class HeatConducter
             // neighHeatCapacity
             // * neigh.get_temp();
             double l_avarageTemp = l_totalEnergy / ( cellHeatCapacity + neighHeatCapacity );
+            percentageOfEnergyPassed = l_avarageTemp / ( cellHeatCapacity * cell.get_temp() );
             cell.set_temp( l_avarageTemp );
             neigh.set_temp( l_avarageTemp );
             // System.out.println( "temps " + cell.get_temp() + " " +

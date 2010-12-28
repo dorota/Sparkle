@@ -15,6 +15,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
+import Helpers.EnvSettings.FileChooserAction;
 import Model.World;
 import View.Scene3D;
 
@@ -34,6 +35,8 @@ public class MainWindow
     private JMenuBar menuBar;
     private JMenu File_menu;
     private JMenuItem save_temps_menu_item;
+    private JMenuItem saveCellStatesMenuItem;
+    private JMenuItem _readBuildingFromFileMenuItem;
 
     public static MainWindow getMainWindow()
     {
@@ -65,7 +68,26 @@ public class MainWindow
                 saveCurrentTempToFileActionPerformed();
             }
         } );
+        saveCellStatesMenuItem = new JMenuItem( "Save cell states" );
+        saveCellStatesMenuItem.addActionListener( new ActionListener()
+        {
+            public void actionPerformed( ActionEvent arg0 )
+            {
+                FileChooser fc = new FileChooser( _frame, _world, FileChooserAction.SAVE_STATES );
+            }
+        } );
+        File_menu.add( saveCellStatesMenuItem );
         File_menu.add( save_temps_menu_item );
+        _readBuildingFromFileMenuItem = new JMenuItem( "Read building from file" );
+        _readBuildingFromFileMenuItem.addActionListener( new ActionListener()
+        {
+            public void actionPerformed( ActionEvent arg0 )
+            {
+                FileChooser fc = new FileChooser( _frame, _world,
+                    FileChooserAction.READ_BUILDING_FROM_FILE );
+            }
+        } );
+        File_menu.add( _readBuildingFromFileMenuItem );
         initWindow();
     }
 
@@ -77,7 +99,7 @@ public class MainWindow
 
     private void saveCurrentTempToFileActionPerformed()
     {
-        FileChooser fc = new FileChooser( _frame, _world );
+        FileChooser fc = new FileChooser( _frame, _world, FileChooserAction.SAVE_TEMPERATURE );
     }
 
     private void initWindow()

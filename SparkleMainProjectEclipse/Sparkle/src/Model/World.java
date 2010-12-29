@@ -58,6 +58,7 @@ public class World
             {
                 for( int i = (int)leftBottomBackCorner.x; i < leftBottomBackCorner.x + size.x; ++i )
                 {
+                    //TODO refactor this out soon.
                     Material mat = getMaterial( materialName );
                     _worldCurrentValues[ i ][ j ][ k ].set_material( mat );
                     _worldOldValues[ i ][ j ][ k ].set_material( mat );
@@ -164,18 +165,21 @@ public class World
         _worldOldValues = currentValues;
     }
 
-    public void clear()
+    public void clearMaterials(Scene3D scene)
     {
-	for (Cell[][] cellPlane : _worldCurrentValues)
-	{
-	    for(Cell[] cellRow : cellPlane)
-	    {
-		for(Cell cell : cellRow)
-		{
-		    cell.set_material(getMaterial("Air"));
-		}
-	    }
-	}
+        Material air = getMaterial("Air");
+        for(int i = 0 ; i < _worldCurrentValues.length ; ++i)
+        {
+            for(int j = 0 ; j < _worldCurrentValues[i].length ; ++j)
+            {
+                for(int k = 0 ; k < _worldCurrentValues[i][j].length ; ++k)
+                {
+                    _worldCurrentValues[i][j][k].set_material(air);
+                    _worldOldValues[i][j][k].set_material(air);
+                    scene.addNewBlockToScene(air, Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex(i, j, k));
+                }
+            }
+        }
     }
 
     public static class CellIndex

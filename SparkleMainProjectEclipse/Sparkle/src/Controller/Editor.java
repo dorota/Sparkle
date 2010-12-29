@@ -16,6 +16,7 @@ import javax.swing.BorderFactory;
 import javax.swing.border.TitledBorder;
 
 import Model.World;
+import View.Scene3D;
 
 /**
  * 
@@ -64,7 +65,7 @@ public class Editor extends javax.swing.JPanel
         
         if( evt.getKeyCode() == KeyEvent.VK_ENTER )
         {
-            _editedWorld.clear();
+            _editedWorld.clearMaterials(Scene3D.getScene( MainWindow._sceneCanvas ));
             System.out.println("ENTER PRESSED IN EDITOR\nTextbox contents:\n" + _textAreaContent);
             EditorParser.parseWholeBuilding( new String( _textAreaContent ), _editedWorld );
         }

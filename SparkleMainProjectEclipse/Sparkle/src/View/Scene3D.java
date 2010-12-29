@@ -148,6 +148,7 @@ public class Scene3D
     public void addNewBlockToScene( Material material, int blockIndex )
     {
         // System.out.println( "block index " + blockIndex );
+	//FIXME does this function even do anything??
         Box cell = getBlockWithGivenId( blockIndex );
         Appearance app = new Appearance();
         Color3f cellColor = material.get_color();

@@ -36,7 +36,7 @@ public class Cell
         this._cellState = _cellState;
     }
 
-    final double _cellLenfth = 0.5;
+    final double _cellLength = 0.5;
     private float _percentageOfVaporsInCell = 0.0f;
 
     public float get_percentageOfVaporsInCell()
@@ -94,4 +94,5 @@ public class Cell
     {
         this._temp = _temp;
     }
+
 }

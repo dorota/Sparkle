@@ -63,6 +63,8 @@ public class World
                     _worldOldValues[ i ][ j ][ k ].set_material( mat );
                     int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j,
                         k );
+		    //NOTE when we add, then delete, then add again, will it add same nodes
+		    //many times?
                     scene.addNewBlockToScene( mat, blockIndex );
                 }
             }
@@ -160,6 +162,20 @@ public class World
     {
         _worldCurrentValues = currentValues;
         _worldOldValues = currentValues;
+    }
+
+    public void clear()
+    {
+	for (Cell[][] cellPlane : _worldCurrentValues)
+	{
+	    for(Cell[] cellRow : cellPlane)
+	    {
+		for(Cell cell : cellRow)
+		{
+		    cell.set_material(getMaterial("Air"));
+		}
+	    }
+	}
     }
 
     public static class CellIndex

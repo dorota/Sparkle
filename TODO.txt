@@ -1,0 +1,10 @@
+1. Regulacja prêdkoœci symulacji dorobiæ
+2. Panel górny wydzielic jako klasê
+3. Przenieœæ obs³ugê ruchów kamery do kontrolera i opisaæ w ksi¹¿eczce.
+4. Uzupe³niæ menu help
+5. Ikonka projektu
+6. Kierunki x,y,z 
+7. Po wczytaniu budynku, powinien siê pojawiæ w edytorze do dalszej edycji.
+8. Podmiana kierunku obrotu sceny. Strza³ka w prawo ma obracaæ zgodnie z ruchem wsk, strza³ka w lewo przeciwnie.
+9. Ksi¹zeczka - gui - opis edytora [rozmiary] nie s¹ w "["
+10. naprawic adding new blocks left-back-bottom coordiantes a nie front

@@ -37,6 +37,9 @@ public class MainWindow
     private JMenuItem save_temps_menu_item;
     private JMenuItem saveCellStatesMenuItem;
     private JMenuItem _readBuildingFromFileMenuItem;
+    private JMenu help_menu;
+    private JMenuItem about_program_menu_item;
+    private JMenuItem user_guide_menu_item;
 
     public static MainWindow getMainWindow()
     {
@@ -88,6 +91,12 @@ public class MainWindow
             }
         } );
         File_menu.add( _readBuildingFromFileMenuItem );
+        help_menu = new JMenu( "Help" );
+        menuBar.add( help_menu );
+        user_guide_menu_item = new JMenuItem( "User guide" );
+        help_menu.add( user_guide_menu_item );
+        about_program_menu_item = new JMenuItem( "About program" );
+        help_menu.add( about_program_menu_item );
         initWindow();
     }
 
@@ -105,7 +114,7 @@ public class MainWindow
     private void initWindow()
     {
         _frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        int minWindowWidth = 1500;
+        int minWindowWidth = 700;
         int minWindowHeight = 600;
         _frame.setMinimumSize( new Dimension( minWindowWidth, minWindowHeight ) );
         _frame.setPreferredSize( _screenDimension );

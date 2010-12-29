@@ -23,3 +23,4 @@
 \contentsline {chapter}{\numberline {5}Algorytm}{21}
 \contentsline {section}{\numberline {5.1}Model automatu}{21}
 \contentsline {chapter}{\numberline {6}Implementacja}{24}
+\contentsline {chapter}{\numberline {7}Graficzny interfejs u\IeC {\.z}ytkownika i instrukcja obs\IeC {\l }ugi}{25}

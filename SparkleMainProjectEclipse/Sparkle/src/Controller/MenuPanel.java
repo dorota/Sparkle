@@ -74,11 +74,6 @@ public class MenuPanel extends javax.swing.JPanel
         _xSizeLabel = new javax.swing.JLabel();
         _xSizeTextField = new javax.swing.JTextField();
         addButton = new javax.swing.JToggleButton();
-        _helpTab = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         javax.swing.GroupLayout gl_jPanel1 = new javax.swing.GroupLayout( jPanel1 );
         jPanel1.setLayout( gl_jPanel1 );
         gl_jPanel1.setHorizontalGroup( gl_jPanel1.createParallelGroup(
@@ -577,33 +572,6 @@ public class MenuPanel extends javax.swing.JPanel
                                     javax.swing.GroupLayout.PREFERRED_SIZE ) ).addGap( 18, 18, 18 )
                     .addComponent( addButton ).addContainerGap( 208, Short.MAX_VALUE ) ) );
         _menuPanel.addTab( "Adding new blocks", _addingNewBlocksTab );
-        jTextArea1.setColumns( 20 );
-        jTextArea1.setFont( new java.awt.Font( "Calibri", 0, 13 ) );
-        jTextArea1.setLineWrap( true );
-        jTextArea1.setRows( 5 );
-        jTextArea1
-                .setText( "# - komentarz do koñca linii\n(x,y,z) - wspó³rzêdne punkt left-back-button\n[x,y,z] - wielkoœæ bloku\n\nJednostka: komórki CA wielkoœci:\n0.5m x 0.5m x 0.5m\n\nKa¿dy blok podajemy w osobnej linii, \nakceptuj¹c jego dodanie przyciskiem\nEnter.\n\nOpis bloku ma postaæ:\n(x,y,z) [x,y,z]: Materia³ , ... , ...\n\nObecnie dostêpne materia³y:\ndrewno\n\nPo materiale mo¿na bêdzie podaæ dodatkowe parametry w ustalonej kolejnoœci jak je dodam (dla nas wewnêtrzne jak kiedyœ bêd¹ potrzebne)." );
-        jTextArea1.setAutoscrolls( false );
-        jScrollPane1.setViewportView( jTextArea1 );
-        javax.swing.GroupLayout gl_jPanel4 = new javax.swing.GroupLayout( jPanel4 );
-        jPanel4.setLayout( gl_jPanel4 );
-        gl_jPanel4.setHorizontalGroup( gl_jPanel4.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jScrollPane1,
-            javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE ) );
-        gl_jPanel4.setVerticalGroup( gl_jPanel4.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jScrollPane1,
-            javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 550,
-            Short.MAX_VALUE ) );
-        jTabbedPane1.addTab( "Editor", jPanel4 );
-        javax.swing.GroupLayout gl__helpTab = new javax.swing.GroupLayout( _helpTab );
-        _helpTab.setLayout( gl__helpTab );
-        gl__helpTab.setHorizontalGroup( gl__helpTab.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jTabbedPane1,
-            javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE ) );
-        gl__helpTab.setVerticalGroup( gl__helpTab.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jTabbedPane1,
-            javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE ) );
-        _menuPanel.addTab( "Help", _helpTab );
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout( this );
         layout.setHorizontalGroup( layout.createParallelGroup( Alignment.LEADING ).addGroup(
             layout.createSequentialGroup().addContainerGap().addComponent( _menuPanel )
@@ -717,7 +685,6 @@ public class MenuPanel extends javax.swing.JPanel
     private javax.swing.JPanel _addingNewBlocksTab;
     private javax.swing.JLabel _blockCoordinatesLabel;
     private javax.swing.JLabel _blockSizeLabel;
-    private javax.swing.JPanel _helpTab;
     private javax.swing.JComboBox _materialComboBox;
     private javax.swing.JLabel _materialLabel;
     private javax.swing.JTabbedPane _menuPanel;
@@ -744,10 +711,6 @@ public class MenuPanel extends javax.swing.JPanel
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration
     private String _materialName = "Wood";
     private double _xCoordinate;

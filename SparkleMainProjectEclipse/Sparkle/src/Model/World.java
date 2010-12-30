@@ -6,6 +6,7 @@ import java.util.List;
 import javax.vecmath.Point3d;
 
 import Helpers.EnvSettings;
+import Helpers.ProfileSample;
 import View.Scene3D;
 
 public class World
@@ -254,9 +255,19 @@ public class World
         }
     }
 
+    ProfileSample profileOldVals = new ProfileSample("simulation: back-buffering");
+    ProfileSample profileFullUpdate = new ProfileSample("simulation: full update");
+    ProfileSample profileConductHeat = new ProfileSample("simulation: conduct heat");
+    ProfileSample profileSpreadFire = new ProfileSample("simulation: spread fire");
+    ProfileSample profileUpdateJ3D = new ProfileSample("simulation: update block while simulation");
+    
     public void simulateHeatConduction()
     {
+	profileOldVals.start();
         updateOldValues();
+	profileOldVals.stop();
+
+	profileFullUpdate.start();
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
             for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
@@ -268,16 +279,25 @@ public class World
 		    //* replace 3D arrays with 1D
 		    //* update rendering after simulation loop
                     CellIndex cellId = new CellIndex( i, j, k );
+
+		    profileConductHeat.start();
                     _heatConducter.conductHeat( _worldCurrentValues[ i ][ j ][ k ],
                         _worldCurrentValues, getNeighbours( cellId ),
                         _worldOldValues[ i ][ j ][ k ], _worldOldValues, cellId );
+		    profileConductHeat.stop();
+
+		    profileSpreadFire.start();
                     _fireConducter.spreadFire( _worldCurrentValues[ i ][ j ][ k ],
                         getNeighbours( cellId ), _worldCurrentValues );
+		    profileSpreadFire.stop();
+
+		    profileUpdateJ3D.start();
                     _scene.updateBlockWhileSimulation(
                         Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ),
                         _worldCurrentValues[ i ][ j ][ k ].get_temp(),
                         _worldCurrentValues[ i ][ j ][ k ].get_material(),
                         _worldCurrentValues[ i ][ j ][ k ] );
+		    profileUpdateJ3D.stop();
                     // _vaporConducter.conductVepors( _worldCurrentValues[ i ][
                     // j ][ k ],
                     // _worldCurrentValues, getNeighbours( cellId ), cellId );
@@ -286,5 +306,7 @@ public class World
                 }
             }
         }
+	profileFullUpdate.stop();
+	//gosh, Java sucks so much...
     }
 }

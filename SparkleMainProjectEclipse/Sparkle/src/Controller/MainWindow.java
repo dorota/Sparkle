@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
 import Helpers.EnvSettings.FileChooserAction;
+import Helpers.ProfileSample;
 import Model.World;
 import View.Scene3D;
 
@@ -105,6 +106,16 @@ public class MainWindow
     private void initWindow()
     {
         _frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+
+	//add profiler shutdown hook that reports all profiling data gathered
+	Runtime.getRuntime().addShutdownHook(new Thread() {
+
+	    @Override
+	    public void run()
+	    {
+		ProfileSample.reportAll();
+	    }
+ });
         int minWindowWidth = 800;
         int minWindowHeight = 600;
         _frame.setMinimumSize( new Dimension( minWindowWidth, minWindowHeight ) );

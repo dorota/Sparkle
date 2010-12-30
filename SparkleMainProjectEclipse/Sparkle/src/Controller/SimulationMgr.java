@@ -60,19 +60,19 @@ public class SimulationMgr
 
                     if( isRunning )
                     {
-			executionTimer = System.currentTimeMillis();
+			//executionTimer = System.currentTimeMillis();
                         _world.simulateHeatConduction();
                         counter++;
 
 			//seen LOST?
-			System.out.println("ITERATION " + counter
-				+ " " + executionTimer
-				+ " " + (System.currentTimeMillis() - executionTimer));
+			//System.out.println("ITERATION " + counter
+			//	+ " " + executionTimer
+			//	+ " " + (System.currentTimeMillis() - executionTimer));
                     }
                     else
                     {
                         // DO NOTHING
-			System.out.println("EMPTY-CYCLE " + System.currentTimeMillis());
+			//System.out.println("EMPTY-CYCLE " + System.currentTimeMillis());
                     }
                 }
                 ++whichTimeActionPerformed;

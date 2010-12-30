@@ -94,13 +94,13 @@ public class World
 
     public void initWorld( Scene3D scene )
     {
+	double airMass = 2.0;
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
             for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
             {
                 for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
-                    double airMass = 2.0;
                     _worldCurrentValues[ i ][ j ][ k ] = new Cell( getMaterial( "Air" ),
                         _worldInitTemp, airMass );
                     _worldOldValues[ i ][ j ][ k ] = new Cell( getMaterial( "Air" ),
@@ -121,6 +121,7 @@ public class World
 
     private World( Scene3D scene )
     {
+	//FIXME get this code out of c-tor; let someone else call it
         _scene = scene;
         _worldCurrentValues = new Cell[ EnvSettings.getMAX_X() ][ EnvSettings.getMAX_Y() ][ EnvSettings
                 .getMAX_Z() ];
@@ -194,6 +195,10 @@ public class World
 
     public List<CellIndex> getNeighbours( CellIndex index )
     {
+	//NOTE optimization ideas TODO
+	//* get rid of this CellIndex stuff (replace with 1D index)
+	//* try a != && != instead of one % !=
+	//* HACK maybe we could precompute or memoize this stuff?
         List<CellIndex> neighbours = new ArrayList<World.CellIndex>();
         if( index.x % EnvSettings.getMAX_X() != 0 )
         {
@@ -258,6 +263,10 @@ public class World
             {
                 for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
+		    //NOTE possible optimizations TODO
+		    //* cellId goes away
+		    //* replace 3D arrays with 1D
+		    //* update rendering after simulation loop
                     CellIndex cellId = new CellIndex( i, j, k );
                     _heatConducter.conductHeat( _worldCurrentValues[ i ][ j ][ k ],
                         _worldCurrentValues, getNeighbours( cellId ),

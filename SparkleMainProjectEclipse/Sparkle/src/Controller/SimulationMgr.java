@@ -9,7 +9,7 @@ import Model.World;
 
 public class SimulationMgr
 {
-    int timeDelay = 33;
+    int timeDelay = 50;
     Timer samplingTimer;
     World _world;
     private boolean isRunning = false;
@@ -31,6 +31,7 @@ public class SimulationMgr
 
     public void manageSimulation()
     {
+        shutdownPreviousTimerIfApplicable();
         samplingTimer = new Timer( timeDelay, new ActionListener()
         {
             final int FIRST_TIME_ACTION_PERFORMED = 0;
@@ -54,25 +55,14 @@ public class SimulationMgr
                 }
                 else
                 {
-                    // if( counter == 0 )
-                    // {
-                    // for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
-                    // {
-                    // for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
-                    // {
-                    // for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
-                    // {
-                    // System.out.println( "value "
-                    // + _world._worldCurrentValues[ i ][ j ][ k ] );
-                    // }
-                    // }
-                    // }
-                    // System.out.println( "before first call of algo" );
-                    // }
+
                     if( isRunning )
                     {
                         _world.simulateHeatConduction();
                         counter++;
+
+			//seen LOST?
+			System.out.println("ITERATION " + counter);
                     }
                     else
                     {
@@ -83,5 +73,13 @@ public class SimulationMgr
             }
         } );
         samplingTimer.start();
+    }
+
+    private void shutdownPreviousTimerIfApplicable()
+    {
+	if (samplingTimer != null)
+	{
+	    samplingTimer.stop();
+	}
     }
 }

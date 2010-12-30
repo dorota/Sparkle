@@ -38,6 +38,8 @@ public class SimulationMgr
             int whichTimeActionPerformed = 0;
             int counter = 0;
 
+	    long executionTimer = 0; //used to measure execution time
+
             public void actionPerformed( ActionEvent e )
             {
                 if( whichTimeActionPerformed == FIRST_TIME_ACTION_PERFORMED )
@@ -58,15 +60,19 @@ public class SimulationMgr
 
                     if( isRunning )
                     {
+			executionTimer = System.currentTimeMillis();
                         _world.simulateHeatConduction();
                         counter++;
 
 			//seen LOST?
-			System.out.println("ITERATION " + counter);
+			System.out.println("ITERATION " + counter
+				+ " " + executionTimer
+				+ " " + (System.currentTimeMillis() - executionTimer));
                     }
                     else
                     {
                         // DO NOTHING
+			System.out.println("EMPTY-CYCLE " + System.currentTimeMillis());
                     }
                 }
                 ++whichTimeActionPerformed;

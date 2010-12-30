@@ -80,8 +80,6 @@ public class World
             {
                 for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
-                    // System.out.println( "material  under air name " +
-                    // getMaterial( "Air" ) );
                     _worldCurrentValues[ i ][ j ][ k ].set_temp( _worldInitTemp );
                     _worldOldValues[ i ][ j ][ k ].set_temp( _worldInitTemp );
                     _scene.updateBlockWhileSimulation(
@@ -102,8 +100,6 @@ public class World
             {
                 for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
-                    // System.out.println( "material  under air name " +
-                    // getMaterial( "Air" ) );
                     double airMass = 2.0;
                     _worldCurrentValues[ i ][ j ][ k ] = new Cell( getMaterial( "Air" ),
                         _worldInitTemp, airMass );
@@ -237,17 +233,6 @@ public class World
         _scene.markStartOfHeatConduction(
             Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( x, y, z ),
             _worldCurrentValues[ x ][ y ][ z ].get_material() );
-        // for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
-        // {
-        // for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
-        // {
-        // for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
-        // {
-        // System.out.println( _worldCurrentValues[ i ][ j ][ k ] );
-        // }
-        // }
-        // }
-        // System.out.println( "world po inicie" );
     }
 
     private void updateOldValues()
@@ -266,21 +251,6 @@ public class World
 
     public void simulateHeatConduction()
     {
-        // System.out.println( "material drugiego rzedu "
-        // + _worldCurrentValues[ 2 ][ 1 ][ 4 ].get_material() );
-        // System.out.println( "print all scene" );
-        // for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
-        // {
-        // for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
-        // {
-        // for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
-        // {
-        // System.out
-        // .println( "cell " + i + " " + j + " " + _worldOldValues[ i ][ j ][ k
-        // ] );
-        // }
-        // }
-        // }
         updateOldValues();
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
@@ -307,6 +277,5 @@ public class World
                 }
             }
         }
-        // System.out.println( "done1" );
     }
 }

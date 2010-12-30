@@ -45,8 +45,7 @@ public class EditorParser
                 int sizeZ = Integer.valueOf(lineParts[ 7]);
                 String material = new String(lineParts[ 9]);
                 Scene3D scene = Scene3D.getScene(MainWindow._sceneCanvas);
-                // System.out.println( "material test ####" + material.trim() +
-                // "####" );
+
                 world.addBuildingPart(new Point3d(leftBottomBackCornerX, leftBottomBackCornerY, leftBottomBackCornerZ),
                                       new Point3d(sizeX, sizeY, sizeZ), material.trim(), scene);
             }

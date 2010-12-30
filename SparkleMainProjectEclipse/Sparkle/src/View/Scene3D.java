@@ -126,9 +126,12 @@ public class Scene3D
         float transparency = material.get_transparency();
         ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,
             ColoringAttributes.NICEST );
+	coloringAttributes.setCapability(ColoringAttributes.ALLOW_COLOR_WRITE);
         app.setColoringAttributes( coloringAttributes );
-        app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
-            transparency ) );
+	TransparencyAttributes tA = new TransparencyAttributes( TransparencyAttributes.FASTEST,
+            transparency );
+	tA.setCapability(TransparencyAttributes.ALLOW_VALUE_WRITE);
+        app.setTransparencyAttributes( tA );
         tg.addChild( new Box( (float)( blocSize.x / 2 ), (float)( blocSize.z / 2 ),
             (float)( blocSize.y / 2 ), Box.ENABLE_APPEARANCE_MODIFY, app ) );
         tg.getChild( 0 ).setCapability( Box.ENABLE_APPEARANCE_MODIFY );
@@ -148,43 +151,24 @@ public class Scene3D
     public void addNewBlockToScene( Material material, int blockIndex )
     {
         // System.out.println( "block index " + blockIndex );
-	//FIXME does this function even do anything??
+	//FIXME refactor name.
         Box cell = getBlockWithGivenId( blockIndex );
-        Appearance app = new Appearance();
-        Color3f cellColor = material.get_color();
-        ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,
-            ColoringAttributes.NICEST );
-        float transparency = material.get_transparency();
-        app.setColoringAttributes( coloringAttributes );
-        app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
-            transparency ) );
-        cell.setAppearance( app );
+	cell.getAppearance().getColoringAttributes().setColor(material.get_color());
+	cell.getAppearance().getTransparencyAttributes().setTransparency(material.get_transparency());
     }
 
     private void setCellColor( Color3f color, int blockId, Material material, boolean heatedAir )
     {
-        Box cell = getBlockWithGivenId( blockId );
-        Appearance app = new Appearance();
-        ColoringAttributes coloringAttributes = new ColoringAttributes( color,
-            ColoringAttributes.NICEST );
-        {
-            app.setTransparencyAttributes( new TransparencyAttributes(
-                TransparencyAttributes.FASTEST, material.get_transparency() ) );
-        }
-        app.setColoringAttributes( coloringAttributes );
-        cell.setAppearance( app );
+	Box cell = getBlockWithGivenId(blockId);
+	cell.getAppearance().getColoringAttributes().setColor(color);
+	cell.getAppearance().getTransparencyAttributes().setTransparency(material.get_transparency());
     }
 
     public void markStartOfHeatConduction( int blockIndex, Material material )
     {
         Box cell = getBlockWithGivenId( blockIndex );
-        Appearance app = new Appearance();
-        ColoringAttributes coloringAttributes = new ColoringAttributes( new Color3f( 1.0f, 0.0f,
-            0.0f ), ColoringAttributes.NICEST );
-        app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
-            0.5f ) );
-        app.setColoringAttributes( coloringAttributes );
-        cell.setAppearance( app );
+      	cell.getAppearance().getColoringAttributes().setColor( new Color3f( 1.0f, 0.0f, 0.0f));
+	cell.getAppearance().getTransparencyAttributes().setTransparency(0.5f);
     }
 
     public void updateBlockWhileSimulation( int blockIndex, double temp, Material material,

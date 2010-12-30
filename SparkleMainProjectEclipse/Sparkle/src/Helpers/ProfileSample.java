@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Poor man's profiling tool - because the built-in ones don't seem to work.
  */
 
 package Helpers;
@@ -46,7 +45,6 @@ public class ProfileSample {
 
     public void report()
     {
-	//TODO
 	System.out.println("ENTRIES FOR SAMPLE " + name);
 	for(Long entry : entries)
 	{

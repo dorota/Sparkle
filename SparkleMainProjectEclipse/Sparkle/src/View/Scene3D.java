@@ -114,14 +114,17 @@ public class Scene3D
     public void addNewBlock( Model.Material material, Vector3d startCoordinates, Point3d blocSize )
     {
         BranchGroup childBG = new BranchGroup();
+
+	//block transform
         TransformGroup tg = new TransformGroup();
         Transform3D transform = new Transform3D();
         Vector3d vector = new Vector3d( startCoordinates.x, startCoordinates.y, startCoordinates.z );
         transform.setTranslation( vector );
         tg.setTransform( transform );
+
+	//block appearance - color and transparency
         Appearance app = new Appearance();
         Color3f cellColor = new Color3f();
-        // float transparency = 0.8f;
         cellColor = material.get_color();
         float transparency = material.get_transparency();
         ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,
@@ -132,6 +135,8 @@ public class Scene3D
             transparency );
 	tA.setCapability(TransparencyAttributes.ALLOW_VALUE_WRITE);
         app.setTransparencyAttributes( tA );
+
+	//add block to our "universe"
         tg.addChild( new Box( (float)( blocSize.x / 2 ), (float)( blocSize.z / 2 ),
             (float)( blocSize.y / 2 ), Box.ENABLE_APPEARANCE_MODIFY, app ) );
         tg.getChild( 0 ).setCapability( Box.ENABLE_APPEARANCE_MODIFY );
@@ -152,6 +157,7 @@ public class Scene3D
     {
         // System.out.println( "block index " + blockIndex );
 	//FIXME refactor name.
+	//FIXME actually this function and setCellColor() now do the exactly same thing...
         Box cell = getBlockWithGivenId( blockIndex );
 	cell.getAppearance().getColoringAttributes().setColor(material.get_color());
 	cell.getAppearance().getTransparencyAttributes().setTransparency(material.get_transparency());
@@ -237,16 +243,6 @@ public class Scene3D
                 }
             }
         }
-        int centerX = worldX / 2;
-        int centerY = worldY / 2;
-        int centerZ = worldZ / 2;
-        int sceneCenterIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( centerX,
-            centerY, centerZ );
-        // System.out.println( "center bounds " + getBlockWithGivenId(
-        // sceneCenterIndex ).getBounds(). );
-        // _centerRepresentationPosition=getBlockWithGivenId( sceneCenterIndex
-        // ).
-        // System.out.println( "number of nodes " + _contents.numChildren() );
     }
 
     private void setSceneAppearance()

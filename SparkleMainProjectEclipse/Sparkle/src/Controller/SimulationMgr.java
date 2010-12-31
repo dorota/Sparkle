@@ -51,6 +51,8 @@ public class SimulationMgr
                     {
                         // wait a second after initializing and displaying
                         // start of fire
+
+			//yeah... what for?
                         System.out.println( "first time" );
                         Thread.sleep( 2000 );
                     }

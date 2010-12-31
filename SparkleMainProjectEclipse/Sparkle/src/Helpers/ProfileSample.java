@@ -61,6 +61,13 @@ public class ProfileSample {
 
     public void reportStatistics()
     {
+	if(entries.isEmpty())
+	{
+	    System.out.println("STATS FOR SAMPLE " + name);
+	    System.out.println("No measurements taken; nothing to report.");
+	    return;
+	}
+	
 	List<Long> entriesCopy = new ArrayList<Long>(entries);
     
         Collections.sort(entriesCopy);
@@ -68,12 +75,21 @@ public class ProfileSample {
         long min = entriesCopy.get(0);
         long max = entriesCopy.get(entriesCopy.size()-1);
 
+	//NOTE may be subject of value overflow!
+	long avg = 0;
+	for(long entry : entriesCopy)
+	{
+	    avg += entry;
+	}
+	avg /= entriesCopy.size();
+
 	//FIXME does anybody know how "kwartyle" are called in english?...
         long kwartylDolny = computeKwartylDolny(entriesCopy);
         long kwartylGorny = computeKwartylGorny(entriesCopy);
         long median = computeMedian(entriesCopy);
         System.out.println("STATS FOR SAMPLE " + name);
-        System.out.println("Min: " + min + "; Max " + max + "; Rozstep: " + (max-min));
+	System.out.println("Data points: " + entriesCopy.size());
+        System.out.println("Min: " + min + "; Max " + max + "; Rozstep: " + (max-min) + "; Srednia: " + avg);
         System.out.println("Kwartyl dolny: " + kwartylDolny + "; Mediana: " + median + "; Kwartyl gorny: " + kwartylGorny + "; Rozstep miedzykwartylowy: " + (kwartylGorny - kwartylDolny) );
 	System.out.println(""); //empty line
     }
@@ -82,7 +98,7 @@ public class ProfileSample {
     {
         for(ProfileSample sample : allSamples)
         {
-            //sample.report(); <-- uncomment if you absolutely, positively have to look at all the data.
+            //sample.report(); //<-- uncomment if you absolutely, positively have to look at all the data.
 	    sample.reportStatistics();
         }
     }

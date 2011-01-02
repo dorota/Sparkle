@@ -18,7 +18,7 @@
 \contentsline {section}{\numberline {4.1}G\IeC {\l }\IeC {\'o}wne za\IeC {\l }o\IeC {\.z}enia}{16}
 \contentsline {section}{\numberline {4.2}Architektura aplikacji}{16}
 \contentsline {subsection}{\numberline {4.2.1}Modu\IeC {\l } Controller}{17}
-\contentsline {subsection}{\numberline {4.2.2}Modu\IeC {\l } Scene}{19}
+\contentsline {subsection}{\numberline {4.2.2}Modu\IeC {\l } View}{19}
 \contentsline {subsection}{\numberline {4.2.3}Modu\IeC {\l } Model}{19}
 \contentsline {chapter}{\numberline {5}Algorytm}{21}
 \contentsline {section}{\numberline {5.1}Model automatu}{21}
@@ -26,8 +26,12 @@
 \contentsline {section}{\numberline {6.1}Wybrane technologie i narz\IeC {\k e}dzia}{24}
 \contentsline {subsection}{\numberline {6.1.1}J\IeC {\k e}zyk implementacji}{24}
 \contentsline {subsection}{\numberline {6.1.2}J\IeC {\k e}zyki prototypowania}{24}
-\contentsline {subsection}{\numberline {6.1.3}Modu\IeC {\l } wizualizacji}{24}
+\contentsline {subsection}{\numberline {6.1.3}Narz\IeC {\k e}dzia pracy grupowej}{24}
+\contentsline {section}{\numberline {6.2}Implementacja modelu aplikacji}{25}
+\contentsline {subsection}{\numberline {6.2.1}Modu\IeC {\l } wizualizacji}{25}
 \contentsline {subsubsection}{Instalacja biblioteki Java3D}{25}
 \contentsline {subsubsection}{Budowa sceny z wykorzystaniem struktur Java3D API}{25}
-\contentsline {subsection}{\numberline {6.1.4}Narz\IeC {\k e}dzia pracy grupowej}{26}
-\contentsline {chapter}{\numberline {7}Graficzny interfejs u\IeC {\.z}ytkownika i instrukcja obs\IeC {\l }ugi}{27}
+\contentsline {subsubsection}{Implementacja modu\IeC {\l }u wizualizacji}{27}
+\contentsline {subsection}{\numberline {6.2.2}Logika aplikacji}{28}
+\contentsline {subsubsection}{World}{28}
+\contentsline {chapter}{\numberline {7}Graficzny interfejs u\IeC {\.z}ytkownika i instrukcja obs\IeC {\l }ugi}{31}

@@ -8,6 +8,7 @@
 8. Podmiana kierunku obrotu sceny. Strzałka w prawo ma obracać zgodnie z ruchem wsk, strzałka w lewo przeciwnie.
 9. Ksiązeczka - gui - opis edytora [rozmiary] nie są w "["
 10. naprawic adding new blocks left-back-bottom coordiantes a nie front
+11.Widok nie powinien być singletonem.
 
 
 //Książeczka

@@ -1,3 +1,4 @@
+%Todo poprwic niespojnosci: moduł View czy Scene?
 \chapter {Projekt}
 Głównym celem projektu jest stworzenie i weryfikacja modelu rozprzestrzeniania się ognia wykorzystując niehomogeniczne automaty
 komórkowe, który został opisany w rozdziale \ref{cha:Algorytm} . Nacisk z pracy został położony na opracowanie algorytmu najdokładniej oddającego rzeczywistość.
@@ -21,7 +22,7 @@ Aplikacja została podzielona na trzy główne moduły:
 \begin{itemize}
 \item Controller - odpowiada za interakcję z użytkownikiem, dostarcza GUI umożliwiające kontrolę symulacji
 \item Model - przechowuje model symulacji, realizuje algorytmy rozprzestrzeniania ognia
-\item Scene - odpowiada za wizualizację wyników
+\item View - odpowiada za wizualizację wyników
 \end{itemize}
 Zależności pomiędzy poszczególnymi komponentami przedstawia diagram komponentów \ref{architektura aplikacji}
 \begin{figure}
@@ -69,9 +70,9 @@ zestaw paneli menu. Odpowiada za rozmiary i rozmieszczenie zawieranych elementó
 \item SimulationMgr - odpowiada za przebieg symulacji. Reguluje jej tempo, obsługuje zdarzenia wstrzymania / wznowienia.
 \end {itemize}
 
-\subsection {Moduł Scene}
-Jedynym zadaniem sceny, zwanej dalej także widokiem jest graficzne przedstawienie dostarczonego modelu.
-Modeł Scene nie korzysta z żadnych innych modułów.
+\subsection {Moduł View}
+Jedynym zadaniem widoku, zwanego dalej także sceną jest graficzne przedstawienie dostarczonego modelu.
+Moduł View nie korzysta z żadnych innych modułów.
 Całkowite odizolowanie widoku od innych komponentów umożliwia jego łatwą modyfikację. Pakiet Scene zawiera klasę
 \begin {itemize}
 \item Scene3D - odpowiedzialną za wizualizację stworzonego budynku oraz aktualizację widoku podczas symulacji.

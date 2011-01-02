@@ -6,9 +6,9 @@ na przykładzie gry Life. Szczególną uwagę podczas opisu
  automatów komórkowych poświęcono niehomogenicznym automatom komórkowym, gdyż to one zostały wykorzystane
 do symulacji pożaru. 
 \section {Definicja automatu komórkowego}
-Według definicji \textbf {Ferbera} \textsl{ Automat komórkowy jest dyskretnym, dynamicznych systemem, którego zachowanie jest
+Według definicji \textit {Ferbera} \textsl{ Automat komórkowy jest dyskretnym, dynamicznych systemem, którego zachowanie jest
 całkowicie określone w warunkach lokalnych relacji.}
-Inną definicją, ukazującą automat komórkowy w matematycznym zapisie jest definicja \textbf{Weimara}, przedstawiająca
+Inną definicją, ukazującą automat komórkowy w matematycznym zapisie jest definicja \textit{Weimara}, przedstawiająca
 automat jako czwórkę parametrów:
 \begin{Center}
 \begin {equation}
@@ -27,10 +27,10 @@ gdzie
 \end{itemize}
 Innymi słowy, automat komórkowy jest to model matematyczny opisujący siatkę komórek, ich stany oraz reguły przejść
 między kolejnymi stanami. Każda komórka z pewnej dyskretnej siatki komórek może przyjmować jeden z określonego zbioru stanów.
-W dyskretnych przedziałach czasowych następuje ewolucja komórki, na podstawie jej \textbf{stanu poprzedniego} oraz \textbf{stanu jej sąsiadów}. Ewolucję komórki określa funkcja przejścia. Odpowiedni dobór zbioru stanów oraz funkcji przejść kształtuje cechy automatu, jego dynamikę oraz szybkość.
+W dyskretnych przedziałach czasowych następuje ewolucja komórki, na podstawie jej \textit{stanu poprzedniego} oraz \textit{stanu jej sąsiadów}. Ewolucję komórki określa funkcja przejścia. Odpowiedni dobór zbioru stanów oraz funkcji przejść kształtuje cechy automatu, jego dynamikę oraz szybkość.
 W wyniku ewolucji komórka przyjmuje kolejny stan ze zbioru S. Ze względu na wielowymiarowość automatów komórkowych, sąsiedztwa można
 definiować w różny sposób. W przypadku dwuwymiarowego automatu najprostszym sąsiedztwem, zwanym też sąsiedztwem von Neumana będzie
-zbiór czterech komórek {N,S,E,W} gdzie kolejne literki oznaczają kierunki zgodne z różą wiatrów. W dwuwymiarowych automacie jako sąsiedztwo można przyjmować także zbiór ośmiu komórek (sąsiedztwo \textbf{Moore'a}: cztery wspomniane powyżej kierunki wraz z kierunkami pośrednimi {N, S, E, W, NW, NE, SE, SW}. W trójwymiarowym automacie najprostszym sąsiedztwem jest zbiór wszystkich 
+zbiór czterech komórek {N,S,E,W} gdzie kolejne literki oznaczają kierunki zgodne z różą wiatrów. W dwuwymiarowych automacie jako sąsiedztwo można przyjmować także zbiór ośmiu komórek (sąsiedztwo \textit{Moore'a}: cztery wspomniane powyżej kierunki wraz z kierunkami pośrednimi {N, S, E, W, NW, NE, SE, SW}. W trójwymiarowym automacie najprostszym sąsiedztwem jest zbiór wszystkich 
 komórek połączonych ścianami z aktualnym sześcianem. Innym sąsiedztwem mogą być wszystkie sześciany połączone z aktualnie badanym
 zarówno ścianami jak i krawędziami. Ważnymi elementami automatu komórkowego jest stan początkowy automatu, czyli z góry określony
 stan każdej komórki w chwili 0 (przed pierwszą iteracją algorytmu). W przypadku automatów komórkowych o ograniczonej siatce konieczne
@@ -48,7 +48,7 @@ Innym zastosowaniem jest symulacja zjawisk, które ze względu na swoją naturę
 dokładnych wzorów nie mogą być odzwierciedlone w sposób dokładny. Przykładem takiej symulacji jest na przykład ruch ludzi podczas ucieczki z ewakuowanego budynku.
 \section{Klasyfikacja automatów komórkowych}
 Od wprowadzenia pojęcia automatu komórkowego, które datuje się na lata 40-ste XX-go wieku powstały różne metody klasyfikacji automatów komórkowych. Jedną z najważniejszych jest podział ze względu na homogeniczność automatu.
-\textbf{Homogenicznym automatem komórkowym} nazywamy, automat który spełnia wszystkie postulaty homogeniczności.
+\textit{Homogenicznym automatem komórkowym} nazywamy, automat który spełnia wszystkie postulaty homogeniczności.
 Należą do nich:
 \begin{itemize}
 \item jednakowy zbiór stanów dla każdej komórki
@@ -59,7 +59,7 @@ Należą do nich:
 \end {itemize}
 
 
-Jeżeli automat nie spełnia, \textsl {któregokolwiek} z wyżej wymienionych warunków jest klasyfikowany jako \textbf {niehomogeniczny
+Jeżeli automat nie spełnia, \textsl {któregokolwiek} z wyżej wymienionych warunków jest klasyfikowany jako \textit {niehomogeniczny
 automat komórkowy}. 
 
 Najprostszym przykładem klasycznego, homogenicznego automatu komórkowego jest gra \textsl{Life}. 

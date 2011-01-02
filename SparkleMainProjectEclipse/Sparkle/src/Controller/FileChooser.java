@@ -22,12 +22,6 @@ public class FileChooser
 
     public FileChooser( Component com, World world, EnvSettings.FileChooserAction fileChooseAction )
     {
-        // _frame.setVisible( true );
-        // _frame.add( _fileChooser );
-        // _frame.setMinimumSize( new Dimension( 300, 300 ) );
-        // _frame.setPreferredSize( new Dimension( 500, 500 ) );
-        // _frame.setDefaultCloseOperation( JDialog.HIDE_ON_CLOSE );
-        // _frame.add( _fileChooser );
         int result = _fileChooser.showOpenDialog( com );
         if( result == JFileChooser.APPROVE_OPTION )
         {
@@ -83,17 +77,5 @@ public class FileChooser
                     JOptionPane.ERROR_MESSAGE );
             }
         }
-        // _fileChooser.addActionListener( new ActionListener()
-        // {
-        // public void actionPerformed( ActionEvent e )
-        // {
-        // System.out.println( e.getActionCommand() );
-        // if( e.getActionCommand().equals( JFileChooser.APPROVE_OPTION ) )
-        // {
-        // System.out.println( "acceptu button pressed" );
-        // }
-        // }
-        // } );
-        // _frame.getContentPane().add( _fileChooser );temperatury
     }
 }

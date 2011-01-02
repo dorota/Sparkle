@@ -9,7 +9,7 @@ import Model.World;
 
 public class SimulationMgr
 {
-    int timeDelay = 33;
+    int timeDelay = 50;
     Timer samplingTimer;
     World _world;
     private boolean isRunning = false;
@@ -31,11 +31,14 @@ public class SimulationMgr
 
     public void manageSimulation()
     {
+        shutdownPreviousTimerIfApplicable();
         samplingTimer = new Timer( timeDelay, new ActionListener()
         {
             final int FIRST_TIME_ACTION_PERFORMED = 0;
             int whichTimeActionPerformed = 0;
             int counter = 0;
+
+	    long executionTimer = 0; //used to measure execution time
 
             public void actionPerformed( ActionEvent e )
             {
@@ -54,34 +57,35 @@ public class SimulationMgr
                 }
                 else
                 {
-                    // if( counter == 0 )
-                    // {
-                    // for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
-                    // {
-                    // for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
-                    // {
-                    // for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
-                    // {
-                    // System.out.println( "value "
-                    // + _world._worldCurrentValues[ i ][ j ][ k ] );
-                    // }
-                    // }
-                    // }
-                    // System.out.println( "before first call of algo" );
-                    // }
+
                     if( isRunning )
                     {
+			//executionTimer = System.currentTimeMillis();
                         _world.simulateHeatConduction();
                         counter++;
+
+			//seen LOST?
+			//System.out.println("ITERATION " + counter
+			//	+ " " + executionTimer
+			//	+ " " + (System.currentTimeMillis() - executionTimer));
                     }
                     else
                     {
                         // DO NOTHING
+			//System.out.println("EMPTY-CYCLE " + System.currentTimeMillis());
                     }
                 }
                 ++whichTimeActionPerformed;
             }
         } );
         samplingTimer.start();
+    }
+
+    private void shutdownPreviousTimerIfApplicable()
+    {
+	if (samplingTimer != null)
+	{
+	    samplingTimer.stop();
+	}
     }
 }

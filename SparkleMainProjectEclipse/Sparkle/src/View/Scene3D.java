@@ -25,6 +25,7 @@ import Model.Material;
 
 import com.sun.j3d.utils.behaviors.keyboard.KeyNavigatorBehavior;
 import com.sun.j3d.utils.behaviors.mouse.MouseRotate;
+import com.sun.j3d.utils.behaviors.mouse.MouseWheelZoom;
 import com.sun.j3d.utils.geometry.Box;
 import com.sun.j3d.utils.universe.SimpleUniverse;
 
@@ -89,9 +90,15 @@ public class Scene3D
         keyInteractor.setSchedulingBounds( _bounds );
         _contents.addChild( keyInteractor );
         MouseRotate behavior = new MouseRotate();
-        behavior.setTransformGroup( viewTransformGroup );
-        _contents.addChild( behavior );
-        behavior.setSchedulingBounds( _bounds );
+	MouseWheelZoom zoomBehavior = new MouseWheelZoom();
+	//slow down rotation movement and reverse the up-down movement controls
+	behavior.setFactor(behavior.getXFactor() * Helpers.EnvSettings.MOUSE_X_FACTOR, behavior.getYFactor() * Helpers.EnvSettings.MOUSE_Y_FACTOR);
+	zoomBehavior.setTransformGroup(viewTransformGroup);
+	behavior.setTransformGroup(viewTransformGroup);
+	_contents.addChild( zoomBehavior );
+	_contents.addChild(behavior);
+	behavior.setSchedulingBounds(_bounds);
+	zoomBehavior.setSchedulingBounds(_bounds);
     }
 
     /**
@@ -141,6 +148,7 @@ public class Scene3D
     public void addNewBlockToScene( Material material, int blockIndex )
     {
         // System.out.println( "block index " + blockIndex );
+	//FIXME does this function even do anything??
         Box cell = getBlockWithGivenId( blockIndex );
         Appearance app = new Appearance();
         Color3f cellColor = material.get_color();

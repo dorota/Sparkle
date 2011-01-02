@@ -58,11 +58,14 @@ public class World
             {
                 for( int i = (int)leftBottomBackCorner.x; i < leftBottomBackCorner.x + size.x; ++i )
                 {
+                    //TODO refactor this out soon.
                     Material mat = getMaterial( materialName );
                     _worldCurrentValues[ i ][ j ][ k ].set_material( mat );
                     _worldOldValues[ i ][ j ][ k ].set_material( mat );
                     int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j,
                         k );
+		    //NOTE when we add, then delete, then add again, will it add same nodes
+		    //many times?
                     scene.addNewBlockToScene( mat, blockIndex );
                 }
             }
@@ -77,8 +80,6 @@ public class World
             {
                 for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
-                    // System.out.println( "material  under air name " +
-                    // getMaterial( "Air" ) );
                     _worldCurrentValues[ i ][ j ][ k ].set_temp( _worldInitTemp );
                     _worldOldValues[ i ][ j ][ k ].set_temp( _worldInitTemp );
                     _scene.updateBlockWhileSimulation(
@@ -93,15 +94,13 @@ public class World
 
     public void initWorld( Scene3D scene )
     {
+	double airMass = 2.0;
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
             for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
             {
                 for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
-                    // System.out.println( "material  under air name " +
-                    // getMaterial( "Air" ) );
-                    double airMass = 2.0;
                     _worldCurrentValues[ i ][ j ][ k ] = new Cell( getMaterial( "Air" ),
                         _worldInitTemp, airMass );
                     _worldOldValues[ i ][ j ][ k ] = new Cell( getMaterial( "Air" ),
@@ -122,6 +121,7 @@ public class World
 
     private World( Scene3D scene )
     {
+	//FIXME get this code out of c-tor; let someone else call it
         _scene = scene;
         _worldCurrentValues = new Cell[ EnvSettings.getMAX_X() ][ EnvSettings.getMAX_Y() ][ EnvSettings
                 .getMAX_Z() ];
@@ -162,6 +162,23 @@ public class World
         _worldOldValues = currentValues;
     }
 
+    public void clearMaterials(Scene3D scene)
+    {
+        Material air = getMaterial("Air");
+        for(int i = 0 ; i < _worldCurrentValues.length ; ++i)
+        {
+            for(int j = 0 ; j < _worldCurrentValues[i].length ; ++j)
+            {
+                for(int k = 0 ; k < _worldCurrentValues[i][j].length ; ++k)
+                {
+                    _worldCurrentValues[i][j][k].set_material(air);
+                    _worldOldValues[i][j][k].set_material(air);
+                    scene.addNewBlockToScene(air, Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex(i, j, k));
+                }
+            }
+        }
+    }
+
     public static class CellIndex
     {
         public CellIndex( int x, int y, int z )
@@ -178,6 +195,10 @@ public class World
 
     public List<CellIndex> getNeighbours( CellIndex index )
     {
+	//NOTE optimization ideas TODO
+	//* get rid of this CellIndex stuff (replace with 1D index)
+	//* try a != && != instead of one % !=
+	//* HACK maybe we could precompute or memoize this stuff?
         List<CellIndex> neighbours = new ArrayList<World.CellIndex>();
         if( index.x % EnvSettings.getMAX_X() != 0 )
         {
@@ -217,17 +238,6 @@ public class World
         _scene.markStartOfHeatConduction(
             Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( x, y, z ),
             _worldCurrentValues[ x ][ y ][ z ].get_material() );
-        // for( int i = 0; i < EnvSettings.getMAX_LENGTH(); ++i )
-        // {
-        // for( int j = 0; j < EnvSettings.getMAX_LENGTH(); ++j )
-        // {
-        // for( int k = 0; k < EnvSettings.getMAX_LENGTH(); ++k )
-        // {
-        // System.out.println( _worldCurrentValues[ i ][ j ][ k ] );
-        // }
-        // }
-        // }
-        // System.out.println( "world po inicie" );
     }
 
     private void updateOldValues()
@@ -246,21 +256,6 @@ public class World
 
     public void simulateHeatConduction()
     {
-        // System.out.println( "material drugiego rzedu "
-        // + _worldCurrentValues[ 2 ][ 1 ][ 4 ].get_material() );
-        // System.out.println( "print all scene" );
-        // for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
-        // {
-        // for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
-        // {
-        // for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
-        // {
-        // System.out
-        // .println( "cell " + i + " " + j + " " + _worldOldValues[ i ][ j ][ k
-        // ] );
-        // }
-        // }
-        // }
         updateOldValues();
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
@@ -268,6 +263,10 @@ public class World
             {
                 for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
+		    //NOTE possible optimizations TODO
+		    //* cellId goes away
+		    //* replace 3D arrays with 1D
+		    //* update rendering after simulation loop
                     CellIndex cellId = new CellIndex( i, j, k );
                     _heatConducter.conductHeat( _worldCurrentValues[ i ][ j ][ k ],
                         _worldCurrentValues, getNeighbours( cellId ),
@@ -287,6 +286,5 @@ public class World
                 }
             }
         }
-        // System.out.println( "done1" );
     }
 }

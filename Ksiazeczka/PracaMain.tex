@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 
 
 
@@ -53,9 +54,11 @@
 
 
 
+=======
+>>>>>>> d8fa44152a78ecf49d9d247b4d0a7e0bd6850c4c
 \documentclass[pdflatex,11pt]{aghdpl}
 % \documentclass{aghdpl}               % przy kompilacji programem latex
-% \documentclass[pdflatex,en]{aghdpl}  % praca w j?zyku angielskim
+% \documentclass[pdflatex,en]{aghdpl}  % praca w języku angielskim
 \usepackage[polish]{babel}
 \usepackage[utf8]{inputenc}
 
@@ -64,9 +67,9 @@
 \usepackage{listings}
 \lstloadlanguages{TeX}
 
-%TODO w kazdy rozdziale którki wstęp co się w nim będzie znajdować
-%TODO sprawdzic czy we wstępie są cele pracy - szybkie protypowane i zastsowania tworzonego modelu, ewkuacjia ludzi itd
-% We wstępie TEZA + dokładniejszy opis kolejnyc rozdziałów
+%TODO w każdym rozdziale krótki wstęp co się w nim będzie znajdować
+%TODO sprawdzić czy we wstępie są cele pracy - szybkie prototypowanie i zastosowania tworzonego modelu, ewakuacja ludzi itd
+% We wstępie TEZA + dokładniejszy opis kolejnych rozdziałów
 %TODO pozamieniać pogrubienia na pochylenia. pogrubienia głupio wyglądają. sprw. jak ma dr.Wąs u siebie
 
 
@@ -77,14 +80,14 @@
 %\shortauthor{M. Szpyrka}
 
 \titlePL{Symulacja rozprzestrzeniania się dymu i ognia w oparciu o niehomogeniczne automaty komórkowe}
-\titleEN{Simulation of fire and smoke by using non-homogeous cellular automata}
+\titleEN{Simulation of fire and smoke by using non-homogeneous cellular automata}
 %\titleEN{Thesis in \LaTeX}
 
 
 \thesistypePL{Praca inżynierska}
 
 \supervisorPL{dr inż. Jarosław Wąs}
-\supervisorEN{Jarosław Wąs Ph.D}
+\supervisorEN{Jarosław Wąs Ph.D} %% FIXME <--- nie ma być kropki po D ??
 
 \date{2010}
 
@@ -104,12 +107,8 @@
 \include{R1_Wstep}
 \include {R2_TeoriaFizyka}
 \include {R5_TeoriaAutomatKomorkowy}
-\include{R3_Projekt}
 \include {R6_Algorytm}
-\include {R7_Implementacja}
-\include {R8_InstrukcjaObslugiIGUI}
-\include {R9_Wyniki}
-
+\include{R3_Projekt}
 % itd.
 % \appendix
 % \include{dodatekA}

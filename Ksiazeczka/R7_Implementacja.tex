@@ -1,6 +1,7 @@
 ﻿\chapter {Implementacja}
 \label{cha:implementacja}
-Poniższy rozdział przedstawia aspekty implementacyjne projektu. Na wstępie omówiono użyte technologie oraz narzędzia wraz z uzasadnieniem wyboru. Następnie przedstawiono dokładny model aplikacji z uwzględnieniem wybranych metod implementacyjnych. 
+Poniższy rozdział zawiera przegląd ciekawszych aspektów implementacyjnych projektu.
+Na wstępie omówiono użyte technologie oraz narzędzia wraz z uzasadnieniem wyboru. Następnie przedstawiono dokładny model aplikacji z uwzględnieniem wybranych metod implementacyjnych. 
 W rozdziale tym przedstawiono także problemy, z którymi zetknęli się autorzy podczas realizacji projektu oraz sposoby ich rozwiązania.
 \section {Wybrane technologie i narzędzia}
 Przed przystąpieniem do implementacji końcowej wersji aplikacji powstawały prototypy testujące różne podejścia algorytmiczne opisane w rozdziale \ref{cha:Algorytm} oraz możliwe do wykorzystania narzędzia. W sekcji \textit{Język implementacji} przedstawiono język wybrany do implementacji końcowej wersji programu, natomiast w sekcji \textit{Języki prototypowania} przedstawiono technologie używane do tworzenia prototypów systemu. Następnie pokrótce omówiono narzędzia pracy grupowej wykorzysywane podczas realizacji projektu Sparkle.
@@ -141,7 +142,7 @@ Taki sposób przechowania danych jest szczególnie korzystny w przypadku dużej 
 Jest też często wykorzystywany przy renderingu sceny składającej się w znacznej mierze z powietrza, które można zaniedbać.
 
 W przypadku symulacji pożaru, próba adaptacji omawianej struktury okazała się nieefektywna.
-Główną przyczyną jest dynamika modelowanego systemu, w którym stan większości komórek zmienia się w krótkim czasie po uruchomieniu symulacji, a kolejne zmiany następują z dużą częstotliwością. Algorytmy propagacji ciepła powodują, że możliwość wyodrębnienia  sześcianu  którego części składowe miałyby stan identyczny z rodzicem należy do rzadkości. Powoduje to, że korzyści płynące ze stosowania wyżej omówionej optymalizacji w przypadku symulacji pożaru są znikome . 
+Główną przyczyną jest dynamika modelowanego systemu, w którym stan większości komórek zmienia się w krótkim czasie po uruchomieniu symulacji, a kolejne zmiany następują z dużą częstotliwością. Algorytmy propagacji ciepła powodują, że możliwość wyodrębnienia  sześcianu  którego części składowe miałyby stan identyczny z rodzicem należy do rzadkości. Powoduje to, że korzyści płynące ze stosowania wyżej omówionej optymalizacji w przypadku symulacji pożaru są znikome. 
  Bardzo istotnym faktem jest także dodatkowe zużycie pamięci wynikające ze stosowania wskaźnikowej struktury danych. W przypadku gdy drzewo ósemkowe jest drzewem pełnym (każdy z wierzchołków nie będących liściem posiada osiem dzieci) ilość pamięci zużytej przez drzewiastą reprezentajcę przewyższa ilość wykorzystywaną w przypadku implementacji tablicowej.
 \begin{figure}
 \begin {center}
@@ -150,3 +151,46 @@ Główną przyczyną jest dynamika modelowanego systemu, w którym stan większo
 \label {uml_model}
 \end {center}
 \end{figure}
+
+Klasa World przechowuje macierz komórek w dwóch egzemplarzach. Podwójne przechowywanie wartości automatu umożliwia odczytywanie parametrów komórki z jednej tablicy, a ich uaktualnianie w drugiej. Taki zabieg nosi nazwę \textit{podwójne buforowanie} czyli \textit{double-buffering} i pozwala uniknąć kierunkowości symulacji. W przypadku nie zastosowania powyższej taktyki temperatura podczas symulacji pożaru rozchodzi się zawsze zgodnie z kierunkiem aktualizacji komórek. Instancja klasy World przechowuje także listę materiałów, które mogą być elementami konstrukcyjnymi budynku. Klasa World zawiera wewnętrzną klasę pomocnicza CellIndex,  która przedstawia index komórki w postaci trzech współrzędnych (x,y,z).
+
+Klasa World impleentuje interfejs IWorld, do którego metod należy:
+\begin{itemize}
+\item \textit{addBuildingPart} - do odpowiedzialności tej metody należy zmiana materiału komórek wchodzących w skład dodawanego bloku, a także wywołanie odpowiedniej metody klasy Scene3D dokonującej akualizacji widoku podczas edycji budynku. Zadaniem metody addBuildingPart jest zamiana indeksu komórki zapisanego w postaci trójki liczb (x,y,z) na numer odpowiadającej komórki w liście.
+\item \textit{restartTemperatures} - metoda wywoływana podczas restartu symulacji. Nadaje wszystkim komórkom parametry domyślne.
+\item \textit{getAvailableMaterials} - zwraca listę materiałów, z którym można konstruować budynek.
+\item \textit{simulateFireSpread}  - wykonuje jeden przebieg algorytmu aktualizacji automatu komórkowego, wywołując w tym celu metody klas HeatAndVaporConductorWithConvection i FireConducter. Metoda ta jest także odpowiedzialna za wywołanie aktualizacji widoku po każdym przebiegu pętli. Odpowiada za aktualizację macierzy automatu tak aby w każdej chwili macierz, z której czytane są dane była możliwie aktualna z zachowaniem spójności.
+\item \textit{setStartOfFire} - ustala punkt startowy pożaru, zmieniając odpowiednio wartości wskazanej komórki.
+\item \textit{initWorld} - inicjalizuje autmat wartościami domyślnymi. Domyślnym materiałem wypełniającym przestrzeń jest Tlen. Temperatura komórek na początku działania aplikacji ustawiana jest na $20^\circ C$. Metoda ta odpowiada także, za wywołanie funkcji tworzącej graficzną reprezentację modelu (\textit{createdWorldRepresentation} z klasy \textit{Scene3D}).
+\end{itemize}
+Ponadto klasa World zawiera metody pomocnicze, do których należy:
+\begin{itemize}
+\item \textit{getNeighbours} - zwracająca listę indeksów sąsiadów badanej komórki
+\item \textit{updateOldValues} - aktualizująca macierz wartości do odczytu
+\end{itemize}
+
+\subsubsection{Cell i Material}
+To klasy, które zgodnie z opisem zawartym w rozdziale \ref{cha:projekt} zawierają zestaw prywatnych atrybutów określających  odpowiednio stan komórki i właściwości materiału. Z każdym atrybutem związane są metody get i set, kontrolujące dostęp do zmiennych. 
+
+\subsubsection{FireConductor}
+Klasa FireConductor odpowiada za rozprzestrzenianie ognia zgodnie z algorytmem opiany w rozdziale \ref{cha:Algorytm}.
+Implementuje interfejs IFireConductor zawierający metodę \textit{spreadFire}. Metoda ta jest odpowiedzialna za zmianę stanu komórki
+z naturalnego na palący i odwrotnie.
+
+\subsubsection{HeatAndVaporsConductor oraz HeatAndVaporConductorWithConvection}
+Do bardziej rozbudowanych klas należy HeatAndVaporsConductor oraz HeatAndVaporConductorWithConvection.
+Klasa HeatAndVaporsConductor implementuje interfejs IHeatAndVaporsConductor, definiując metodę \textit{conductHeat}.
+Metoda ta wywoływana jest dla każdej komórki automatu, w każdym obiegu algorytmu.
+Odpowiada za obliczenie energii przepływającej między badaną komórką i jej wszystkimi sąsiadami oraz symulację wymiany ciepła, 
+której wynikiem jest uaktualnienie temperatur komórek. Wszystkie obliczenia przeprowadzane są zgodnie z metodami odpisanymi w rozdziale \textit{Algorytm}. W ich realizacji wykorzystywane są pomocnicze metody: 
+\begin{itemize}
+\item \textit{calculateEnergyFlow} - odpowiadająca za obliczenie ilości energii przepływającej między dwoma komórkami \\ 
+oraz 
+\item \textit{exchangeEnergy} - symulująca wymianę ciepła. 
+\end{itemize}
+Klasa HeatAndVaporsConductor podczas wyliczania przepływającej energii uwzględnia jedynie zjawisko przewodnictwa cieplnego, zaniedbując konwekcję. 
+
+Symulacja konwekcji, jak wyjaśniono w rozdziale \ref{cha:Algorytm} opiera się na ułatwieniu przepływu ciepła do górnych sąsiadów komórki. Konwekcja jest więc szczególnym przypadkiem przewodnictwa, występującym w powietrzu. Zgodnie z powyższym, klasą realizującą konwekcję jest HeatAndVaporConductorWithConvection dziedzicząca po klasie HeatAndVaporsConductor. Przedefiniowana w  klasie potomnej metoda \textit{calculateEnergyFlow} wywołuje odpowiadającą funkcję klasy nadrzędnej, a następnie wprowadza do wyliczonej zgodnie z regułami przewodnictwa energii zmiany wywołane konwekcją. Zmiany te aplikowane są tylko w przypadku gdy badana komórka oraz komórka sąsiednia, z którą następuje wymiana ciepła są powietrzem. Metoda \textit{exchangeEnergy} poza wymianą ciepła między sąsiadującymi komórkami implementuje także przekazywanie drogą konwekcji oparów koniecznych do zapłonu komórki.
+
+\subsection {Moduł obsługi zdarzeń}
+Głównym zadaniem modułu obsługi zdarzeń jest obsługa interakcji z użytkownikiem. Implementacja modułu zawarta jest w pakiecie \textit{Controller}.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  2 JAN 2011 11:25
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  2 JAN 2011 18:58
 entering extended mode
 **D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
 (D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
@@ -1162,7 +1162,7 @@ l.110 \item \textit
 ? 
 [27 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_view.png (PNG copy)>]
 ! Undefined control sequence.
-l.119 ...asą pakietu \textit{Model} jest \itextit
+l.118 ...asą pakietu \textit{Model} jest \itextit
                                                   {World}. Zawiera ona struk...
 
 ? 
@@ -1174,7 +1174,38 @@ File: uml_model.png Graphic file (type png)
 
 <use uml_model.png>
 
-LaTeX Warning: Float too large for page by 44.63626pt on input line 150.
+LaTeX Warning: Float too large for page by 44.63626pt on input line 152.
+
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.153 
+      
+? 
+[28 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/drzewo_osemkowe.png>]
+Underfull \hbox (badness 1521) in paragraph at lines 159--160
+[]\T1/ptm/m/it/10.95 restartTemperatures \T1/ptm/m/n/10.95 - metoda wywo�y-wana
+ pod-czas restartu symu-lacji. Nadaje wszys-tkim
+ []
+
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.178 
+      
+? 
+[29]
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.178 
+      
+? 
+[30 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_model.png (PNG copy)>]
+Underfull \hbox (badness 2401) in paragraph at lines 189--190
+\T1/ptm/m/n/10.95 Klasa HeatAnd-Va-porsCon-duc-tor pod-czas wylicza-nia przep�y
+-wa-j�cej en-ergii uwzgl�d-nia je-dynie
+ []
 
 )
 ! Undefined control sequence.
@@ -1183,22 +1214,7 @@ LaTeX Warning: Float too large for page by 44.63626pt on input line 150.
 l.71 \include{R7_Implementacja}
                                
 ? 
-[28]
-! Undefined control sequence.
-<recently read> \@shorttitlePL 
-                               
-l.71 \include{R7_Implementacja}
-                               
-? 
-[29 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/drzewo_osemkowe.png>]
-! Undefined control sequence.
-<recently read> \@shorttitlePL 
-                               
-l.71 \include{R7_Implementacja}
-                               
-? 
-[30 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_model.png (PNG copy)>]
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R8_InstrukcjaObslugiIGUI.tex
+[31] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R8_InstrukcjaObslugiIGUI.tex
 
 ! Package inputenc Error: Unicode char \u8:﻿ not set up for use with LaTeX.
 
@@ -1210,14 +1226,14 @@ l.1 ﻿
        \chapter {Graficzny interfejs użytkownika i instrukcja obsługi}
 ? 
 Rozdzia\l  7.
-<gui_cale.png, id=120, 519.74174pt x 344.487pt>
+<gui_cale.png, id=124, 519.74174pt x 344.487pt>
 File: gui_cale.png Graphic file (type png)
  <use gui_cale.png>
 Overfull \hbox (64.49637pt too wide) in paragraph at lines 12--13
  [] 
  []
 
-[31
+[32
 
 
 
@@ -1229,13 +1245,13 @@ l.53  \item P
              ojedynczy, dodawany element jest ortogonalnym, jednolitym bloki...
 
 ? 
-[32 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/gui_cale.png (PNG copy)>]
+[33 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/gui_cale.png (PNG copy)>]
 ! You can't use `macro parameter character #' in horizontal mode.
 l.71 \item Linia rozpoczynająca się od znaku #
                                                  jest traktowana jako koment...
 
 ? 
-<osie.jpg, id=128, 304.13625pt x 162.00525pt>
+<osie.jpg, id=131, 304.13625pt x 162.00525pt>
 File: osie.jpg Graphic file (type jpg)
  <use osie.jpg>
 ! Undefined control sequence.
@@ -1250,18 +1266,18 @@ l.89 	\item T
              ryb temperaturowy - przedstawia rozkład temperatur w budynku. ...
 
 ? 
-[33 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/osie.jpg>])
+[34 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/osie.jpg>])
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
 l.72 \include{R8_InstrukcjaObslugiIGUI}
                                        
 ? 
-[34] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
+[35] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [35
+) [36
 
 
 ] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
@@ -1275,9 +1291,6 @@ LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  4860 strings out of 495285
@@ -1286,7 +1299,7 @@ Here is how much of TeX's memory you used:
  7900 multiletter control sequences out of 15000+200000
  90432 words of font info for 71 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 32i,12n,45p,743b,479s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,12n,45p,1032b,481s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/Miktex/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Mi
 ktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/Miktex/fonts/t
 ype1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/Miktex/fonts/type1/public/a
@@ -1299,9 +1312,9 @@ uhvr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Progra
 m Files/Miktex/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/
 type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on PracaMain.pdf (35 pages, 750880 bytes).
+Output written on PracaMain.pdf (36 pages, 756893 bytes).
 PDF statistics:
- 180 PDF objects out of 1000 (max. 8388607)
+ 183 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

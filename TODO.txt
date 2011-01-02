@@ -16,3 +16,4 @@ W algorytmie napisać o powstałych prototypach.
 W implementacji napisać, że jeden prototyp by w lispie a drugi w javie i czemu list jest fajny do protypowania.
 Oczaić rozdzielczości obrazków.
 Sprawdzic czy diagram klas się zgadza i ma sens i jest kompletny!
+przy wnikach zamieścić pomiary energii i jakieś ilościowe weryfikacje.

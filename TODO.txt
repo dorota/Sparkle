@@ -1,10 +1,17 @@
-1. Regulacja prêdkoœci symulacji dorobiæ
-2. Panel górny wydzielic jako klasê
-3. Przenieœæ obs³ugê ruchów kamery do kontrolera i opisaæ w ksi¹¿eczce.
-4. Uzupe³niæ menu help
+ï»¿1. Regulacja prÄ™dkoÅ›ci symulacji dorobiÄ‡
+2. Panel gÃ³rny wydzielic jako klasÄ™
+3. PrzenieÅ›Ä‡ obsÅ‚ugÄ™ ruchÃ³w kamery do kontrolera i opisaÄ‡ w ksiÄ…Å¼eczce.
+4. UzupeÅ‚niÄ‡ menu help
 5. Ikonka projektu
 6. Kierunki x,y,z 
-7. Po wczytaniu budynku, powinien siê pojawiæ w edytorze do dalszej edycji.
-8. Podmiana kierunku obrotu sceny. Strza³ka w prawo ma obracaæ zgodnie z ruchem wsk, strza³ka w lewo przeciwnie.
-9. Ksi¹zeczka - gui - opis edytora [rozmiary] nie s¹ w "["
+7. Po wczytaniu budynku, powinien siÄ™ pojawiÄ‡ w edytorze do dalszej edycji.
+8. Podmiana kierunku obrotu sceny. StrzaÅ‚ka w prawo ma obracaÄ‡ zgodnie z ruchem wsk, strzaÅ‚ka w lewo przeciwnie.
+9. KsiÄ…zeczka - gui - opis edytora [rozmiary] nie sÄ… w "["
 10. naprawic adding new blocks left-back-bottom coordiantes a nie front
+
+
+//KsiÄ…Å¼eczka
+W algorytmie napisaÄ‡ o powstaÅ‚ych prototypach.
+W implementacji napisaÄ‡, Å¼e jeden prototyp by w lispie a drugi w javie i czemu list jest fajny do protypowania.
+OczaiÄ‡ rozdzielczoÅ›ci obrazkÃ³w.
+Sprawdzic czy diagram klas siÄ™ zgadza i ma sens i jest kompletny!

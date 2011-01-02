@@ -4,7 +4,8 @@ Poniższy rozdział zawiera przegląd ciekawszych aspektów implementacyjnych pr
 Na wstępie omówiono użyte technologie oraz narzędzia wraz z uzasadnieniem wyboru. Następnie przedstawiono dokładny model aplikacji z uwzględnieniem wybranych metod implementacyjnych. 
 W rozdziale tym przedstawiono także problemy, z którymi zetknęli się autorzy podczas realizacji projektu oraz sposoby ich rozwiązania.
 \section {Wybrane technologie i narzędzia}
-Przed przystąpieniem do implementacji końcowej wersji aplikacji powstawały prototypy testujące różne podejścia algorytmiczne opisane w rozdziale \ref{cha:Algorytm} oraz możliwe do wykorzystania narzędzia. W sekcji \textit{Język implementacji} przedstawiono język wybrany do implementacji końcowej wersji programu, natomiast w sekcji \textit{Języki prototypowania} przedstawiono technologie używane do tworzenia prototypów systemu. Następnie pokrótce omówiono narzędzia pracy grupowej wykorzysywane podczas realizacji projektu Sparkle.
+Przed przystąpieniem do implementacji końcowej wersji aplikacji powstawały prototypy testujące różne podejścia algorytmiczne opisane w rozdziale \ref{cha:Algorytm} oraz możliwe do wykorzystania narzędzia. W sekcji \textit{Język implementacji} przedstawiono język wybrany do implementacji końcowej wersji programu, natomiast w sekcji \textit{Języki prototypowania} przedstawiono technologie używane do tworzenia prototypów systemu. 
+W kolejnych podrozdziale pokrótce zaprezentowano narzędzia pracy grupowej wykorzystywane przez autorów pracy. Na końcu wymieniono biblioteki i narzędzia, które okazały się pomocne podczas realizacji projektu Sparkle i które zostaną szczegółowo omówione w kolejnych rozdziałach.
 \subsection{Język implementacji}
 Do implementacji końcowej wersji aplikacji został wybrany język Java.
 Język ten został wybrany ze względu na przenośność aplikacji, obiektowość ułatwiającą projektowanie, dostęp do licznych 
@@ -25,6 +26,12 @@ Celem tego modelu było przetestowanie języka Java oraz biblioteki Java3D pod k
 \subsection {Narzędzia pracy grupowej}
 Ze względu na fakt, że omawiana aplikacja powstała jako wynik pracy dwuosobowego zespołu bardzo przydatnym narzędziem okazał się system kontroli wersji. Jako system zarządzania wersjami został wybrany Git.
 Git jest darmowym, rozproszonym systemem, opartym na architekturze peer-to-peer. W przeciwieństwie do scentralizowanych odpowiedników (np. SVN) nie posiada jednego, centralnego repozytorium z którym członkowie zespołu synchronizują swoje zmiany ale wiele niezależnych gałęzi, które można synchronizować w różnorodny sposób. Główną zaletą systemu Git, będącą motywacją jego wyboru...
+
+\subsection{Inne narzędzia}
+\begin{enumerate}
+\item Podczas realizacji Graficznego Interfejsu Użytkownika został wykorzystany program WindowBuilder Pro.
+\item Wizualizacja symulacji została zaimplementowana z wykorzystaniem biblioteki Java3D.
+\end{enumerate}
 
 \section {Implementacja modelu aplikacji}
 Zgodnie z architekturą aplikacji omówioną w rozdziale \ref{cha:projekt} program został podzielony na 
@@ -116,6 +123,7 @@ Interfejs \textot{IScene3D} dostarcza metody umożliwiające wizualizację symul
 \subsection {Logika aplikacji}
 Logika aplikacji zaimplementowana jest w obrębie pakietu \textit{Model}.
 Jego budowę przedstawia diagram \ref{uml_model}.
+Diagram klas poza wewnętrzną budową modułu obrazuje jego interakcje z klasami zewnętrznymi, pochodzącymi z innych modułów.
 Główną klasą pakietu \textit{Model} jest \itextit{World}. Zawiera ona strukturę danych reprezentującą autmat komórkowy oraz
 zestaw metod umożliwiających przeprowadzanie symulacji.
 \subsubsection{World}
@@ -193,4 +201,14 @@ Klasa HeatAndVaporsConductor podczas wyliczania przepływającej energii uwzglę
 Symulacja konwekcji, jak wyjaśniono w rozdziale \ref{cha:Algorytm} opiera się na ułatwieniu przepływu ciepła do górnych sąsiadów komórki. Konwekcja jest więc szczególnym przypadkiem przewodnictwa, występującym w powietrzu. Zgodnie z powyższym, klasą realizującą konwekcję jest HeatAndVaporConductorWithConvection dziedzicząca po klasie HeatAndVaporsConductor. Przedefiniowana w  klasie potomnej metoda \textit{calculateEnergyFlow} wywołuje odpowiadającą funkcję klasy nadrzędnej, a następnie wprowadza do wyliczonej zgodnie z regułami przewodnictwa energii zmiany wywołane konwekcją. Zmiany te aplikowane są tylko w przypadku gdy badana komórka oraz komórka sąsiednia, z którą następuje wymiana ciepła są powietrzem. Metoda \textit{exchangeEnergy} poza wymianą ciepła między sąsiadującymi komórkami implementuje także przekazywanie drogą konwekcji oparów koniecznych do zapłonu komórki.
 
 \subsection {Moduł obsługi zdarzeń}
-Głównym zadaniem modułu obsługi zdarzeń jest obsługa interakcji z użytkownikiem. Implementacja modułu zawarta jest w pakiecie \textit{Controller}.
+Głównym zadaniem modułu obsługi zdarzeń jest obsługa interakcji z użytkownikiem. Implementacja modułu zawarta jest w pakiecie \textit{Controller}, a jej budowę przedstawia diagram \ref{uml_kontroler}. Adekwatnie do diagramu klas reprezentującego moduł \textit{Model},
+ilustracja \ref{uml_kontroler} przedstawia powiązania między klasami modułu \textit{Controller} oraz innymi modułami aplikacji.
+\begin{figure}
+\begin {center}
+\includegraphics{uml_kontroler.png} 
+\caption {Moduł Controller}
+\label {uml_kontroler}
+\end {center}
+\end{figure}
+Moduł \textit{Controller} zawiera zestaw klas tworzących Graficzny Interfejs Użytkownika oraz metod obsługujących wywołane zdarzenia.
+

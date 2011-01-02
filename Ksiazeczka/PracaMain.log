@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  2 JAN 2011 18:58
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  2 JAN 2011 20:04
 entering extended mode
 **D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
 (D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
@@ -1071,23 +1071,23 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.14 \end{itemize}
+l.16 \end{itemize}
                   
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    T
-l.19 ...PROTOTYPOWANIA - WYMYSLISZ COS PRAWDA :>?]
+l.21 ...PROTOTYPOWANIA - WYMYSLISZ COS PRAWDA :>?]
                                                   
 ? 
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    T
-l.19 ...PROTOTYPOWANIA - WYMYSLISZ COS PRAWDA :>?]
+l.21 ...PROTOTYPOWANIA - WYMYSLISZ COS PRAWDA :>?]
                                                   
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--23
+Underfull \hbox (badness 10000) in paragraph at lines 19--25
 
  []
 
@@ -1103,7 +1103,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.48  a
+l.56  a
        rchiwum zip. Po jego rozpakowaniu należy, postępując zgodnie z ins...
 
 ? 
@@ -1111,58 +1111,56 @@ l.48  a
 File: java3d_diagram_sceny.jpg Graphic file (type jpg)
 
 <use java3d_diagram_sceny.jpg>
-Overfull \hbox (81.96158pt too wide) in paragraph at lines 61--62
+Overfull \hbox (81.96158pt too wide) in paragraph at lines 69--70
  [] 
  []
 
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.69 \item L
-            eaf nodes - liście reprezentują obiekt tworzący scenę (geome...
-
+l.75 \begin{itemize}
+                    
 ? 
 [25]
 ! Undefined control sequence.
-l.85 Obiekt klasy \text
+<recently read> \@shorttitlePL 
+                               
+l.85 \end{enumerate}
+                    
+? 
+[26 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/java3d_diagram_sceny.jpg>]
+! Undefined control sequence.
+l.93 Obiekt klasy \text
                        {View} zawiera wszystkie iformacje potrzebne do rende...
 
 ? 
-! Undefined control sequence.
-<recently read> \@shorttitlePL 
-                               
-l.88 
-     
-? 
-[26 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/java3d_diagram_sceny.jpg>]
 <uml_view.png, id=103, 348.1005pt x 199.947pt>
 File: uml_view.png Graphic file (type png)
  <use uml_view.png>
 ! Undefined control sequence.
-l.102 ...ślnie tworzonych obiektów klasy \textif
+l.110 ...ślnie tworzonych obiektów klasy \textif
                                                   {Viewer} oraz \textit{View...
-
-? 
-! Undefined control sequence.
-l.107 Interfejs \textot
-                       {IScene3D} dostarcza metody umożliwiające wizualiza...
-
-? 
-! Undefined control sequence.
-l.109 ...zez \textit{blockIndex} komórki. \textif
-                                                  {BlockIndex} jest numerem ...
 
 ? 
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.110 \item \textit
-                   {markStartOfFire} - pokazuje źródło pożaru poprzed po...
-
+l.114 \end{itemize}
+                   
 ? 
 [27 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_view.png (PNG copy)>]
 ! Undefined control sequence.
-l.118 ...asą pakietu \textit{Model} jest \itextit
+l.115 Interfejs \textot
+                       {IScene3D} dostarcza metody umożliwiające wizualiza...
+
+? 
+! Undefined control sequence.
+l.117 ...zez \textit{blockIndex} komórki. \textif
+                                                  {BlockIndex} jest numerem ...
+
+? 
+! Undefined control sequence.
+l.127 ...asą pakietu \textit{Model} jest \itextit
                                                   {World}. Zawiera ona struk...
 
 ? 
@@ -1174,16 +1172,16 @@ File: uml_model.png Graphic file (type png)
 
 <use uml_model.png>
 
-LaTeX Warning: Float too large for page by 44.63626pt on input line 152.
+LaTeX Warning: Float too large for page by 44.63626pt on input line 161.
 
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.153 
+l.162 
       
 ? 
-[28 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/drzewo_osemkowe.png>]
-Underfull \hbox (badness 1521) in paragraph at lines 159--160
+[28]
+Underfull \hbox (badness 1521) in paragraph at lines 168--169
 []\T1/ptm/m/it/10.95 restartTemperatures \T1/ptm/m/n/10.95 - metoda wywo�y-wana
  pod-czas restartu symu-lacji. Nadaje wszys-tkim
  []
@@ -1191,20 +1189,29 @@ Underfull \hbox (badness 1521) in paragraph at lines 159--160
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.178 
-      
+l.177 \item \textit
+                   {updateOldValues} - aktualizująca macierz wartości do o...
+
 ? 
-[29]
+[29 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/drzewo_osemkowe.png>]
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.178 
-      
+l.177 \item \textit
+                   {updateOldValues} - aktualizująca macierz wartości do o...
+
 ? 
 [30 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_model.png (PNG copy)>]
-Underfull \hbox (badness 2401) in paragraph at lines 189--190
+Underfull \hbox (badness 2401) in paragraph at lines 199--200
 \T1/ptm/m/n/10.95 Klasa HeatAnd-Va-porsCon-duc-tor pod-czas wylicza-nia przep�y
 -wa-j�cej en-ergii uwzgl�d-nia je-dynie
+ []
+
+<uml_kontroler.png, id=120, 478.78876pt x 527.571pt>
+File: uml_kontroler.png Graphic file (type png)
+ <use uml_kontroler.png>
+Overfull \hbox (23.54347pt too wide) in paragraph at lines 208--209
+ [] 
  []
 
 )
@@ -1214,7 +1221,15 @@ Underfull \hbox (badness 2401) in paragraph at lines 189--190
 l.71 \include{R7_Implementacja}
                                
 ? 
-[31] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R8_InstrukcjaObslugiIGUI.tex
+[31]
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.71 \include{R7_Implementacja}
+                               
+? 
+[32 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_kontroler.png (PNG copy)>]
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R8_InstrukcjaObslugiIGUI.tex
 
 ! Package inputenc Error: Unicode char \u8:﻿ not set up for use with LaTeX.
 
@@ -1226,14 +1241,14 @@ l.1 ﻿
        \chapter {Graficzny interfejs użytkownika i instrukcja obsługi}
 ? 
 Rozdzia\l  7.
-<gui_cale.png, id=124, 519.74174pt x 344.487pt>
+<gui_cale.png, id=128, 519.74174pt x 344.487pt>
 File: gui_cale.png Graphic file (type png)
  <use gui_cale.png>
 Overfull \hbox (64.49637pt too wide) in paragraph at lines 12--13
  [] 
  []
 
-[32
+[33
 
 
 
@@ -1245,13 +1260,13 @@ l.53  \item P
              ojedynczy, dodawany element jest ortogonalnym, jednolitym bloki...
 
 ? 
-[33 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/gui_cale.png (PNG copy)>]
+[34 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/gui_cale.png (PNG copy)>]
 ! You can't use `macro parameter character #' in horizontal mode.
 l.71 \item Linia rozpoczynająca się od znaku #
                                                  jest traktowana jako koment...
 
 ? 
-<osie.jpg, id=131, 304.13625pt x 162.00525pt>
+<osie.jpg, id=135, 304.13625pt x 162.00525pt>
 File: osie.jpg Graphic file (type jpg)
  <use osie.jpg>
 ! Undefined control sequence.
@@ -1266,18 +1281,18 @@ l.89 	\item T
              ryb temperaturowy - przedstawia rozkład temperatur w budynku. ...
 
 ? 
-[34 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/osie.jpg>])
+[35 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/osie.jpg>])
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
 l.72 \include{R8_InstrukcjaObslugiIGUI}
                                        
 ? 
-[35] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
+[36] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [36
+) [37
 
 
 ] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
@@ -1291,15 +1306,18 @@ LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 4860 strings out of 495285
- 65827 string characters out of 3180683
+ 4866 strings out of 495285
+ 65946 string characters out of 3180683
  154657 words of memory out of 3000000
- 7900 multiletter control sequences out of 15000+200000
+ 7905 multiletter control sequences out of 15000+200000
  90432 words of font info for 71 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 32i,12n,45p,1032b,481s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,12n,45p,1032b,479s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/Miktex/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Mi
 ktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/Miktex/fonts/t
 ype1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/Miktex/fonts/type1/public/a
@@ -1312,9 +1330,9 @@ uhvr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Progra
 m Files/Miktex/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/
 type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on PracaMain.pdf (36 pages, 756893 bytes).
+Output written on PracaMain.pdf (37 pages, 810384 bytes).
 PDF statistics:
- 183 PDF objects out of 1000 (max. 8388607)
+ 190 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

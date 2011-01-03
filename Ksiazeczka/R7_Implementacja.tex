@@ -29,8 +29,11 @@ Git jest darmowym, rozproszonym systemem, opartym na architekturze peer-to-peer.
 
 \subsection{Inne narzędzia}
 \begin{enumerate}
+\item Do implementacji projektu zostały wykorzystane środowiska programistyczne: Eclipse i NetBeans. Użycie systemu kontroli wersji do wymiany plików źródłowych aplikacji dało możliwość niezależniej pracy w różnych środowiskach.
 \item Podczas realizacji Graficznego Interfejsu Użytkownika został wykorzystany program WindowBuilder Pro.
 \item Wizualizacja symulacji została zaimplementowana z wykorzystaniem biblioteki Java3D.
+\item Metody tworzące algorytmikę aplikacji zostały przetestowane z wykorzystniem biblioteki JUnit4.
+\item Do badania pokrycia kodu testami jednostkowymi zostało wykorzystane narzędzie Emma.
 \end{enumerate}
 
 \section {Implementacja modelu aplikacji}
@@ -124,6 +127,7 @@ Interfejs \textot{IScene3D} dostarcza metody umożliwiające wizualizację symul
 Logika aplikacji zaimplementowana jest w obrębie pakietu \textit{Model}.
 Jego budowę przedstawia diagram \ref{uml_model}.
 Diagram klas poza wewnętrzną budową modułu obrazuje jego interakcje z klasami zewnętrznymi, pochodzącymi z innych modułów.
+W przypadku Modelu jest to jedynie klasa \textit{Scene3D} z pakietu \textit{View}.
 Główną klasą pakietu \textit{Model} jest \itextit{World}. Zawiera ona strukturę danych reprezentującą autmat komórkowy oraz
 zestaw metod umożliwiających przeprowadzanie symulacji.
 \subsubsection{World}
@@ -201,7 +205,9 @@ Klasa HeatAndVaporsConductor podczas wyliczania przepływającej energii uwzglę
 Symulacja konwekcji, jak wyjaśniono w rozdziale \ref{cha:Algorytm} opiera się na ułatwieniu przepływu ciepła do górnych sąsiadów komórki. Konwekcja jest więc szczególnym przypadkiem przewodnictwa, występującym w powietrzu. Zgodnie z powyższym, klasą realizującą konwekcję jest HeatAndVaporConductorWithConvection dziedzicząca po klasie HeatAndVaporsConductor. Przedefiniowana w  klasie potomnej metoda \textit{calculateEnergyFlow} wywołuje odpowiadającą funkcję klasy nadrzędnej, a następnie wprowadza do wyliczonej zgodnie z regułami przewodnictwa energii zmiany wywołane konwekcją. Zmiany te aplikowane są tylko w przypadku gdy badana komórka oraz komórka sąsiednia, z którą następuje wymiana ciepła są powietrzem. Metoda \textit{exchangeEnergy} poza wymianą ciepła między sąsiadującymi komórkami implementuje także przekazywanie drogą konwekcji oparów koniecznych do zapłonu komórki.
 
 \subsection {Moduł obsługi zdarzeń}
-Głównym zadaniem modułu obsługi zdarzeń jest obsługa interakcji z użytkownikiem. Implementacja modułu zawarta jest w pakiecie \textit{Controller}, a jej budowę przedstawia diagram \ref{uml_kontroler}. Adekwatnie do diagramu klas reprezentującego moduł \textit{Model},
+Głównym zadaniem modułu obsługi zdarzeń zwanym także \textit{Controllerem} jest obsługa interakcji z użytkownikiem. 
+Zgodnie z omówioną w rozdziale \ref{cha:projekt} moduł ten łączy w sobie elementy widoku, tworzące Graficzny Interfejs Użytkownika oraz metody obsługujące wywołane zdarzenia.
+Implementacja modułu zawarta jest w pakiecie \textit{Controller}, a jej budowę przedstawia diagram \ref{uml_kontroler}. Adekwatnie do diagramu klas reprezentującego moduł \textit{Model},
 ilustracja \ref{uml_kontroler} przedstawia powiązania między klasami modułu \textit{Controller} oraz innymi modułami aplikacji.
 \begin{figure}
 \begin {center}
@@ -210,5 +216,32 @@ ilustracja \ref{uml_kontroler} przedstawia powiązania między klasami modułu \
 \label {uml_kontroler}
 \end {center}
 \end{figure}
-Moduł \textit{Controller} zawiera zestaw klas tworzących Graficzny Interfejs Użytkownika oraz metod obsługujących wywołane zdarzenia.
+\subsubsection{WindowBuilder Pro - narzędzie do budowy GUI}
+Elementy tworząceg GUI zostały stworzone z wykorzystaniem narzędzia WindowBuilder Pro. Jest to darmowe narzędzie, które można zainstalować jako Plugin środowiska Eclipse. WindowBuilder Pro jest edytorem typu WYSIWYG (What You See Is What You Get), pozwalającym na tworzenie graficznych interfejsów użytkownika z wykorzystaniem bibliotek Swing, SWT czy GWT. 
+
+WindowBuilder poza możliwościa tworzenia w łatwy sposób interfejsu aplikacji, umożliwia edycję GUI stworzonego przy pomocy innego oprogramowania. Posiada wbudowany parser, który po otrzymaniu jako argument głównej klasy tworzącej interfejs, przeprowadza analizę kodu i jego wizualizację. Pozwala to na wykorzystanie edytora do poprawy wyglądu aplikacji jednocześnie zachowując przejrzystość kodu w wyniku ręcznej refaktoryzacji.
+
+Innymi przydatnymi cechami wyróżniającymi edytow WindowBuilder Pro jest możliwość tworzenia hierarchii elementów oraz związana z nią
+możliwość zamiany typu elementu tworzącego GUI po jego osadzeniu w aplikacji. WindowBuilder umożliwia tworzenie własnych elementów wizualnych dziedzicących po standardowych klasach zawartych w bibliotekach Swing, SWT czy GWT oraz po typach stworzonych przez projektanta. Ta funkcjonalność pozwala na łatwe dostosowywanie komponentów do potrzeb aplikacji oraz dostarcza możliwość tworzenia modułu interfejsu łatwego do utrzymania i modyfkacji.
+Druga z wymienionych opcji została nazwana przez autorów programu Morph. Umożliwia ona zamianę obiektu dowolnej klasy na instancję klasy po niej dziedziczącej zgodnie z polimorfizmem oraz instancję klasy podobnej. Do klas podobnych zaliczane są typy posiadające wspólne cechy. W przypadku takiej zamiany zachowywane są właściwości wspólne dla obiektów obu klas. 
+
+\subsubsection{Budowa modułu}
+\subsubsection {MainWindow}
+Jest to główna klasa modułu Controller i jednocześnia główna klasa aplikacji, zawierająca metodę main.
+ W konsturktorze obiektu tworzone są 
+elementy składowe głownego okna, do których należą obiekty klas:
+\begin{itemize}
+\item {MenuPanel}
+\item {TopMenu}
+\item {Editor}
+\item {Scene3D}
+\end{itemize}
+Klasa MainWindow zawiera także referencję do obiektu typu World, który jest aktualizowany w czasie symulacji.
+Konstruktor odpowiada także za rejestrację metod obsługujących zakończenie działania aplikacji.
+W  prywatnej metodzie \textit{setLayout}, która jest wywoływana podczas konstrukcji okna, ustalane jest rozmieszczenie jego elementów składowych. Zastosowanym sposobem rozmieszczania jest \textit{BorderLayout}, który pozwala na elastyczne dopasowywanie rozmiaru komponentów do aktualnej wielkości okna.
+\subsubsection{MenuPanel}
+MenuPanel jest klasą, która pozwala na sterowanie symulacją oraz pozwala na dodawanie elementów konstrukcyjnych budynku.
+Zbudowana jest z dwóch obiektów klasy JPanel odpowiadających zakładkom Simmulation i AddingNewBlocks. Wszystkie elementy składowe paneli(pola tekstowe, etykiety, guziki) będące również atrybutami klasy MenuPanel zostały stworzone z wyłącznym wykorzystaniem biblioteki Swing. Do rozmieszczenia elementów w obrębie paneli został wykorzystany szablon GroupLayout. Klasa MenuPanel poza tworzącymi jej wygląd elementami posiada także referencję do obiektu typu SimulationMgr, który odpowiada za aktualizację symulacji oraz instancji klasy World, na której przeprowadzana jest symulacja. W wyniku naciśnięcia przez użytkownika jednego z guzików (Start, Stop, Pause, Continue, Restart) metody obsługujące te zdarzenia wywołują odpowiednie akcje klasy SimulationMgr aktywujące lub deaktywujące symulację. Metda obsługująca zdarzenie wykonane na guziku Start
+\subsubsection{SimulationMgr}
+SimulationMgr to klasa odpowiedzialna za sterowanie symulacją.
 

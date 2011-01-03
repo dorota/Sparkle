@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  28 DEC 2010 14:30
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  2 JAN 2011 20:04
 entering extended mode
 **D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
 (D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
@@ -459,20 +459,22 @@ LaTeX Warning: Unused global option(s):
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R2_TeoriaFizyka.aux)
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R5_TeoriaAutomatKomorkowy.aux)
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R6_Algorytm.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 51.
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R6_Algorytm.aux)
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R7_Implementacja.aux)
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R8_InstrukcjaObslugiIGUI.aux))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 59.
 
 ("C:\Program Files\Miktex\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -525,36 +527,36 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count108
-LaTeX Font Info:    Try loading font information for T1+phv on input line 53.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 61.
 ("C:\Program Files\Miktex\tex\latex\psnfss\t1phv.fd"
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 53.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 61.
 LaTeX Font Info:    Font shape `T1/phv/bx/sc' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/sc' tried instead on input line 53.
+(Font)              Font shape `T1/phv/b/sc' tried instead on input line 61.
 
 <agh.jpg, id=1, 146.4672pt x 284.7438pt>
 File: agh.jpg Graphic file (type jpg)
  <use agh.jpg>
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 53.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 61.
 LaTeX Font Info:    Font shape `T1/ptm/bx/sc' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/sc' tried instead on input line 53.
+(Font)              Font shape `T1/ptm/b/sc' tried instead on input line 61.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 53.
+(Font)              <10.95> on input line 61.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 53.
+(Font)              <8> on input line 61.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 53.
+(Font)              <6> on input line 61.
  [1
 
 {C:/ProgramData/MiKTeX/2.8/pdftex/config/pdftex.map} <D:/Studia/Sparkle/Sparkle
 /Ksiazeczka/agh.jpg>]
 LaTeX Font Info:    Font shape `T1/ptm/bx/sc' in size <12> not available
-(Font)              Font shape `T1/ptm/b/sc' tried instead on input line 53.
+(Font)              Font shape `T1/ptm/b/sc' tried instead on input line 61.
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--53
+Underfull \hbox (badness 10000) in paragraph at lines 61--61
 
  []
 
@@ -564,7 +566,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--53
 ! Undefined control sequence.
 \titlepages ...ce *{1mm} \par {\large \@facultyEN 
                                                   }}\vspace *{1cm} \par \ifp...
-l.53 \titlepages
+l.61 \titlepages
                 
 ? 
 File: agh.jpg Graphic file (type jpg)
@@ -572,7 +574,7 @@ File: agh.jpg Graphic file (type jpg)
 ! Undefined control sequence.
 \titlepages ...par {\huge \scshape \@thesistypeEN 
                                                   }\\\vspace *{2cm} \par {\L...
-l.53 \titlepages
+l.61 \titlepages
                 
 ? 
 
@@ -582,7 +584,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.53 \titlepages
+l.61 \titlepages
                 
 ? 
 [1
@@ -591,9 +593,9 @@ l.53 \titlepages
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 55.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 63.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 55.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 63.
  (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.toc)
 \tf@toc=\write3
  [5
@@ -615,7 +617,7 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.58 \include{R1_Wstep}
+l.66 \include{R1_Wstep}
                        
 ? 
 [7] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R2_TeoriaFizyka.tex
@@ -820,7 +822,7 @@ l.211 \begin {equation}
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.59 \include {R2_TeoriaFizyka}
+l.67 \include {R2_TeoriaFizyka}
                                
 ? 
 [12] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R5_TeoriaAutomatKomorkowy.tex
@@ -887,7 +889,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--41
 
 
 
-] <algorytm_automatu_kom.jpg, id=56, 392.06474pt x 319.1925pt>
+] <algorytm_automatu_kom.jpg, id=57, 392.06474pt x 319.1925pt>
 File: algorytm_automatu_kom.jpg Graphic file (type jpg)
 
 <use algorytm_automatu_kom.jpg>
@@ -939,28 +941,28 @@ l.78 \end {Center}
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.60 \include {R5_TeoriaAutomatKomorkowy}
+l.68 \include {R5_TeoriaAutomatKomorkowy}
                                          
 ? 
 [15] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.tex
 Rozdzia\l  4.
 
-Underfull \hbox (badness 1077) in paragraph at lines 15--16
+Underfull \hbox (badness 1077) in paragraph at lines 16--17
 []\T1/ptm/m/n/10.95 Aplikacja powinna umo»li-wia¢ kon-trol¦ nad symu-lacj¡: mo»
 li-wo±¢ za-trzy-ma-nia symu-lacji,
  []
 
-<architectureComponentDiagram.jpg, id=63, 413.1435pt x 174.05025pt>
+<architectureComponentDiagram.jpg, id=64, 413.1435pt x 174.05025pt>
 File: architectureComponentDiagram.jpg Graphic file (type jpg)
 
 <use architectureComponentDiagram.jpg>
-Underfull \hbox (badness 5893) in paragraph at lines 26--37
+Underfull \hbox (badness 5893) in paragraph at lines 27--38
 \T1/ptm/m/n/10.95 Zale»no±ci pomi¦dzy poszczegól-nymi kom-po-nen-tami przed-sta
 wia di-a-gram kom-po-nen-tów 4.1[]
  []
 
 
-Underfull \hbox (badness 1107) in paragraph at lines 38--40
+Underfull \hbox (badness 1107) in paragraph at lines 39--41
 \T1/ptm/m/n/10.95 wyko-rzys-tu-j¡-cych graficzny in-ter-fejs u»ytkown-ika: Mode
 l-View-Controller. El-e-mentem ró»ni¡-cym
  []
@@ -969,24 +971,18 @@ l-View-Controller. El-e-mentem ró»ni¡-cym
 
 
 
-] <useCase.jpg, id=67, 444.4605pt x 649.82774pt>
+] <useCase.jpg, id=68, 444.4605pt x 649.82774pt>
 File: useCase.jpg Graphic file (type jpg)
  <use useCase.jpg>
-Underfull \hbox (badness 1910) in paragraph at lines 62--64
+Underfull \hbox (badness 1910) in paragraph at lines 65--67
 \T1/ptm/m/n/10.95 przed-staw-iane s¡ wyniki symu-lacji oraz zestaw pan-eli menu
 . Odpowiada za rozmi-ary i
- []
-
-
-Underfull \hbox (badness 2460) in paragraph at lines 65--66
-[]\T1/ptm/m/n/10.95 TopMenu - za-w-iera el-e-menty umow-i»li-wia-j¡ce za-pis wy
-ników symu-lacji do pliku oraz
  []
 
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.66 \item F
+l.69 \item F
             ileChooser - okno wyboru pliku z ktÃ³rego nastÄ™puje odczyt para...
 
 ? 
@@ -994,7 +990,7 @@ l.66 \item F
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.66 \item F
+l.69 \item F
             ileChooser - okno wyboru pliku z ktÃ³rego nastÄ™puje odczyt para...
 
 ? 
@@ -1002,19 +998,14 @@ l.66 \item F
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.105 \end {itemize}
+l.108 \end {itemize}
                     
 ? 
-[19]
-
-LaTeX Warning: Reference `cha:implementacja' on page 20 undefined on input line
- 106.
-
-)
+[19])
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.61 \include{R3_Projekt}
+l.69 \include{R3_Projekt}
                          
 ? 
 [20] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R6_Algorytm.tex
@@ -1026,7 +1017,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.1 ï»¿
-       %TODO dopisaÄ‡ coÅ› wiecej dlaczego mniejsze komÃ³rki nie sÄ… potrzebne.
+       %TODO dopisaÄ‡ coÅ› wiÄ™cej dlaczego mniejsze komÃ³rki nie sÄ… potrze...
 
 ? 
 Rozdzia\l  5.
@@ -1034,7 +1025,7 @@ Rozdzia\l  5.
 
 
 
-] <sasiedztwo.jpg, id=84, 216.81pt x 195.73125pt>
+] <sasiedztwo.jpg, id=85, 216.81pt x 195.73125pt>
 File: sasiedztwo.jpg Graphic file (type jpg)
  <use sasiedztwo.jpg>
 Underfull \hbox (badness 2932) in paragraph at lines 57--76
@@ -1058,26 +1049,250 @@ l.87 \item D
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.62 \include {R6_Algorytm}
+l.70 \include {R6_Algorytm}
                            
 ? 
 [23] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R7_Implementacja.tex
+
+! Package inputenc Error: Unicode char \u8:ï»¿ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ï»¿
+       \chapter {Implementacja}
+? 
 Rozdzia\l  6.
-) [24
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.16 \end{itemize}
+                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   T
+l.21 ...PROTOTYPOWANIA - WYMYSLISZ COS PRAWDA :>?]
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   T
+l.21 ...PROTOTYPOWANIA - WYMYSLISZ COS PRAWDA :>?]
+                                                  
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--25
+
+ []
+
+[24
 
 
 
-] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R8_InstrukcjaObslugiIGUI.tex)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R9_Wyniki.tex)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
+]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56  a
+       rchiwum zip. Po jego rozpakowaniu naleÅ¼y, postÄ™pujÄ…c zgodnie z ins...
+
+? 
+<java3d_diagram_sceny.jpg, id=95, 537.207pt x 290.88675pt>
+File: java3d_diagram_sceny.jpg Graphic file (type jpg)
+
+<use java3d_diagram_sceny.jpg>
+Overfull \hbox (81.96158pt too wide) in paragraph at lines 69--70
+ [] 
+ []
+
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.75 \begin{itemize}
+                    
+? 
+[25]
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.85 \end{enumerate}
+                    
+? 
+[26 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/java3d_diagram_sceny.jpg>]
+! Undefined control sequence.
+l.93 Obiekt klasy \text
+                       {View} zawiera wszystkie iformacje potrzebne do rende...
+
+? 
+<uml_view.png, id=103, 348.1005pt x 199.947pt>
+File: uml_view.png Graphic file (type png)
+ <use uml_view.png>
+! Undefined control sequence.
+l.110 ...Å›lnie tworzonych obiektÃ³w klasy \textif
+                                                  {Viewer} oraz \textit{View...
+
+? 
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.114 \end{itemize}
+                   
+? 
+[27 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_view.png (PNG copy)>]
+! Undefined control sequence.
+l.115 Interfejs \textot
+                       {IScene3D} dostarcza metody umoÅ¼liwiajÄ…ce wizualiza...
+
+? 
+! Undefined control sequence.
+l.117 ...zez \textit{blockIndex} komÃ³rki. \textif
+                                                  {BlockIndex} jest numerem ...
+
+? 
+! Undefined control sequence.
+l.127 ...asÄ… pakietu \textit{Model} jest \itextit
+                                                  {World}. Zawiera ona struk...
+
+? 
+<drzewo_osemkowe.png, id=107, 211.38976pt x 167.4255pt>
+File: drzewo_osemkowe.png Graphic file (type png)
+
+<use drzewo_osemkowe.png> <uml_model.png, id=109, 447.47176pt x 709.4505pt>
+File: uml_model.png Graphic file (type png)
+
+<use uml_model.png>
+
+LaTeX Warning: Float too large for page by 44.63626pt on input line 161.
+
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.162 
+      
+? 
+[28]
+Underfull \hbox (badness 1521) in paragraph at lines 168--169
+[]\T1/ptm/m/it/10.95 restartTemperatures \T1/ptm/m/n/10.95 - metoda wywoªy-wana
+ pod-czas restartu symu-lacji. Nadaje wszys-tkim
+ []
+
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.177 \item \textit
+                   {updateOldValues} - aktualizujÄ…ca macierz wartoÅ›ci do o...
+
+? 
+[29 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/drzewo_osemkowe.png>]
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.177 \item \textit
+                   {updateOldValues} - aktualizujÄ…ca macierz wartoÅ›ci do o...
+
+? 
+[30 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_model.png (PNG copy)>]
+Underfull \hbox (badness 2401) in paragraph at lines 199--200
+\T1/ptm/m/n/10.95 Klasa HeatAnd-Va-porsCon-duc-tor pod-czas wylicza-nia przepªy
+-wa-j¡cej en-ergii uwzgl¦d-nia je-dynie
+ []
+
+<uml_kontroler.png, id=120, 478.78876pt x 527.571pt>
+File: uml_kontroler.png Graphic file (type png)
+ <use uml_kontroler.png>
+Overfull \hbox (23.54347pt too wide) in paragraph at lines 208--209
+ [] 
+ []
+
+)
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.71 \include{R7_Implementacja}
+                               
+? 
+[31]
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.71 \include{R7_Implementacja}
+                               
+? 
+[32 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_kontroler.png (PNG copy)>]
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R8_InstrukcjaObslugiIGUI.tex
+
+! Package inputenc Error: Unicode char \u8:ï»¿ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ï»¿
+       \chapter {Graficzny interfejs uÅ¼ytkownika i instrukcja obsÅ‚ugi}
+? 
+Rozdzia\l  7.
+<gui_cale.png, id=128, 519.74174pt x 344.487pt>
+File: gui_cale.png Graphic file (type png)
+ <use gui_cale.png>
+Overfull \hbox (64.49637pt too wide) in paragraph at lines 12--13
+ [] 
+ []
+
+[33
+
+
+
+]
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.53  \item P
+             ojedynczy, dodawany element jest ortogonalnym, jednolitym bloki...
+
+? 
+[34 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/gui_cale.png (PNG copy)>]
+! You can't use `macro parameter character #' in horizontal mode.
+l.71 \item Linia rozpoczynajÄ…ca siÄ™ od znaku #
+                                                 jest traktowana jako koment...
+
+? 
+<osie.jpg, id=135, 304.13625pt x 162.00525pt>
+File: osie.jpg Graphic file (type jpg)
+ <use osie.jpg>
+! Undefined control sequence.
+l.85 ...e oznaczone etykietami \textit{x},\itextit
+                                                  {y} i \textit{z} pozwalajÄ...
+
+? 
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.89 	\item T
+             ryb temperaturowy - przedstawia rozkÅ‚ad temperatur w budynku. ...
+
+? 
+[35 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/osie.jpg>])
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.72 \include{R8_InstrukcjaObslugiIGUI}
+                                       
+? 
+[36] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [25
-
-
-
-
+) [37
 
 
 ] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
@@ -1087,8 +1302,7 @@ LaTeX Warning: Empty `thebibliography' environment on input line 3.
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux)
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R6_Algorytm.aux)
 (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R7_Implementacja.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R8_InstrukcjaObslugiIGUI.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R9_Wyniki.aux))
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R8_InstrukcjaObslugiIGUI.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -1097,13 +1311,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 4815 strings out of 495285
- 64985 string characters out of 3180683
+ 4866 strings out of 495285
+ 65946 string characters out of 3180683
  154657 words of memory out of 3000000
- 7861 multiletter control sequences out of 15000+200000
- 87584 words of font info for 69 fonts, out of 3000000 for 9000
+ 7905 multiletter control sequences out of 15000+200000
+ 90432 words of font info for 71 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 32i,12n,45p,536b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,12n,45p,1032b,479s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/Miktex/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Mi
 ktex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/Miktex/fonts/t
 ype1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/Miktex/fonts/type1/public/a
@@ -1114,10 +1328,11 @@ iktex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/Miktex/fonts/t
 ype1/urw/helvetic/uhvb8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/helvetic/
 uhvr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Progra
 m Files/Miktex/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/
-type1/urw/times/utmr8a.pfb>
-Output written on PracaMain.pdf (25 pages, 407528 bytes).
+type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmri
+8a.pfb>
+Output written on PracaMain.pdf (37 pages, 810384 bytes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
+ 190 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -158,6 +158,7 @@ public class Scene3D
         // System.out.println( "block index " + blockIndex );
 	//FIXME refactor name.
 	//FIXME actually this function and setCellColor() now do the exactly same thing...
+
         Box cell = getBlockWithGivenId( blockIndex );
 	cell.getAppearance().getColoringAttributes().setColor(material.get_color());
 	cell.getAppearance().getTransparencyAttributes().setTransparency(material.get_transparency());

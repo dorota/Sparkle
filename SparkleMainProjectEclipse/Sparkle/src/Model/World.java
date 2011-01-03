@@ -95,7 +95,7 @@ public class World
 
     public void initWorld( Scene3D scene )
     {
-	double airMass = 2.0;
+        double airMass = 2.0;
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
             for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
@@ -194,7 +194,7 @@ public class World
         int z;
     }
 
-    public List<CellIndex> getNeighbours( CellIndex index )
+    private List<CellIndex> getNeighbours( CellIndex index )
     {
 	//NOTE optimization ideas TODO
 	//* get rid of this CellIndex stuff (replace with 1D index)

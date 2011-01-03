@@ -38,6 +38,9 @@ public class MainWindow
     private JMenuItem save_temps_menu_item;
     private JMenuItem saveCellStatesMenuItem;
     private JMenuItem _readBuildingFromFileMenuItem;
+    private JMenu help_menu;
+    private JMenuItem about_program_menu_item;
+    private JMenuItem user_guide_menu_item;
 
     public static MainWindow getMainWindow()
     {
@@ -89,6 +92,12 @@ public class MainWindow
             }
         } );
         File_menu.add( _readBuildingFromFileMenuItem );
+        help_menu = new JMenu( "Help" );
+        menuBar.add( help_menu );
+        user_guide_menu_item = new JMenuItem( "User guide" );
+        help_menu.add( user_guide_menu_item );
+        about_program_menu_item = new JMenuItem( "About program" );
+        help_menu.add( about_program_menu_item );
         initWindow();
     }
 

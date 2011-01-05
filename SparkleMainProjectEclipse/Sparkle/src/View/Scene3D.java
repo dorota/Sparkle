@@ -17,6 +17,8 @@ import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
+import javax.media.j3d.View;
+
 import Helpers.EnvSettings;
 import Helpers.EnvSettings.CellState;
 import Helpers.EnvSettings.DisplayMode;
@@ -62,7 +64,9 @@ public class Scene3D
         setSceneAppearance();
         handleUserSceneInteractions();
         _universe.getViewingPlatform().setNominalViewingTransform();
+	_universe.getViewer().getView().setTransparencySortingPolicy(View.TRANSPARENCY_SORT_GEOMETRY);
         _universe.addBranchGraph( _contents );
+
     }
 
     public static int get_contentsOffset()
@@ -142,7 +146,7 @@ public class Scene3D
         tg.getChild( 0 ).setCapability( Box.ENABLE_APPEARANCE_MODIFY );
         childBG.addChild( tg );
         _startsOfBlocks.add( vector );
-        childBG.setCapability( BranchGroup.ALLOW_DETACH );
+       childBG.setCapability( BranchGroup.ALLOW_DETACH );
         _contents.addChild( childBG );
     }
 

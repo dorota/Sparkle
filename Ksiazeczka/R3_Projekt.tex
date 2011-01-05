@@ -1,11 +1,11 @@
 %Todo poprwic niespojnosci: moduł View czy Scene?
 \chapter {Projekt}
-Głównym celem projektu jest stworzenie i weryfikacja modelu rozprzestrzeniania się ognia wykorzystując niehomogeniczne automaty
-komórkowe, który został opisany w rozdziale \ref{cha:Algorytm} . Nacisk z pracy został położony na opracowanie algorytmu najdokładniej oddającego rzeczywistość.
+Głównym celem projektu jest stworzenie i weryfikacja modelu rozprzestrzeniania się ognia wykorzystując niehomogeniczny automat
+komórkowy, który został opisany w rozdziale \ref{cha:Algorytm} . Nacisk z pracy został położony na opracowanie algorytmu najdokładniej oddającego rzeczywistość.
 Aplikacja, o nazwie Sparkle została zaprojektowana tak, aby zapewnić użytkownikowi wysoką ergonomię pracy i łatwość nauki.
 Podczas projektowania i implementacji szczególna uwaga została poświęcona dalszym możliwościom rozbudowy programu oraz testowania 
 kolejnych wersji modelu algorytmicznego. Wstęp poniższego rozdziału zawiera ogólne założenia dotyczącego całego projektu. 
-Następni w kolejnych podrozdziałach została opisana architektura aplikacji oraz budowa i funkcjonowanie poszczególnych modułów.
+Następnie w kolejnych podrozdziałach została opisana architektura aplikacji oraz budowa i funkcjonowanie poszczególnych modułów.
 \label{cha:projekt}
 \section {Główne założenia}
 \begin {itemize}
@@ -15,7 +15,7 @@ określanie materiałów z których zostały stworzone.
 \item Użytkownik powinien mieć możliwość określenia źródła ognia (miejsca w którym rozpoczyna się pożar).
 \item Aplikacja powinna umożliwiać kontrolę nad symulacją: możliwość zatrzymania symulacji, wznowienia, rozpoczęcia od początku.
 \item Dodatkowym elementem jest zapis wyników w postaci rozkładu temperatur do pliku, umożliwiający dogłębną analizę rezultatów.
-\item Wizualizacja powinna obejmować zarówno rozkład temperaturowy jak i rozprzestrzenianie się rozprzestrzenianie ognia. 
+\item Wizualizacja powinna obejmować zarówno rozkład temperaturowy jak i rozprzestrzenianie się ognia. 
 \end {itemize}
 \section {Architektura aplikacji}
 Aplikacja została podzielona na trzy główne moduły:
@@ -89,7 +89,7 @@ Komponent model jest silnikiem aplikacji. Zawiera struktury danych oraz algorytm
 \item Zawartość palnych oparów
 \item Czas pozostały do całkowitego spalenia komórki
 \end {itemize}
-\item Material - opisuje właściwości materiału z którego może być zbudowana komórka.
+\item Materiał - opisuje właściwości materiału z którego może być zbudowana komórka.
 Do właściwości materiału należą:
 \begin {itemize}
 \item Nazwa

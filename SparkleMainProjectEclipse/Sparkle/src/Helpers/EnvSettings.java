@@ -32,7 +32,7 @@ public class EnvSettings
     public static final double AIR_THERMAL_CONDUCTIVITY = 0.15; // 0.025 real
     // value
     public static final double WOOD_THERMAL_CONDUCTIVITY = 1.7;
-    public static final double METAL_THERMAL_CONDUCTIVITY = 5;
+    public static final double METAL_THERMAL_CONDUCTIVITY = 10;
     public static final double CONSTANT_ENERGY_FACTOR = 0.002;
     // ///////////////////end of material conductivities
     public static final int TOP_NEIGHBOUR = 0;
@@ -49,7 +49,6 @@ public class EnvSettings
     public static final int WOOD_DURABILITY = 20;
     public static final double MIN_VAPORS_TO_FIRE = 0.6;
     public static final double MAX_VAPORS_TO_FIRE = 0.95;
-
     // ///////////////////user control constants
     public static final double MOUSE_X_FACTOR = -0.15;
     public static final double MOUSE_Y_FACTOR = -0.15;

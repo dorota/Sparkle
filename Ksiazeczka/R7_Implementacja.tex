@@ -4,8 +4,8 @@ Poniższy rozdział zawiera przegląd ciekawszych aspektów implementacyjnych pr
 Na wstępie omówiono użyte technologie oraz narzędzia wraz z uzasadnieniem wyboru. Następnie przedstawiono dokładny model aplikacji z uwzględnieniem wybranych metod implementacyjnych. 
 W rozdziale tym przedstawiono także problemy, z którymi zetknęli się autorzy podczas realizacji projektu oraz sposoby ich rozwiązania.
 \section {Wybrane technologie i narzędzia}
-Przed przystąpieniem do implementacji końcowej wersji aplikacji powstawały prototypy testujące różne podejścia algorytmiczne opisane w rozdziale \ref{cha:Algorytm} oraz możliwe do wykorzystania narzędzia. W sekcji \textit{Język implementacji} przedstawiono język wybrany do implementacji końcowej wersji programu, natomiast w sekcji \textit{Języki prototypowania} przedstawiono technologie używane do tworzenia prototypów systemu. 
-W kolejnych podrozdziale pokrótce zaprezentowano narzędzia pracy grupowej wykorzystywane przez autorów pracy. Na końcu wymieniono biblioteki i narzędzia, które okazały się pomocne podczas realizacji projektu Sparkle i które zostaną szczegółowo omówione w kolejnych rozdziałach.
+Przed przystąpieniem do implementacji końcowej wersji aplikacji powstawały prototypy testujące zarówno różne podejścia algorytmiczne opisane w rozdziale \ref{cha:Algorytm} jak i możliwe do wykorzystania narzędzia. W sekcji \textit{Język implementacji} przedstawiono język wybrany do implementacji końcowej wersji programu, natomiast w sekcji \textit{Języki prototypowania} przedstawiono technologie używane do tworzenia prototypów systemu. 
+W kolejnym podrozdziale pokrótce zaprezentowano narzędzia pracy grupowej wykorzystywane przez autorów pracy. Na końcu wymieniono biblioteki i narzędzia, które okazały się pomocne podczas realizacji projektu Sparkle i które zostaną szczegółowo omówione w kolejnych rozdziałach.
 \subsection{Język implementacji}
 Do implementacji końcowej wersji aplikacji został wybrany język Java.
 Język ten został wybrany ze względu na przenośność aplikacji, obiektowość ułatwiającą projektowanie, dostęp do licznych 
@@ -49,7 +49,7 @@ Opis implementacji wzbogacony został o diagramy klas UML przedstawiające budow
 Wizualizacja symulacji została zaimplementowana z wykorzystaniem Java3D API.
 Java3D to interfejs programowy (API) umożliwiający tworzenie trójwymiarowej grafiki. Jest to produkt firmy Sun Microsystems wykorzystujący w swoim działaniu renderery OpenGL i Direct3D w zależności od platformy.
 Główną zaletą determinująca wybór bilioteki Java3D jest umożliwienie wykorzystania technologii OpenGL i DirectX poprzez dostarczenie wysokopoziomowych struktur pozwalających zachować pełnię obiektowości języka Java. 
-Zastosowana w bibliotece Java3D obiektowość ułatwia zarządzanie elementami sceny oraz umożliwia skupienie uwagi na logice aplikacji bez zagłębiania się w szczegóły renderingu. Inną niezmiernie ważną zaletą biblioteki Java3D jest optymalizacja procesów renderingu.
+Zastosowana w bibliotece Java3D obiektowość ułatwia zarządzanie elementami sceny oraz umożliwia skupienie uwagi na logice aplikacji bez zagłębiania się w szczegóły renderingu. Inną, niezmiernie ważną zaletą biblioteki Java3D jest optymalizacja procesów renderingu.
 \subsubsection{Instalacja biblioteki Java3D}
 Instalacja biblioteki Java3D jest stosunkowo prosta i może przebiegać na dwa sposoby.
 Pierwszym sposobem jest ściącienie ze strony 
@@ -66,10 +66,10 @@ http://www.oracle.com/technetwork/java/javase/tech/index-jsp-138252.html \\
 instalatora, który pod dwukrotnym kliknięciu przeprowadzi użytkownika przez proces instalacyjny. 
 W wyniku instalacji, Java Runtime Environment System Library zostanie wzbogacone o pliki j3dcore.jar i j3dutils.jar.
 \subsubsection{Budowa sceny z wykorzystaniem struktur Java3D API}
-Głównym elementem biblioteki Java3D jest graf sceny (\textit{scene graph}) rerezentujący cały wirtualny wszechświat (\textit{virtual universe}). Graf sceny jest acyklicznym grafem skierowanym.  Użytkownik tworzy podgrafy reprezentujące pewne wycinki rzeczywistości, które następnie są dołączane jako dzieci do wirtualnego wrzechświata. Kazdy z podgrafów jest renderowany  osobno i niezależnie od pozostałych, co pozwala na zrównoleglenie obliczeń. Strukturę grafu sceny przedstawia diagram \ref{java3d_diagram_sceny}.
+Głównym elementem biblioteki Java3D jest graf sceny (\textit{scene graph}) rerezentujący cały wirtualny wszechświat (\textit{virtual universe}). Graf sceny jest acyklicznym grafem skierowanym.  Użytkownik tworzy podgrafy reprezentujące pewne wycinki rzeczywistości, które następnie są dołączane jako dzieci do wirtualnego wrzechświata. Każdy z podgrafów jest renderowany  osobno i niezależnie od pozostałych, co pozwala na zrównoleglenie obliczeń. Strukturę grafu sceny przedstawia diagram \ref{java3d_diagram_sceny}.
 \begin{figure}
 \begin {center}
-\includegraphics{java3d_diagram_sceny.jpg} 
+\includegraphics[scale=0.75]{java3d_diagram_sceny.jpg} 
 \caption {Java3D - reprezentacja sceny}
 \label {java3d_diagram_sceny}
 \end {center}

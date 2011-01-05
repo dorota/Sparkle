@@ -2,10 +2,6 @@
 \label{cha:gui}
 Poniższy rozdział zawiera opis Graficznego Interfejsu Użytkownika oraz wskazówki i przykłady jak z niego korzystać
 w sposób efektywny.
-
-
-Przy projektowaniu interfejsu użytkownika, w celu zapewnienia wygodny i efektywności pracy wzorowano się na wyglądzie
-znanych edytorów graficznych takich jak Gimp2.6 czy Paint.
 Interfejs użytkownika, przedstawiony na rysunku \ref{gui_cale} 
 \begin{figure}
 \begin{center}
@@ -14,36 +10,38 @@ Interfejs użytkownika, przedstawiony na rysunku \ref{gui_cale}
 \label {gui_cale}
 \end{center}
 \end{figure}
-składa się  z czterech części:
+W celu zapewnienia wygody i efektywności pracy został podzielony na następujące części:
 \begin {enumerate}
 \item Panel górny
 \item Widok scenmy
 \item Menu boczne
 \item Edytor
 \end {enumerate}
+\section{Panel górny}
 Panel górny zawiera elementy:
 \begin{itemize}
 \item File, składający się z pozycji:
 \begin{itemize}
 \item Save cell states - zapis stanu komórek automatu do pliku. Automat zapisany jest w postaci zbioru macierzy dwuwymiarowych, z których każda przedstawia jeden poziom automatu począwszy od poziomu 0 zgodnie z osią Y.
 \item Save temperatures - zapis rozkładu temperatur automatu. Format zapisu identyczny z przypadkiem stanu komórek.
-\item Read building from file - możliwość wczytania budynku z pliku. Format zapisu budynku w pliku jest taki sami jak w edytorze.
+\item Read building from file - możliwość wczytania budynku z pliku. Format zapisu budynku w pliku jest taki sam jak w edytorze.
 	Po wczytaniu budynku z pliku, jego opis pojawia się w edytorze co pozwala na dalsze modyfikacje.
 \end {itemize}
 \item Help, skonstruowany z opcji:
 \begin {itemize}
-\item User guide - podstawowe informacje o użytkowaniu programu: jak korzystać z edyotora oraz panelu bocznego.
+\item User guide - podstawowe informacje o użytkowaniu programu: jak korzystać z edytora oraz panelu bocznego.
 \item About program - podstawowe informacje o programie.
 \end {itemize}
 \end{itemize}
 
-
+\section{Scena}
 Główny elementem interfejsu jest scena, przedstawiająca wyniki symulacji. Aplikacja dostarcza możliwość manipulowania sceną w celu zróżnicowania widoku. Możliwe są do wykonania następujące akcje:
 \begin {itemize}
 \item Oddalanie i przybliżanie sceny za pomocą strzałek klawiatury. Strzałka w górę powoduje przybliżenie, zaś strzałka w dół oddalenie.
 \item Obrót elementów na scenie za pomocą strzałek w bok. Strzałka w prawo obraca scenę zgodnie z ruchem wskazówek zegara, zaś strzałka w lewo przeciwnie do ich ruchu.
 \end {itemize}
 
+\section{Edytor}
 Elementem wykorzystywanym do edycji budynku jest umieszczony na dole interfejsu edytor.
 Edytor, jak zostało to opisane w rozdziale \ref{cha:implementacja} jest polem tekstowym i jako takie umożliwia
  operacje zaznaczania, kopiowania, wklejania i usuwania tekstu za pomocą standardowych skrótów klawiaturowych.
@@ -77,7 +75,7 @@ Edytor, jak zostało to opisane w rozdziale \ref{cha:implementacja} jest polem t
 \label {osie}
 \end{center}
 \end{figure}
-
+\section{Panel boczny}
 Panel boczny składa się z dwóch zakładek:
 \begin {enumerate}
 \item Zakładka \textit{Simulation} dostarcza opcje pozwalające kontrolować przebieg symulacji.

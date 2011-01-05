@@ -16,25 +16,30 @@ bibliotek oraz mechanizmy pozwalające uchronić program przed wyciekami pamięc
 \end{itemize}
 
 \subsection{Języki prototypowania}
-Jednym z powstałych ptotypów był prosty automat komórkowy z regułami opisanymi w paragrafie [WSTAWIC ODNOSNIK DO PARAGRAGU].Do implementacji tego modelu został korzystany język Lisp.
-\\\\
-[TUTAJ WSTAWIC ZALETY LISPA DO PROTOTYPOWANIA - WYMYSLISZ COS PRAWDA :>?]
-\\
+Jednym z powstałych ptotypów był prosty automat komórkowy z regułami opisanymi w paragrafie [WSTAWIC ODNOSNIK DO PARAGRAGU]. Do implementacji tego modelu został korzystany język Common Lisp.
+
+Common Lisp to nowoczesny dialekt Lispu - drugiej najstarszej rodziny używanych obecnie wysokopoziomowych języków programowania. Common Lisp jest językiem kompilowalnym, dynamicznie typowanym i umożliwia tworzenie na znacznie wyższym poziomie abstrakcji niż C++ czy Java. Samo programowanie w tym języku opiera się głównie o stopniową rozbudowę działającego obrazu programu poprzez REPL (ang. Read-Eval-Print Loop) - pętlę tworzącą swoisty interpreter, pozwalającą modyfikować, dokompilowywać i wymieniać fragmenty kodu w czasie działania samego programu. Te wszystkie cechy języka Common Lisp tworzą z niego idealne narzędzie do szybkiego prototypowania programów. Istotnie, omawiany prototyp automatu komórkowego powstał w przeciągo około dziesięciu godzin.
+
 Drugim, powstałym podczas badań pierwowzorem był program napisany w języku Java.
 Celem tego modelu było przetestowanie języka Java oraz biblioteki Java3D pod kątem możliwości wykorzystania do implementacji symulacji czasu rzeczywistego w oparciu o uproszczony model automatu. 
 
 \subsection {Narzędzia pracy grupowej}
-Ze względu na fakt, że omawiana aplikacja powstała jako wynik pracy dwuosobowego zespołu bardzo przydatnym narzędziem okazał się system kontroli wersji. Jako system zarządzania wersjami został wybrany Git.
-Git jest darmowym, rozproszonym systemem, opartym na architekturze peer-to-peer. W przeciwieństwie do scentralizowanych odpowiedników (np. SVN) nie posiada jednego, centralnego repozytorium z którym członkowie zespołu synchronizują swoje zmiany ale wiele niezależnych gałęzi, które można synchronizować w różnorodny sposób. Główną zaletą systemu Git, będącą motywacją jego wyboru...
+Ze względu na fakt, że omawiana aplikacja powstała jako wynik pracy dwuosobowego zespołu, bardzo przydatnym narzędziem okazał się system kontroli wersji. Jako system zarządzania wersjami został wybrany Git.
+Git jest darmowym, rozproszonym systemem, opartym na architekturze peer-to-peer. W przeciwieństwie do scentralizowanych odpowiedników (np. SVN) nie posiada jednego, centralnego repozytorium z którym członkowie zespołu synchronizują swoje zmiany ale całkowicie niezależne repozytoria, które można synchronizować w różnorodny sposób.
+
+Git, będąc rozproszonym systemem kontroli wersji, posiada dwie istotne cechy kluczowe dla rozwoju niniejszej pracy. Po pierwsze, techniczna równorzędność wszystkich kopii repozytoriów pozwoliła na bezpieczny i niezależny rozwój projektu nawet w sytuacjach, gdy komputer odłączony był od sieci Internet. Możliwość niezależnej pracy na lokalnych repozytoriach skutecznie zachęca do rejestrowania w systemie kontroli wersji nawet drobnych zmian, gdyż synchronizację pomiędzy poszczególnymi developerami można odłożyć do stosownego momentu. Drugą ważną właściwością Gita jest łatwość, z jaką łączy on zmiany wprowadzone przez rózne osoby w tym samych plikach (ang. "merging"). Brak problemów z łączeniem różnych ścieżek rozwoju - problemów znanych z tradycyjnych, centralnych systemów kontroli wersji - pozwolił na szybki rozwój projektu.
 
 \subsection{Inne narzędzia}
 \begin{enumerate}
+\item Implementacja prototypu w Common Lisp została oparta o edytor Emacs oraz biblioteki SDL i OpenGL.
+% FIXME prototyp a projekt
 \item Do implementacji projektu zostały wykorzystane środowiska programistyczne: Eclipse i NetBeans. Użycie systemu kontroli wersji do wymiany plików źródłowych aplikacji dało możliwość niezależniej pracy w różnych środowiskach.
 \item Podczas realizacji Graficznego Interfejsu Użytkownika został wykorzystany program WindowBuilder Pro.
 \item Wizualizacja symulacji została zaimplementowana z wykorzystaniem biblioteki Java3D.
 \item Metody tworzące algorytmikę aplikacji zostały przetestowane z wykorzystniem biblioteki JUnit4.
 \item Do badania pokrycia kodu testami jednostkowymi zostało wykorzystane narzędzie Emma.
 \end{enumerate}
+
 
 \section {Implementacja modelu aplikacji}
 Zgodnie z architekturą aplikacji omówioną w rozdziale \ref{cha:projekt} program został podzielony na 

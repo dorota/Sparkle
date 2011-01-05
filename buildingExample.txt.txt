@@ -25,3 +25,20 @@
 (5,1,5)[1,2,3]:Air
 #dziura w polodze na schody na gore
 (7,5,10)[3,1,3]:Air
+
+
+
+# OVEN
+(3,0,3)[7,5,1]:Metal
+(3,0,3)[1,5,7]:Metal
+(3,0,3)[7,1,7]:Metal
+(3,0,10)[7,5,1]:Metal
+(9,0,3)[1,5,8]:Metal
+(5,1,5)[4,2,4]:Wood
+(3,4,3)[7,1,8]:Metal
+
+
+
+#testing trans-material heat conduction in metal
+(3,3,3)[2,2,2]:Wood
+(1,6,1)[6,1,6]:Metal

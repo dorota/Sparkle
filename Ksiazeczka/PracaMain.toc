@@ -38,5 +38,10 @@
 \contentsline {subsubsection}{Cell i Material}{31}
 \contentsline {subsubsection}{FireConductor}{31}
 \contentsline {subsubsection}{HeatAndVaporsConductor oraz HeatAndVaporConductorWithConvection}{31}
-\contentsline {subsection}{\numberline {6.2.3}Modu\IeC {\l } obs\IeC {\l }ugi zdarze\IeC {\'n}}{31}
-\contentsline {chapter}{\numberline {7}Graficzny interfejs u\IeC {\.z}ytkownika i instrukcja obs\IeC {\l }ugi}{33}
+\contentsline {subsection}{\numberline {6.2.3}Modu\IeC {\l } obs\IeC {\l }ugi zdarze\IeC {\'n}}{32}
+\contentsline {subsubsection}{WindowBuilder Pro - narz\IeC {\k e}dzie do budowy GUI}{32}
+\contentsline {subsubsection}{Budowa modu\IeC {\l }u}{32}
+\contentsline {subsubsection}{MainWindow}{32}
+\contentsline {subsubsection}{MenuPanel}{32}
+\contentsline {subsubsection}{SimulationMgr}{34}
+\contentsline {chapter}{\numberline {7}Graficzny interfejs u\IeC {\.z}ytkownika i instrukcja obs\IeC {\l }ugi}{35}

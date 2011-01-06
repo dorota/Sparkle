@@ -60,7 +60,7 @@ public class EnvSettings
 
     public enum DisplayMode
     {
-        REGULAR, TEMPERATURE
+        FIRE, SMOKE, TEMPERATURE
     };
 
     public enum FileChooserAction

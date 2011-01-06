@@ -212,13 +212,6 @@ public class MenuPanel extends javax.swing.JPanel
         lblY = new JLabel( "y:" );
         lblZ = new JLabel( "z:" );
         _startFireXTextField = new JTextField();
-        _startFireXTextField.addActionListener( new ActionListener()
-        {
-            public void actionPerformed( ActionEvent arg0 )
-            {
-                _startOfFireX = Integer.valueOf( _startFireXTextField.getText() );
-            }
-        } );
         _startFireXTextField.setToolTipText( "x coordinate" );
         _startFireXTextField.setColumns( 10 );
         _startFireTextFieldY = new JTextField();
@@ -249,11 +242,21 @@ public class MenuPanel extends javax.swing.JPanel
         {
             public void actionPerformed( ActionEvent arg0 )
             {
-                // do nothing
-                // action is taken when start button pressed
+                if( simulationViewCompoBox.getSelectedItem().toString().equals( "Temperature" ) )
+                {
+                    _editedScene.setDisplayMode( DisplayMode.TEMPERATURE );
+                }
+                else if( simulationViewCompoBox.getSelectedItem().toString().equals( "Fire" ) )
+                {
+                    _editedScene.setDisplayMode( DisplayMode.FIRE );
+                }
+                else if( simulationViewCompoBox.getSelectedItem().toString().equals( "Smoke" ) )
+                {
+                    _editedScene.setDisplayMode( DisplayMode.SMOKE );
+                }
             }
         } );
-        simulationViewCompoBox.setModel( new DefaultComboBoxModel( new String[]{ "Regular",
+        simulationViewCompoBox.setModel( new DefaultComboBoxModel( new String[]{ "Fire", "Smoke",
                 "Temperature" } ) );
         JLabel simulation_mode_label = new JLabel( "Display mode:" );
         javax.swing.GroupLayout gl__simulationTab = new javax.swing.GroupLayout( _simulationTab );
@@ -586,14 +589,15 @@ public class MenuPanel extends javax.swing.JPanel
 
     private void _simulationStartButtonActionPerformed( java.awt.event.ActionEvent evt )
     {
-        if( simulationViewCompoBox.getSelectedItem().toString().equals( "Temperature" ) )
-        {
-            _editedScene.setDisplayMode( DisplayMode.TEMPERATURE );
-        }
-        else
-        {
-            _editedScene.setDisplayMode( DisplayMode.REGULAR );
-        }
+        // if( simulationViewCompoBox.getSelectedItem().toString().equals(
+        // "Temperature" ) )
+        // {
+        // _editedScene.setDisplayMode( DisplayMode.TEMPERATURE );
+        // }
+        // else
+        // {
+        // _editedScene.setDisplayMode( DisplayMode.REGULAR );
+        // }
         sMgr.setRunning( true );
         _world.setStartOfFire( _startOfFireX, _startOfFireY, _startOfFireZ );
         sMgr.manageSimulation();
@@ -612,27 +616,29 @@ public class MenuPanel extends javax.swing.JPanel
 
     private void _simulationContinueButtonActionPerformed( java.awt.event.ActionEvent evt )
     {
-        if( simulationViewCompoBox.getSelectedItem().toString().equals( "Temperature" ) )
-        {
-            _editedScene.setDisplayMode( DisplayMode.TEMPERATURE );
-        }
-        else
-        {
-            _editedScene.setDisplayMode( DisplayMode.REGULAR );
-        }
+        // if( simulationViewCompoBox.getSelectedItem().toString().equals(
+        // "Temperature" ) )
+        // {
+        // _editedScene.setDisplayMode( DisplayMode.TEMPERATURE );
+        // }
+        // else
+        // {
+        // _editedScene.setDisplayMode( DisplayMode.REGULAR );
+        // }
         sMgr.setRunning( true );
     }
 
     private void _simulationRestartButtonActionPerformed( java.awt.event.ActionEvent evt )
     {
-        if( simulationViewCompoBox.getSelectedItem().toString().equals( "Temperature" ) )
-        {
-            _editedScene.setDisplayMode( DisplayMode.TEMPERATURE );
-        }
-        else
-        {
-            _editedScene.setDisplayMode( DisplayMode.REGULAR );
-        }
+        // if( simulationViewCompoBox.getSelectedItem().toString().equals(
+        // "Temperature" ) )
+        // {
+        // _editedScene.setDisplayMode( DisplayMode.TEMPERATURE );
+        // }
+        // else
+        // {
+        // _editedScene.setDisplayMode( DisplayMode.REGULAR );
+        // }
         sMgr.setRunning( false );
         _world.restartTemperatures( _editedScene );
         _world.setStartOfFire( _startOfFireX, _startOfFireY, _startOfFireZ );

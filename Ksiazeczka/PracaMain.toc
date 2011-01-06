@@ -1,52 +1,46 @@
 \select@language {polish}
-\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{7}
-\contentsline {section}{\numberline {1.1}Temat pracy}{7}
-\contentsline {section}{\numberline {1.2}Geneza tematu}{7}
-\contentsline {section}{\numberline {1.3}Teza pracy}{7}
-\contentsline {section}{\numberline {1.4}Realizacja projektu}{8}
-\contentsline {section}{\numberline {1.5}Zawarto\IeC {\'s}\IeC {\'c} pracy}{8}
-\contentsline {chapter}{\numberline {2}Teoria}{9}
-\contentsline {section}{\numberline {2.1}Czym jest ogie\IeC {\'n}?}{9}
-\contentsline {section}{\numberline {2.2}Propagacja ciep\IeC {\l }a}{10}
-\contentsline {subsection}{\numberline {2.2.1}Przewodnictwo}{10}
-\contentsline {subsection}{\numberline {2.2.2}Konwekcja}{11}
-\contentsline {subsection}{\numberline {2.2.3}Radiacja}{12}
-\contentsline {subsection}{\numberline {2.2.4}Zale\IeC {\.z}no\IeC {\'s}\IeC {\'c} temperatury od dostarczonej energii}{13}
-\contentsline {chapter}{\numberline {3}Automaty kom\IeC {\'o}rkowe}{14}
-\contentsline {section}{\numberline {3.1}Definicja automatu kom\IeC {\'o}rkowego}{14}
-\contentsline {section}{\numberline {3.2}Klasyfikacja automat\IeC {\'o}w kom\IeC {\'o}rkowych}{15}
-\contentsline {chapter}{\numberline {4}Projekt}{17}
-\contentsline {section}{\numberline {4.1}G\IeC {\l }\IeC {\'o}wne za\IeC {\l }o\IeC {\.z}enia}{17}
-\contentsline {section}{\numberline {4.2}Architektura aplikacji}{17}
-\contentsline {subsection}{\numberline {4.2.1}Modu\IeC {\l } Controller}{18}
-\contentsline {subsection}{\numberline {4.2.2}Modu\IeC {\l } View}{20}
-\contentsline {subsection}{\numberline {4.2.3}Modu\IeC {\l } Model}{20}
-\contentsline {chapter}{\numberline {5}Algorytm}{22}
-\contentsline {section}{\numberline {5.1}Model automatu}{22}
-\contentsline {chapter}{\numberline {6}Implementacja}{25}
-\contentsline {section}{\numberline {6.1}Wybrane technologie i narz\IeC {\k e}dzia}{25}
-\contentsline {subsection}{\numberline {6.1.1}J\IeC {\k e}zyk implementacji}{25}
-\contentsline {subsection}{\numberline {6.1.2}J\IeC {\k e}zyki prototypowania}{25}
-\contentsline {subsection}{\numberline {6.1.3}Narz\IeC {\k e}dzia pracy grupowej}{26}
-\contentsline {subsection}{\numberline {6.1.4}Inne narz\IeC {\k e}dzia}{26}
-\contentsline {section}{\numberline {6.2}Implementacja modelu aplikacji}{26}
-\contentsline {subsection}{\numberline {6.2.1}Modu\IeC {\l } wizualizacji}{27}
-\contentsline {subsubsection}{Instalacja biblioteki Java3D}{27}
-\contentsline {subsubsection}{Budowa sceny z wykorzystaniem struktur Java3D API}{27}
-\contentsline {subsubsection}{Implementacja modu\IeC {\l }u wizualizacji}{28}
-\contentsline {subsection}{\numberline {6.2.2}Logika aplikacji}{29}
-\contentsline {subsubsection}{World}{30}
-\contentsline {subsubsection}{Cell i Material}{32}
-\contentsline {subsubsection}{FireConductor}{32}
-\contentsline {subsubsection}{HeatAndVaporsConductor oraz HeatAndVaporConductorWithConvection}{32}
-\contentsline {subsection}{\numberline {6.2.3}Modu\IeC {\l } obs\IeC {\l }ugi zdarze\IeC {\'n}}{33}
-\contentsline {subsubsection}{WindowBuilder Pro - narz\IeC {\k e}dzie do budowy GUI}{33}
-\contentsline {subsubsection}{Budowa modu\IeC {\l }u}{33}
-\contentsline {subsubsection}{MainWindow}{33}
-\contentsline {subsubsection}{MenuPanel}{35}
-\contentsline {subsubsection}{SimulationMgr}{35}
-\contentsline {chapter}{\numberline {7}Graficzny interfejs u\IeC {\.z}ytkownika i instrukcja obs\IeC {\l }ugi}{36}
-\contentsline {section}{\numberline {7.1}Panel g\IeC {\'o}rny}{36}
-\contentsline {section}{\numberline {7.2}Scena}{36}
-\contentsline {section}{\numberline {7.3}Edytor}{38}
-\contentsline {section}{\numberline {7.4}Panel boczny}{38}
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{6}
+\contentsline {section}{\numberline {1.1}Temat pracy}{6}
+\contentsline {section}{\numberline {1.2}Geneza tematu}{6}
+\contentsline {section}{\numberline {1.3}Teza pracy}{6}
+\contentsline {section}{\numberline {1.4}Realizacja projektu}{7}
+\contentsline {section}{\numberline {1.5}Zawarto\IeC {\'s}\IeC {\'c} pracy}{7}
+\contentsline {chapter}{\numberline {2}Teoria}{8}
+\contentsline {section}{\numberline {2.1}Czym jest ogie\IeC {\'n}?}{8}
+\contentsline {section}{\numberline {2.2}Propagacja ciep\IeC {\l }a}{9}
+\contentsline {subsection}{\numberline {2.2.1}Przewodnictwo}{9}
+\contentsline {subsection}{\numberline {2.2.2}Konwekcja}{10}
+\contentsline {subsection}{\numberline {2.2.3}Radiacja}{11}
+\contentsline {subsection}{\numberline {2.2.4}Zale\IeC {\.z}no\IeC {\'s}\IeC {\'c} temperatury od dostarczonej energii}{12}
+\contentsline {chapter}{\numberline {3}Automaty kom\IeC {\'o}rkowe}{13}
+\contentsline {section}{\numberline {3.1}Definicja automatu kom\IeC {\'o}rkowego}{13}
+\contentsline {section}{\numberline {3.2}Klasyfikacja automat\IeC {\'o}w kom\IeC {\'o}rkowych}{14}
+\contentsline {chapter}{\numberline {4}Algorytm}{16}
+\contentsline {section}{\numberline {4.1}Model automatu}{16}
+\contentsline {chapter}{\numberline {5}Implementacja}{19}
+\contentsline {section}{\numberline {5.1}Wybrane technologie i narz\IeC {\k e}dzia}{19}
+\contentsline {subsection}{\numberline {5.1.1}J\IeC {\k e}zyk implementacji}{19}
+\contentsline {subsection}{\numberline {5.1.2}J\IeC {\k e}zyki prototypowania}{19}
+\contentsline {subsection}{\numberline {5.1.3}Narz\IeC {\k e}dzia pracy grupowej}{20}
+\contentsline {subsection}{\numberline {5.1.4}Inne narz\IeC {\k e}dzia}{20}
+\contentsline {section}{\numberline {5.2}Implementacja modelu aplikacji}{20}
+\contentsline {subsection}{\numberline {5.2.1}Modu\IeC {\l } wizualizacji}{21}
+\contentsline {subsubsection}{Instalacja biblioteki Java3D}{21}
+\contentsline {subsubsection}{Budowa sceny z wykorzystaniem struktur Java3D API}{21}
+\contentsline {subsubsection}{Implementacja modu\IeC {\l }u wizualizacji}{22}
+\contentsline {subsection}{\numberline {5.2.2}Logika aplikacji}{23}
+\contentsline {subsubsection}{World}{24}
+\contentsline {subsubsection}{Cell i Material}{26}
+\contentsline {subsubsection}{FireConductor}{26}
+\contentsline {subsubsection}{HeatAndVaporsConductor oraz HeatAndVaporConductorWithConvection}{26}
+\contentsline {subsection}{\numberline {5.2.3}Modu\IeC {\l } obs\IeC {\l }ugi zdarze\IeC {\'n}}{27}
+\contentsline {subsubsection}{WindowBuilder Pro - narz\IeC {\k e}dzie do budowy GUI}{27}
+\contentsline {subsubsection}{Budowa modu\IeC {\l }u}{27}
+\contentsline {subsubsection}{MainWindow}{27}
+\contentsline {subsubsection}{MenuPanel}{29}
+\contentsline {subsubsection}{SimulationMgr}{29}
+\contentsline {chapter}{\numberline {6}Graficzny interfejs u\IeC {\.z}ytkownika i instrukcja obs\IeC {\l }ugi}{30}
+\contentsline {section}{\numberline {6.1}Panel g\IeC {\'o}rny}{30}
+\contentsline {section}{\numberline {6.2}Scena}{30}
+\contentsline {section}{\numberline {6.3}Edytor}{32}
+\contentsline {section}{\numberline {6.4}Panel boczny}{32}

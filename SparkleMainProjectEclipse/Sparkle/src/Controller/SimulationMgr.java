@@ -1,21 +1,21 @@
 package Controller;
 
-import Helpers.ProfileSample;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
+import Helpers.ProfileSample;
+import Interfaces.IWorld;
 import Model.World;
 
 public class SimulationMgr
 {
     int timeDelay = 50;
     Timer samplingTimer;
-    World _world;
+    IWorld _world;
     private boolean isRunning = false;
-
-    private ProfileSample profiler = new ProfileSample("simulation: timer tick - isRunning=t");
+    private ProfileSample profiler = new ProfileSample( "simulation: timer tick - isRunning=t" );
 
     public boolean isRunning()
     {
@@ -40,8 +40,7 @@ public class SimulationMgr
             final int FIRST_TIME_ACTION_PERFORMED = 0;
             int whichTimeActionPerformed = 0;
             int counter = 0;
-
-	    long executionTimer = 0; //used to measure execution time
+            long executionTimer = 0; // used to measure execution time
 
             public void actionPerformed( ActionEvent e )
             {
@@ -51,8 +50,7 @@ public class SimulationMgr
                     {
                         // wait a second after initializing and displaying
                         // start of fire
-
-			//yeah... what for?
+                        // yeah... what for?
                         System.out.println( "first time" );
                         Thread.sleep( 2000 );
                     }
@@ -62,24 +60,24 @@ public class SimulationMgr
                 }
                 else
                 {
-
                     if( isRunning )
                     {
-			//executionTimer = System.currentTimeMillis();
-			profiler.start();
+                        // executionTimer = System.currentTimeMillis();
+                        profiler.start();
                         _world.simulateHeatConduction();
                         counter++;
-
-			//seen LOST?
-			//System.out.println("ITERATION " + counter
-			//	+ " " + executionTimer
-			//	+ " " + (System.currentTimeMillis() - executionTimer));
-			profiler.stop();
+                        // seen LOST?
+                        // System.out.println("ITERATION " + counter
+                        // + " " + executionTimer
+                        // + " " + (System.currentTimeMillis() -
+                        // executionTimer));
+                        profiler.stop();
                     }
                     else
                     {
                         // DO NOTHING
-			//System.out.println("EMPTY-CYCLE " + System.currentTimeMillis());
+                        // System.out.println("EMPTY-CYCLE " +
+                        // System.currentTimeMillis());
                     }
                 }
                 ++whichTimeActionPerformed;
@@ -90,9 +88,9 @@ public class SimulationMgr
 
     private void shutdownPreviousTimerIfApplicable()
     {
-	if (samplingTimer != null)
-	{
-	    samplingTimer.stop();
-	}
+        if( samplingTimer != null )
+        {
+            samplingTimer.stop();
+        }
     }
 }

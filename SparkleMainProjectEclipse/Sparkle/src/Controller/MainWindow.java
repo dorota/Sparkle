@@ -4,18 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.media.j3d.Canvas3D;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
 
-import Helpers.EnvSettings.FileChooserAction;
 import Helpers.ProfileSample;
 import Interfaces.IEditor;
 import Model.World;
@@ -34,15 +27,15 @@ public class MainWindow
     Dimension _screenDimension;
     private World _world;
     private static MainWindow _instance = new MainWindow();
-    private JMenuBar menuBar;
-    private JMenu File_menu;
-    private JMenuItem save_temps_menu_item;
-    private JMenuItem saveCellStatesMenuItem;
-    private JMenuItem _readBuildingFromFileMenuItem;
-    private JMenu help_menu;
-    private JMenuItem about_program_menu_item;
-    private JMenuItem user_guide_menu_item;
 
+    // private JMenuBar menuBar;
+    // private JMenu File_menu;
+    // private JMenuItem save_temps_menu_item;
+    // private JMenuItem saveCellStatesMenuItem;
+    // private JMenuItem _readBuildingFromFileMenuItem;
+    // private JMenu help_menu;
+    // private JMenuItem about_program_menu_item;
+    // private JMenuItem user_guide_menu_item;
     public static MainWindow getMainWindow()
     {
         return _instance;
@@ -60,46 +53,49 @@ public class MainWindow
         _world = World.getWorld( _scene );
         _menuPanel = new MenuPanel( _scene );
         _editor = new Editor( _world );
-        menuBar = new JMenuBar();
-        _frame.setJMenuBar( menuBar );
-        File_menu = new JMenu( "File" );
-        menuBar.add( File_menu );
-        JPopupMenu.setDefaultLightWeightPopupEnabled( false );
-        save_temps_menu_item = new JMenuItem( "Save temperatures" );
-        save_temps_menu_item.addActionListener( new ActionListener()
-        {
-            public void actionPerformed( ActionEvent arg0 )
-            {
-                saveCurrentTempToFileActionPerformed();
-            }
-        } );
-        saveCellStatesMenuItem = new JMenuItem( "Save cell states" );
-        saveCellStatesMenuItem.addActionListener( new ActionListener()
-        {
-            public void actionPerformed( ActionEvent arg0 )
-            {
-                FileChooser fc = new FileChooser( _frame, _world, FileChooserAction.SAVE_STATES,
-                    _editor );
-            }
-        } );
-        File_menu.add( saveCellStatesMenuItem );
-        File_menu.add( save_temps_menu_item );
-        _readBuildingFromFileMenuItem = new JMenuItem( "Read building from file" );
-        _readBuildingFromFileMenuItem.addActionListener( new ActionListener()
-        {
-            public void actionPerformed( ActionEvent arg0 )
-            {
-                FileChooser fc = new FileChooser( _frame, _world,
-                    FileChooserAction.READ_BUILDING_FROM_FILE, _editor );
-            }
-        } );
-        File_menu.add( _readBuildingFromFileMenuItem );
-        help_menu = new JMenu( "Help" );
-        menuBar.add( help_menu );
-        user_guide_menu_item = new JMenuItem( "User guide" );
-        help_menu.add( user_guide_menu_item );
-        about_program_menu_item = new JMenuItem( "About program" );
-        help_menu.add( about_program_menu_item );
+        // menuBar = new JMenuBar();
+        TopMenu tm = new TopMenu( _frame, _world, _editor );
+        _frame.setJMenuBar( tm.getMenuBar() );
+        // File_menu = new JMenu( "File" );
+        // menuBar.add( File_menu );
+        // JPopupMenu.setDefaultLightWeightPopupEnabled( false );
+        // save_temps_menu_item = new JMenuItem( "Save temperatures" );
+        // save_temps_menu_item.addActionListener( new ActionListener()
+        // {
+        // public void actionPerformed( ActionEvent arg0 )
+        // {
+        // saveCurrentTempToFileActionPerformed();
+        // }
+        // } );
+        // saveCellStatesMenuItem = new JMenuItem( "Save cell states" );
+        // saveCellStatesMenuItem.addActionListener( new ActionListener()
+        // {
+        // public void actionPerformed( ActionEvent arg0 )
+        // {
+        // FileChooser fc = new FileChooser( _frame, _world,
+        // FileChooserAction.SAVE_STATES,
+        // _editor );
+        // }
+        // } );
+        // File_menu.add( saveCellStatesMenuItem );
+        // File_menu.add( save_temps_menu_item );
+        // _readBuildingFromFileMenuItem = new JMenuItem(
+        // "Read building from file" );
+        // _readBuildingFromFileMenuItem.addActionListener( new ActionListener()
+        // {
+        // public void actionPerformed( ActionEvent arg0 )
+        // {
+        // FileChooser fc = new FileChooser( _frame, _world,
+        // FileChooserAction.READ_BUILDING_FROM_FILE, _editor );
+        // }
+        // } );
+        // File_menu.add( _readBuildingFromFileMenuItem );
+        // help_menu = new JMenu( "Help" );
+        // menuBar.add( help_menu );
+        // user_guide_menu_item = new JMenuItem( "User guide" );
+        // help_menu.add( user_guide_menu_item );
+        // about_program_menu_item = new JMenuItem( "About program" );
+        // help_menu.add( about_program_menu_item );
         initWindow();
     }
 
@@ -109,12 +105,12 @@ public class MainWindow
         _screenDimension = toolkit.getScreenSize();
     }
 
-    private void saveCurrentTempToFileActionPerformed()
-    {
-        FileChooser fc = new FileChooser( _frame, _world, FileChooserAction.SAVE_TEMPERATURE,
-            _editor );
-    }
-
+    // private void saveCurrentTempToFileActionPerformed()
+    // {
+    // FileChooser fc = new FileChooser( _frame, _world,
+    // FileChooserAction.SAVE_TEMPERATURE,
+    // _editor );
+    // }
     private void initWindow()
     {
         _frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );

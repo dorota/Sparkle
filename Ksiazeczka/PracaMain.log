@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  6 JAN 2011 09:32
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.11.27)  6 JAN 2011 10:34
 entering extended mode
 **D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
 (D:/Studia/Sparkle/Sparkle/Ksiazeczka/PracaMain.tex
@@ -454,14 +454,7 @@ File: lstlang3.sty 2004/09/05 1.3 listings language file
 LaTeX Warning: Unused global option(s):
     [pdflatex,11pt].
 
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R1_Wstep.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R2_TeoriaFizyka.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R5_TeoriaAutomatKomorkowy.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R6_Algorytm.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R7_Implementacja.aux)
-(D:\Studia\Sparkle\Sparkle\Ksiazeczka\R8_InstrukcjaObslugiIGUI.aux))
+(D:\Studia\Sparkle\Sparkle\Ksiazeczka\PracaMain.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
 LaTeX Font Info:    ... okay on input line 77.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
@@ -658,58 +651,69 @@ l.1 ﻿
        %TODO:
 ? 
 Rozdzia\l  2.
+
+LaTeX Warning: Reference `reakcja_spalania' on page 9 undefined on input line 2
+6.
+
 [9
 
 
 
 ]
-
-LaTeX Warning: Reference `Proces spalania' on page 10 undefined on input line 4
-6.
-
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 54.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 56.
+
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.102 N
-       a uwagę zasługuje też fakt, że przewodność metali maleje wraz z...
-
+l.106 \end {itemize}
+                    
 ? 
 [10]
+
+LaTeX Warning: Reference `przewodnictwa' on page 11 undefined on input line 113
+.
+
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.166 \begin {itemize}
-                      
+l.163 \subsection {Radiacja}
+                            
 ? 
 [11]
 
-LaTeX Warning: Command \l invalid in math mode on input line 195.
+LaTeX Warning: Reference `emisyjnosc' on page 12 undefined on input line 186.
+
+
+LaTeX Warning: Reference `emisyjnosc_konwekcja' on page 12 undefined on input l
+ine 204.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 206.
 
 ! Undefined control sequence.
-l.195 \dot{Q_{całk}}=\alfa
+l.206 \dot{Q_{całk}}=\alfa
                            _{całk}*\sigma*A_{s}*(T_{s}^4-T_\inf^4)
 ? 
 
-LaTeX Warning: Command \l invalid in math mode on input line 195.
+LaTeX Warning: Command \l invalid in math mode on input line 206.
 
 ! Missing { inserted.
 <to be read again> 
                    \mathop 
-l.195 ...alfa_{całk}*\sigma*A_{s}*(T_{s}^4-T_\inf
+l.206 ...alfa_{całk}*\sigma*A_{s}*(T_{s}^4-T_\inf
                                                   ^4)
 ? 
 ! You can't use `\eqno' in math mode.
 \endequation ->\eqno 
                      \hbox {\@eqnnum }$$\@ignoretrue 
-l.197 \end {equation}
+l.208 \end {equation}
                      
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.197 \end {equation}
+l.208 \end {equation}
                      
 ? 
 Missing character: There is no � in font cmr8!
@@ -717,29 +721,29 @@ Missing character: There is no � in font cmr8!
 ! Undefined control sequence.
 <recently read> \alfa 
                       
-l.200 \item \alfa
+l.211 \item \alfa
                  _{całk} - całkowity współczynnik wymiany ciepła
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.200 \item \alfa_
+l.211 \item \alfa_
                   {całk} - całkowity współczynnik wymiany ciepła
 ? 
 
-LaTeX Warning: Command \l invalid in math mode on input line 200.
+LaTeX Warning: Command \l invalid in math mode on input line 211.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 200.
+LaTeX Warning: Command \l invalid in math mode on input line 211.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 200.
+LaTeX Warning: Command \' invalid in math mode on input line 211.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 200.
+LaTeX Warning: Command \l invalid in math mode on input line 211.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 200.
+LaTeX Warning: Command \l invalid in math mode on input line 211.
 
 
 ! LaTeX Error: Command \item invalid in math mode.
@@ -748,7 +752,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.201 \item
+l.212 \item
             T_\inf - temperatura powietrza w znacznej odległości
 ? 
 
@@ -758,7 +762,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.201 \item T
+l.212 \item T
              _\inf - temperatura powietrza w znacznej odległości
 ? 
 
@@ -768,20 +772,20 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.201 \item T
+l.212 \item T
              _\inf - temperatura powietrza w znacznej odległości
 ? 
 ! Missing { inserted.
 <to be read again> 
                    \mathop 
-l.201 \item T_\inf
+l.212 \item T_\inf
                    - temperatura powietrza w znacznej odległości
 ? 
 
-LaTeX Warning: Command \l invalid in math mode on input line 201.
+LaTeX Warning: Command \l invalid in math mode on input line 212.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 201.
+LaTeX Warning: Command \' invalid in math mode on input line 212.
 
 
 ! LaTeX Error: Command \end{itemize} invalid in math mode.
@@ -790,7 +794,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.202 \end {itemize}
+l.213 \end {itemize}
                     
 ? 
 
@@ -800,7 +804,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.202 \end {itemize}
+l.213 \end {itemize}
                     
 ? 
 
@@ -810,19 +814,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.202 \end {itemize}
+l.213 \end {itemize}
                     
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.202 \end {itemize}
+l.213 \end {itemize}
                     
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.202 \end {itemize}
+l.213 \end {itemize}
                     
 ? 
 Missing character: There is no � in font cmr8!
@@ -833,7 +837,7 @@ Missing character: There is no � in font cmr10!
 Missing character: There is no � in font cmr8!
 Missing character: There is no � in font cmr8!
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--204
+Underfull \hbox (badness 10000) in paragraph at lines 211--215
 []$[] \OMS/cmsy/m/n/10.95   \OML/cmm/m/it/10.95 cakowitywspczynnikwymianyciepaT
 []$ \T1/ptm/m/n/10.95 Om�wione
  []
@@ -841,10 +845,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 200--204
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.211 \begin {equation}
-                       
+l.216 ...ść temperatury od dostarczonej energii}
+                                                  
 ? 
-[12])
+[12]
+
+LaTeX Warning: Reference `Przewodnictwo' on page 13 undefined on input line 217
+.
+
+
+LaTeX Warning: Reference `Konwekcja' on page 13 undefined on input line 217.
+
+
+LaTeX Warning: Reference `Radiacja' on page 13 undefined on input line 217.
+
+
+LaTeX Warning: Reference `cieplo_wlasciwe' on page 13 undefined on input line 2
+21.
+
+)
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
@@ -973,18 +992,25 @@ l.86 \include {R5_TeoriaAutomatKomorkowy}
 [16] (D:\Studia\Sparkle\Sparkle\Ksiazeczka\R3_Projekt.tex
 Rozdzia\l  4.
 
+LaTeX Warning: Reference `cha:Algorytm' on page 17 undefined on input line 4.
+
+
 Underfull \hbox (badness 1077) in paragraph at lines 16--17
 []\T1/ptm/m/n/10.95 Aplikacja powinna umo�li-wia� kon-trol� nad symu-lacj�: mo�
 li-wo�� za-trzy-ma-nia symu-lacji,
  []
 
+
+LaTeX Warning: Reference `architektura aplikacji' on page 17 undefined on input
+ line 27.
+
 <architectureComponentDiagram.jpg, id=67, 413.1435pt x 174.05025pt>
 File: architectureComponentDiagram.jpg Graphic file (type jpg)
 
 <use architectureComponentDiagram.jpg>
-Underfull \hbox (badness 5893) in paragraph at lines 27--38
+Underfull \hbox (badness 7047) in paragraph at lines 27--38
 \T1/ptm/m/n/10.95 Zale�no�ci pomi�dzy poszczeg�l-nymi kom-po-nen-tami przed-sta
-wia di-a-gram kom-po-nen-t�w 4.1[]
+wia di-a-gram kom-po-nen-t�w []
  []
 
 
@@ -997,7 +1023,12 @@ l-View-Controller. El-e-mentem r�ni�-cym
 
 
 
-] <useCase.jpg, id=71, 444.4605pt x 649.82774pt>
+]
+
+LaTeX Warning: Reference `przypadki uzycia' on page 18 undefined on input line 
+50.
+
+<useCase.jpg, id=71, 444.4605pt x 649.82774pt>
 File: useCase.jpg Graphic file (type jpg)
  <use useCase.jpg>
 Underfull \hbox (badness 1910) in paragraph at lines 65--67
@@ -1027,7 +1058,12 @@ l.69 \item F
 l.108 \end {itemize}
                     
 ? 
-[20])
+[20]
+
+LaTeX Warning: Reference `cha:implementacja' on page 21 undefined on input line
+ 109.
+
+)
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
@@ -1047,11 +1083,22 @@ l.1 ﻿
 
 ? 
 Rozdzia\l  5.
+
+LaTeX Warning: Reference `def_automatu' on page 22 undefined on input line 21.
+
+
+LaTeX Warning: Reference `cha:Automaty kom\IeC {\'o}rkowe' on page 22 undefined
+ on input line 21.
+
 [22
 
 
 
-] <sasiedztwo.jpg, id=88, 216.81pt x 195.73125pt>
+]
+
+LaTeX Warning: Reference `sasiedzi' on page 23 undefined on input line 63.
+
+<sasiedztwo.jpg, id=88, 216.81pt x 195.73125pt>
 File: sasiedztwo.jpg Graphic file (type jpg)
  <use sasiedztwo.jpg>
 Underfull \hbox (badness 2932) in paragraph at lines 57--76
@@ -1091,6 +1138,9 @@ l.1 ﻿
 ? 
 Rozdzia\l  6.
 
+LaTeX Warning: Reference `cha:Algorytm' on page 25 undefined on input line 7.
+
+
 ! LaTeX Error: Something's wrong--perhaps a missing \item.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1100,31 +1150,21 @@ Type  H <return>  for immediate help.
 l.16 \end{itemize}
                   
 ? 
-! Missing number, treated as zero.
-<to be read again> 
-                   T
-l.21 ...PROTOTYPOWANIA - WYMYSLISZ COS PRAWDA :>?]
-                                                  
-? 
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   T
-l.21 ...PROTOTYPOWANIA - WYMYSLISZ COS PRAWDA :>?]
-                                                  
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--25
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25
+[25
 
 
 
 ]
+
+LaTeX Warning: Reference `cha:projekt' on page 26 undefined on input line 45.
+
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.58 \subsubsection{Instalacja biblioteki Java3D}
+                                                 
+? 
+[26]
 
 ! LaTeX Error: There's no line here to end.
 
@@ -1132,131 +1172,172 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.59  a
+l.64  a
        rchiwum zip. Po jego rozpakowaniu należy, postępując zgodnie z ins...
 
 ? 
-! Undefined control sequence.
-<recently read> \@shorttitlePL 
-                               
-l.60 
-     
-? 
-[26] <java3d_diagram_sceny.jpg, id=102, 537.207pt x 290.88675pt>
+
+LaTeX Warning: Reference `java3d_diagram_sceny' on page 27 undefined on input l
+ine 74.
+
+<java3d_diagram_sceny.jpg, id=102, 537.207pt x 290.88675pt>
 File: java3d_diagram_sceny.jpg Graphic file (type jpg)
 
 <use java3d_diagram_sceny.jpg>
+
+LaTeX Warning: Reference `java3d_diagram_sceny' on page 27 undefined on input l
+ine 84.
+
+
+LaTeX Warning: Reference `java3d_diagram_sceny' on page 27 undefined on input l
+ine 85.
+
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.86 \item S
-            tworzony obiekt dołączany jest do odpowiedniego grafu reprezen...
-
+l.95 
+     
 ? 
-[27 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/java3d_diagram_sceny.jpg>]
+[27]
 ! Undefined control sequence.
-l.96 Obiekt klasy \text
-                       {View} zawiera wszystkie iformacje potrzebne do rende...
+l.101 Obiekt klasy \text
+                        {View} zawiera wszystkie iformacje potrzebne do rend...
 
 ? 
+
+LaTeX Warning: Reference `uml_view' on page 28 undefined on input line 106.
+
 <uml_view.png, id=106, 348.1005pt x 199.947pt>
 File: uml_view.png Graphic file (type png)
  <use uml_view.png>
 ! Undefined control sequence.
-l.113 ...ślnie tworzonych obiektów klasy \textif
+l.118 ...ślnie tworzonych obiektów klasy \textif
                                                   {Viewer} oraz \textit{View...
 
 ? 
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.116 \item \_
+l.121 \item \_
               displayMode - DisplyMode odpowiada za tryb wyświetlania wynik...
 
 ? 
-[28 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_view.png (PNG copy)>]
+[28 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/java3d_diagram_sceny.jpg>]
 ! Undefined control sequence.
-l.118 Interfejs \textot
+l.123 Interfejs \textot
                        {IScene3D} dostarcza metody umożliwiające wizualiza...
 
 ? 
 ! Undefined control sequence.
-l.120 ...zez \textit{blockIndex} komórki. \textif
+l.125 ...zez \textit{blockIndex} komórki. \textif
                                                   {BlockIndex} jest numerem ...
 
 ? 
+
+LaTeX Warning: Reference `uml_model' on page 29 undefined on input line 133.
+
 ! Undefined control sequence.
-l.131 ...asą pakietu \textit{Model} jest \itextit
+l.136 ...asą pakietu \textit{Model} jest \itextit
                                                   {World}. Zawiera ona struk...
 
 ? 
-<drzewo_osemkowe.png, id=110, 211.38976pt x 167.4255pt>
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.142 S
+       trukturą danych, która posłużyła do przechowywania automatu jest...
+
+? 
+[29 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_view.png (PNG copy)>]
+
+LaTeX Warning: Reference `drzewo_osemkowe' on page 30 undefined on input line 1
+48.
+
+<drzewo_osemkowe.png, id=113, 211.38976pt x 167.4255pt>
 File: drzewo_osemkowe.png Graphic file (type png)
 
-<use drzewo_osemkowe.png>
-! Undefined control sequence.
-<recently read> \@shorttitlePL 
-                               
-l.155 
-      
-? 
-[29] <uml_model.png, id=115, 447.47176pt x 709.4505pt>
+<use drzewo_osemkowe.png> <uml_model.png, id=115, 447.47176pt x 709.4505pt>
 File: uml_model.png Graphic file (type png)
- <use uml_model.png>
 
-LaTeX Warning: Float too large for page by 44.63626pt on input line 165.
+<use uml_model.png>
 
-
-Underfull \hbox (badness 1521) in paragraph at lines 172--173
-[]\T1/ptm/m/it/10.95 restartTemperatures \T1/ptm/m/n/10.95 - metoda wywo�y-wana
- pod-czas restartu symu-lacji. Nadaje wszys-tkim
- []
+LaTeX Warning: Float too large for page by 44.63626pt on input line 170.
 
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.177 \end{itemize}
-                   
+l.177 \item \textit
+                   {restartTemperatures} - metoda wywoływana podczas restar...
+
 ? 
 [30 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/drzewo_osemkowe.png>]
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.177 \end{itemize}
-                   
+l.177 \item \textit
+                   {restartTemperatures} - metoda wywoływana podczas restar...
+
 ? 
 [31 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_model.png (PNG copy)>]
-Underfull \hbox (badness 2401) in paragraph at lines 203--204
+Underfull \hbox (badness 1521) in paragraph at lines 177--178
+[]\T1/ptm/m/it/10.95 restartTemperatures \T1/ptm/m/n/10.95 - metoda wywo�y-wana
+ pod-czas restartu symu-lacji. Nadaje wszys-tkim
+ []
+
+
+LaTeX Warning: Reference `cha:projekt' on page 32 undefined on input line 190.
+
+
+LaTeX Warning: Reference `cha:Algorytm' on page 32 undefined on input line 193.
+
+
+
+Underfull \hbox (badness 2401) in paragraph at lines 208--209
 \T1/ptm/m/n/10.95 Klasa HeatAnd-Va-porsCon-duc-tor pod-czas wylicza-nia przep�y
 -wa-j�cej en-ergii uwzgl�d-nia je-dynie
  []
 
-<uml_kontroler.png, id=124, 478.78876pt x 527.571pt>
+
+LaTeX Warning: Reference `cha:Algorytm' on page 32 undefined on input line 210.
+
+
+! Undefined control sequence.
+<recently read> \@shorttitlePL 
+                               
+l.211 
+      
+? 
+[32]
+
+LaTeX Warning: Reference `cha:projekt' on page 33 undefined on input line 214.
+
+
+LaTeX Warning: Reference `uml_kontroler' on page 33 undefined on input line 215
+.
+
+
+LaTeX Warning: Reference `uml_kontroler' on page 33 undefined on input line 216
+.
+
+<uml_kontroler.png, id=127, 478.78876pt x 527.571pt>
 File: uml_kontroler.png Graphic file (type png)
  <use uml_kontroler.png>
-Overfull \hbox (23.54347pt too wide) in paragraph at lines 214--215
+Overfull \hbox (23.54347pt too wide) in paragraph at lines 219--220
  [] 
  []
 
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.219 ...owBuilder Pro - narzędzie do budowy GUI}
-                                                  
-? 
-[32]
-! Undefined control sequence.
-<recently read> \@shorttitlePL 
-                               
-l.246 \subsubsection{SimulationMgr}
-                                   
+l.242 \item {
+             Editor}
 ? 
 [33]
 ! Undefined control sequence.
 <recently read> \@shorttitlePL 
                                
-l.246 \subsubsection{SimulationMgr}
-                                   
+l.242 \item {
+             Editor}
 ? 
 [34 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/uml_kontroler.png (PNG copy)>])
 ! Undefined control sequence.
@@ -1277,12 +1358,19 @@ l.1 ﻿
        \chapter {Graficzny interfejs użytkownika i instrukcja obsługi}
 ? 
 Rozdzia\l  7.
+
+LaTeX Warning: Reference `gui_cale' on page 36 undefined on input line 5.
+
 <gui_cale.png, id=137, 511.9125pt x 339.06676pt>
 File: gui_cale.png Graphic file (type png)
  <use gui_cale.png>
 Overfull \hbox (56.66714pt too wide) in paragraph at lines 8--9
  [] 
  []
+
+
+LaTeX Warning: Reference `cha:implementacja' on page 36 undefined on input line
+ 46.
 
 [36
 
@@ -1297,6 +1385,9 @@ l.50  \item
 
 ? 
 [37 <D:/Studia/Sparkle/Sparkle/Ksiazeczka/gui_cale.png (PNG copy)>]
+
+LaTeX Warning: Reference `osie' on page 38 undefined on input line 57.
+
 ! You can't use `macro parameter character #' in horizontal mode.
 l.69 \item Linia rozpoczynająca się od znaku #
                                                  jest traktowana jako koment...
@@ -1342,12 +1433,15 @@ LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 4866 strings out of 495285
- 65946 string characters out of 3180683
- 154657 words of memory out of 3000000
- 7905 multiletter control sequences out of 15000+200000
+ 4846 strings out of 495285
+ 65035 string characters out of 3180683
+ 153657 words of memory out of 3000000
+ 7899 multiletter control sequences out of 15000+200000
  90432 words of font info for 71 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  32i,12n,45p,1032b,425s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1363,7 +1457,7 @@ uhvr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmb8a.pfb><C:/Progra
 m Files/Miktex/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/
 type1/urw/times/utmr8a.pfb><C:/Program Files/Miktex/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on PracaMain.pdf (40 pages, 813974 bytes).
+Output written on PracaMain.pdf (40 pages, 815535 bytes).
 PDF statistics:
  199 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

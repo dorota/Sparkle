@@ -6,6 +6,7 @@ import java.util.List;
 import javax.vecmath.Point3d;
 
 import Helpers.EnvSettings;
+import Helpers.ProfileSample;
 import View.Scene3D;
 
 public class World
@@ -58,15 +59,14 @@ public class World
             {
                 for( int i = (int)leftBottomBackCorner.x; i < leftBottomBackCorner.x + size.x; ++i )
                 {
-                    // TODO refactor this out soon.
+                    //TODO refactor this out soon.
                     Material mat = getMaterial( materialName );
                     _worldCurrentValues[ i ][ j ][ k ].set_material( mat );
                     _worldOldValues[ i ][ j ][ k ].set_material( mat );
                     int blockIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j,
                         k );
-                    // NOTE when we add, then delete, then add again, will it
-                    // add same nodes
-                    // many times?
+		    //NOTE when we add, then delete, then add again, will it add same nodes
+		    //many times?
                     scene.addNewBlockToScene( mat, blockIndex );
                 }
             }
@@ -122,7 +122,7 @@ public class World
 
     private World( Scene3D scene )
     {
-        // FIXME get this code out of c-tor; let someone else call it
+	//FIXME get this code out of c-tor; let someone else call it
         _scene = scene;
         _worldCurrentValues = new Cell[ EnvSettings.getMAX_X() ][ EnvSettings.getMAX_Y() ][ EnvSettings
                 .getMAX_Z() ];
@@ -163,19 +163,18 @@ public class World
         _worldOldValues = currentValues;
     }
 
-    public void clearMaterials( Scene3D scene )
+    public void clearMaterials(Scene3D scene)
     {
-        Material air = getMaterial( "Air" );
-        for( int i = 0; i < _worldCurrentValues.length; ++i )
+        Material air = getMaterial("Air");
+        for(int i = 0 ; i < _worldCurrentValues.length ; ++i)
         {
-            for( int j = 0; j < _worldCurrentValues[ i ].length; ++j )
+            for(int j = 0 ; j < _worldCurrentValues[i].length ; ++j)
             {
-                for( int k = 0; k < _worldCurrentValues[ i ][ j ].length; ++k )
+                for(int k = 0 ; k < _worldCurrentValues[i][j].length ; ++k)
                 {
-                    _worldCurrentValues[ i ][ j ][ k ].set_material( air );
-                    _worldOldValues[ i ][ j ][ k ].set_material( air );
-                    scene.addNewBlockToScene( air,
-                        Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ) );
+                    _worldCurrentValues[i][j][k].set_material(air);
+                    _worldOldValues[i][j][k].set_material(air);
+                    scene.addNewBlockToScene(air, Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex(i, j, k));
                 }
             }
         }
@@ -197,10 +196,10 @@ public class World
 
     private List<CellIndex> getNeighbours( CellIndex index )
     {
-        // NOTE optimization ideas TODO
-        // * get rid of this CellIndex stuff (replace with 1D index)
-        // * try a != && != instead of one % !=
-        // * HACK maybe we could precompute or memoize this stuff?
+	//NOTE optimization ideas TODO
+	//* get rid of this CellIndex stuff (replace with 1D index)
+	//* try a != && != instead of one % !=
+	//* HACK maybe we could precompute or memoize this stuff?
         List<CellIndex> neighbours = new ArrayList<World.CellIndex>();
         if( index.x % EnvSettings.getMAX_X() != 0 )
         {
@@ -256,30 +255,49 @@ public class World
         }
     }
 
+    ProfileSample profileOldVals = new ProfileSample("simulation: back-buffering");
+    ProfileSample profileFullUpdate = new ProfileSample("simulation: full update");
+    ProfileSample profileConductHeat = new ProfileSample("simulation: conduct heat");
+    ProfileSample profileSpreadFire = new ProfileSample("simulation: spread fire");
+    ProfileSample profileUpdateJ3D = new ProfileSample("simulation: update block while simulation");
+    
     public void simulateHeatConduction()
     {
+	profileOldVals.start();
         updateOldValues();
+	profileOldVals.stop();
+
+	profileFullUpdate.start();
         for( int i = 0; i < EnvSettings.getMAX_X(); ++i )
         {
             for( int j = 0; j < EnvSettings.getMAX_Y(); ++j )
             {
                 for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
-                    // NOTE possible optimizations TODO
-                    // * cellId goes away
-                    // * replace 3D arrays with 1D
-                    // * update rendering after simulation loop
+		    //NOTE possible optimizations TODO
+		    //* cellId goes away
+		    //* replace 3D arrays with 1D
+		    //* update rendering after simulation loop
                     CellIndex cellId = new CellIndex( i, j, k );
+
+//		    profileConductHeat.start();
                     _heatConducter.conductHeat( _worldCurrentValues[ i ][ j ][ k ],
                         _worldCurrentValues, getNeighbours( cellId ),
                         _worldOldValues[ i ][ j ][ k ], _worldOldValues, cellId );
+//		    profileConductHeat.stop();
+
+//		    profileSpreadFire.start();
                     _fireConducter.spreadFire( _worldCurrentValues[ i ][ j ][ k ],
                         getNeighbours( cellId ), _worldCurrentValues );
+//		    profileSpreadFire.stop();
+
+//		    profileUpdateJ3D.start();
                     _scene.updateBlockWhileSimulation(
                         Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( i, j, k ),
                         _worldCurrentValues[ i ][ j ][ k ].get_temp(),
                         _worldCurrentValues[ i ][ j ][ k ].get_material(),
                         _worldCurrentValues[ i ][ j ][ k ] );
+//		    profileUpdateJ3D.stop();
                     // _vaporConducter.conductVepors( _worldCurrentValues[ i ][
                     // j ][ k ],
                     // _worldCurrentValues, getNeighbours( cellId ), cellId );
@@ -288,5 +306,7 @@ public class World
                 }
             }
         }
+	profileFullUpdate.stop();
+	//gosh, Java sucks so much...
     }
 }

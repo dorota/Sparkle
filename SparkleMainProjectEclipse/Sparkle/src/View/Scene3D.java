@@ -17,6 +17,8 @@ import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
+import javax.media.j3d.View;
+
 import Helpers.EnvSettings;
 import Helpers.EnvSettings.CellState;
 import Helpers.EnvSettings.DisplayMode;
@@ -62,7 +64,9 @@ public class Scene3D
         setSceneAppearance();
         handleUserSceneInteractions();
         _universe.getViewingPlatform().setNominalViewingTransform();
+	_universe.getViewer().getView().setTransparencySortingPolicy(View.TRANSPARENCY_SORT_GEOMETRY);
         _universe.addBranchGraph( _contents );
+
     }
 
     public static int get_contentsOffset()
@@ -114,27 +118,35 @@ public class Scene3D
     public void addNewBlock( Model.Material material, Vector3d startCoordinates, Point3d blocSize )
     {
         BranchGroup childBG = new BranchGroup();
+
+	//block transform
         TransformGroup tg = new TransformGroup();
         Transform3D transform = new Transform3D();
         Vector3d vector = new Vector3d( startCoordinates.x, startCoordinates.y, startCoordinates.z );
         transform.setTranslation( vector );
         tg.setTransform( transform );
+
+	//block appearance - color and transparency
         Appearance app = new Appearance();
         Color3f cellColor = new Color3f();
-        // float transparency = 0.8f;
         cellColor = material.get_color();
         float transparency = material.get_transparency();
         ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,
             ColoringAttributes.NICEST );
+	coloringAttributes.setCapability(ColoringAttributes.ALLOW_COLOR_WRITE);
         app.setColoringAttributes( coloringAttributes );
-        app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
-            transparency ) );
+	TransparencyAttributes tA = new TransparencyAttributes( TransparencyAttributes.FASTEST,
+            transparency );
+	tA.setCapability(TransparencyAttributes.ALLOW_VALUE_WRITE);
+        app.setTransparencyAttributes( tA );
+
+	//add block to our "universe"
         tg.addChild( new Box( (float)( blocSize.x / 2 ), (float)( blocSize.z / 2 ),
             (float)( blocSize.y / 2 ), Box.ENABLE_APPEARANCE_MODIFY, app ) );
         tg.getChild( 0 ).setCapability( Box.ENABLE_APPEARANCE_MODIFY );
         childBG.addChild( tg );
         _startsOfBlocks.add( vector );
-        childBG.setCapability( BranchGroup.ALLOW_DETACH );
+       childBG.setCapability( BranchGroup.ALLOW_DETACH );
         _contents.addChild( childBG );
     }
 
@@ -148,43 +160,26 @@ public class Scene3D
     public void addNewBlockToScene( Material material, int blockIndex )
     {
         // System.out.println( "block index " + blockIndex );
-	//FIXME does this function even do anything??
+	//FIXME refactor name.
+	//FIXME actually this function and setCellColor() now do the exactly same thing...
+
         Box cell = getBlockWithGivenId( blockIndex );
-        Appearance app = new Appearance();
-        Color3f cellColor = material.get_color();
-        ColoringAttributes coloringAttributes = new ColoringAttributes( cellColor,
-            ColoringAttributes.NICEST );
-        float transparency = material.get_transparency();
-        app.setColoringAttributes( coloringAttributes );
-        app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
-            transparency ) );
-        cell.setAppearance( app );
+	cell.getAppearance().getColoringAttributes().setColor(material.get_color());
+	cell.getAppearance().getTransparencyAttributes().setTransparency(material.get_transparency());
     }
 
     private void setCellColor( Color3f color, int blockId, Material material, boolean heatedAir )
     {
-        Box cell = getBlockWithGivenId( blockId );
-        Appearance app = new Appearance();
-        ColoringAttributes coloringAttributes = new ColoringAttributes( color,
-            ColoringAttributes.NICEST );
-        {
-            app.setTransparencyAttributes( new TransparencyAttributes(
-                TransparencyAttributes.FASTEST, material.get_transparency() ) );
-        }
-        app.setColoringAttributes( coloringAttributes );
-        cell.setAppearance( app );
+	Box cell = getBlockWithGivenId(blockId);
+	cell.getAppearance().getColoringAttributes().setColor(color);
+	cell.getAppearance().getTransparencyAttributes().setTransparency(material.get_transparency());
     }
 
     public void markStartOfHeatConduction( int blockIndex, Material material )
     {
         Box cell = getBlockWithGivenId( blockIndex );
-        Appearance app = new Appearance();
-        ColoringAttributes coloringAttributes = new ColoringAttributes( new Color3f( 1.0f, 0.0f,
-            0.0f ), ColoringAttributes.NICEST );
-        app.setTransparencyAttributes( new TransparencyAttributes( TransparencyAttributes.FASTEST,
-            0.5f ) );
-        app.setColoringAttributes( coloringAttributes );
-        cell.setAppearance( app );
+      	cell.getAppearance().getColoringAttributes().setColor( new Color3f( 1.0f, 0.0f, 0.0f));
+	cell.getAppearance().getTransparencyAttributes().setTransparency(0.5f);
     }
 
     public void updateBlockWhileSimulation( int blockIndex, double temp, Material material,
@@ -253,16 +248,6 @@ public class Scene3D
                 }
             }
         }
-        int centerX = worldX / 2;
-        int centerY = worldY / 2;
-        int centerZ = worldZ / 2;
-        int sceneCenterIndex = Helpers.WorldSceneMediator.changeWorldIndexToSceneIndex( centerX,
-            centerY, centerZ );
-        // System.out.println( "center bounds " + getBlockWithGivenId(
-        // sceneCenterIndex ).getBounds(). );
-        // _centerRepresentationPosition=getBlockWithGivenId( sceneCenterIndex
-        // ).
-        // System.out.println( "number of nodes " + _contents.numChildren() );
     }
 
     private void setSceneAppearance()

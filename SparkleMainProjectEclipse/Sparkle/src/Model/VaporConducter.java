@@ -14,7 +14,7 @@ import Model.World.CellIndex;
  */
 public class VaporConducter
 {
-    public void conductVepors( Cell cell, Cell worldCurrentValues[][][],
+    public void conductVapors( Cell cell, Cell worldCurrentValues[][][],
             List<World.CellIndex> cellNeighboours, CellIndex cellId )
     {
         double notNeededVapors = cell.get_percentageOfVaporsInCell()

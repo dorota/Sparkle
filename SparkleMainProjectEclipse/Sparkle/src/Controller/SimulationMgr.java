@@ -1,5 +1,6 @@
 package Controller;
 
+import Helpers.ProfileSample;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +14,8 @@ public class SimulationMgr
     Timer samplingTimer;
     World _world;
     private boolean isRunning = false;
+
+    private ProfileSample profiler = new ProfileSample("simulation: timer tick - isRunning=t");
 
     public boolean isRunning()
     {
@@ -48,6 +51,8 @@ public class SimulationMgr
                     {
                         // wait a second after initializing and displaying
                         // start of fire
+
+			//yeah... what for?
                         System.out.println( "first time" );
                         Thread.sleep( 2000 );
                     }
@@ -61,6 +66,7 @@ public class SimulationMgr
                     if( isRunning )
                     {
 			//executionTimer = System.currentTimeMillis();
+			profiler.start();
                         _world.simulateHeatConduction();
                         counter++;
 
@@ -68,6 +74,7 @@ public class SimulationMgr
 			//System.out.println("ITERATION " + counter
 			//	+ " " + executionTimer
 			//	+ " " + (System.currentTimeMillis() - executionTimer));
+			profiler.stop();
                     }
                     else
                     {

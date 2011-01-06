@@ -17,7 +17,7 @@ public class Material
         return _fuel;
     }
 
-    public void set_fuel( boolean _fuel )
+    public final void set_fuel( boolean _fuel )
     {
         this._fuel = _fuel;
     }
@@ -27,7 +27,7 @@ public class Material
         return _howLongItBurns;
     }
 
-    public void set_howLongItBurns( int _howLongItBurns )
+    public final void set_howLongItBurns( int _howLongItBurns )
     {
         this._howLongItBurns = _howLongItBurns;
     }
@@ -52,7 +52,7 @@ public class Material
         return _flamePoint;
     }
 
-    public void set_flamePoint( float _flamePoint )
+    public final void set_flamePoint( float _flamePoint )
     {
         this._flamePoint = _flamePoint;
     }
@@ -65,7 +65,7 @@ public class Material
         return _thermalConductivity;
     }
 
-    public void set_thermalConductivity( double _thermalConductivity )
+    public final void set_thermalConductivity( double _thermalConductivity )
     {
         this._thermalConductivity = _thermalConductivity;
     }
@@ -97,7 +97,7 @@ public class Material
         }
     }
 
-    public void set_name( String _name )
+    public final void set_name( String _name )
     {
         this._name = _name;
     }
@@ -107,7 +107,7 @@ public class Material
         return _name;
     }
 
-    public void set_color( Color3f _color )
+    public final void set_color( Color3f _color )
     {
         this._color = _color;
     }
@@ -117,7 +117,7 @@ public class Material
         return _color;
     }
 
-    public void set_specificHeat( double _specificHeat )
+    public final void set_specificHeat( double _specificHeat )
     {
         this._specificHeat = _specificHeat;
     }
@@ -127,7 +127,7 @@ public class Material
         return _specificHeat;
     }
 
-    public void set_transparency( double _transparency )
+    public final void set_transparency( double _transparency )
     {
         this._transparency = (float)( _transparency );
     }

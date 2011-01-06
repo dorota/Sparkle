@@ -8,21 +8,12 @@ import View.Scene3D;
 public class WorldSceneMediator
 {
     // don't touch. jakas magia zeby dzialalo
+    // jaka magia? normalne mnozenie + jakis offset, bo J3D jest dziwne.
     public static int changeWorldIndexToSceneIndex( int worldX, int worldY, int worldZ )
     {
         int id = worldX * ( EnvSettings.getMAX_Z() * EnvSettings.getMAX_Y() ) + worldY
                 * EnvSettings.getMAX_Z() + worldZ + Scene3D.get_contentsOffset();
         return id;
-    }
-
-    public static WorldIndex changeSceneIndexToWorldIndex( int i )
-    {
-        WorldIndex index = new WorldIndex();
-        index.y = i / ( EnvSettings.getMAX_X() * EnvSettings.getMAX_Z() );
-        int onTheFloor = i % ( EnvSettings.getMAX_X() * EnvSettings.getMAX_Z() );
-        index.z = onTheFloor / EnvSettings.getMAX_X();
-        index.x = onTheFloor % EnvSettings.getMAX_X();
-        return index;
     }
 
     public static Vector3d changeWorldPlacementToScenePlacement( int x, int y, int z,
@@ -62,5 +53,15 @@ public class WorldSceneMediator
             WorldIndex wi = (WorldIndex)o;
             return wi.x == this.x && wi.y == this.y && wi.z == this.z;
         }
+
+	@Override
+	public int hashCode()
+	{
+	    int hash = 5;
+	    hash = 79 * hash + this.x;
+	    hash = 79 * hash + this.y;
+	    hash = 79 * hash + this.z;
+	    return hash;
+	}
     };
 }

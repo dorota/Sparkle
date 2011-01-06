@@ -4,8 +4,9 @@ import java.util.List;
 
 import Helpers.EnvSettings;
 import Helpers.EnvSettings.CellState;
+import Interfaces.IFireConductor;
 
-public class FireConducter
+public class FireConducter implements IFireConductor
 {
     public void spreadFire( Cell cell, List<World.CellIndex> cellNeighboours, Cell[][][] _world )
     {

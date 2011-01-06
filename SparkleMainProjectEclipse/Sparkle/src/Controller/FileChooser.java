@@ -6,6 +6,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
@@ -13,14 +14,18 @@ import javax.swing.JOptionPane;
 
 import Helpers.EnvSettings;
 import Helpers.EnvSettings.FileChooserAction;
+import Interfaces.IEditor;
+import Interfaces.IEditorParser;
 import Model.World;
 
 public class FileChooser
 {
     JFileChooser _fileChooser = new JFileChooser();
     JDialog _frame = new JDialog();
+    IEditorParser _parser = new EditorParser();
 
-    public FileChooser( Component com, World world, EnvSettings.FileChooserAction fileChooseAction )
+    public FileChooser( Component com, World world, EnvSettings.FileChooserAction fileChooseAction,
+            IEditor editor )
     {
         int result = _fileChooser.showOpenDialog( com );
         if( result == JFileChooser.APPROVE_OPTION )
@@ -68,10 +73,11 @@ public class FileChooser
                         fileContent += line + "\n";
                     }
                     br.close();
-                    EditorParser.parseWholeBuilding( fileContent, world );
+                    _parser.parseWholeBuilding( fileContent, world );
+                    editor.setText( fileContent );
                 }
             }
-            catch( Exception e )
+            catch( IOException e )
             {
                 JOptionPane.showMessageDialog( _frame, e.getMessage(), "File Error",
                     JOptionPane.ERROR_MESSAGE );

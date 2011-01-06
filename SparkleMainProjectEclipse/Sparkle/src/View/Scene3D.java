@@ -21,6 +21,7 @@ import javax.vecmath.Vector3d;
 import Helpers.EnvSettings;
 import Helpers.EnvSettings.CellState;
 import Helpers.EnvSettings.DisplayMode;
+import Interfaces.IScene3D;
 import Model.Cell;
 import Model.Material;
 
@@ -30,7 +31,7 @@ import com.sun.j3d.utils.behaviors.mouse.MouseWheelZoom;
 import com.sun.j3d.utils.geometry.Box;
 import com.sun.j3d.utils.universe.SimpleUniverse;
 
-public class Scene3D
+public class Scene3D implements IScene3D
 {
     private static Scene3D _instance = null;
     private static int _contentsOffset = Helpers.EnvSettings.HOW_MANY_GARBAGE_BRANCH_GROUP_CHILDREN;
@@ -174,7 +175,7 @@ public class Scene3D
                 .setTransparency( material.get_transparency() );
     }
 
-    public void markStartOfHeatConduction( int blockIndex, Material material )
+    public void markStartOfFire( int blockIndex, Material material )
     {
         Box cell = getBlockWithGivenId( blockIndex );
         cell.getAppearance().getColoringAttributes().setColor( new Color3f( 1.0f, 0.0f, 0.0f ) );
@@ -281,13 +282,9 @@ public class Scene3D
      */
     List<Vector3d> _startsOfBlocks = new ArrayList<Vector3d>();
 
+    // needed for tests
     public List<Vector3d> get_startsOfBlocks()
     {
         return _startsOfBlocks;
-    }
-
-    public void set_startsOfBlocks( List<Vector3d> ofBlocks )
-    {
-        _startsOfBlocks = ofBlocks;
     }
 }

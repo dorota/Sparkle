@@ -4,27 +4,17 @@ import java.util.regex.Pattern;
 
 import javax.vecmath.Point3d;
 
+import Interfaces.IEditorParser;
 import Model.World;
 import View.Scene3D;
 
-public class EditorParser
+public class EditorParser implements IEditorParser
 {
-    private static EditorParser _instance = new EditorParser();
-
-    private EditorParser()
+    public void parseLine( String lineOfText, World world )
     {
-    }
-
-    public static EditorParser getInstance()
-    {
-        return _instance;
-    }
-
-    public static void parseLine( String lineOfText, World world )
-    {
-        if( lineOfText.equals("") )
+        if( lineOfText.equals( "" ) )
         {
-            return; //sometimes we get empty string
+            return; // sometimes we get empty string
         }
         if( lineOfText.startsWith( COMMENT_CHAR ) || lineOfText.substring( 0, 1 ).equals( "#" ) )
         {
@@ -35,30 +25,29 @@ public class EditorParser
             try
             {
                 lineOfText = lineOfText.trim();
-                Pattern pattern = Pattern.compile("[()\\[\\]:,]");
-                String[] lineParts = pattern.split(lineOfText);
-                int leftBottomBackCornerX = Integer.valueOf(lineParts[ 1]);
-                int leftBottomBackCornerY = Integer.valueOf(lineParts[ 2]);
-                int leftBottomBackCornerZ = Integer.valueOf(lineParts[ 3]);
-                int sizeX = Integer.valueOf(lineParts[ 5]);
-                int sizeY = Integer.valueOf(lineParts[ 6]);
-                int sizeZ = Integer.valueOf(lineParts[ 7]);
-                String material = new String(lineParts[ 9]);
-                Scene3D scene = Scene3D.getScene(MainWindow._sceneCanvas);
-
-                world.addBuildingPart(new Point3d(leftBottomBackCornerX, leftBottomBackCornerY, leftBottomBackCornerZ),
-                                      new Point3d(sizeX, sizeY, sizeZ), material.trim(), scene);
+                Pattern pattern = Pattern.compile( "[()\\[\\]:,]" );
+                String[] lineParts = pattern.split( lineOfText );
+                int leftBottomBackCornerX = Integer.valueOf( lineParts[ 1 ] );
+                int leftBottomBackCornerY = Integer.valueOf( lineParts[ 2 ] );
+                int leftBottomBackCornerZ = Integer.valueOf( lineParts[ 3 ] );
+                int sizeX = Integer.valueOf( lineParts[ 5 ] );
+                int sizeY = Integer.valueOf( lineParts[ 6 ] );
+                int sizeZ = Integer.valueOf( lineParts[ 7 ] );
+                String material = new String( lineParts[ 9 ] );
+                Scene3D scene = Scene3D.getScene( MainWindow._sceneCanvas );
+                world.addBuildingPart( new Point3d( leftBottomBackCornerX, leftBottomBackCornerY,
+                    leftBottomBackCornerZ ), new Point3d( sizeX, sizeY, sizeZ ), material.trim(),
+                    scene );
             }
-            catch (Exception e)
+            catch( Exception e )
             {
-                //stuff happens...
+                // stuff happens...
                 //
             }
         }
     }
 
-    public static void deleteBlocks( String toDelete, World world )
-            throws ArrayIndexOutOfBoundsException
+    public void deleteBlocks( String toDelete, World world ) throws ArrayIndexOutOfBoundsException
     {
         if( toDelete.startsWith( COMMENT_CHAR ) )
         {
@@ -83,7 +72,7 @@ public class EditorParser
         }
     }
 
-    public static void parseWholeBuilding( String text, World world )
+    public void parseWholeBuilding( String text, World world )
     {
         // String textAreaContentWithoutWhiteSpaces = text.trim();
         String lines[] = text.split( "[\\r\\n]+" );

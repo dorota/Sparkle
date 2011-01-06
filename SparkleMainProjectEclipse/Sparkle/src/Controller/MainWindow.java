@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.media.j3d.Canvas3D;
-
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -18,6 +17,7 @@ import javax.swing.JPopupMenu;
 
 import Helpers.EnvSettings.FileChooserAction;
 import Helpers.ProfileSample;
+import Interfaces.IEditor;
 import Model.World;
 import View.Scene3D;
 
@@ -30,7 +30,7 @@ public class MainWindow
     public static Canvas3D _sceneCanvas;
     private MenuPanel _menuPanel;
     private Scene3D _scene;
-    private Editor _editor;
+    private IEditor _editor;
     Dimension _screenDimension;
     private World _world;
     private static MainWindow _instance = new MainWindow();
@@ -78,7 +78,8 @@ public class MainWindow
         {
             public void actionPerformed( ActionEvent arg0 )
             {
-                FileChooser fc = new FileChooser( _frame, _world, FileChooserAction.SAVE_STATES );
+                FileChooser fc = new FileChooser( _frame, _world, FileChooserAction.SAVE_STATES,
+                    _editor );
             }
         } );
         File_menu.add( saveCellStatesMenuItem );
@@ -89,7 +90,7 @@ public class MainWindow
             public void actionPerformed( ActionEvent arg0 )
             {
                 FileChooser fc = new FileChooser( _frame, _world,
-                    FileChooserAction.READ_BUILDING_FROM_FILE );
+                    FileChooserAction.READ_BUILDING_FROM_FILE, _editor );
             }
         } );
         File_menu.add( _readBuildingFromFileMenuItem );
@@ -110,22 +111,22 @@ public class MainWindow
 
     private void saveCurrentTempToFileActionPerformed()
     {
-        FileChooser fc = new FileChooser( _frame, _world, FileChooserAction.SAVE_TEMPERATURE );
+        FileChooser fc = new FileChooser( _frame, _world, FileChooserAction.SAVE_TEMPERATURE,
+            _editor );
     }
 
     private void initWindow()
     {
         _frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-
-	//add profiler shutdown hook that reports all profiling data gathered
-	Runtime.getRuntime().addShutdownHook(new Thread() {
-
-	    @Override
-	    public void run()
-	    {
-		ProfileSample.reportAll();
-	    }
- });
+        // add profiler shutdown hook that reports all profiling data gathered
+        Runtime.getRuntime().addShutdownHook( new Thread()
+        {
+            @Override
+            public void run()
+            {
+                ProfileSample.reportAll();
+            }
+        } );
         int minWindowWidth = 800;
         int minWindowHeight = 600;
         _frame.setMinimumSize( new Dimension( minWindowWidth, minWindowHeight ) );
@@ -140,7 +141,7 @@ public class MainWindow
         mainPanel.add( _sceneCanvas, BorderLayout.CENTER );
         _menuPanel.setPreferredSize( new Dimension( 300, 500 ) );
         _editor.initComponents( _frame.getWidth() - _menuPanel.getWidth(), 200 );
-        mainPanel.add( _editor, BorderLayout.SOUTH );
+        mainPanel.add( (Editor)_editor, BorderLayout.SOUTH );
         // _frame.add( _editor, BorderLayout.SOUTH );
         _frame.getContentPane().add( _menuPanel, BorderLayout.EAST );
         _frame.getContentPane().add( mainPanel, BorderLayout.CENTER );

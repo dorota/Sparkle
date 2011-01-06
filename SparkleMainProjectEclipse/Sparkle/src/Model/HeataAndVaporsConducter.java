@@ -3,9 +3,10 @@ package Model;
 import java.util.List;
 
 import Helpers.EnvSettings;
+import Interfaces.IHeatAndVaporsConductor;
 import Model.World.CellIndex;
 
-public class HeataAndVaporsConducter
+public class HeataAndVaporsConducter implements IHeatAndVaporsConductor
 {
     public void conductHeat( Cell cell, Cell worldCurrentValues[][][],
             List<World.CellIndex> cellNeighboours, Cell oldValue, Cell worldOldValues[][][],

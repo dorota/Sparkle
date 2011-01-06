@@ -1,8 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
  * Editor.java
  *
  * Created on 2010-11-25, 22:06:30
@@ -15,20 +11,22 @@ import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
 import javax.swing.border.TitledBorder;
 
+import Interfaces.IEditor;
+import Interfaces.IEditorParser;
 import Model.World;
 import View.Scene3D;
 
 /**
- * 
  * @author Dorota
  */
-public class Editor extends javax.swing.JPanel
+public class Editor extends javax.swing.JPanel implements IEditor
 {
     private World _editedWorld;
     // Variables declaration - do not modify
     private java.awt.TextArea _editorTextArea;
     // End of variables declaration
     private String _textAreaContent;
+    private IEditorParser _parser = new EditorParser();
 
     public Editor( World world )
     {
@@ -53,21 +51,20 @@ public class Editor extends javax.swing.JPanel
             @Override
             public void keyPressed( java.awt.event.KeyEvent evt )
             {
-                _editorTextAreaKeyTyped( evt );
+                editorKeyTyped( evt );
             }
         } );
     }
 
-    private void _editorTextAreaKeyTyped( java.awt.event.KeyEvent evt )
+    private void editorKeyTyped( java.awt.event.KeyEvent evt )
     {
         _textAreaContent = _editorTextArea.getText();
-
-        
         if( evt.getKeyCode() == KeyEvent.VK_ENTER )
         {
-            _editedWorld.clearMaterials(Scene3D.getScene( MainWindow._sceneCanvas ));
-            System.out.println("ENTER PRESSED IN EDITOR\nTextbox contents:\n" + _textAreaContent);
-            EditorParser.parseWholeBuilding( new String( _textAreaContent ), _editedWorld );
+            System.out.println( "enter pressed" );
+            _editedWorld.clearMaterials( Scene3D.getScene( MainWindow._sceneCanvas ) );
+            System.out.println( "ENTER PRESSED IN EDITOR\nTextbox contents:\n" + _textAreaContent );
+            _parser.parseWholeBuilding( new String( _textAreaContent ), _editedWorld );
         }
     }
 
@@ -75,5 +72,10 @@ public class Editor extends javax.swing.JPanel
     {
         TitledBorder title = BorderFactory.createTitledBorder( "Building editor" );
         this.setBorder( title );
+    }
+
+    public void setText( String text )
+    {
+        _editorTextArea.setText( text );
     }
 }

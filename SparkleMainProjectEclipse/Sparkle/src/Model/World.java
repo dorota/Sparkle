@@ -268,6 +268,8 @@ public class World implements IWorld
                         _worldOldValues[ i ][ j ][ k ], _worldOldValues, cellId );
                     // profileConductHeat.stop();
                     // profileSpreadFire.start();
+		    
+		    //FIXME FIXME FIXME Double-buffering, anyone?
                     _fireConducter.spreadFire( _worldCurrentValues[ i ][ j ][ k ],
                         getNeighbours( cellId ), _worldCurrentValues );
                     // profileSpreadFire.stop();

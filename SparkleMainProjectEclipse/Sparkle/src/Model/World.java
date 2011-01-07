@@ -24,6 +24,7 @@ public class World implements IWorld
     private double _worldInitTemp = 20.0;
     private IHeatAndVaporsConductor _heatConducter = new HeatConducterWithConvection();
     private IFireConductor _fireConducter = new FireConducter();
+    private SmokeConductor _smokeConductor = new SmokeConductor();
 
     // private VaporConducter _vaporConducter = new VaporConducter();
     private void initMaterials()
@@ -268,6 +269,10 @@ public class World implements IWorld
                         _worldOldValues[ i ][ j ][ k ], _worldOldValues, cellId );
                     // profileConductHeat.stop();
                     // profileSpreadFire.start();
+
+		    _smokeConductor.conductSmoke(_worldCurrentValues[ i ][ j ][ k ],
+                        _worldCurrentValues, getNeighbours( cellId ),
+                        _worldOldValues[ i ][ j ][ k ], _worldOldValues, cellId );
 		    
 		    //FIXME FIXME FIXME Double-buffering, anyone?
                     _fireConducter.spreadFire( _worldCurrentValues[ i ][ j ][ k ],

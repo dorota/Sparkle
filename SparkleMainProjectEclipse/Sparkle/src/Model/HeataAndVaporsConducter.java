@@ -36,7 +36,7 @@ public class HeataAndVaporsConducter implements IHeatAndVaporsConductor
         }
         else if( cellId.y > neighId.y )
         {
-            return EnvSettings.BOTTOM_NEIGBOUR;
+            return EnvSettings.BOTTOM_NEIGHBOUR;
         }
         else
         {

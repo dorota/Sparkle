@@ -17,11 +17,11 @@ public class HeatConducterWithConvection extends HeataAndVaporsConducter
             double topEnergyFactor = 0.2;
             double downEnergyFactor = 0.05;
             if( ( whichNeighbour == EnvSettings.TOP_NEIGHBOUR && energy < 0 )
-                    || ( whichNeighbour == EnvSettings.BOTTOM_NEIGBOUR && energy > 0 ) )
+                    || ( whichNeighbour == EnvSettings.BOTTOM_NEIGHBOUR && energy > 0 ) )
             {
                 energy *= topEnergyFactor;
             }
-            else if( ( whichNeighbour == EnvSettings.BOTTOM_NEIGBOUR && energy < 0 )
+            else if( ( whichNeighbour == EnvSettings.BOTTOM_NEIGHBOUR && energy < 0 )
                     || ( whichNeighbour == EnvSettings.TOP_NEIGHBOUR && energy > 0 ) )
             {
                 energy *= downEnergyFactor;

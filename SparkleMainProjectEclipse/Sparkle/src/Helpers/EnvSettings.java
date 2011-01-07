@@ -36,7 +36,7 @@ public class EnvSettings
     public static final double CONSTANT_ENERGY_FACTOR = 0.002;
     // ///////////////////end of material conductivities
     public static final int TOP_NEIGHBOUR = 0;
-    public static final int BOTTOM_NEIGBOUR = 1;
+    public static final int BOTTOM_NEIGHBOUR = 1;
     public static final int SIDE_NEIGHBOUR = 2;
     public static final int DOESNT_MATTER = 3;
     // regular display mode colors

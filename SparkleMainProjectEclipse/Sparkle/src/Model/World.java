@@ -108,9 +108,9 @@ public class World implements IWorld
                 for( int k = 0; k < EnvSettings.getMAX_Z(); ++k )
                 {
                     _worldCurrentValues[ i ][ j ][ k ] = new Cell( getMaterial( "Air" ),
-                        _worldInitTemp, airMass );
+                        _worldInitTemp, airMass, 0 );
                     _worldOldValues[ i ][ j ][ k ] = new Cell( getMaterial( "Air" ),
-                        _worldInitTemp, airMass );
+                        _worldInitTemp, airMass, 0 );
                 }
             }
         }

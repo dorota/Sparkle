@@ -11,6 +11,32 @@ public class Material
     private double _heatedAirTransparency;
     private int _howLongItBurns;
     private boolean _fuel;
+    
+    //how much smoke we can push into a cell made of this material
+    //FIXME what unit?
+    private double _smokeCapacity;
+
+    //TODO how much smoke it produces per second, or sth.
+
+    private double _density; // gestosc
+    private double _thermalConductivity;
+
+    private double _specificHeat;
+    private float _transparency;
+    
+    // for non - fuel materials infinite
+    private float _flamePoint;
+
+    //FIXME download Lombok and get rid of this Java accessor bloat...
+    public double get_smokeCapacity()
+    {
+	return _smokeCapacity;
+    }
+
+    public void set_smokeCapacity(double smokeCapacity)
+    {
+	_smokeCapacity = smokeCapacity;
+    }
 
     public boolean is_fuel()
     {
@@ -42,10 +68,6 @@ public class Material
         this._heatedAirTransparency = _heatedAirTransparency;
     }
 
-    private double _specificHeat;
-    private float _transparency;
-    // for non - fuel materials infinite
-    private float _flamePoint;
 
     public float get_flamePoint()
     {
@@ -57,8 +79,6 @@ public class Material
         this._flamePoint = _flamePoint;
     }
 
-    private double _density; // gestosc
-    private double _thermalConductivity;
 
     public double get_thermalConductivity()
     {
@@ -81,7 +101,8 @@ public class Material
     }
 
     public Material( String name, Color3f color, double specificHeat, double transparency,
-            double thermalConductivity, double flamePoint, int howLongItBurns, boolean fuel )
+            double thermalConductivity, double flamePoint, int howLongItBurns, boolean fuel,
+	    double smokeCapacity)
     {
         set_fuel( fuel );
         set_howLongItBurns( howLongItBurns );
@@ -91,6 +112,7 @@ public class Material
         set_specificHeat( specificHeat );
         set_transparency( transparency );
         set_thermalConductivity( thermalConductivity );
+	set_smokeCapacity(smokeCapacity);
         if( name.equals( "Air" ) )
         {
             _heatedAirTransparency = EnvSettings.AIR_TEMP_TRANSPARENCY;

@@ -31,15 +31,15 @@ public class World implements IWorld
         get_availableMaterials().add(
             new Material( "Wood", EnvSettings.WOOD_COLOR, EnvSettings.WOOD_SPECIFIC_HEAT,
                 EnvSettings.WOOD_TRANSPARENCY, EnvSettings.WOOD_THERMAL_CONDUCTIVITY,
-                EnvSettings.WOOD_FLAME_POINT, EnvSettings.WOOD_DURABILITY, true ) );
+                EnvSettings.WOOD_FLAME_POINT, EnvSettings.WOOD_DURABILITY, true, EnvSettings.WOOD_SMOKE_CAPACITY ) );
         get_availableMaterials().add(
             new Material( "Air", Scene3D.setBlue( _worldInitTemp ), EnvSettings.AIR_SPECIFIC_HEAT,
                 EnvSettings.AIR_TRANSPARENCY, EnvSettings.AIR_THERMAL_CONDUCTIVITY,
-                EnvSettings.VAPOR_FLAME_POINT, (int)( EnvSettings.INFINITIVE ), false ) );
+                EnvSettings.VAPOR_FLAME_POINT, (int)( EnvSettings.INFINITIVE ), false , EnvSettings.AIR_SMOKE_CAPACITY) );
         get_availableMaterials().add(
             new Material( "Metal", EnvSettings.METAL_COLOR, EnvSettings.METAL_SPECIFIC_HEAT,
                 EnvSettings.METAL_TRANSPARENCY, EnvSettings.METAL_THERMAL_CONDUCTIVITY,
-                EnvSettings.INFINITIVE, (int)( EnvSettings.INFINITIVE ), false ) );
+                EnvSettings.INFINITIVE, (int)( EnvSettings.INFINITIVE ), false, EnvSettings.METAL_SMOKE_CAPACITY ) );
     }
 
     private static Material getMaterial( String materialName )

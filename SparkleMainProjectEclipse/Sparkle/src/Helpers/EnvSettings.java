@@ -53,6 +53,16 @@ public class EnvSettings
     public static final double MOUSE_X_FACTOR = -0.15;
     public static final double MOUSE_Y_FACTOR = -0.15;
 
+    //smoke
+    //FIXME I do have a STRONG feeling that material constants shouldn't be here.
+    //They should be more closely tied to material definition.
+    //...
+    //Just thinking out loud.
+    public static final double AIR_SMOKE_CAPACITY = 1.0f;
+    public static final double METAL_SMOKE_CAPACITY = 0.0f;
+    public static final double WOOD_SMOKE_CAPACITY = 0.0f;
+
+
     public enum CellState
     {
         NEUTRAL, ON_FIRE, FIRED, SMOKE

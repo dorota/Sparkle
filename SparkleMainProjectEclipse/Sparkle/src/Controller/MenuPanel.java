@@ -212,9 +212,16 @@ public class MenuPanel extends javax.swing.JPanel
         lblY = new JLabel( "y:" );
         lblZ = new JLabel( "z:" );
         _startFireXTextField = new JTextField();
-        _startFireXTextField.setToolTipText( "x coordinate" );
-        _startFireXTextField.setColumns( 10 );
-        _startFireTextFieldY = new JTextField();
+	_startFireXTextField.addActionListener(new ActionListener()
+	{
+	    public void actionPerformed(ActionEvent arg0)
+	    {
+		_startOfFireX = Integer.valueOf(_startFireXTextField.getText());
+	    }
+	});
+	_startFireXTextField.setToolTipText("x coordinate");
+	_startFireXTextField.setColumns(10);
+	_startFireTextFieldY = new JTextField();
         _startFireTextFieldY.addActionListener( new ActionListener()
         {
             public void actionPerformed( ActionEvent arg0 )

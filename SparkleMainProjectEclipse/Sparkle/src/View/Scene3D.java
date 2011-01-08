@@ -21,6 +21,7 @@ import javax.vecmath.Vector3d;
 import Helpers.EnvSettings;
 import Helpers.EnvSettings.CellState;
 import Helpers.EnvSettings.DisplayMode;
+import static Helpers.MathStuff.*;
 import Interfaces.IScene3D;
 import Model.Cell;
 import Model.Material;
@@ -182,6 +183,13 @@ public class Scene3D implements IScene3D
         cell.getAppearance().getTransparencyAttributes().setTransparency( 0.5f );
     }
 
+    protected Color3f smokeColor(float scale)
+    {
+	return new Color3f(lerp(0.8f, 0.0f, scale), // red
+		lerp(0.8f, 0.0f, scale), // green
+		lerp(0.8f, 0.0f, scale)); //guess what... blue ;)
+    }
+
     public void updateBlockWhileSimulation( int blockIndex, double temp, Material material,
             Cell cell )
     {
@@ -192,6 +200,12 @@ public class Scene3D implements IScene3D
                 0.0f, // green
                 lerp( 1.0f, 0.0f, scale ) ), blockIndex, material, false );
         }
+        else if (_displayMode == DisplayMode.SMOKE)
+	{
+	    float scale = clamp((float) (cell.get_smoke() / EnvSettings.AIR_SMOKE_CAPACITY), 0.0f, 1.0f);
+	    setCellColor(smokeColor(scale), blockIndex, material, false);
+	}
+
         else
         {
             if( cell.get_cellState().equals( CellState.ON_FIRE ) )
@@ -217,15 +231,7 @@ public class Scene3D implements IScene3D
             lerp( 1.0f, 0.0f, scale ) );
     }
 
-    private static float lerp( float from, float to, float scale )
-    {
-        return from * ( 1.0f - scale ) + to * scale;
-    }
 
-    private static float clamp( float what, float min, float max )
-    {
-        return Math.max( Math.min( what, max ), min );
-    }
 
     /**
      * creates scene representation of world with given dimensions

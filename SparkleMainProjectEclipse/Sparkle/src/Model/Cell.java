@@ -109,5 +109,4 @@ public class Cell
     {
 	_smoke = smoke;
     }
-
 }

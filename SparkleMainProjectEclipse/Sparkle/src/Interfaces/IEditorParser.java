@@ -1,12 +1,11 @@
 package Interfaces;
 
-import Model.World;
 
 public interface IEditorParser
 {
-    void parseLine( String lineOfText, World world );
+    void parseLine( String lineOfText, IWorld world );
 
-    void deleteBlocks( String toDelete, World world ) throws ArrayIndexOutOfBoundsException;
+    void deleteBlocks( String toDelete, IWorld world ) throws ArrayIndexOutOfBoundsException;
 
-    void parseWholeBuilding( String text, World world );
+    void parseWholeBuilding( String text, IWorld world );
 }

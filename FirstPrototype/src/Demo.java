@@ -65,7 +65,7 @@ public class Demo extends Behavior
     float transparency = 0.9f;
     // 3d graphics & simulation needed variables
     BranchGroup gr;
-    BoundingSphere bounds = new BoundingSphere( new Point3d( 0.0, 0.0, 0.0 ), 100.0 );
+    BoundingSphere bounds = new BoundingSphere( new Point3d( -100.0, -100.0, -100.0 ), 500.0 );
     SimpleUniverse univ;
     long SimTime;
     int DeltaT;
@@ -217,23 +217,23 @@ public class Demo extends Behavior
         // int startOfFire=getRandomPosition();
         // int startOfFire=159;
         int startOfFire = 0;
-        building.get( 0 )._temp = 10000;
+        // building.get( 0 )._temp = 10000;
         // building.get( 0 )._temp = 1500;
         // oldValues.get( 0 )._temp = 1500;
-        // for( int i = 200; i < 300; ++i )
+        for( int i = 200; i < 300; ++i )
+        {
+            building.get( i )._temp = 1500;
+            oldValues.get( i )._temp = 1500;
+        }
+        // if( getRightNeigh( startOfFire ) != NO_SUCH_NEIGH )
         // {
-        // building.get( i )._temp = 1500;
-        // oldValues.get( i )._temp = 1500;
+        // building.get( getRightNeigh( startOfFire ) ).temp = 1000;
+        // oldValues.get( getRightNeigh( startOfFire ) ).temp = 1000;
         // }
-        // if(getRightNeigh(startOfFire)!=NO_SUCH_NEIGH)
+        // if( getTopNeigh( startOfFire ) != NO_SUCH_NEIGH )
         // {
-        // building.get(getRightNeigh(startOfFire)).temp=1000;
-        // oldValues.get(getRightNeigh(startOfFire)).temp=1000;
-        // }
-        // if(getTopNeigh(startOfFire)!=NO_SUCH_NEIGH)
-        // {
-        // building.get(getTopNeigh(startOfFire)).temp=1000;
-        // oldValues.get(getTopNeigh(startOfFire)).temp=1000;
+        // building.get( getTopNeigh( startOfFire ) ).temp = 1000;
+        // oldValues.get( getTopNeigh( startOfFire ) ).temp = 1000;
         // }
         return startOfFire;
     }

@@ -2,15 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Helpers;
 
 /**
- *
+ * 
  * @author TeMPOraL
  */
-public class MathStuff {
-    
+public class MathStuff
+{
     public static float lerp( float from, float to, float scale )
     {
         return from * ( 1.0f - scale ) + to * scale;
@@ -26,4 +25,3 @@ public class MathStuff {
         return Math.max( Math.min( what, max ), min );
     }
 }
-
